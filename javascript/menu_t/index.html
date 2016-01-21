@@ -1,0 +1,174 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<style type="text/css">
+		body{margin: 0;padding: 0;font-family: "Microsoft YaHei";}
+		ul{list-style: none;margin: 0;padding: 0;}
+		.menu{width: 1000px;height: 50px;background:#000;margin: 0 auto;position: relative;}
+		.menu .nav{width: 980px;margin: 0 auto;}
+		.menu li{float: left;height: 50px;line-height: 50px;}
+		.menu .w{position: relative;}
+		.menu .w a{width: 116px;display: block;font-size: 14px;font-weight: bold;color: #fff;text-decoration: none;text-align: center;}
+		.menu .x{width: 3px;text-align: center;color: #D4D4D4;font-size: 12px;}
+		.menu .block{width: 120px;height: 8px;background: #FE7700;position:absolute;top:42px;}
+		.menu .sub{width: 117px;display: block;position: absolute;border:1px solid #E6E4E3;left: -2px;
+			top: 50px;filter:alpha(opacity=0);opacity: 0;background: #fff;display: none;}
+		.menu .sub li{width: 100px;height: 46px;padding: 0 8px;margin: -1px 0;}
+		.menu .sub a{width:100px;color: #000;border-bottom: 1px solid #E6E4E3;border-left:none;height: 45px;}
+		.menu .sub a:hover{color:#FE7700;}
+	</style>
+	<script src="js/animal.js"></script>
+	<script>
+		window.onload=function(){
+
+
+			var oMenu = document.getElementById('menu');
+			var oBlock = oMenu.children[1];
+			var aLi = oMenu.children[0].children;
+			var weizhi = aLi[0].offsetLeft;
+
+			oBlock.style.left=aLi[0].offsetLeft+'px';
+			for (var i = 0; i < aLi.length; i++) {
+				if(hasClass(aLi[i], 'w')){
+					aLi[i].onmouseover=function(){
+						sMoveLeft(oBlock, this.offsetLeft-2);
+						hideAll();
+						if(this.children[1]){
+							this.children[1].style.display='block';
+							this.children[1]&&(animal(this.children[1], {'opacity':100}));
+						}
+						
+					};
+					aLi[i].onmouseout=function(ev){
+						var _this = this;
+						var oEvent = ev||event;
+						var to=oEvent.toElement || oEvent.relatedTarget;
+						if(to == oBlock)return;
+
+						sMoveLeft(oBlock, weizhi);
+						this.children[1]&&(animal(this.children[1], {'opacity':0},function(){
+							_this.children[1].style.display='none';
+						}));
+					};
+				};
+			};
+
+			function sMoveLeft(obj, tager){
+				var speed = 0;
+				var left = obj.offsetLeft;
+
+				clearInterval(obj.timer);
+				obj.timer = setInterval(function(){
+					speed += (tager-left)/5;
+					speed = speed*0.7;
+					left+=speed;
+					obj.style.left = Math.round(left)+'px';
+
+					if(Math.round(speed) == 0&&Math.round(left) == tager){
+						clearInterval(obj.timer);
+					}
+				},30);
+			}
+
+			function hasClass(obj, name){
+				var names = obj.className.split(' ');
+				for (var i = 0; i < names.length; i++) {
+					if(names[i] == name){
+						return true;
+					}
+				};
+				return false;
+			};
+
+			function hideAll(){
+				for (var i = 0; i < aLi.length; i++) {
+					if(aLi[i].children[1]){
+						aLi[i].children[1].style.display='none';
+					}
+				};
+			}
+		}
+	</script>
+</head>
+<body>
+	<div class="menu" id="menu">
+		<ul class="nav">
+			<li class="w">
+				<a href="#">网站首页</a>
+			</li>
+			<li class="x">|</li>
+			<li class="w">
+				<a href="#">网站首页</a>
+				<ul class="sub">
+					<li><a href="#">企业简介</a></li>
+					<li><a href="#">企业简介</a></li>
+					<li><a href="#">企业简介</a></li>
+					<li><a href="#">企业简介</a></li>
+				</ul>
+			</li>
+			<li class="x">|</li>
+			<li class="w">
+				<a href="#">网站首页</a>
+				<ul class="sub">
+					<li><a href="#">企业简介</a></li>
+					<li><a href="#">企业简介</a></li>
+					<li><a href="#">企业简介</a></li>
+					<li><a href="#">企业简介</a></li>
+				</ul>
+			</li>
+			<li class="x">|</li>
+			<li class="w">
+				<a href="#">网站首页</a>
+				<ul class="sub">
+					<li><a href="#">企业简介</a></li>
+					<li><a href="#">企业简介</a></li>
+					<li><a href="#">企业简介</a></li>
+					<li><a href="#">企业简介</a></li>
+				</ul>
+			</li>
+			<li class="x">|</li>
+			<li class="w">
+				<a href="#">网站首页</a>
+				<ul class="sub">
+					<li><a href="#">企业简介</a></li>
+					<li><a href="#">企业简介</a></li>
+					<li><a href="#">企业简介</a></li>
+					<li><a href="#">企业简介</a></li>
+				</ul>
+			</li>
+			<li class="x">|</li>
+			<li class="w">
+				<a href="#">网站首页</a>
+				<ul class="sub">
+					<li><a href="#">企业简介</a></li>
+					<li><a href="#">企业简介</a></li>
+					<li><a href="#">企业简介</a></li>
+					<li><a href="#">企业简介</a></li>
+				</ul>
+			</li>
+			<li class="x">|</li>
+			<li class="w">
+				<a href="#">网站首页</a>
+				<ul class="sub">
+					<li><a href="#">企业简介</a></li>
+					<li><a href="#">企业简介</a></li>
+					<li><a href="#">企业简介</a></li>
+					<li><a href="#">企业简介</a></li>
+				</ul>
+			</li>
+			<li class="x">|</li>
+			<li class="w">
+				<a href="#">网站首页</a>
+				<ul class="sub">
+					<li><a href="#">企业简介</a></li>
+					<li><a href="#">企业简介</a></li>
+					<li><a href="#">企业简介</a></li>
+					<li><a href="#">企业简介</a></li>
+				</ul>
+			</li>
+		</ul>
+		<div class="block"</div>
+	</div>
+</body>
+</html>

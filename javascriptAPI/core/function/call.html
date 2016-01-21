@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>call与apply by航</title>
+	<!-- 新 Bootstrap 核心 CSS 文件 -->
+	<link rel="stylesheet" href="../../css/bootstrap.min.css">
+	<style>
+		body{margin: 0;padding: 0;font-family: 'Microsoft yahei';}
+		.ol{background: #333;}.ol li a{color: #fff;}
+		pre{margin: 10px;padding: 10px;border: 1px dashed #3569a9;display: block;white-space: pre-wrap;white-space: -moz-pre-wrap;white-space: -pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;}
+		code{font-family: monospace,monospace;font-size: 1em;}
+		p{text-indent: 2em;}
+	</style>
+	<script type="text/javascript">
+
+	</script>
+</head>
+<body>
+	<!--头部-->
+	<ol class="breadcrumb ol">
+	  <li><a href="../../index.html">首页</a></li>
+	  <li class="active">函数</li>
+	  <li class="active">其他</li>
+	</ol>
+	<div class="page-header" style="padding-left:20px;">
+  		<h1>call与apply <small></small></h1>
+	</div>
+	<!--内容-->
+		<!--描述-->
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+	        <h3 class="panel-title">描述</h3>
+	      </div>
+	      <div class="panel-body">
+	      	<p>可以用另一个对象替换当前对象</p>
+	      </div>
+		</div>
+		<!--方法-->
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+	        <h3 class="panel-title">方法</h3>
+	      </div>
+	      <div class="panel-body">
+	        <table class="table table-hover">
+		      <thead>
+		        <tr>
+		          <th>方法</th>
+		          <th>说明</th>
+		        </tr>
+		      </thead>
+		      <tbody>
+		        <tr>
+		          <td>call(newThis,a1,a2..)</td>
+		          <td>第一个参数是用来替换的新this，后面参数为函数对应参数</td>
+		        </tr>
+		        <tr>
+		          <td>apply(newThis,[a1,a2..])</td>
+		          <td>跟call一样，只是参数不同；是封装于call，所以性能比call差</td>
+		        </tr>
+		      </tbody>
+		    </table>
+	      </div>
+		</div>
+		<!--示例-->
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+	        <h3 class="panel-title">示例</h3>
+	      </div>
+	      <div class="panel-body">
+	        <div class="panel panel-info">
+			  <div class="panel-heading">
+		        <h3 class="panel-title">描述</h3>
+		      </div>
+		      <div class="panel-body">
+		      	<p>经典案例：</p>
+		        <h5>js代码：</h5>
+		        <pre><code>function add(a,b){	
+	alert(this);
+    this(a,b);
+}
+function sub(a,b){
+	alert(this);
+    alert(a-b);
+}
+
+add.call(sub,3,1); 
+结果：
+function sub(a,b){alert(this);alert(a-b);};
+window
+2</code></pre>
+		        <p>一句代码说明区别：</p>
+		        <h5>js代码：</h5>
+		        <pre><code>foo.call(this, arg1,arg2,arg3) == foo.apply(this, arguments)==this.foo(arg1, arg2, arg3)</code></pre>
+				<p>apply的妙用：</p>
+		        <h5>js代码：</h5>
+		        <pre><code>求数组里最大值：
+var max=Math.max.apply(null,array);</code></pre>
+		        <p>Math.max 参数里面不支持Math.max([param1,param2]) 也就是数组，但是它支持Math.max(param1,param2,param3…)，所以可以根据apply的特点来解决<p>
+		        <pre><code>两个数组合并：
+var arr1=new Array("1","2","3");
+var arr2=new Array("4","5","6");
+
+Array.prototype.push.apply(arr1,arr2); </code></pre>
+		        <p>push方法没有提供push一个数组，但是它提供了push(param1,param,…paramN) 所以同样也可以通过apply来转换一下这个数组<p>
+		        <p>一般在目标函数只需要n个参数列表,而不接收一个数组的形式（[param1[,param2[,…[,paramN]]]]），可以通过apply的方式巧妙地解决这个问题</p>
+		      </div>
+			</div>
+	      </div>
+		</div>
+		
+	<!--翻页-->
+	<nav>
+	  <ul class="pager">
+	    <li class="previous"><a href="../function/return.html">&larr; 上一篇:返回值（return）</a></li>
+	    <li class="next"><a href="../event/onreadystatechange.html">下一篇:onreadystatechange &rarr;</a></li>
+	  </ul>
+	</nav>
+
+	<div class="page-header" style="background:#333;color:#fff;margin:0;padding:10px 40px;">
+	  <h6 style="text-align:center;">Copyright © <small>shanghang    2015 - 2018    All rights reserved.</small></h6>
+	</div>
+</body>
+</html>

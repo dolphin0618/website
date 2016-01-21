@@ -1,0 +1,175 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<style type="text/css">
+		body,ul{padding: 0;margin: 0;background: #000;color: #fff;font-family: '微软雅黑';}
+		ul{width: 780px;list-style: none;}
+		ul:after{content: '';clear:both;display: block;}
+		ul li{float: left;margin-left: 20px;margin-top: 20px;}
+		ul li a{width: 80px;height: 30px;border-radius: 8px;display: block;text-decoration: none;text-align: center;line-height: 30px;color: #333;box-shadow:2px 2px 2px #ccc;background:-webkit-linear-gradient(top,  #fff 60%,#eee 70%,#bbb 100%);-webkit-transition:all 0.2s ease;position: relative;}
+		/*2D*/
+		.grow:hover{transform:scale(1.1,1.1);}
+		.shrink:hover{transform:scale(0.9,0.9);}
+		.pulse:hover{-webkit-animation:pulse 1s infinite linear;}
+		.pulse_grow:hover{-webkit-animation:pulse_grow 0.5s infinite linear;}
+		.pulse_shrink:hover{-webkit-animation:pulse_shrink 0.5s infinite linear;}
+		.push:hover{-webkit-animation:pulse_shrink 0.3s linear;}
+		.pop:hover{-webkit-animation:pulse_grow 0.3s linear;}
+		.rotate:hover{-webkit-transform:rotate(-8deg);}
+		.rotategrow:hover{-webkit-transform:rotate(-8deg) scale(1.1);}
+		.float:hover{-webkit-transform:translateY(-5px);}
+		.sink:hover{-webkit-transform:translateY(5px);}
+		.hover:hover{-webkit-transform:translateY(-5px);-webkit-animation:hover 1s infinite linear;}
+		.hang:hover{-webkit-transform:translateY(5px);-webkit-animation:hover 1s infinite linear;}
+		.skew:hover{-webkit-transform:skew(-10deg);}
+		.skewForward:hover{-webkit-transform-origin:left bottom;-webkit-transform:skew(-10deg);}
+		.skewBackard:hover{-webkit-transform-origin:right bottom;-webkit-transform:skew(10deg);}
+		.wobbleHorizontal:hover{-webkit-animation:wobbleHorizontal 1s ease;}
+		.wobbleVertical:hover{-webkit-animation:wobbleVertical 1s ease;}
+		.wobbleTop:hover{-webkit-transform-origin:center bottom;-webkit-animation:wobble 1s ease;}
+		.wobbleBottom:hover{-webkit-transform-origin:center top;-webkit-animation:wobble 1s ease;}
+		.wobbleSkew:hover{-webkit-animation:wobble 1s ease;}
+		.buzz:hover{-webkit-transform:translateX(3px) rotate(3deg);-webkit-animation:buzz 0.12s infinite linear;}
+		.buzzOut:hover{-webkit-animation:buzzOut 0.5s linear;}
+
+		/*边框*/
+		.border:hover{box-shadow: inset 0 0 0 4px #ddd;}
+		.hollow:hover{box-shadow: inset 0 0 0 4px #fff;background: rgba(255,255,255,0.6);}
+		.trim:hover:after{opacity: 1;}
+		.trim:after{content: '';position: absolute;left: 2px;top: 2px;width: 78px;height: 28px;border-radius: 8px;box-shadow: inset 0 0 0 4px #000;opacity: 0;transition:opacity 1s;}
+		.outward:hover:after{-webkit-transform:scale(1.3,1.8);}
+		.outward:after{content: '';position: absolute;left: 2px;top: 2px;width: 78px;height: 28px;border-radius: 8px;box-shadow: inset 0 0 0 2px #fff;transition:all 1s;}
+		.inward:hover:after{-webkit-transform:scale(1.1,1.3);opacity: 1;}
+		.inward:after{content: '';position: absolute;left: 0px;top: 0px;width: 80px;height: 30px;border-radius: 8px;box-shadow: inset 0 0 0 2px #fff;-webkit-transform:scale(1.3,1.8);transition:transform 1s;opacity: 0;}
+		.fang:hover{border-radius: 0%;}
+
+		/*阴影渐变*/
+		.glow:hover{box-shadow: 0 0 8px 2px #fff;}
+		.shadowOut:hover{box-shadow: 3px 3px 3px #fff;}
+		.shadowIn:hover{box-shadow: inset 3px 3px 3px #999;}
+		.floatShadow:hover{-webkit-transform:translateY(-5px);}
+		.floatShadow:after{content:'';position: absolute;bottom: -10px;left: 0;display: block;width: inherit;height: 5px;border-radius: 50%;background: -webkit-linear-gradient(left,  rgba(0, 0, 0, 0.35) 0%,rgba(255, 255, 255, 0.35) 50%,rgba(0, 0, 0, 0.35) 100%); opacity: 0;-webkit-transition:all 0.2s;}
+		.floatShadow:hover:after{opacity: 1;-webkit-transform:translateY(5px) scale(0.7);}
+		.shadowRadial:hover:after,.shadowRadial:hover:before{opacity: 1;}
+		.shadowRadial:after,.shadowRadial:before{content:'';position: absolute;left: 0;display: block;width: inherit;height: 5px;border-radius: 50%; opacity: 0;-webkit-transition:opacity 0.2s;}
+		.shadowRadial:after{bottom: -5px;background: radial-gradient(ellipse at 50% 150%, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0) 80%);}
+		.shadowRadial:before{top: -5px;background: radial-gradient(ellipse at 50% -50%, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0) 80%);}
+		/*翻页*/
+		.page{width: 150px;height: 60px;line-height: 60px;border-radius: 0;box-shadow: none;}
+		.page:after{content: '';display: block;width: 0;height: 0;-webkit-transition:all 0.5s;}
+		.topLeft:hover:after{width: 25px;height: 25px;}
+		.topLeft:after{background: linear-gradient(135deg, black 45%, #aaaaaa 50%, #cccccc 56%, white 80%);box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);position: absolute;top: 0;}
+		.topBtm:hover:after{width: 25px;height: 25px;}
+		.topBtm:after{background: linear-gradient(45deg, black 45%, #aaaaaa 50%, #cccccc 56%, white 80%);box-shadow: 1px -1px 1px rgba(0, 0, 0, 0.4);position: absolute;bottom: 0;}
+		.topRight:hover:after{width: 25px;height: 25px;}
+		.topRight:after{background: linear-gradient(225deg, black 45%, #aaaaaa 50%, #cccccc 56%, white 80%);box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.4);position: absolute;right: 0;top: 0;}
+		.btmRight:hover:after{width: 25px;height: 25px;}
+		.btmRight:after{background: linear-gradient(315deg, black 45%, #aaaaaa 50%, #cccccc 56%, white 80%);box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.4);position: absolute;bottom: 0;right: 0;}
+
+		@-webkit-keyframes pulse{
+			25%{transform:scale(1.1,1.1);}
+			75%{transform:scale(0.9,0.9);}
+		}
+		@-webkit-keyframes pulse_grow{
+			50%{transform:scale(1.1,1.1);}
+		}
+		@-webkit-keyframes pulse_shrink{
+			50%{transform:scale(0.9,0.9);}
+		}
+		@-webkit-keyframes hover{
+			50%{-webkit-transform:translateY(0px);}
+		}
+		@-webkit-keyframes wobbleHorizontal{
+			5%{transform:translateX(5px);}
+			15%{transform:translateX(-4px);}
+			25%{transform:translateX(3px);}
+			35%{transform:translateX(-2px);}
+			45%{transform:translateX(1px);}
+			55%{transform:translateX(0);}
+		}
+		@-webkit-keyframes wobbleVertical{
+			5%{transform:translateY(5px);}
+			15%{transform:translateY(-4px);}
+			25%{transform:translateY(3px);}
+			35%{transform:translateY(-2px);}
+			45%{transform:translateY(1px);}
+			55%{transform:translateY(0);}
+		}
+		@-webkit-keyframes wobble{
+			5%{transform:skew(20deg);}
+			15%{transform:skew(-16deg);}
+			25%{transform:skew(12deg);}
+			35%{transform:skew(-8deg);}
+			45%{transform:skew(4deg);}
+			55%{transform:skew(0);}
+		}
+		@-webkit-keyframes buzz{
+			50%{-webkit-transform:translateX(-3px) rotate(-3deg);}
+		}
+		@-webkit-keyframes buzzOut{
+			5%{-webkit-transform:translateX(3px) rotate(3deg);}
+			15%{-webkit-transform:translateX(-3px) rotate(-3deg);}
+			25%{-webkit-transform:translateX(3px) rotate(3deg);}
+			35%{-webkit-transform:translateX(-3px) rotate(-3deg);}
+			45%{-webkit-transform:translateX(3px) rotate(3deg);}
+			55%{-webkit-transform:translateX(0px) rotate(0deg);}
+			
+		}
+	</style>
+</head>
+<body>
+		<h1>2D hover效果</h1>
+		<ul>
+			<li><a href="#" class="grow">变大</a></li>
+			<li><a href="#" class="shrink">变小</a></li>
+			<li><a href="#" class="pulse">泡泡</a></li>
+			<li><a href="#" class="pulse_grow">泡泡变大</a></li>
+			<li><a href="#" class="pulse_shrink">泡泡变小</a></li>
+			<li><a href="#" class="push">进入</a></li>
+			<li><a href="#" class="pop">弹出</a></li>
+			<li><a href="#" class="rotate">旋转</a></li>
+			<li><a href="#" class="rotategrow">旋转变大</a></li>
+			<li><a href="#" class="float">浮起</a></li>
+			<li><a href="#" class="sink">下沉</a></li>
+			<li><a href="#" class="hover">漂浮</a></li>
+			<li><a href="#" class="hang">沉浮</a></li>
+			<li><a href="#" class="skew">斜切</a></li>
+			<li><a href="#" class="skewForward">左角斜切</a></li>
+			<li><a href="#" class="skewBackard">右角斜切</a></li>
+			<li><a href="#" class="wobbleHorizontal">左右抖动</a></li>
+			<li><a href="#" class="wobbleVertical">上下抖动</a></li>
+			<li><a href="#" class="wobbleTop">顶部抖动</a></li>
+			<li><a href="#" class="wobbleBottom">底部抖动</a></li>
+			<li><a href="#" class="wobbleSkew">上下抖动</a></li>
+			<li><a href="#" class="buzz">震动</a></li>
+			<li><a href="#" class="buzzOut">震动停</a></li>
+		</ul>
+
+		<h1>边框 hover效果</h1>
+		<ul>
+			<li><a href="#" class="border">边框</a></li>
+			<li><a href="#" class="hollow">空心</a></li>
+			<li><a href="#" class="trim">双边框</a></li>
+			<li><a href="#" class="outward">放大外边</a></li>
+			<li><a href="#" class="inward">缩小外边</a></li>
+			<li><a href="#" class="fang">方角</a></li>
+		</ul>
+		<h1>阴影渐变</h1>
+		<ul>
+			<li><a href="#" class="glow">阴影</a></li>
+			<li><a href="#" class="shadowOut">外阴</a></li>
+			<li><a href="#" class="shadowIn">内阴</a></li>
+			<li><a href="#" class="floatShadow">浮影</a></li>
+			<li><a href="#" class="shadowRadial">上下阴影</a></li>
+		</ul>
+		<h1>翻页</h1>
+		<ul>
+			<li><a href="#" class="page topLeft">左上</a></li>
+			<li><a href="#" class="page topBtm">左下</a></li>
+			<li><a href="#" class="page topRight">右上</a></li>
+			<li><a href="#" class="page btmRight">右下</a></li>
+		</ul>
+	</br>
+</body>
+</html>

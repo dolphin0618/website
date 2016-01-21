@@ -1,0 +1,215 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<style type="text/css">
+		body{margin: 0;padding: 0;font-family: '微软雅黑';}
+		ul{list-style: none;padding: 0;}
+		ul li{float: left;}
+		ul li div{width: 30px; height: 30px;background: url(img/qiu.png) 0 -30px no-repeat;text-align: center;line-height: 30px;margin-right: 3px;margin-bottom: 20px;cursor: pointer;}
+		.ul_r .active{background-position: 0 -62px;color: #FFF;}
+		.ul_l .active{background-position: 0 -94px;color: #FFF;}
+
+		.con{width:740px;margin: 30px auto;border: 1px solid #CCC;padding: 20px;}
+		.top{width: 740px;height: 262px;margin: 0;}
+
+		.lf{width:450px;height: 262px;background: #fceaea;float: left;}
+		.ul_r{width: 370px;height:135px;margin: 20px auto;}
+		.f_red{width: 450px;text-align: center;font-size: 18px;font-weight: bold;}
+		.f_red .r,.num .r{color: #e3393c;}
+		
+
+		.rt{width:270px;height: 262px;background: #e7f4fd;float: right;}
+		.ul_l{width: 200px;height:135px;margin: 20px auto;}
+		.f_bl{width: 270px;text-align: center;font-size: 18px;font-weight: bold;}
+		.f_bl .l,.num .l{color: #3b9ee2;}
+		
+		.btn{width: 110px;height:30px;margin: 10px auto;color:#FFF;text-align: center;line-height: 30px;cursor:pointer;}
+		.red{background: #e3393c;}
+		.blue{background: #3b9ee2;}
+		.num{width: 700px;text-align: center;}
+		.num span{font-size: 22px;font-weight: bold;}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var oUlR = $('q_red');
+			var oUlB = $('q_blue');
+			var _rMax = 33;
+			var _bMax = 16;
+			//红球可选数量
+			var _rLenth = 6;
+			//篮球球可选数量
+			var _bLenth = 1;
+			//绑定手动选球事件
+			bindClk(oUlR, _rLenth);
+			bindClk(oUlB, _bLenth);
+
+
+			//绑定手动选球事件
+			function bindClk(oUl, count){
+				var aLi = oUl.getElementsByTagName('div');
+				oUl.count=0;//记录已选求数
+				for(var i=0; i<aLi.length; i++){
+					aLi[i].onclick=function(){
+						if(oUl.count>=count && this.className=='')return;
+						if(this.className=='active'){//取消选择
+							this.className=''
+							oUl.count--;
+						}else{//选择
+							this.className='active'
+							oUl.count++;
+						}
+					}
+				}
+			}
+
+			$('btnR').onclick=function(){//机选红求
+				var aLi = oUlR.getElementsByTagName('div');
+				var arr = randomToArr(_rMax,_rLenth);
+				toActive(arr, aLi)
+				oUlR.count = _rLenth;
+			}
+			$('btnB').onclick=function(){//机选蓝求
+				var aLi = oUlB.getElementsByTagName('div');
+				var arr = randomToArr(_bMax,_bLenth);
+				toActive(arr, aLi)
+				oUlB.count = _bLenth;
+			}
+			$('add').onclick=function(){//添加到列表
+				if(oUlR.count != _rLenth || oUlB.count != _bLenth){
+					alert("你会玩双色球么？好看看你选的球数对么");
+					return;
+				}
+				var aLi1 = oUlR.getElementsByTagName('div');
+				$('rq').innerHTML = resultByClass(aLi1);
+
+				var aLi2 = oUlB.getElementsByTagName('div');
+				$('bq').innerHTML = resultByClass(aLi2);
+			}
+			//获取不重复随即数 max：最大范围 lenth:随即数个数
+			function randomToArr(max, length){
+				var arr = arrByLength(max)
+				var newArr = [];
+				newArr.length = length;
+				for(var i=0; i<length; i++){
+					var rindex = parseInt(Math.random()*(max-i));
+					newArr[i] = arr[rindex];
+					arr[rindex] = arr[arr.length-i-1];
+				}
+				return newArr;
+			}
+			//根据长度获取有序数组
+			function arrByLength(max){
+				var arr = [];
+				for(var i=0; i<max; i++){
+					arr.push(i);
+				}
+				return arr;
+			}
+			//根据随即数组自动选球
+			function toActive(arr, aLi){
+				for(var i=0; i<aLi.length; i++){
+					aLi[i].className = '';
+				}
+
+				for(var i=0; i<arr.length; i++){
+					aLi[arr[i]].className = 'active';
+				}
+			}
+			//根据样式统计选择的球
+			function resultByClass(aLi){
+				var text = '';
+				for(var i=0; i<aLi.length ;i++){
+					if(aLi[i].className == 'active'){
+						text += cover(i+1+'') + ' ';
+					}
+				}
+				return text;
+			}
+			//补位0
+			function cover(i){
+				if(i.length == 1){
+					return '0'+i;
+				}
+				return i;
+			}
+
+			function $(id){
+				return document.getElementById(id);
+			}
+
+		}
+	</script>
+</head>
+<body>
+	<div class="con">
+		<div class="top">
+			<div class="lf">
+				<div class="f_red"><span class="r">红球区：</span><span class="text">（选择6个号码）</span></div>
+				<ul class="ul_r" id="q_red">
+					<li><div class="">01</div></li>
+					<li><div>02</div></li>
+					<li><div>03</div></li>
+					<li><div>04</div></li>
+					<li><div>05</div></li>
+					<li><div>06</div></li>
+					<li><div>07</div></li>
+					<li><div>08</div></li>
+					<li><div>09</div></li>
+					<li><div>10</div></li>
+					<li><div>11</div></li>
+					<li><div>12</div></li>
+					<li><div>13</div></li>
+					<li><div>14</div></li>
+					<li><div>15</div></li>
+					<li><div>16</div></li>
+					<li><div>17</div></li>
+					<li><div>18</div></li>
+					<li><div>19</div></li>
+					<li><div>20</div></li>
+					<li><div>21</div></li>
+					<li><div>22</div></li>
+					<li><div>23</div></li>
+					<li><div>24</div></li>
+					<li><div>25</div></li>
+					<li><div>26</div></li>
+					<li><div>27</div></li>
+					<li><div>28</div></li>
+					<li><div>29</div></li>
+					<li><div>30</div></li>
+					<li><div>31</div></li>
+					<li><div>32</div></li>
+					<li><div>33</div></li>
+				</ul>
+				<div class="btn red" id="btnR">随机红球</div>
+			</div>
+			<div class="rt">
+				<div class="f_bl"><span class="l">蓝球区：</span><span class="text">（选择1个号码）</span></div>
+				<ul class="ul_l" id="q_blue">
+					<li><div class="">01</div></li>
+					<li><div>02</div></li>
+					<li><div>03</div></li>
+					<li><div>04</div></li>
+					<li><div>05</div></li>
+					<li><div>06</div></li>
+					<li><div>07</div></li>
+					<li><div>08</div></li>
+					<li><div>09</div></li>
+					<li><div>10</div></li>
+					<li><div>11</div></li>
+					<li><div>12</div></li>
+					<li><div>13</div></li>
+					<li><div>14</div></li>
+					<li><div>15</div></li>
+					<li><div>16</div></li>
+				</ul>
+				<div class="btn blue" id="btnB">随机篮球</div>
+			</div>
+		</div>
+		<div class="bottom">
+			<div class="btn red" id="add">添加到列表</div>
+			<div class="num"><span class="r" id="rq">00 00 00 00 00 00</span><span>+</span><span class="l" id="bq">00</span></div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,103 @@
+﻿<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>client by航</title>
+	<!-- 新 Bootstrap 核心 CSS 文件 -->
+	<link rel="stylesheet" href="../../css/bootstrap.min.css">
+	<style>
+		body{margin: 0;padding: 0;font-family: 'Microsoft yahei';}
+		.ol{background: #333;}.ol li a{color: #fff;}
+		pre{margin: 10px;padding: 10px;border: 1px dashed #3569a9;display: block;white-space: pre-wrap;white-space: -moz-pre-wrap;white-space: -pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;}
+		code{font-family: monospace,monospace;font-size: 1em;}
+		p{text-indent: 2em;}
+	</style>
+	<script type="text/javascript">
+
+	</script>
+</head>
+<body>
+	<!--头部-->
+	<ol class="breadcrumb ol">
+	  <li><a href="../../index.html">首页</a></li>
+	  <li class="active">样式</li>
+	  <li class="active">位置</li>
+	</ol>
+	<div class="page-header" style="padding-left:20px;">
+  		<h1>client <small>返回值: &lt;String&gt;</small></h1>
+	</div>
+	<!--内容-->
+		<!--描述-->
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+	        <h3 class="panel-title">描述</h3>
+	      </div>
+	      <div class="panel-body">
+	      	获取可视区的样式，clientLeft,clientTop这两个返回的是元素周围边框的厚度,如果不指定一个边框或者不定位改元素,他的值就是0.
+	      </div>
+		</div>
+		<!--参数-->
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+	        <h3 class="panel-title">属性</h3>
+	      </div>
+	      <div class="panel-body">
+	        <table class="table table-hover">
+		      <thead>
+		        <tr>
+		          <th>属性</th>
+		          <th>说明</th>
+		        </tr>
+		      </thead>
+		      <tbody>
+		        <tr>
+		          <td>clientWidth</td>
+		          <td>实际宽度 + padding</td>
+		        </tr>
+		        <tr>
+		          <td>clientHeight</td>
+		          <td>实际高度 + padding</td>
+		        </tr>
+		        <tr>
+		          <td>clientTop</td>
+		          <td>返回对象的offsetTop属性值和到当前窗口上边的真实值之间的距离（不常用）</td>
+		        </tr>
+		        <tr>
+		          <td>clientLeft</td>
+		          <td>返回对象的offsetLeft属性值和到当前窗口左边的真实值之间的距离（不常用）</td>
+		        </tr>
+		      </tbody>
+		    </table>
+	      </div>
+		</div>
+		<!--示例-->
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+	        <h3 class="panel-title">示例</h3>
+	      </div>
+	      <div class="panel-body">
+	        <div class="panel panel-info">
+			  <div class="panel-heading">
+		        <h3 class="panel-title">描述</h3>
+		      </div>
+		      <div class="panel-body">
+		        <h5>浏览器宽度js代码：</h5>
+		        <pre><code>document.documentElement.clientWidth || document.body.clientWidth;</code></pre>
+		      </div>
+			</div>
+	      </div>
+		</div>
+		
+	<!--翻页-->
+	<nav>
+	  <ul class="pager">
+	    <li class="previous"><a href="../css/scroll.html">&larr; 上一篇:scroll</a></li>
+	    <li class="next"><a href="../css/getBoundingClientRect.html">下一篇:getBoundingClientRect() &rarr;</a></li>
+	  </ul>
+	</nav>
+
+	<div class="page-header" style="background:#333;color:#fff;margin:0;padding:10px 40px;">
+	  <h6 style="text-align:center;">Copyright © <small>shanghang    2015 - 2018    All rights reserved.</small></h6>
+	</div>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<style type="text/css">
+		body{font-family: '微软雅黑';background: #333;}
+		ul{margin: 0;padding: 0;list-style: none;}
+
+		.win{width: 600px;height: 500px;overflow: hidden;margin: 50px auto;}
+		.top{width: 600px;height: 350px;position: relative;}
+		.t_img{width:600px;height:345px;float: left;}
+		.left,.right{width: 300px;height: 345px;float: left;position: relative;}
+		.btn{width:50px;height:50px;position: absolute;top:135px;background:#111;filter:alpha(opacity=60);opacity:0.6;display: none;cursor: pointer;}
+		.ceng{width: 600px;height:345px;position: absolute;filter:alpha(opacity=0);opacity:1;background/*\**/:#FFF\9;/*IE*/}
+		.right .btn{right: 10px;}
+		.left .btn{left: 10px;}
+
+		.right .btn div{float: right;margin-right: -10px;margin-top: 5px;}
+		.left .btn div{float: left;margin-left: -10px;margin-top: 5px;}
+
+		.jt{border: 20px solid transparent; width: 0;height: 0;}
+		.right .jt{border-left: 25px solid #fff;} 
+		.left .jt{border-right: 25px solid #fff;}
+
+		.bottom{width: 600px;height: 100px;}
+		.bottom li{width:135px;height:90px;float: left;margin-right: 9px;border: 4px solid #333;}
+		.bottom .active{border: 4px solid #FF7700;}
+		.bottom img{width: 135px;height: 90px;}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var oRBtn = $('r_btn').getElementsByTagName('div')[0];
+			var oLBtn = $('l_btn').getElementsByTagName('div')[0];
+
+			var oLis = $('items').getElementsByTagName('li');
+			var _index = 0;//记录当前选中
+
+			//自动播放定时器
+			var timer = null;
+			//苏宁延时定时器
+			var timer2 = null;
+			//轮播
+			timer = setInterval(run,1500);
+
+			for(var i = 0; i<oLis.length; i++){
+				oLis[i].index=i;
+				oLis[i].onmouseover=function(){
+					var _i = this.index;//给定时传参用
+					clearInterval(timer);//停止轮播
+					timer2 = setTimeout(function(){//苏宁延时
+						tab(_i);
+					},200);
+				}
+				oLis[i].onmouseout=function(){
+					clearTimeout(timer2);//苏宁
+					//先关再开轮播
+					clearInterval(timer);
+					timer = setInterval(run,1500);
+				}
+			}
+
+			//按钮显隐藏
+			$('r_btn').onmouseover=$('l_btn').onmouseover=function(){
+				clearInterval(timer);
+				this.getElementsByTagName('div')[0].style.display = 'block';
+			}
+			$('r_btn').onmouseout=$('l_btn').onmouseout=function(){
+				this.getElementsByTagName('div')[0].style.display = 'none';
+				timer = setInterval(run,1500);
+			}
+
+			//按钮点击
+			oRBtn.onclick=function(){
+				run();
+			}
+			oLBtn.onclick=function(){
+				var i = _index - 1;
+				if(i<0){i = oLis.length-1;}
+				tab(i);
+			}
+			//根据当然选中下标切换图片
+			function tab(index){
+				oLis[_index].className='';
+				oLis[index].className = 'active';
+				_index = oLis[index].index;
+
+				$('img').src='img/0'+(_index+1)+'.jpg'	
+			}
+			//下一张
+			function run(){
+				var i = _index + 1;
+				if(i==oLis.length){i = 0;}
+				tab(i);
+			}
+
+			function $(id){
+				return document.getElementById(id);
+			}
+		}
+	</script>
+</head>
+<body>
+	<div class="win">
+		<div class="top">
+			<img class="t_img" src="img/01.jpg" id="img"/>
+			<div class="ceng">
+				<div class="left" id="l_btn">
+					<div class="btn">
+						<div class="jt"></div>
+					</div>
+				</div>
+				<div class="right" id="r_btn">
+					<div class="btn" >
+						<div class="jt"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="bottom">
+			<ul id="items">
+				<li class="active"><img class="t_img" src="img/01.jpg"></li>
+				<li><img class="t_img" src="img/02.jpg"></li>
+				<li><img class="t_img" src="img/03.jpg"></li>
+				<li style="margin-right:0px;"><img class="t_img" src="img/04.jpg"></li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

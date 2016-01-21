@@ -1,0 +1,110 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta content="target-densitydpi=320,width=640,user-scalable=no" name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable" /> 
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" /> 
+    <meta content="telephone=no" name="format-detection" /> 
+	<meta http-equiv="Content-Type" content="text/html;" />
+	<meta http-equiv="Content-Language" content="zh-cn" />
+    <meta name="keywords" content="keyword ..." />
+    <meta name="Description" content="description ..." />
+    <link href=style.css rel=stylesheet type=text/css />
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript">
+$(function(){
+	$.award={
+		speed:6,
+		shake:10,
+		targ:20,
+		rota:-115,
+		point:$("#zhizhen"),
+		go:$('#accelerator'),
+		init:function(fn){
+			var _this = this;
+			var timer = null;
+			
+			this.go.mousedown(function(){
+				_this.rota = -115;
+				movePoint(_this.point, _this.rota);
+				clearInterval(timer);
+				timer = _this.run();
+			}).mouseup(function(){
+				var speed = _this.speed;
+				if(_this.rota-_this.targ>0){
+					speed = 0-speed;
+				}
+				clearInterval(timer);
+				timer = _this.tarRun(speed,fn);
+			});
+		},
+		run:function(){
+			var timer = null;
+			var _this = this;
+			timer = setInterval(function(){
+				_this.rota+=_this.speed;
+
+				movePoint(_this.point, _this.rota);
+				if(_this.rota>=110){
+					_this.rota -= _this.shake;
+				}
+			},30);
+			return timer;
+		},
+		tarRun:function(speed,fn){
+			var timer = null;
+			var _this = this;
+			timer = setInterval(function(){
+				_this.rota+=speed;
+
+				movePoint(_this.point, _this.rota);
+				if(Math.abs(_this.rota-_this.targ)<6){
+					movePoint(_this.point, _this.targ);
+					clearInterval(timer);
+					if(fn)fn(_this.targ);
+				}
+			},30);
+			return timer;
+		}
+	};
+
+	function movePoint($obj, rote){
+		$obj.css({
+			"transform":"rotate("+rote+"deg)",
+			"-webkit-transform":"rotate("+rote+"deg)",
+			"-moz-transform":"rotate("+rote+"deg)",
+			"-o-transform":"rotate("+rote+"deg)",
+			"-ms-transform":"rotate("+rote+"deg)"
+		 }); 
+	}
+});
+
+
+
+
+$(function(){
+	$.award.targ = 40;
+	$.award.init(function(msg){
+		alert(msg);
+	});
+});
+
+
+</script>
+</head>
+<body>
+<div class="mobileindexbg">
+	<div class="choujiangcont">
+    	<div class="zhizhen" style="width:79px;height:309px;"><img src="mobchoujiang.png" id="zhizhen"></div>
+        <div class="youmen">
+        	<p><img id="accelerator" src="mobanniu.png" ></p>
+         	<p>一脚地板油&nbsp;&nbsp;奖品就到手</p>   
+         </div>
+    </div>
+</div>
+
+
+
+</body>
+</html>

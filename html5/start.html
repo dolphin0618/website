@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>穿越 BY航</title>
+<style>
+	body{background: #000;margin: 0;padding: 0;}
+	canvas{background: #000;position:absolute;}
+</style>
+<script>
+	window.onload=function(){
+		var e = document.documentElement || document.body;
+		var clientw = e.clientWidth;
+		var clienth = e.clientHeight;
+
+		var canvas = document.getElementsByTagName('canvas')[0];
+		var cObj = canvas.getContext('2d');//获取2d绘图对象,暂不支持3d
+
+		canvas.width = clientw;
+		canvas.height = clienth;
+
+		var ajson = [];
+		for (var i = 0; i < 30; i++) {
+			var json = {x:30+clientw*Math.random(),y:30+clienth*Math.random(),len1:20+10*Math.random(),len2:8+7*Math.random(),jiao:Math.round(5+1*Math.random()),color:getRandomColor(),num:100*Math.random(),change:-4+8*Math.random()};
+			ajson.push(json);
+		};
+		setInterval(function(){
+			cObj.clearRect(0,0,clientw,clienth);
+			
+			for (var i = 0; i < ajson.length; i++) {
+				drawStart(ajson[i]);
+				var c = ajson[i].change;
+				ajson[i].num+=c;
+			};
+		},30);
+
+		function drawStart(json){
+			cObj.save();
+
+			cObj.fillStyle=json.color;
+			cObj.translate(json.x,json.y);
+			cObj.rotate(json.num*Math.PI/180);
+			cObj.scale(Math.sin(json.num*Math.PI/180),Math.sin(json.num*Math.PI/180));
+			cObj.globalAlpha=Math.abs(Math.sin(json.num*Math.PI/180));
+			start(0,0,json.len1,json.len2,json.jiao);
+
+			cObj.restore();
+		}
+
+		function start(x, y, len1, len2, jiao){
+			var du = 360/(jiao*2);
+			var arr = [];
+
+			for (var i = 0; i < jiao*2; i++) {
+				var obj = {};
+				if(i%2==0){
+					obj.x = x+len1*Math.cos(du*i*Math.PI/180);
+					obj.y = y+len1*Math.sin(du*i*Math.PI/180);
+				}else{
+					obj.x = x+len2*Math.cos(du*i*Math.PI/180);
+					obj.y = y+len2*Math.sin(du*i*Math.PI/180);
+				}
+				arr.push(obj);
+			};
+
+			//draw
+			cObj.beginPath();
+			cObj.moveTo(arr[0].x,arr[0].y);
+			for (var i = 1; i < arr.length; i++) {
+				cObj.lineTo(arr[i].x,arr[i].y);
+			};
+			cObj.closePath();
+			cObj.fill();
+		}
+
+		function getRandomColor(){  
+			return '#'+Math.floor(Math.random()*16777215).toString(16);  
+		} 
+	}
+</script>
+
+</head>
+<body>
+	<canvas width="600" height="600" id="canvas"> </canvas>
+</body>
+</html>

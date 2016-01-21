@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<style type="text/css">
+	    body{font-size: 12px;font-family: "微软雅黑";background: #F5F6F7;}
+	    ul{padding: 0;list-style: none;margin: 0;}
+	    .body{width: 500px;height: 300px;margin: 80px auto;background: #FFF;border: 1px solid #000;padding: 5px;}
+	    .left{width: 380px;height: 299px;float: left;}
+	    img{width: 380px;height: 299px;}
+	    ul{float: left;}
+	    li{width: 120px;height: 74px;cursor: pointer;}
+	    .item{width: 140px;height:75px;margin-left: -20px;}
+	    .triangle{width: 20px;height: 20px;margin-top: 27px;float: left;}
+	    .con{width: 120px; height: 74px;float: left;background: black;border-bottom: 1px solid #999;color: #FFF;line-height: 74px;text-align:center;font-size: 16px;font-weight: bold;}
+	    
+	    .active .triangle{width:0;height:0;border:10px dashed transparent;border-right: 10px solid #FF6699;float: left;margin-left: -10px;}
+	    .active .con{background: #FF6699;width: 130px;border:none;}
+
+	</style>
+	<script text="text/script">
+		window.onload=function(){
+			var oLis = document.getElementsByTagName('li');
+			var img = document.getElementsByTagName('img')[0];
+
+			var _index=0;
+			for(var i=0; i<oLis.length; i++){
+				oLis[i].index=i;
+				oLis[i].onmouseover=function(){
+					oLis[_index].className='';
+					this.className = 'active';
+
+					_index=this.index;
+
+					img.src='img/0'+(_index+1)+'.jpg';
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<div class="body">
+		<div class="left"><img src="img/01.jpg"/></div>
+		<ul>
+			<li class="active">
+				<div class="item">
+					<div class="triangle"></div>
+					<div class="con">图片A</div>
+				</div>
+			</li>
+			<li>
+				<div class="item">
+					<div class="triangle"></div>
+					<div class="con">图片B</div>
+				</div>
+			</li>
+			<li>
+				<div class="item">
+					<div class="triangle"></div>
+					<div class="con">图片C</div>
+				</div>
+			</li>
+			<li>
+				<div class="item">
+					<div class="triangle"></div>
+					<div class="con">图片D</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>

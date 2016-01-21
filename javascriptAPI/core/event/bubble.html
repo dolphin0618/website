@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>bubble by航</title>
+	<!-- 新 Bootstrap 核心 CSS 文件 -->
+	<link rel="stylesheet" href="../../css/bootstrap.min.css">
+	<style>
+		body{margin: 0;padding: 0;font-family: 'Microsoft yahei';}
+		.ol{background: #333;}.ol li a{color: #fff;}
+		pre{margin: 10px;padding: 10px;border: 1px dashed #3569a9;display: block;white-space: pre-wrap;white-space: -moz-pre-wrap;white-space: -pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;}
+		code{font-family: monospace,monospace;font-size: 1em;}
+		p{text-indent: 2em;}
+	</style>
+	<script type="text/javascript">
+
+	</script>
+</head>
+<body>
+	<!--头部-->
+	<ol class="breadcrumb ol">
+	  <li><a href="../../index.html">首页</a></li>
+	  <li class="active">事件</li>
+	  <li class="active">事件处理</li>
+	</ol>
+	<div class="page-header" style="padding-left:20px;">
+  		<h1>事件冒泡 <small></small></h1>
+	</div>
+	<!--内容-->
+		<!--描述-->
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+	        <h3 class="panel-title">描述</h3>
+	      </div>
+	      <div class="panel-body">
+	        <p>事件源子元素的事件会传递到父级(与捕获相反)，必须是相同的事件</p>
+	        <p>阻止冒泡(取消冒泡)：oEvent.cancelBubble=true;默认false; event.stopPragation()不兼容IE678</p>
+	        <p>不是所有的事件都能冒泡</p>
+	        <p>任何事件发生时，先从顶层开始进行事件捕获，直到事件触发到达了事件源元素。然后，再从事件源往上进行事件冒泡，直到到达document</p>
+	      </div>
+		</div>
+		<!--示例-->
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+	        <h3 class="panel-title">示例</h3>
+	      </div>
+	      <div class="panel-body">
+	        <div class="panel panel-info">
+			  <div class="panel-heading">
+		        <h3 class="panel-title">描述</h3>
+		      </div>
+		      <div class="panel-body">
+		        <h5>html代码：</h5>
+		        <pre><code>&lt;div id="div1"&gt;
+	&lt;div id="div2"&gt;
+		&lt;div id="div3"&gt;&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+		        <h5>js代码：</h5>
+		        <pre><code>	oDiv1.onclick=function(ev){
+		alert(1);
+	};
+	
+	oDiv2.onclick=function(ev){
+		var oEvent=ev || event;
+		alert(2);
+		//阻止了
+		oEvent.cancelBubble=true;
+	};
+	
+	oDiv3.onclick=function(ev){
+		var oEvent=ev || event;
+		alert(3);
+		
+	};</code></pre>
+				<h5>点击div3时的运行结果：</h5>
+		        <pre><code>3
+2</code></pre>
+		      </div>
+			</div>
+	      </div>
+		</div>
+	<!--翻页-->
+	<nav>
+	  <ul class="pager">
+	    <li class="previous"><a href="../event/eventListener.html">&larr; 上一篇:事件绑定</a></li>
+	    <li class="next"><a href="../event/useCapture.html">下一篇:事件捕获 &rarr;</a></li>
+	  </ul>
+	</nav>
+
+	<div class="page-header" style="background:#333;color:#fff;margin:0;padding:10px 40px;">
+	  <h6 style="text-align:center;">Copyright © <small>shanghang    2015 - 2018    All rights reserved.</small></h6>
+	</div>
+</body>
+</html>

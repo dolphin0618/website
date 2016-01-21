@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>定稿刮刮乐</title>
+<link rel="stylesheet" type="text/css" href="css/reset.css" />
+<link rel="stylesheet" type="text/css" href="css/css.css" />
+<style type="text/css">
+canvas{width: 56px;height: 45px;position: absolute;top: 2px;left: 4px;background-repeat:no-repeat;background-position:center;}
+.pai-list-bj{position: relative;}
+</style>
+		<script type="text/javascript" src="js/guaguale.js" ></script>
+		<script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
+
+		
+<script>
+			window.onload=function(){
+				guaguale.init(323);
+				//设置新值 
+				//guaguale.refrensh(545);
+                $("#baobiao").click(function(){
+				
+				 $("#show_baobiao").show();
+				});
+				$("#close_btn").click(function(){
+					$("#show_baobiao").hide();
+				})
+
+				//huan fu 
+				$('.new-shuzi>span').click(function(){
+					$('.new-gg-le').css('backgroundImage','url(images/'+this.className+'.jpg)');
+					$('.new-shuzi img').each(function(i){
+						this.src = 'images/jinbi-'+(i+1)+'.png';
+					});
+
+					$(this).find('img').attr('src',$(this).find('img').attr('_src'));
+				});
+            }
+</script>
+</head>
+
+<body>
+<div class="new-gg-le">
+	<div class="new-gg-top">
+		<div class="new-shuzi">
+			<span class="new-gg-1"><img src="images/jinbi-1l.png" _src="images/jinbi-1l.png"/><p>1</p></span>
+			<span class="new-gg-2"><img src="images/jinbi-2.png" _src="images/jinbi-2l.png"/><p>2</p></span>
+			<span class="new-gg-3"><img src="images/jinbi-3.png" _src="images/jinbi-3l.png"/><p>3</p></span>
+		</div>
+	</div>
+	<div class="new-gg-content">
+		<div class="pai-list">
+			<span>
+				<p>百位</p>
+				<div class="pai-list-bj"><canvas></canvas></div>
+			</span>
+			<span>
+				<p>十位</p>
+				<div class="pai-list-bj"><canvas></canvas></div>
+			</span>
+			<span>
+				<p>个位</p>
+				<div class="pai-list-bj"><canvas></canvas></div>
+			</span>
+		</div>
+		<div class="btn">
+			<a href="#" id="baobiao"><img src="images/btn-2.png" /></a>
+			<a href="#" id="open"><img src="images/btn-1.png" /></a>
+		</div>
+	</div>
+	<div class="new-gg-botm">
+		<div class="botm-h3">
+			<span class="botm-h3-1">开奖号</span>
+			<span class="botm-h3-2">刮奖号</span>
+			<span class="botm-h3-3">中奖号码</span>
+		</div>
+		<div class="botm-h4">
+			<span class="botm-h4-1">1</span>
+			<span class="botm-h4-2">2</span>
+			<span class="botm-h4-3">3</span>
+		</div>
+		<div class="botm-h4">
+			<span class="botm-h4-1">1</span>
+			<span class="botm-h4-2">2</span>
+			<span class="botm-h4-3">3</span>
+		</div>
+	</div>
+</div>
+<div class="table-block" id="show_baobiao" style="display:none">
+	<div class="table-top">
+		<span>日期</span>
+		<span><img src="images/rili-1.png" /></span>
+		<span>~</span>
+		<span><img src="images/rili-1.png" /></span>
+				<span style="float:right;cursor:pointer" id="close_btn">关闭</span>
+
+	</div>
+	<div class="table-btn">
+		<p><a href="#"><img src="images/table-btn-1.png" /></a></p>
+		<p><a href="#"><img src="images/table-btn-2.png" /></a></p>
+	</div>
+	<div class="table-nav">
+		<span class="table-nav-1">日期</span>
+		<span class="table-nav-2">期号</span>
+		<span class="table-nav-3">使用币种</span>
+		<span class="table-nav-4">开奖号</span>
+		<span class="table-nav-5">刮奖号码</span>
+		<span class="table-nav-6">奖金</span>
+	</div>
+	<div class="table-list">
+		<span class="table-list-1"><p>2015-03-01</p><p>11:11:12</p></span>
+		<span class="table-list-2"><p>盈丰分分彩</p><p>1324568115</p></span>
+		<span class="table-list-3"><img src="images/table-jinbi-1.png" /></span>
+		<span class="table-list-4">17835</span>
+		<span class="table-list-5">011</span>
+		<span class="table-list-6">0</span>
+	</div>
+	<div class="table-list">
+		<span class="table-list-1"><p>2015-03-01</p><p>11:11:12</p></span>
+		<span class="table-list-2"><p>盈丰分分彩</p><p>1324568115</p></span>
+		<span class="table-list-3"><img src="images/table-jinbi-1.png" /></span>
+		<span class="table-list-4">17835</span>
+		<span class="table-list-5">011</span>
+		<span class="table-list-6">0</span>
+	</div>
+	<div class="table-list">
+		<span class="table-list-1"><p>2015-03-01</p><p>11:11:12</p></span>
+		<span class="table-list-2"><p>盈丰分分彩</p><p>1324568115</p></span>
+		<span class="table-list-3"><img src="images/table-jinbi-1.png" /></span>
+		<span class="table-list-4">17835</span>
+		<span class="table-list-5">011</span>
+		<span class="table-list-6">0</span>
+	</div>
+	<div class="table-list">
+		<span class="table-list-1"><p>2015-03-01</p><p>11:11:12</p></span>
+		<span class="table-list-2"><p>盈丰分分彩</p><p>1324568115</p></span>
+		<span class="table-list-3"><img src="images/table-jinbi-1.png" /></span>
+		<span class="table-list-4">17835</span>
+		<span class="table-list-5">011</span>
+		<span class="table-list-6">0</span>
+	</div>
+</div>
+
+</body>
+</html>

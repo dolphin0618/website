@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Jsonp by航</title>
+	<!-- 新 Bootstrap 核心 CSS 文件 -->
+	<link rel="stylesheet" href="../../css/bootstrap.min.css">
+	<style>
+		body{margin: 0;padding: 0;font-family: 'Microsoft yahei';}
+		.ol{background: #333;}.ol li a{color: #fff;}
+		pre{margin: 10px;padding: 10px;border: 1px dashed #3569a9;display: block;white-space: pre-wrap;white-space: -moz-pre-wrap;white-space: -pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;}
+		code{font-family: monospace,monospace;font-size: 1em;}
+		p{text-indent: 2em;}
+	</style>
+	<script type="text/javascript">
+
+	</script>
+</head>
+<body>
+	<!--头部-->
+	<ol class="breadcrumb ol">
+	  <li><a href="../../index.html">首页</a></li>
+	  <li class="active">交互</li>
+	  <li class="active">交互</li>
+	</ol>
+	<div class="page-header" style="padding-left:20px;">
+  		<h1>Jsonp <small></small></h1>
+	</div>
+	<!--内容-->
+		<!--描述-->
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+	        <h3 class="panel-title">描述</h3>
+	      </div>
+	      <div class="panel-body">
+	        异步取数据，可以跨域（使用时要注意缓存，尤其在IE下）
+	        <p>1. 动态创建script，给src</p>
+			<p>2. 定义一个函数，接收数据</p>
+	      </div>
+		</div>
+		<!--示例-->
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+	        <h3 class="panel-title">示例</h3>
+	      </div>
+	      <div class="panel-body">
+	        <div class="panel panel-info">
+			  <div class="panel-heading">
+		        <h3 class="panel-title">描述</h3>
+		      </div>
+		      <div class="panel-body">
+		        <p>jsonp封装</p>
+		        <h5>js代码：</h5>
+		        <pre><code>function jsonp(json){
+	json=json || {};
+	if(!json.url){
+		alert('用法错了');
+		return;	
+	}
+	json.data=json.data || {};
+	json.cbName=json.cbName || 'cb';
+	
+	
+	var fnName='show'+Math.random();
+	fnName=fnName.replace('.','');
+	window[fnName]=function(data){
+		
+		json.succ && json.succ(data);
+		
+		//删除
+		oHead.removeChild(oS);
+	}
+	
+	json.data[json.cbName]=fnName; //
+	
+	var arr=[];
+	for(var name in json.data){
+		arr.push(name+'='+json.data[name]);
+	}
+	
+	var oS=document.createElement('script');
+	oS.src=json.url+'?'+arr.join('&');
+	var oHead=document.getElementsByTagName('head')[0];
+	oHead.appendChild(oS);	
+}</code></pre>
+		        <h5>调用js代码：</h5>
+		        <pre><code>jsonp({
+	url:'http://suggestion.baidu.com/su',
+	data:{
+		wd:oT.value	
+	},
+	succ:function(json){
+		alert(json.s);
+	}	
+});</code></pre>
+				<h5>淘宝查手机区域接口：</h5>
+				<pre><code>http://tcc.taobao.com/cc/json/mobile_tel_segment.htm?tel=13552700925</code></pre>
+		      </div>
+			</div>
+	      </div>
+		</div>
+		
+	<!--翻页-->
+	<nav>
+	  <ul class="pager">
+	    <li class="previous"><a href="../communicate/ajax.html">&larr; 上一篇:ajax</a></li>
+	    <li class="next"><a href="../communicate/cookie.html">下一篇:cookie &rarr;</a></li>
+	  </ul>
+	</nav>
+
+	<div class="page-header" style="background:#333;color:#fff;margin:0;padding:10px 40px;">
+	  <h6 style="text-align:center;">Copyright © <small>shanghang    2015 - 2018    All rights reserved.</small></h6>
+	</div>
+</body>
+</html>

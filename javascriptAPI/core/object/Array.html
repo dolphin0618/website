@@ -1,0 +1,165 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Array by航</title>
+	<!-- 新 Bootstrap 核心 CSS 文件 -->
+	<link rel="stylesheet" href="../../css/bootstrap.min.css">
+	<style>
+		body{margin: 0;padding: 0;font-family: 'Microsoft yahei';}
+		.ol{background: #333;}.ol li a{color: #fff;}
+		pre{margin: 10px;padding: 10px;border: 1px dashed #3569a9;display: block;white-space: pre-wrap;white-space: -moz-pre-wrap;white-space: -pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;}
+		code{font-family: monospace,monospace;font-size: 1em;}
+		p{text-indent: 2em;}
+	</style>
+	<script type="text/javascript">
+
+	</script>
+</head>
+<body>
+	<!--头部-->
+	<ol class="breadcrumb ol">
+	  <li><a href="../../index.html">首页</a></li>
+	  <li class="active">系统内置对象</li>
+	  <li class="active">系统对象</li>
+	</ol>
+	<div class="page-header" style="padding-left:20px;">
+  		<h1>Array <small></small></h1>
+	</div>
+	<!--内容-->
+		<!--描述-->
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+	        <h3 class="panel-title">描述</h3>
+	      </div>
+	      <div class="panel-body">
+	        数组对象：var arr=new Array([num]);
+	      </div>
+		</div>
+		<!--列表-->
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+	        <h3 class="panel-title">列表</h3>
+	      </div>
+	      <div class="panel-body">
+	        <table class="table table-hover">
+		      <thead>
+		        <tr>
+		          <th>方法</th>
+		          <th>使用说明</th>
+		        </tr>
+		      </thead>
+		      <tbody>
+		      	<tr>
+		          <td>push()</td>
+		          <td>将新元素添加到一个数组中，并返回数组的新长度值</td>
+		        </tr>
+		        <tr>
+		          <td>pop()</td>
+		          <td>移除数组中的最后一个元素并返回该元素</td>
+		        </tr>
+		        <tr>
+		          <td>shift()</td>
+		          <td>移除数组中的第一个元素并返回该元素</td>
+		        </tr>
+		        <tr>
+		          <td>unshift()</td>
+		          <td>将指定的元素插入数组开始位置并返回该数组</td>
+		        </tr>
+		        <tr>
+		          <td>splice()</td>
+		          <td>从一个数组中移除一个或多个元素，如果必要，在所移除元素的位置上插入新元素，返回所移除的元素</td>
+		        </tr>
+		        <tr>
+		          <td>split([char])</td>
+		          <td>把字符串用字符(char)切成数组</td>
+		        </tr>
+		        <tr>
+		          <td>arr.join([char])</td>
+		          <td>把数组用字符(char)连接成字符串</td>
+		        </tr>
+		        <tr>
+		          <td>arr.concat(arr2,arr3,arr4....)</td>
+		          <td>数组的连接</td>
+		        </tr>
+		        <tr>
+		          <td>arr.reverse()</td>
+		          <td>返回一个元素顺序被反转的Array对象；注意这里是返回一个原来的数组而不是创建了一个新的数组</td>
+		        </tr>
+		      	<tr>
+		          <td>arr.sort();</td>
+		          <td>arr.sort(function(n1,n2){  //比较函数
+	return n1-n2;
+});  //从小到大</td>
+		        </tr>
+		        <tr>
+		          <td>arr.length</td>
+		          <td>获取数组的长度;</br>如何快速清空数组？
+arr.length=0;
+arr.splice(0,arr.length);
+while(arr.length){
+	arr.pop();	
+}
+arr=[];</td>
+		        </tr>
+		        <tr>
+		          <td>toString();</td>
+		          <td>把数组转换为字符串，并返回结果。</td>
+		        <tr>
+		          <td>万能操作：</td>
+		          <td>arr.splice(开始位置,删除长度,元素1，元素2.....);</td>
+		        </tr>
+		        <tr>
+		          <td>删除</td>
+		          <td>arr.splice(开始位置,删除长度);</td>
+		        </tr>
+		        <tr>
+		          <td>添加</td>
+		          <td>arr.splice(开始位置,0,'a','b');</td>
+		        </tr>
+		        <tr>
+		          <td>替换</td>
+		          <td>arr.splice(开始位置,2,'a','b');</td>
+		        </tr>
+		      </tbody>
+		    </table>
+	      </div>
+		</div>
+		<!--示例-->
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+	        <h3 class="panel-title">示例</h3>
+	      </div>
+	      <div class="panel-body">
+	        <div class="panel panel-info">
+			  <div class="panel-heading">
+		        <h3 class="panel-title">描述</h3>
+		      </div>
+		      <div class="panel-body">
+		        <p>特性：隐式转换</p>
+		        <h5>js代码：</h5>
+		        <pre><code>console.log(+[]);
+console.log(+[12]);
+console.log(+['a']);</code></pre>
+				<h5>结果：</h5>
+		        <pre><code>0
+12
+NaN</code></pre>
+		      </div>
+			</div>
+	      </div>
+		</div>
+		
+	<!--翻页-->
+	<nav>
+	  <ul class="pager">
+	    <li class="previous"><a href="../object/Date.html">&larr; 上一篇:Date</a></li>
+	    <li class="next"><a href="../object/Math.html">下一篇:Math &rarr;</a></li>
+	  </ul>
+	</nav>
+
+	<div class="page-header" style="background:#333;color:#fff;margin:0;padding:10px 40px;">
+	  <h6 style="text-align:center;">Copyright © <small>shanghang    2015 - 2018    All rights reserved.</small></h6>
+	</div>
+</body>
+</html>

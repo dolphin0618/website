@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <!-- Le styles -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/pdf-unis.css" rel="stylesheet">
+    <style>
+    body {background-color: #f5f6f7;font-family:"微软雅黑", "宋体", serif;margin:0px;}
+    </style>
+    <script src="js/jquery.js"></script>
+    <script>
+      $(function(){
+        $('#menu a[hover=yes]').mouseover(function(){
+          $(this).children('.m_bg').stop().animate({opacity:0.8},350);
+          $(this).children('.m_logo').stop().animate({"backgroundPosition":50},100);
+        }).mouseleave(function(){
+          $(this).children('.m_bg').stop().css({opacity:0});
+          $(this).children('.m_logo').stop().animate({'backgroundPosition':0},100);
+        });
+        var layer = $('#layer');//加载中的dom节点
+        var jSchedule = {'1': $('#one')};
+
+        var timer = setInterval(function(){//2秒一次监听服务器
+            proObject.refresh();
+        }, 2000);
+        //按钮事件
+        $('#add').on('click',function(){
+          proObject.addThred();
+        });
+        
+        $('#refresh').on('click',function(){
+          proObject.refresh();
+        });
+
+        $('#run').on('click',function(){
+          //ajax 启动  ok no
+          $(this).attr('disabled','disabled');
+          $(this).find('span').html('正在运行');
+          jSchedule['1'].find(".bar").css("width","1%");
+        });
+
+        var proObject = {
+          'obj':$('#pro'),
+          'data':{},
+          'addThred':function(){
+              layer.show();
+
+              //ajax请求  id
+              addThred(2);
+              layer.hide();
+          },
+          'delThred':function(delObj){
+              layer.show();
+              //ajax 返回立即删除还是延时删
+              var td = delObj.parent().parent();
+              if(true){
+                td.fadeOut(200,function(){
+                  td.remove();
+                  delete jSchedule[td.attr('num')];
+                });
+              }else{
+                //刷新删
+                delObj.next().html('稍后删除...');
+                delObj.hide();
+              }
+              layer.hide();
+          },
+          'refresh':function(){
+            //ajax 获取数据
+              this.data = {
+                            'usedSpace':'2GB',
+                            'allSpace':'20GB',
+                            'nextTime':'40分钟20秒',
+                            'status':'stop',
+                            'sData':{
+                                   '1':{'status':'normal','jobCount':23,'runCount':10,'successCount':9,'failCount':1},
+                                   '2':{'status':'normal','jobCount':23,'runCount':22,'successCount':22,'failCount':100},
+                                   '3':{'status':'add','jobCount':0,'runCount':0,'successCount':0,'failCount':0},
+                                   '5':{'status':'del','jobCount':23,'runCount':4,'successCount':11,'failCount':0}
+                                   }
+                          };
+              if(this.data.status == 'stop'){
+                $('#run').removeAttr('disabled');
+                $('#run>span').html(' 启动');
+              }else{
+                $('#run').attr('disabled','disabled');
+                $('#run>span').html('正在运行');
+                refresh(this.data.sData);
+              }
+              updataTime(this.data);
+              layer.hide();
+          }
+        };
+
+        function refresh(jData){
+          //页面dom跟数据对比
+          for (var i in jData) {
+            if(jSchedule[i]){
+              //id相同的做更新
+              updataOneJob(jSchedule[i], jData[i]);
+            }else{
+              //没有对应dom做dom添加
+              addThred(i, jData[i]);
+            }
+          };
+          //页面dom跟数据反向对比
+          for(var j in jSchedule){
+            if(jData[j]){
+
+            }else{
+              //没有对应数据做dom删除
+              jSchedule[j].remove();
+            }
+          };
+        };
+
+        function addThred(id, data){
+            //添加一个新线程dom
+            var _html = '<li num="'+id+'"><div class="c_b_top">'+
+                          '<span class="job">任务'+id+'</span>'+
+                          '<span class="count">任务数量0</span></div>'+
+                          '<div class="progress progress-striped active">'+
+                          '<div class="bar" style="width: 0%;"></div></div>'+
+                          '<div class="c_b_btm">'+
+                            '<a href="#" class="c_b_rom" style="left:80px">删除</a>'+
+                            '<p class="text-warning c_b_lab">稍后启动...</p>'+
+                            '<div class="su_count" style="display:none;">'+
+                              '<span class="label label-success blue">成功0个</span>'+
+                              '<span class="label">失败0个</span></div>'+
+                          '</div></li>';
+            var td = $(_html);
+            jSchedule[id] = td;
+            
+            //如果是刷新添加的，要根据data来更新
+            if(data){
+              updataOneJob(td, data);
+            }
+            //线程dom添加到页面
+            proObject['obj'].append(td.fadeOut(30,function(){
+              td.fadeIn(200);
+            }));
+            //删除事件
+            td.find('a').click(function(){
+              proObject.delThred($(this));
+            });
+        };
+
+
+        function updataOneJob(obj, data){
+          //进度百分比
+          var progress = parseInt(data.runCount/data.jobCount*100);
+          /*任务数量*/
+          obj.find(".count").html('任务数量'+data.jobCount);
+          /*进度*/
+          obj.find(".bar").css("width",progress+"%");
+          /*状态*/
+          obj.find('.c_b_lab').html(getTips(data.status));
+          //控制删除按钮 和 成功失败块显示
+          var su_count = obj.find('.su_count');
+          var cb_rom = obj.find('.c_b_rom');
+
+          su_count.show();
+          if(data.status == 'normal'){
+            cb_rom.css('left',10);
+          }else if(data.status == 'add'){
+            cb_rom.css('left',80);
+            su_count.hide();
+          }else{
+            cb_rom.hide();
+          }
+          /*成功失败数量*/
+          su_count.children().eq(0).html('成功'+data.successCount+'个');
+          su_count.children().eq(1).html('失败'+data.failCount+'个');
+        };
+
+        function getTips(code){
+          if(code == 'del'){
+            return '稍后删除...';
+          }
+          if(code == 'add'){
+            return '稍后启动...';
+          }
+          return '';
+        };
+
+        function updataTime(data){
+          $('#info').find('.use').html(data.usedSpace);
+          $('#info').find('.all').html(data.allSpace);
+          $('#info').find('.timer').html(data.nextTime);
+        }
+      });
+    </script>	
+</head>
+<body>
+<div class="bg">
+  <div class="body">
+    <!-- 菜单 -->
+    <div class="menu black">
+      <ul id="menu">
+        <li>
+          <a href="#"  hover="no">
+            <div class="m_bg active" style="background:#33CCFF;"></div>
+            <div class="m_logo logo1" style="background-position:50px 0"></div>
+            <span>运行转换</span>
+          </a>
+        </li>
+        <li>
+          <a href="config.html"  hover="yes">
+            <div class="m_bg" style="background:#CC0033;"></div>
+            <div class="m_logo logo2"></div>
+            <span>转换配置</span>
+          </a>
+        </li>
+        <li>
+          <a href="count.html"  hover="yes">
+            <div class="m_bg" style="background:#FF7700;"></div>
+            <div class="m_logo logo3"></div>
+            <span>转换统计</span>
+          </a>
+        </li>
+        <li>
+          <a href="log.html"  hover="yes">
+            <div class="m_bg" style="background:#CC0066;"></div>
+            <div class="m_logo logo4"></div>
+            <span>转换日志</span>
+          </a>
+        </li>
+        <li>
+          <a href="about.html"  hover="yes">
+            <div class="m_bg" style="background:#00CC00;"></div>
+            <div class="m_logo logo5"></div>
+            <span>关于我们</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <!-- end 菜单 -->
+    <!-- 转换 -->
+    <div class="con write">
+      <div class="convet">
+        <div class="con_top">
+          <div class="logo"><span>UNISSOFT</span></div>
+          <div class="top_btn">
+            <a class="btn btn-info btn-mini addjob run" id="add" href="#"><i class="icon-plus icon-white" style="margin-top:0"></i>添加线程</a>
+            <div>
+              <a href="#" class="btn btn-success btn-mini run" id="run" disabled="disabled"><i class="icon-play icon-white" style="margin-top:0;"></i><span> 启动</span></a>&nbsp;
+              <a href="#" class="btn btn-info btn-mini run" id="refresh"><i class="icon-refresh icon-white" style="margin-top:0"></i> 刷新</a>
+            </div>
+          </div>
+        </div>
+        <div class="con_line"></div>
+        <div class="con_btm">
+          <!-- 进度条 -->
+          <ul class="pro" id="pro">
+            <li id="one" num="1">
+              <div class="c_b_top">
+                <span class="job">任务1</span>
+                <span class="count">任务数量0</span>
+              </div>
+              <div class="progress progress-striped active">
+                <div class="bar" style="width: 0%;" id="job0"></div>
+              </div>
+              <div class="c_b_btm">
+                <div class="su_count">
+                  <span class="label label-success blue">成功0个</span>
+                  <span class="label">失败0个</span>
+                </div>
+              </div>
+            </li>
+          </ul>
+          <!-- end 进度条 -->
+        </div>
+      </div>
+      <div class="btm" id="info">
+        <span class="label label-important"> </span>
+        <span>已用量：<span class="label label-important use">获取中</span></span>&nbsp;&nbsp;
+        <span class="label label-success"> </span>
+        <span>总容量：<span class="label label-success all">获取中</span></span>&nbsp;&nbsp;
+        <span>上次转制耗时：<span class="label timer">获取中</span></span>
+      </div>
+      <!-- layer -->
+      <div class="layer black" id="layer" style="display:block;">
+        <img src="img/loding.gif"/>
+        <div>
+          <span>加载中....</span>
+        </div>
+      </div>
+    </div>
+    <!-- end 转换 -->
+  </div>
+</div>
+
+</body>
+</html>

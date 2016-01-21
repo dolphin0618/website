@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Attribute by航</title>
+	<link rel="stylesheet" href="../../css/bootstrap.min.css">
+	<style>
+		body{margin: 0;padding: 0;font-family: 'Microsoft yahei';}
+		.ol{background: #333;}.ol li a{color: #fff;}
+		pre{margin: 10px;padding: 10px;border: 1px dashed #3569a9;display: block;white-space: pre-wrap;white-space: -moz-pre-wrap;white-space: -pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;}
+		code{font-family: monospace,monospace;font-size: 1em;}
+		p{text-indent: 2em;}
+	</style>
+	<script type="text/javascript">
+
+	</script>
+</head>
+<body>
+	<!--头部-->
+	<ol class="breadcrumb ol">
+	  <li><a href="../../index.html">首页</a></li>
+	  <li class="active">属性</li>
+	  <li class="active">属性的绑定</li>
+	</ol>
+	<div class="page-header" style="padding-left:20px;">
+  		<h1>Attribute <small></small></h1>
+	</div>
+	<!--内容-->
+		<!--描述-->
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+	        <h3 class="panel-title">描述</h3>
+	      </div>
+	      <div class="panel-body">
+	        <p>属性操作</p>
+	      </div>
+		</div>
+		<!--参数-->
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+	        <h3 class="panel-title">方法</h3>
+	      </div>
+	      <div class="panel-body">
+	        <table class="table table-hover">
+		      <thead>
+		        <tr>
+		          <th>方法</th>
+		          <th>说明</th>
+		        </tr>
+		      </thead>
+		      <tbody>
+		      	<tr>
+		          <td>getAttribute</td>
+		          <td>获取属性</td>
+		        </tr>
+		        <tr>
+		          <td>setAttribute</td>
+		          <td>绑定属性</td>
+		        </tr>
+		        <tr>
+		          <td>removeAttribute</td>
+		          <td>删除属性，包括非自定义属性</td>
+		        </tr>
+		        <tr>
+		          <td>defaultValue</td>
+		          <td>获取表单元素的默认值，用js改变值不会影响返回值</td>
+		        </tr>
+		      </tbody>
+		    </table>
+	      </div>
+		</div>
+		<!--示例-->
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+	        <h3 class="panel-title">示例</h3>
+	      </div>
+	      <div class="panel-body">
+	        <div class="panel panel-info">
+			  <div class="panel-heading">
+		        <h3 class="panel-title">描述</h3>
+		      </div>
+		      <div class="panel-body">
+		        <p>attribute(属性)与dom.属性 的区别</p>
+		        <h5>html代码：</h5>
+		        <pre><code>&lt;div id="notMe" abc="123"&gt;&lt;/div&gt;</code></pre>
+		        <h5>js代码</h5>
+		        <pre><code>oDiv.abc;//undefined
+oDiv.getAttribute('abc');//123
+
+oDiv.setAttribute('xxx','123');
+oDiv['xxx'];//null  除非自定义属性都是undefined
+
+oDiv.aaa=123;
+oDiv.getAttribute('aaa');//null
+</code></pre>
+		      </div>
+			</div>
+	      </div>
+		</div>
+	<!--翻页-->
+	<nav>
+	  <ul class="pager">
+	    <li class="previous"><a href="../selector/advanced.html">&larr; 上一篇:getElementsByClassName</a></li>
+	    <li class="next"><a href="../css/currentStyle.html">下一篇:currentStyle &rarr;</a></li>
+	  </ul>
+	</nav>
+
+	<div class="page-header" style="background:#333;color:#fff;margin:0;padding:10px 40px;">
+	  <h6 style="text-align:center;">Copyright © <small>shanghang    2015 - 2018    All rights reserved.</small></h6>
+	</div>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<style type="text/css">
+		body{font-family: '微软雅黑';background: #333;}
+		.win{width: 150px;height: 200px;overflow: hidden;position: relative;margin: 0px auto;background: #F3E7BF;border: 5px solid #B14F0D;margin-top: 150px;}
+		.bg{position: absolute;width: 692px;left:0;padding: 0px;}
+		.bg img{height: 200px;float: left;margin: 0;padding: 0;}
+		.person{position:absolute;top: 90px;left: 48px;z-index: 99;}
+		.fight{width: 90px;height: 30px;margin: 30px auto;background: #E66F07;color: #fff;cursor: pointer;text-align: center;line-height: 30px;font-size: 16px;border: 1px solid #FF9900;}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var oBg = document.getElementById('bg');
+			var oPerson = document.getElementById('p');
+			var oFight = document.getElementById('fight');
+
+			var iBG = 0;
+			var iStep = 0;
+			var ifight = 0;
+
+			var stepArr = ['01','02','03'];
+			var fightArr = ['fight01','fight02','fight03','fight04'];
+
+			var timerBG = null;
+			var timerStep = null;
+			var timerFight = null;
+
+			step();//初始走路
+
+			//走路函数
+			function step(){
+
+				clearInterval(timerBG);
+				timerBG = setInterval(function(){
+					//轮播
+					if(iBG >=0){iBG=-492;}
+					oBg.style.left = ++iBG+'px';
+				},80);
+
+				clearInterval(timerStep);
+				timerStep = setInterval(function(){
+					//轮播
+					if(iStep == stepArr.length){iStep=0;}
+					//更换走步动作
+					oPerson.src = 'img/'+stepArr[iStep++]+'.png';
+				},200);
+			}
+
+			//攻击函数
+			function fight(){
+				//攻击未结束不允许再次攻击
+				if(ifight!=0)return;
+				//攻击时停止走步
+				clearInterval(timerBG);
+				clearInterval(timerStep);
+				//攻击
+				clearInterval(timerFight);
+				timerFight = setInterval(function(){
+					if(ifight == fightArr.length){//攻击完毕
+						clearInterval(timerFight);
+						ifight = 0;
+						step();
+						return;
+					}
+					//更换攻击动作
+					oPerson.src = 'img/'+fightArr[ifight++]+'.png';
+				},100);
+			}
+
+			//点击攻击
+			oFight.onclick=function(){
+				fight();
+			}
+		}
+	</script>
+</head>
+<body>
+	<div class="win">
+		<div id="bg" class="bg">
+			<img src="img/long.gif">
+			<img src="img/long.gif">
+		</div>
+		<img id="p" class="person" src="img/01.png"/>
+	</div>
+	<div class="fight" id="fight">攻 击</div>
+</body>
+</html>

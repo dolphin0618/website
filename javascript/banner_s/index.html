@@ -1,0 +1,136 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<style>
+		.wrapper{width: 570px;margin: 20px auto;}
+		.wrapper .top{width: 560px;height: 320px;border: 1px solid #ccc;overflow: hidden;position: relative;}
+		.wrapper .top img{position: absolute;top: 0;left: 0;margin: 5px;width: 550px;height: 310px;opacity: 1;filter:alpha(opacity=100);}
+
+		.wrapper .bottom{margin-top: 10px;margin-left: -8px;}
+		.wrapper .bottom a{display: block;width: 130px;float: left;margin-left: 10px;height: 12px;border: 1px solid #ccc;}
+		.wrapper .bottom span{display: block;background: #ccc;width: 0%;height: 12px;}
+		.wrapper .select span{width: 130px;}
+	</style>
+	<script src="js/animal.js"></script>
+	<script type="text/javascript">
+		window.onload=function(){
+			var oDiv = document.getElementById('wper');
+			var oImg = oDiv.children[0].children;//大图
+			var oPage = oDiv.children[1].children;//翻页小块
+			var oImgs = [];//按原始顺序记录大图
+
+			for(var i=0;i<oImg.length;i++){//记录顺序并添加点击事件
+				oImgs.push(oImg[i]);//顺序记录大图
+
+				(function(_index){//进度点击
+					oPage[_index].onclick=function(){
+						if(oPage[_index].lock){return false;}
+						oPage[_index].lock=true;//开启点击的滚动锁
+
+						clearInterval(oPage[index].children[0].timer);//点击进度块时清空所有span的定时
+						next(_index);//跳转到点击的位置
+					}
+				})(i);
+			}
+			var index = 3;next();//初始值
+
+			function next(turn){
+				var oTop = oDiv.children[0];
+				index = count(turn);//下一步的下标
+
+				//大图切换
+				for (var i = 0; i < oImgs.length; i++) {//其它变透明
+					animal(oImgs[i],{'opacity':0});
+				};
+				oTop.appendChild(oImgs[index]);//当前要显示的图片追加到最后（最后的图片会显示）
+				animal(oImgs[index],{'opacity':100});//当前恢复透明
+				
+				//进度切换
+				index==0 && color(0);
+				//进度动画
+				go(oPage[index].children[0], false, function(){
+					oPage[index].className='select';//滚动完一块给加上select样式
+					oPage[index].lock=false;//解除点击的滚动锁
+					next();//继续滚下一个
+				});
+				
+			};
+
+			//计算当前要切换的下标
+			function count(turn){
+				if(turn||turn==0){//如果是跳转
+					index=turn;
+					color(turn);
+				}else{//如果是下一步
+					index = ++index==4?0:index;
+				}
+				return index;
+			}
+
+			//更新小块颜色
+			function color(turn){
+				for (var i = 0; i < oPage.length; i++) {
+					oPage[i].className=i<turn?'select':'';//之前的进度选中变灰，其它清空
+					oPage[i].children[0].style.width='';//百分比置空，由select样式控制变灰
+				};
+			}
+
+			//进度动画
+			function go(obj, restart ,fn){
+				clearInterval(obj.timer);
+
+				if(!restart){//继续/从新开始
+					obj.i = 0;
+				};
+				obj.timer=setInterval(function(){
+					if(obj.i==100){
+						obj.i = 0;
+						clearInterval(obj.timer);
+						obj.style.width = '';//百分比置空
+						fn&&fn();//有回调执行回调
+					}else{
+						obj.style.width = ++obj.i +'%';//百分比递增
+					}
+				},20);
+			}
+
+			oDiv.children[0].onmouseover=function(){
+				for (var i = 0; i < oPage.length; i++) {
+					clearInterval(oPage[i].children[0].timer);
+				};
+			};
+			oDiv.children[0].onmouseout=function(){
+				go(oPage[index].children[0], true, function(){
+					oPage[index].className='select';
+					next();
+				});
+			};
+		}
+	</script>
+</head>
+<body>
+	<div class="wrapper" id="wper">
+		<div class="top">
+			<img src="img/1.jpg"/>
+			<img src="img/2.jpg"/>
+			<img src="img/3.jpg"/>
+			<img src="img/5.jpg"/>
+		</div>
+		<div class="bottom">
+			<a href="#">
+				<span></span>
+			</a>
+			<a href="#">
+				<span></span>
+			</a>
+			<a href="#">
+				<span></span>
+			</a>
+			<a href="#">
+				<span></span>
+			</a>
+		</div>
+	</div>
+</body>
+</html>

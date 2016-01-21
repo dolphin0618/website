@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>穿越 BY航</title>
+<style>
+	body{background: #000;margin: 0;padding: 0;}
+	canvas{background: #000;position:absolute;}
+</style>
+<script>
+	window.onload=function(){
+		var e = document.documentElement || document.body;
+		var clientw = e.clientWidth;
+		var clienth = e.clientHeight;
+
+		var canvas = document.getElementsByTagName('canvas')[0];
+		var cObj = canvas.getContext('2d');//获取2d绘图对象,暂不支持3d
+
+		canvas.width = clientw;
+		canvas.height = clienth;
+
+		var arr = [];
+		var aline = [];
+		setInterval(function(){
+	    	cObj.clearRect(0,0,clientw,clienth);
+	    	cObj.shadowColor='#fff';
+			cObj.shadowOffsetX=0;
+			cObj.shadowOffsetY=-5;
+			cObj.shadowBlur=2;
+	    	cObj.strokeStyle='rgb(25,115,250)';
+	    	drawLine();
+
+	    	cObj.shadowOffsetX=0;
+			cObj.shadowOffsetY=0;
+			cObj.shadowBlur=0;
+	    	drawArc();
+		 },30);
+
+		//重画所有圆
+		function drawArc(){
+			for (var i = 0; i < arr.length; i++) {
+			 	arr[i].jiaodu+=10.2;
+			 	arr[i].weizhi+=0.2;
+			 	arr[i].r+=0.02;
+			 	if(arr[i].weizhi>=clientw/2)arr.splice(0,1);
+			 	cObj.save();
+				cObj.translate(clientw/2,clienth/2);
+				cObj.rotate(arr[i].jiaodu*Math.PI/180);
+				cObj.beginPath();
+				cObj.fillStyle=arr[i].color;
+				cObj.arc(arr[i].weizhi,arr[i].weizhi,arr[i].r,0,2*Math.PI,true);
+				cObj.fill();
+				cObj.restore();
+			}
+		}
+		//重画所有条
+		function drawLine(){
+			cObj.lineWidth = 3;
+			for (var i = 0; i < aline.length; i++) {
+				aline[i].x+=8;
+				aline[i].y+=15;
+				if(aline[i].x>=clientw/2)aline.splice(0,1);
+
+				cObj.save();
+				
+				cObj.translate(clientw/2,clienth/2);
+				cObj.rotate(aline[i].jiaodu*Math.PI/180);
+				cObj.beginPath();
+				cObj.moveTo(aline[i].x,0);
+				cObj.lineTo(aline[i].y,0);
+				cObj.stroke();
+				cObj.restore();
+			};
+
+		}
+
+		setInterval(function(){
+			var rand=Math.round(Math.random()*1000000);
+			arr.push({jiaodu:0,weizhi:0,r:2,color:getRandomColor()});
+		},1000);
+
+		setTimeout(function(){//放射
+			setInterval(function(){
+				aline.push({jiaodu:parseInt(Math.random()*1000),x:10,y:10});
+			},50);
+		},30000);
+
+		var getRandomColor = function(){  
+			return '#'+Math.floor(Math.random()*16777215).toString(16);  
+		} 
+
+
+	}
+</script>
+
+</head>
+<body>
+	<canvas width="600" height="600" id="canvas"> </canvas>
+</body>
+</html>

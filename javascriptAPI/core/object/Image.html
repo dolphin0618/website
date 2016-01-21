@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Image by航</title>
+	<!-- 新 Bootstrap 核心 CSS 文件 -->
+	<link rel="stylesheet" href="../../css/bootstrap.min.css">
+	<style>
+		body{margin: 0;padding: 0;font-family: 'Microsoft yahei';}
+		.ol{background: #333;}.ol li a{color: #fff;}
+		pre{margin: 10px;padding: 10px;border: 1px dashed #3569a9;display: block;white-space: pre-wrap;white-space: -moz-pre-wrap;white-space: -pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;}
+		code{font-family: monospace,monospace;font-size: 1em;}
+		p{text-indent: 2em;}
+	</style>
+	<script type="text/javascript">
+
+	</script>
+</head>
+<body>
+	<!--头部-->
+	<ol class="breadcrumb ol">
+	  <li><a href="../../index.html">首页</a></li>
+	  <li class="active">系统内置对象</li>
+	  <li class="active">系统对象</li>
+	</ol>
+	<div class="page-header" style="padding-left:20px;">
+  		<h1>Image <small></small></h1>
+	</div>
+	<!--内容-->
+		<!--描述-->
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+	        <h3 class="panel-title">描述</h3>
+	      </div>
+	      <div class="panel-body">
+	        <p>Image对象;var oImg=new Image();通常用来做图片预加载;</p>
+	        <p>缓存：浏览器对同一个图片下载地址(url),只会读一次</p>
+	      </div>
+		</div>
+		<!--列表-->
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+	        <h3 class="panel-title">列表</h3>
+	      </div>
+	      <div class="panel-body">
+	        <table class="table table-hover">
+		      <thead>
+		        <tr>
+		          <th>方法</th>
+		          <th>使用说明</th>
+		        </tr>
+		      </thead>
+		      <tbody>
+		        <tr>
+		          <td>onload</td>
+		          <td>oImg.onload 图片加载成功会调用此方法</td>
+		        </tr>
+		        <tr>
+		          <td>onerror</td>
+		          <td>oImg.onerror 图片加载失败会调用此方法</td>
+		        </tr>
+		      </tbody>
+		    </table>
+	      </div>
+		</div>
+		<!--示例-->
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+	        <h3 class="panel-title">示例</h3>
+	      </div>
+	      <div class="panel-body">
+	        <div class="panel panel-info">
+			  <div class="panel-heading">
+		        <h3 class="panel-title">描述</h3>
+		      </div>
+		      <div class="panel-body">
+		        <p>图片预加载</p>
+		        <h5>js代码：</h5>
+		        <pre><code>var oImg=new Image();
+oImg.onload = function(){
+	//code...
+}
+oImg.onerror = function(){
+	//code...
+}
+oImg.src = http://...jpg;</code></pre>
+				<p>* 建议oImg.src写在onload和onerror之后。否则IE8下方法无效；不考虑IE8-可忽略此建议</p>
+		      </div>
+			</div>
+	      </div>
+		</div>
+		
+	<!--翻页-->
+	<nav>
+	  <ul class="pager">
+	    <li class="previous"><a href="../object/Math.html">&larr; 上一篇:Math</a></li>
+	    <li class="next"><a href="../object/String.html">下一篇:String &rarr;</a></li>
+	  </ul>
+	</nav>
+
+	<div class="page-header" style="background:#333;color:#fff;margin:0;padding:10px 40px;">
+	  <h6 style="text-align:center;">Copyright © <small>shanghang    2015 - 2018    All rights reserved.</small></h6>
+	</div>
+</body>
+</html>

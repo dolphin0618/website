@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<style type="text/css">
+		html,body{background: #ccc;}
+		.ipt{width: 520px;height: 70px;margin:40px auto;position: relative;}
+		input{width: 500px;height: 20px;border: 4px solid #ff6600;position: absolute;padding: 10px;}
+		span{position: absolute;top: 16px;left: 14px;color: #ccc;font-family: tb-fp-iconfont;font-size: 14px;font-style: normal;}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var oDiv = document.getElementsByTagName('div')[0];
+			var oIpt = document.getElementsByTagName('input')[0];
+			var oSpan = document.createElement('span');
+			oSpan.innerHTML=oIpt.getAttribute('labe');
+			oDiv.appendChild(oSpan);
+			
+			oIpt.onfocus=function(){
+				oSpan.style.display='none';
+			}
+			oIpt.onblur=function(){
+				if(oIpt.value==''){
+					oSpan.style.display='block';
+				}
+			}
+			oSpan.onclick=function(){
+				oIpt.focus();
+			}
+		}
+
+	</script>
+</head>
+<body>
+	<div class="ipt">
+		<input type="text" labe='搜“倒立机”试试，换个角度，你和世界都在改变'/>
+	</div>
+</body>
+</html>

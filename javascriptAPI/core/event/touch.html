@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>触摸事件 by航</title>
+	<!-- 新 Bootstrap 核心 CSS 文件 -->
+	<link rel="stylesheet" href="../../css/bootstrap.min.css">
+	<style>
+		body{margin: 0;padding: 0;font-family: 'Microsoft yahei';}
+		.ol{background: #333;}.ol li a{color: #fff;}
+		pre{margin: 10px;padding: 10px;border: 1px dashed #3569a9;display: block;white-space: pre-wrap;white-space: -moz-pre-wrap;white-space: -pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;}
+		code{font-family: monospace,monospace;font-size: 1em;}
+		p{text-indent: 2em;}
+	</style>
+	<script type="text/javascript">
+
+	</script>
+</head>
+<body>
+	<!--头部-->
+	<ol class="breadcrumb ol">
+	  <li><a href="../../index.html">首页</a></li>
+	  <li class="active">事件</li>
+	  <li class="active">触摸事件</li>
+	</ol>
+	<div class="page-header" style="padding-left:20px;">
+  		<h1>触摸事件 <small></small></h1>
+	</div>
+	<!--内容-->
+		<!--描述-->
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+	        <h3 class="panel-title">描述</h3>
+	      </div>
+	      <div class="panel-body">
+	        <p>应用移动端触摸时触发</p>
+	      </div>
+		</div>
+		<!--参数-->
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+	        <h3 class="panel-title">参数</h3>
+	      </div>
+	      <div class="panel-body">
+	        <table class="table table-hover">
+		      <thead>
+		        <tr>
+		          <th>事件名</th>
+		          <th>说明</th>
+		        </tr>
+		      </thead>
+		      <tbody>
+		        <tr>
+		          <td>ontouchstart</td>
+		          <td></td>
+		        </tr>
+		        <tr>
+		          <td>ontouchmove</td>
+		          <td></td>
+		        </tr>
+		        <tr>
+		          <td>ontouchend</td>
+		          <td></td>
+		        </tr>
+		        <tr>
+		          <td>ontouchcancel</td>
+		          <td></td>
+		        </tr>
+		      </tbody>
+		    </table>
+	      </div>
+		</div>
+		<!--示例-->
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+	        <h3 class="panel-title">示例</h3>
+	      </div>
+	      <div class="panel-body">
+	        <div class="panel panel-info">
+			  <div class="panel-heading">
+		        <h3 class="panel-title">描述</h3>
+		      </div>
+		      <div class="panel-body">
+		        <h5>html代码：</h5>
+		        <pre><code>重力感应重力感应较简单，只需要为body节点添加onorientationchange事件即可。在此事件中由window.orientation属性得到代表当前手机方向的数值。window.orientation的值列表如下：
+0：与页面首次加载时的方向一致
+-90：相对原始方向顺时针转了90°
+180：转了180°
+90：逆时针转了90°据我测试，Android2.1尚未支持重力感应。以上即目前的触屏事件，这些事件尚未并入标准，但已被广泛使用。本人Android2.1，未在其他环境下测试</code></pre>
+		        <h5>js代码：</h5>
+		        <pre><code>手势事件手势是指利用多点触控进行旋转、拉伸等操作，例如图片、网页的放大、旋转。需要两个或以上的手指同时触摸时才会触发手势事件。关于缩放我们需要注意的一点是元素的位置坐标：我们通常使用offsetX、getBoundingClientRect等方法获取元素的位置坐标，但在手机浏览器中页面经常会在使用中被缩放，那缩放后的元素坐标会改变吗？答案是有所差异。用一个情景来说明这个问题：页面A加载完成后，JavaScript获取到该元素在document中的坐标为(100,100)，接着用户放大了页面，此时用JavaScript再次输出元素坐标，依然还是(100,100)，但该元素在屏幕上的响应区域会根据缩放比例产生偏移。你可以打开那个打砖块游戏demo，等页面完全加载完成后，再放大，此时你会发现即使手指触摸在“touch here”区域外部，也可以控制到球板，因为区域发生了偏移。除非页面刷新或者恢复缩放，否则偏移量将一直存在。1
+/**
+* onGestureEvent
+*/
+var div = document.getElementById("div");
+div.ongesturechange = function(e){
+//scale代表手势产生的缩放比例，小于1是缩小，大于1是放大，原始为1
+var scale = e.scale;
+//rotation代表旋转手势的角度，值区间[0,360]，正值顺时针旋转，负值逆时针
+var angle = e.rotation;
+};</code></pre>
+				<h5>点击div3时的运行结果：</h5>
+		        <pre><code>3
+2</code></pre>
+		      </div>
+			</div>
+	      </div>
+		</div>
+	<!--翻页-->
+	<nav>
+	  <ul class="pager">
+	    <li class="previous"><a href="../event/onkeydown.html">&larr; 上一篇:onkeydown</a></li>
+	    <li class="next"><a href="../dom/appendChild.html">下一篇:appendChild([object]) &rarr;</a></li>
+	  </ul>
+	</nav>
+
+	<div class="page-header" style="background:#333;color:#fff;margin:0;padding:10px 40px;">
+	  <h6 style="text-align:center;">Copyright © <small>shanghang    2015 - 2018    All rights reserved.</small></h6>
+	</div>
+</body>
+</html>

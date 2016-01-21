@@ -1,0 +1,249 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>js语法速查表 by航</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<style>
+		body{margin: 0;padding: 0;font-family: 'Microsoft yahei';background: rgba(0,0,0,0.1);opacity: 0;-webkit-animation:loading 1.5s 1 linear forwards;animation:loading 1.5s 1 linear forwards;transform:scale(0.1,0.1) rotate(0deg);}
+		.pleft20{padding-left: 30px;}
+		dt{font-size: 12px;font-weight: normal;margin-top: 10px;}
+		dd{text-indent: 2em;}
+		dd a:hover{text-decoration: none;background: #3569a9;color: #fff;}
+		.tip{border-radius: 50%;font-weight: normal;padding: 0 .6em;}
+		@-webkit-keyframes loading{
+			50%{transform:scale(1,1) rotate(360deg);opacity: 0.2;}
+			100%{transform:scale(1,1) rotate(360deg);opacity: 1;}
+		}
+		@keyframes loading{
+			50%{transform:scale(1,1) rotate(360deg);opacity: 0.2;}
+			100%{transform:scale(1,1) rotate(360deg);opacity: 1;}
+		}
+	</style>
+	<script type="text/javascript">
+
+	</script>
+</head>
+<body>
+	<div class="page-header" style="background:#333;color:#fff;margin-top:0;padding:10px 40px;">
+	  <h1>js语法速查表(测试版) <small>----作者：商航(非本人同意，勿转载Q：78075021)</small></h1>
+	</div>
+	<div class="row" style="margin:0">
+	  <!-- 一列 -->
+	  <div class="col-md-2 pleft20">
+	  	<!-- 选择器 -->
+	  	<div class="label label-default" style="display:block">选择器</div>
+		<dl>
+		   <dt>基本选择器</dt>
+		   <dd><a href="core/selector/basic.html" target="_blank">getElementById</a></dd>
+		   <dd><a href="core/selector/basic.html" target="_blank">getElementsByTagName</a></dd>
+		   <dd><a href="core/selector/basic.html" target="_blank">getElementsByName</a></dd>
+		   <dt>高级选择器</dt>
+		   <dd><a href="core/selector/advanced.html" target="_blank">getElementsByClassName <span class="label label-danger tip">H5</span></a></dd>
+		   <dd><a href="core/selector/advanced.html" target="_blank">querySelectorAll <span class="label label-danger tip">H5</span></a></dd>
+		   <dd><a href="core/selector/advanced.html" target="_blank">querySelector <span class="label label-danger tip">H5</span></a></dd>
+		</dl>
+		<!-- 属性 -->
+	  	<div class="label label-success" style="display:block">属性</div>
+		<dl>
+		   <dt>属性的绑定</dt>
+		   <dd><a href="core/attribute/attribute.html" target="_blank">Attribute</a></dd>
+		</dl>
+		<!-- 样式 -->
+	  	<div class="label label-info" style="display:block">样式</div>
+		<dl>
+		   <dt>获取样式</dt>
+		   <dd><a href="core/css/currentStyle.html" target="_blank">currentStyle <span class="label label-danger tip">IE</span></a></dd>
+		   <dd><a href="core/css/getComputedStyle.html" target="_blank">getComputedStyle <span class="label label-danger">chrome FF IE9+</span></a></dd>
+		   <dd><a href="core/css/cssText.html" target="_blank">cssText </a></dd>
+		   <dt>属性</dt>
+		   <dd><a href="#">className  <span class="label label-default tip">略</span></a></dd>
+		   <dt>位置与尺寸</dt>
+		   <dd><a href="core/css/offset.html" target="_blank">offset</a></dd>
+		   <dd><a href="core/css/scroll.html" target="_blank">scroll</a></dd>
+		   <dd><a href="core/css/client.html" target="_blank">client</a></dd>
+		   <dd><a href="core/css/getBoundingClientRect.html" target="_blank">getBoundingClientRect()</a></dd>
+		</dl>
+	  </div>
+
+	  <!-- 二列 -->
+	  <div class="col-md-2">
+		<!-- 类型 -->
+	  	<div class="label label-success" style="display:block">类型</div>
+		<dl>
+		   <dt>基本类型</dt>
+		   <dd><a >number <span class="label label-default tip">略</span></a></dd>
+		   <dd><a >string <span class="label label-default tip">略</span></a></dd>
+		   <dd><a >boolean <span class="label label-default tip">略</span></a></dd>
+		   <dd><a >function <span class="label label-default tip">略</span></a></dd>
+		   <dd><a >object <span class="label label-default tip">略</span></a></dd>
+		   <dd><a >undefined <span class="label label-default tip">略</span></a></dd>
+		   <dt>类型判断</dt>
+		   <dd><a href="core/types/typeof.html" target="_blank">typeof</a></dd>
+		   <dd><a href="core/types/isNaN.html" target="_blank">isNaN([val])</a></dd>
+		   <dd><a href="core/types/instanceof.html" target="_blank">instanceof</a></dd>
+		   <dd><a href="core/types/constructor.html" target="_blank">constructor</a></dd>
+		   <dt>包含</dt>
+		   <dd><a href="core/types/contains.html" target="_blank">contains</a></dd>
+		   <dt>类型转换</dt>
+		   <dd><a href="core/types/parseInt.html" target="_blank">parseInt([val])</a></dd>
+		   <dd><a href="core/types/parseFloat.html" target="_blank">parseFloat([val])</a></dd>
+		   <dd><a href="core/object/Number.html" target="_blank">Number([val])</a></dd>
+		   <dd><a href="core/object/String.html" target="_blank">String([val])</a></dd>
+		   <dd><a href="core/types/toBoolean.html" target="_blank">!　　</a></dd>
+		</dl>
+		<!-- 筛选 -->
+	  	<div class="label label-primary" style="display:block">筛选</div>
+		<dl>
+		   <dt>查找</dt>
+		   <dd><a href="core/domfilter/children.html" target="_blank">子节点</a></dd>
+		   <dd><a href="core/domfilter/parent.html" target="_blank">父节点</a></dd>
+		   <dd><a href="core/domfilter/next.html" target="_blank">下一个兄弟节点</a></dd>
+		   <dd><a href="core/domfilter/prev.html" target="_blank">上一个兄弟节点</a></dd>
+		   <dd><a href="core/domfilter/firstChild.html" target="_blank">获取第一个子节点</a></dd>
+		   <dd><a href="core/domfilter/lastChild.html" target="_blank">获取最后一个子节点</a></dd>
+		</dl>
+	  </div>
+	  <!-- 三列 -->
+	  <div class="col-md-2">
+	  	<!-- 系统内置对象 -->
+	  	<div class="label label-info" style="display:block">系统内置对象</div>
+		<dl>
+		   <dt>DOM</dt>
+		   <dd><a href="core/object/window.html" target="_blank">window</a></dd>
+		   <dd><a href="core/object/document.html" target="_blank">document</a></dd>
+		   <dt>系统对象</dt>
+		   <dd><a href="core/object/Date.html" target="_blank">Date</a></dd>
+		   <dd><a href="core/object/Array.html" target="_blank">Array</a></dd>
+		   <dd><a href="core/object/Math.html" target="_blank">Math</a></dd>
+		   <dd><a href="core/object/Image.html" target="_blank">Image</a></dd>
+		   <dd><a href="core/object/String.html" target="_blank">String </a></dd>
+		   <dd><a href="core/object/Option.html" target="_blank">Option</a></dd>
+		   <dd><a href="core/object/JSON.html" target="_blank">JSON</a></dd>
+		   <dd><a href="core/object/RegExp.html" target="_blank">RegExp</a></dd>
+		   <dd><a href="core/object/Number.html" target="_blank">Number</a></dd>
+		   <dt>事件对象</dt>
+		   <dd><a href="core/object/event.html" target="_blank">event</a></dd>
+		</dl>
+		<!-- 函数 -->
+	  	<div class="label label-danger" style="display:block">函数</div>
+		<dl>
+		   <dt>Function</dt>
+		   <dd><a href="core/function/arguments.html" target="_blank">arguments</a></dd>
+		   <dd><a href="core/function/OO.html" target="_blank">作用域块</a></dd>
+		   <dd><a href="core/function/OO.html" target="_blank">闭包</a></dd>
+		   <dd><a href="core/function/return.html" target="_blank">返回值（return）</a></dd>
+		   <dt>定时器</dt>
+		   <dd><a>setInterval(fn,time) <span class="label label-default tip">略</span></a></dd>
+		   <dd><a>setTimeout(fn,time) <span class="label label-default tip">略</span></a></dd>
+		   <dd><a>clearInterval(timer) <span class="label label-default tip">略</span></a></dd>
+		   <dd><a>clearTimeout(timer) <span class="label label-default tip">略</span></a></dd>
+		   <dt>其它</dt>
+		   <dd><a href="core/function/call.html" target="_blank">call()与apply()</a></dd>
+		   <dd><a>encodeURIComponent() <span class="label label-default tip">略</span></a></dd>
+		   <dd><a>decodeURIComponent() <span class="label label-default tip">略</span></a></dd>
+		   <dd><a title="with(公用代码){..}禁用  乱  干扰作用域/-严格模式下失效-/">with <span class="label label-default tip">略*</span><span class="label label-danger tip">禁用</span></a></dd>
+		</dl>
+	  </div>
+
+	  <!-- 四列 -->
+	  <div class="col-md-2">
+	  	<!-- 事件 -->
+	  	<div class="label label-warning" style="display:block">事件</div>
+		<dl>
+			<dt>页面加载</dt>
+		    <dd><a>window.onload <span class="label label-default tip">略</span></a></dd>
+		    <dd><a href="core/event/onreadystatechange.html" target="_blank">onreadystatechange</a></dd>
+		    <dd><a href="core/event/DOMContentLoaded.html" target="_blank">DOMContentLoaded <span class="label label-danger">IE9+ chrome FF</span></a></dd>
+		    <dt>事件处理</dt>
+		    <dd><a href="core/event/eventListener.html" target="_blank">事件绑定</a></dd>
+		    <dd><a href="core/event/bubble.html" target="_blank">事件冒泡</a></dd>
+		    <dd><a href="core/event/useCapture.html" target="_blank">事件捕获 <span class="label label-danger tip">非IE</span></a></dd>
+		    <dd><a href="core/event/capture.html" target="_blank">鼠标捕获 <span class="label label-danger tip">IE</span></a></dd>
+		    <dd><a href="core/event/returnFalse.html" target="_blank">默认事件</a></dd>
+		    </a></dd>
+		    <dd><a href="core/event/entrust.html" target="_blank">事件委托</a></dd>
+		    <dt>事件</dt>
+		    <dd><a >onclick <span class="label label-default tip">略</span></a></dd>
+		    <dd><a >ondblclick <span class="label label-default tip">略</span></a></dd>
+		    <dd><a href="core/event/onchange.html" target="_blank">onchange</a></dd>
+		    <dd><a href="core/event/onscroll.html" target="_blank">onscroll</a></dd>
+		    <dd><a >onfocus <span class="label label-default tip">略</span></a></dd>
+		    <dd><a >onblur <span class="label label-default tip">略</span></a></dd>
+		    <dd><a href="core/event/oninput.html" target="_blank">onpropertychange <span class="label label-danger tip">IE</span></a></dd>
+		    <dd><a href="core/event/oninput.html" target="_blank">oninput <span class="label label-danger">IE10 chrome FF</span></a></dd>
+		    <dd><a >onsubmit <span class="label label-default tip">略</span></a></dd>
+		    <dd><a >onreset <span class="label label-default tip">略</span></a></dd>
+		    <dt>鼠标事件</dt>
+		    <dd><a title="大小发生变化的时候触发">onresize <span class="label label-default tip">略</span></a></dd>
+		    <dd><a href="core/event/onmouseover.html" target="_blank">onmouseover</a></dd>
+		    <dd><a href="core/event/onmouseout.html" target="_blank">onmouseout</a></dd>
+		    <dd><a >onmousedown <span class="label label-default tip">略</span></a></dd>
+		    <dd><a >onmouseup <span class="label label-default tip">略</span></a></dd>
+		    <dd><a >onmousemove <span class="label label-default tip">略</span></a></dd>
+		    <dd><a >oncontextmenu <span class="label label-default tip">略</span></a></dd>
+		    <dd><a href="core/event/onmousewheel.html" target="_blank">onmousewheel <span class="label label-danger">IE chrome</span></a></dd>
+		    <dd><a href="core/event/onmousewheel.html" target="_blank">DOMMouseScroll<span class="label label-danger">FF</span></a></dd>
+		    <dt>键盘事件</dt>
+		    <dd><a href="core/event/onkeydown.html" target="_blank">onkeydown</a></dd>
+		    <dd><a>onkeyup <span class="label label-default tip">略</span></a></dd>
+		    <dt>触摸事件</dt>
+		    <dd><a href="core/event/-touch.html" target="_blank">touch <span class="label label-danger tip">phone</span></a></dd>
+		</dl>
+	  </div>
+
+	  <!-- 五列 -->
+	  <div class="col-md-2">
+	  	<!-- dom操作 -->
+	  	<div class="label label-danger" style="display:block">dom操作</div>
+		<dl>
+			<dt>插入</dt>
+		    <dd><a href="core/dom/appendChild.html" target="_blank">appendChild([object])</a></dd>
+		    <dd><a href="core/dom/insertBefore.html" target="_blank">insertBefore([object],[object])</a></dd>
+		    <dt>删除</dt>
+		    <dd><a href="core/dom/removeChild.html" target="_blank">removeChild([object])</a></dd>
+		    <dt>克隆</dt>
+		    <dd><a href="core/dom/cloneNode.html" target="_blank">cloneNode([boolean])</a></dd>
+		    <dt>dom属性</dt>
+		    <dd><a href="core/dom/domAttribute.html" target="_blank">dom属性</a></dd>
+		</dl>
+		<!-- 交互 -->
+	  	<div class="label label-default" style="display:block">交互</div>
+		<dl>
+		   <dt>交互</dt>
+		   <dd><a href="core/communicate/ajax.html" target="_blank">ajax</a></dd>
+		   <dd><a href="core/communicate/jsonp.html" target="_blank">jsonp</a></dd>
+		   <dd><a href="core/communicate/cookie.html" target="_blank">cookie</a></dd>
+		</dl>
+		<!-- 编程思想 -->
+	  	<div class="label label-warning" style="display:block">编程思想</div>
+		<dl>
+		   <dt>面向对象</dt>
+		   <dd><a href="core/programming/OO.html" target="_blank">面向对象</a></dd>
+		   <dd><a href="core/programming/xxx.html" target="_blank">工厂模式</a></dd>
+		   <dt>this</dt>
+		   <dd><a href="core/programming/this.html" target="_blank">this的学问</a></dd>
+		</dl>
+	  	<!-- 其它 -->
+	  	<div class="label label-success" style="display:block">其它</div>
+		<dl>
+		   <dt>表达式</dt>
+		   <dd><a href="core/other/RegExp.html" target="_blank">正则</a></dd>
+		   <dd><a href="core/other/bitComputing.html" target="_blank">位运算</a></dd>
+		   <dd><a title="逗号运算符看最右面，跟括号配合">逗号运算符 <span class="label label-default tip">略*</span></a></dd>
+		   <dt>反射</dt>
+		   <dd><a href="core/other/reflex.html" target="_blank">反射</a></dd>
+		   <dt>其它</dt>
+		   <dd><a href="core/other/resolve.html" target="_blank">预解析</a></dd>
+		   <dd><a href="core/other/text.html" target="_blank">文本选择处理</a></dd>
+		   <dd><a href="core/other/strict.html" target="_blank">严格模式</a></dd>
+		   <dd><a title="css中的js">expression <span class="label label-default tip">略*</span></a></dd>
+		   <dd><a >编辑器组件：CK <span class="label label-default tip">略</span></a></dd>
+		</dl>
+	  </div>
+	</div>
+	<div class="page-header" style="background:#333;color:#fff;margin:0;padding:10px 40px;">
+	  <h6 style="text-align:center;">Copyright © <small>shanghang    2015 - 2018    All rights reserved.</small></h6>
+	</div>
+</body>
+</html>

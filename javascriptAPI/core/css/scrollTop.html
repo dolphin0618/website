@@ -1,0 +1,101 @@
+﻿<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>scrollTop by航</title>
+	<!-- 新 Bootstrap 核心 CSS 文件 -->
+	<link rel="stylesheet" href="../../css/bootstrap.min.css">
+	<style>
+		body{margin: 0;padding: 0;font-family: 'Microsoft yahei';}
+		.ol{background: #333;}.ol li a{color: #fff;}
+		pre{margin: 10px;padding: 10px;border: 1px dashed #3569a9;display: block;white-space: pre-wrap;white-space: -moz-pre-wrap;white-space: -pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;}
+		code{font-family: monospace,monospace;font-size: 1em;}
+		p{text-indent: 2em;}
+	</style>
+	<script type="text/javascript">
+
+	</script>
+</head>
+<body>
+	<!--头部-->
+	<ol class="breadcrumb ol">
+	  <li><a href="../../index.html">首页</a></li>
+	  <li class="active">样式</li>
+	  <li class="active">位置</li>
+	</ol>
+	<div class="page-header" style="padding-left:20px;">
+  		<h1>scrollTop <small>返回值: &lt;String&gt;</small></h1>
+	</div>
+	<!--内容-->
+		<!--描述-->
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+	        <h3 class="panel-title">描述</h3>
+	      </div>
+	      <div class="panel-body">
+	      	元素中内容 的高度会超过 元素本身 的高度, scrollTop指的是 元素中的内容 超出 元素上边界 的那部分的高度。也就是滚动过的距离。scrollTop是可读写属性。
+	      </div>
+		</div>
+		<!--参数-->
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+	        <h3 class="panel-title">兼容性</h3>
+	      </div>
+	      <div class="panel-body">
+	        <table class="table table-hover">
+		      <thead>
+		        <tr>
+		          <th>获取整个页面最外层滚动条的scrollTop</th>
+		          <th>兼容情况</th>
+		        </tr>
+		      </thead>
+		      <tbody>
+		        <tr>
+		          <td>document.body.scrollTop</td>
+		          <td>兼容 chrome</td>
+		        </tr>
+		        <tr>
+		          <td>document.documentElement.scrollTop</td>
+		          <td>兼容 IE系 FF</td>
+		        </tr>
+		      </tbody>
+		    </table>
+	      </div>
+		</div>
+		<!--示例-->
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+	        <h3 class="panel-title">示例</h3>
+	      </div>
+	      <div class="panel-body">
+	        <div class="panel panel-info">
+			  <div class="panel-heading">
+		        <h3 class="panel-title">描述</h3>
+		      </div>
+		      <div class="panel-body">
+		      	<h5>js代码</h5>
+		        <pre><code>//获取
+Element.scrollTop;
+//设置
+Element.scrollTop = 0;</code></pre>
+		        <p>获取最外层滚动条的scrollTop兼容处理</p>
+		        <h5>js代码</h5>
+		        <pre><code>var scrollT=document.documentElement.scrollTop || document.body.scrollTop;</code></pre>
+		      </div>
+			</div>
+	      </div>
+		</div>
+		
+	<!--翻页-->
+	<nav>
+	  <ul class="pager">
+	    <li class="previous"><a href="#">&larr; 上一篇:jQuery.noConflict([ex])</a></li>
+	    <li class="next"><a href="#">下一篇:element &rarr;</a></li>
+	  </ul>
+	</nav>
+
+	<div class="page-header" style="background:#333;color:#fff;margin:0;padding:10px 40px;">
+	  <h6 style="text-align:center;">Copyright © <small>shanghang    2015 - 2018    All rights reserved.</small></h6>
+	</div>
+</body>
+</html>

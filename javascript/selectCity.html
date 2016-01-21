@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<style type="text/css">
+	    body{font-size: 12px;font-family: "微软雅黑";}
+		li {list-style: none;}
+		a{text-decoration: none;}
+		.select{width: 200px;height:30px;position: relative;float: left;margin-left: 20px;}
+		.text{width: 190px; height: 30px; position: absolute;left: 0;top: 0;border: 1px solid #CCC;line-height: 30px;padding-left: 10px;cursor: pointer;color: #676c5d;}
+		.text:hover{border: 1px solid #AAA;color: #FF6600;}
+		span{width: 3px;height: 3px;background: #676c5d;display: block;position: absolute;}
+		.s .s_l{left: 180px;top: 14px;}.s2 .s_l{left: 180px;top: 14px;}
+		.s .s_s{left: 183px;top: 17px;}.s2 .s_s{left: 183px;top: 17px;}
+		.s .s_r{left: 186px;top: 14px;}.s2 .s_r{left: 186px;top: 14px;}
+
+		ul{padding: 0;margin:0;position: absolute;left: 0;top: 30px;list-style: none;border: 1px solid #CCC;border-top: none;display: none;}
+		li a{width: 190px;height: 30px;line-height: 30px;display: block;padding-left: 10px;color: #676c5d;}
+		ul a:hover{background: #EEE;color: #FF6600;}
+
+
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var s1 = ["延边朝鲜族自治州","长春","吉林"];
+			var s2 = ["哈尔滨","牡丹江","佳木斯"];
+			var s3 = ["沈阳","大连","旅顺"];
+			var arr = [s1, s2, s3];
+
+			var oUl1 = document.getElementById('ul_1');
+			var oUl2 = document.getElementById('ul_2')
+			var as1 = oUl1.getElementsByTagName('a');
+			var as2 = oUl2.getElementsByTagName('a');
+			var txt1 = document.getElementById('txt_1');
+			var txt2 = document.getElementById('txt_2');
+			for(var i=0; i<as1.length; i++){
+				as1[i].index = i;
+				//第一个下拉点击事件
+				as1[i].onclick = function(){
+					//更新input值
+					txt1.innerHTML = this.innerHTML;
+					var values = arr[this.index];
+					txt2.innerHTML = values[0];
+					//更新第二个下拉值
+					for(var j=0; j<as2.length;j++){
+						as2[j].innerHTML=values[j];
+					}
+					//隐藏ul
+					oUl1.style.display=oUl2.style.display='none';
+				}
+				//第二个下拉点击事件
+				as2[i].onclick = function(){
+					txt2.innerHTML=this.innerHTML;
+					oUl1.style.display=oUl2.style.display='none';
+				}
+			}
+			//点击input隐藏ul
+			txt1.onclick = txt2.onclick = function(){
+				getNextElement(this).style.display=getNextElement(this).style.display=='block'?'none':'block';
+			}
+
+		}
+
+		//获取下一个兄弟节点兼容代码
+		function getNextElement(node){ 
+			if(node.nextSibling.nodeType == 1){ 
+				return node.nextSibling; 
+			} 
+			if(node.nextSibling){ 
+				return node.nextSibling.nextSibling; 
+			} 
+				return null; 
+		} 
+
+
+	</script>
+</head>
+<body>
+	<div class="select">
+		<div id="txt_1" class="text">吉林</div>
+		<ul id="ul_1">
+			<li><a href="#">吉林</a></li>
+			<li><a href="#">黑龙江</a></li>
+			<li><a href="#">辽宁</a></li>
+		</ul>
+		<div class="s">
+			<span class="s_l"></span>
+			<span class="s_s"></span>
+			<span class="s_r"></span>
+		</div>
+	</div>
+	<div class="select">
+		<div id="txt_2" class="text">延边朝鲜族自治州</div>
+		<ul id="ul_2">
+			<li><a href="#">延边朝鲜族自治州</a></li>
+			<li><a href="#">长春</a></li>
+			<li><a href="#">吉林</a></li>
+		</ul>
+		<div class="s2">
+			<span class="s_l"></span>
+			<span class="s_s"></span>
+			<span class="s_r"></span>
+		</div>
+	</div>
+</body>
+</html>
+

@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>航的时钟</title>
+<style>
+body{margin:0;padding: 0;}
+	canvas{background: #fff;position: absolute;margin-left: 50%;left: -200px;top:50px;}/*css设置宽高时会等比例放大缩小*/
+</style>
+<script>
+	window.onload=function(){
+		var canvas = document.getElementsByTagName('canvas')[0];
+		var cObj = canvas.getContext('2d');
+
+
+		clock();
+		setInterval(clock,1000);
+
+		function clock(){
+			cObj.clearRect(0,0,400,400);//清空画布
+			cObj.beginPath();
+
+			//原点坐标
+			var pointX = 200;
+			var pointY = 200;
+			//半径
+			var r = 180;
+
+			drawDial();
+			drawGraduation();
+			//时针
+			var date = new Date();
+			var s = date.getSeconds()*6-90;
+			var m = date.getMinutes()*6-90;
+			var h = date.getHours()*30-90+(m+90)/12;
+			drawPointer(100, h);
+			drawPointer(140, m);
+			drawPointer(150, s, 'red');
+
+			//表盘
+			function drawDial(){
+				cObj.shadowOffsetX=9;
+				cObj.shadowOffsetY=9;
+				cObj.shadowBlur=5;
+				cObj.shadowColor='#999';
+
+				cObj.strokeStyle='#333';
+				cObj.lineWidth=2;
+
+				var colorObj = cObj.createRadialGradient(pointX,pointY,1,pointX,pointY,180);//圆形渐变(50,50,10圆大小50半径10,50,50,50圆大小50半径50)
+				//渐变阶段
+				colorObj.addColorStop(0,"rgb(92, 156, 252)");
+				colorObj.addColorStop(1,"#FFF");
+				cObj.fillStyle=colorObj;
+				
+				cObj.arc(pointX,pointY,r,0,2*Math.PI,true);
+				cObj.stroke();
+				cObj.fill();
+			}
+
+			//刻度
+			function drawGraduation(){
+				cObj.shadowOffsetX=0;
+				cObj.shadowOffsetY=0;
+				cObj.strokeStyle='#444';
+
+				for (var i = 0; i < 60; i++) {
+					var radian = i*6*Math.PI/180;
+					var size = r-10;
+
+					cObj.lineWidth=2;
+					if(i%5 == 0){
+						size = r-20;
+						cObj.lineWidth=5;
+					}
+					cObj.beginPath();
+					cObj.moveTo(pointX+r*Math.cos(radian),pointY+r*Math.sin(radian));
+					cObj.lineTo(pointX+(size)*Math.cos(radian),pointY+(size)*Math.sin(radian));
+					cObj.stroke();
+				};
+
+				//圈
+				cObj.beginPath();
+				cObj.arc(pointX,pointY,r,0,2*Math.PI,true);
+				cObj.lineWidth=10;
+				cObj.stroke();
+			}
+			
+
+			//指针
+			function drawPointer(length, angle, color){
+				cObj.shadowOffsetX=5;
+				cObj.shadowOffsetY=7;
+				cObj.shadowBlur=3;
+				cObj.shadowColor='#333';
+
+				cObj.strokeStyle='#000';
+				cObj.lineWidth=10;
+				cObj.beginPath();
+				if(color){
+					cObj.lineWidth=5;
+					cObj.strokeStyle=color;
+					//中心点
+					cObj.arc(pointX,pointY,3,0,2*Math.PI,true);
+				};
+				cObj.moveTo(pointX, pointY);
+				cObj.lineTo(pointX+length*Math.cos(angle*Math.PI/180), pointY+length*Math.sin(angle*Math.PI/180));
+				cObj.stroke();
+			}
+			cObj.closePath();
+		}
+	}
+</script>
+
+</head>
+<body>
+	<canvas width="400" height="400" id="canvas"> </canvas>
+</body>
+</html>

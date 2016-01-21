@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>reflex by航</title>
+	<!-- 新 Bootstrap 核心 CSS 文件 -->
+	<link rel="stylesheet" href="../../css/bootstrap.min.css">
+	<style>
+		body{margin: 0;padding: 0;font-family: 'Microsoft yahei';}
+		.ol{background: #333;}.ol li a{color: #fff;}
+		pre{margin: 10px;padding: 10px;border: 1px dashed #3569a9;display: block;white-space: pre-wrap;white-space: -moz-pre-wrap;white-space: -pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;}
+		code{font-family: monospace,monospace;font-size: 1em;}
+		p{text-indent: 2em;}
+	</style>
+	<script type="text/javascript">
+
+	</script>
+</head>
+<body>
+	<!--头部-->
+	<ol class="breadcrumb ol">
+	  <li><a href="../../index.html">首页</a></li>
+	  <li class="active">其它</li>
+	  <li class="active">其它</li>
+	</ol>
+	<div class="page-header" style="padding-left:20px;">
+  		<h1>预解析 <small></small></h1>
+	</div>
+	<!--内容-->
+		<!--描述-->
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+	        <h3 class="panel-title">描述</h3>
+	      </div>
+	      <div class="panel-body">
+	        <p>把变量(函数定义)的声明提前，赋值还在原地</P>
+	        <p>预解析作用范围：1. 冲不出script  2. 函数内部</P>
+	      </div>
+		</div>
+		<!--示例-->
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+	        <h3 class="panel-title">示例</h3>
+	      </div>
+	      <div class="panel-body">
+	        <div class="panel panel-info">
+			  <div class="panel-heading">
+		        <h3 class="panel-title">描述</h3>
+		      </div>
+		      <div class="panel-body">
+		        <p>样例。</p>
+		        <h5>函数和变量的预解析：</h5>
+		        <pre><code>//js是在调用函数之前就将函数放入内存中
+show();  //hellow
+function show(){
+  alert("hellow");
+}
+
+//变量的声明也在一开始就被放入内存中，但是并没有赋值
+alert(a);//undefined
+var a="hellow";</code></pre>
+		        <h5>变量和函数重名：</h5>
+		        <pre><code>//重名时，函数名优先级高于变量名
+alert(a); //function(){ return  "function"}  
+function a(){ return "function" }
+var a="var";</code></pre>
+		        <h5>预解析不会跨script去解析：</h5>
+		        <pre><code>&lt;script type="text/javascript"&gt;
+alert(a);//报错
+&lt;/script&gt;
+
+&lt;script type="text/javascript"&gt;
+var a=123;
+&lt;/script&gt;</code></pre>
+		      </div>
+			</div>
+	      </div>
+		</div>
+		
+	<!--翻页-->
+	<nav>
+	  <ul class="pager">
+	    <li class="previous"><a href="../other/reflex.html">&larr; 上一篇:反射</a></li>
+	    <li class="next"><a href="../other/text.html">下一篇:文本选择处理 &rarr;</a></li>
+	  </ul>
+	</nav>
+
+	<div class="page-header" style="background:#333;color:#fff;margin:0;padding:10px 40px;">
+	  <h6 style="text-align:center;">Copyright © <small>shanghang    2015 - 2018    All rights reserved.</small></h6>
+	</div>
+</body>
+</html>

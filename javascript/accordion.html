@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+		<style type="text/css">
+			body{margin: 0;padding: 0;background: #000;}
+			.con{width:963px;height: 550px;background: #fff;margin:20px auto;}
+			.item{width: 240px;height: 550px;float: left;border-right: 1px solid #ccc;}
+			.bg1{background: url(img/1.jpg) no-repeat;}
+			.bg2{background: url(img/2.jpg) no-repeat;}
+			.bg3{background: url(img/3.jpg) no-repeat;}
+			.bg4{background: url(img/4.jpg) no-repeat;}
+		</style>
+		<script type="text/javascript" src="js/move.js"></script>
+		<script>
+			window.onload=function(){
+				var _index = 1;
+				var oItems = document.getElementById('con').getElementsByTagName('div');
+				for (var i = 0; i < oItems.length; i++) {
+					oItems[i].index=i;
+					oItems[i].onmouseover=function(){
+						if(this.index+1 == _index)return;
+						change(this.index+1);
+					}
+				};
+
+				function change(index){
+					var con = document.getElementById('con');
+					var arr = [0,-240,-480,-720];
+					for (var i = 0; i < oItems.length; i++) {
+						oItems[i].className='item bg'+index;
+						oItems[i].style['backgroundPositionX'] = index > _index?-960+'px':240+'px';
+					};
+					if(index > _index){//向右
+						startMove(oItems[3],{'backgroundPositionX':arr[3]},{'duration':200});
+						startMove(oItems[2],{'backgroundPositionX':arr[2]},{'duration':300});
+						startMove(oItems[1],{'backgroundPositionX':arr[1]},{'duration':400});
+						startMove(oItems[0],{'backgroundPositionX':arr[0]},{'duration':500,'complete':function(){
+							con.className='con bg'+index;
+						}});
+					}else{//向左
+						startMove(oItems[0],{'backgroundPositionX':arr[0]},{'duration':200});
+						startMove(oItems[1],{'backgroundPositionX':arr[1]},{'duration':300});
+						startMove(oItems[2],{'backgroundPositionX':arr[2]},{'duration':400});
+						startMove(oItems[3],{'backgroundPositionX':arr[3]},{'duration':500,'complete':function(){
+							con.className='con bg'+index;
+						}});
+					}
+					_index = index;
+				}
+			}
+		</script>
+</head>
+
+<body>
+<div class="con bg1" id="con">
+	<div class="item bg1" style="background-position: 0 0;"></div>
+	<div class="item bg1" style="background-position: -240px 0;"></div>
+	<div class="item bg1" style="background-position: -480px 0;"></div>
+	<div class="item bg1" style="border-right:none;background-position: -720px 0;"></div>
+</div>
+</body>
+</html>

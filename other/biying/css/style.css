@@ -1,0 +1,40 @@
+/*
+	autor:sh
+*/
+body{width: 100%;height: 100%;margin:0 auto;background:#333333; font-family: "Segoe UI",Segoe,Tahoma,Arial,Verdana,sans-serif;font-size: small;}
+.hp_vid{min-height: 620px;min-width: 1080px;position:relative;width: 100%;height: 100%;background-repeat:no-repeat;background-size:cover;}
+.menu{width: 100%;height: 35px;position:relative;background:#333333;overflow:hidden;}
+.menu ul{position: absolute;right:40px;margin:0;}
+.menu ul li{display: inline;height: 32px;line-height: 32px;color:#666666;}
+.menu a{color: #999999; margin:0 10px;}
+.menu a:visited{text-decoration:none;}
+/*小方块*/
+.sh_hst{position:absolute;filter:alpha(opacity:0);opacity: 0; visibility: visible;z-index: 4;}
+.sh_hto{width: 39px;height: 39px;filter:alpha(opacity:40);opacity:0.4;padding:1px;background: #000000;}
+.hp_hot{width: 37px;height: 37px;border:1px solid #fff;}
+/*小方块介绍*/
+.sh_cotent{position: absolute;filter:alpha(opacity:0);opacity: 0;z-index: 4;display: none;}
+.sh_bx{width: 205px;padding: 1px;background:#000;filter:alpha(opacity:60);opacity:0.6;}
+.sh_cb{width: 188px;border: 1px solid #fff;padding: 3px 7px 6px;}
+.sh_cb p{margin: 0 0 0.2em;color:#fff;line-height: 1.4em;}
+.sh_hq{color: #FFFFFF;line-height: 1.4em;}
+.sh_hf{color: #FFA500;display: inline;font-size: medium;line-height: 1.4em;}
+
+.sh_bottom{width:100%;position: absolute;bottom: 0;overflow:hidden;}
+.sh_page{height: 65px;position: relative;}
+.sh_page_r{position: absolute;top:15px;right:40px;}
+.sh_page_r a{float:left;display:block;}
+.sh_page_item{width: 32px;height:32px;margin: 0 5px;background: url("hpc12.png") no-repeat;overflow: hidden;}
+
+.hpcFull {background-position: -32px -53px;}
+.hpcPrevious {background-position: -192px -53px;}
+.hpcNext {background-position: -160px -53px;}
+.hpcCopyInfo {background-position: -64px -85px;}
+.hpcDown {background-position: 0 -53px;}
+.hpcSmall {background-position: -64px -53px;}
+
+.sh_about{height: 35px;background: #333333;position: relative;}
+.sh_about ul{position: absolute;right:20px;margin:0;}
+.sh_about ul li{display:inline;height:32px;line-height: 32px;color:#666666;}
+.sh_about a{color:#888;}
+.sh_about a:visited{color:#888;text-decoration:none;}

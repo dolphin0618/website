@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>js语法速查表 by航</title>
+	<!-- 新 Bootstrap 核心 CSS 文件 -->
+	<link rel="stylesheet" href="../../css/bootstrap.min.css">
+	<style>
+		body{margin: 0;padding: 0;font-family: 'Microsoft yahei';}
+		.ol{background: #333;}.ol li a{color: #fff;}
+		pre{margin: 10px;padding: 10px;border: 1px dashed #3569a9;display: block;white-space: pre-wrap;white-space: -moz-pre-wrap;white-space: -pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;}
+		code{font-family: monospace,monospace;font-size: 1em;}
+		p{text-indent: 2em;}
+	</style>
+	<script type="text/javascript">
+
+	</script>
+</head>
+<body>
+	<!--头部-->
+	<ol class="breadcrumb ol">
+	  <li><a href="../../index.html">首页</a></li>
+	  <li class="active">筛选</li>
+	  <li class="active">查找</li>
+	</ol>
+	<div class="page-header" style="padding-left:20px;">
+  		<h1>获取父元素 <small>dom</small></h1>
+	</div>
+	<!--内容-->
+		<!--列表-->
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+	        <h3 class="panel-title">方法</h3>
+	      </div>
+	      <div class="panel-body">
+	        <table class="table table-hover">
+		      <thead>
+		        <tr>
+		          <th>属性</th>
+		          <th>说明</th>
+		        </tr>
+		      </thead>
+		      <tbody>
+		      	<tr>
+		          <td>parentNode</td>
+		          <td>匹配的是父节点为node的情况(w3c)</td>
+		        </tr>
+		        <tr>
+		          <td>parentElement</td>
+		          <td>element是包含在node里的，它的nodeType是1</td>
+		        </tr>
+		        <tr>
+		          <td>offsetParent</td>
+		          <td><a href="../css/offset.html#parent">详细说明</a></td>
+		        </tr>
+		      </tbody>
+		    </table>
+	      </div>
+		</div>
+		<!--示例-->
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+	        <h3 class="panel-title">示例</h3>
+	      </div>
+	      <div class="panel-body">
+	        <div class="panel panel-info">
+			  <div class="panel-heading">
+		        <h3 class="panel-title">描述</h3>
+		      </div>
+		      <div class="panel-body">
+		        <h5>HTML代码：</h5>
+		        <pre><code>&lt;ul&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+				<h5>js代码：</h5>
+		        <pre><code>oLis[0].parentNode.tagName     //UL
+oLis[0].parentElement.tagName  //UL</code></pre>
+		      </div>
+			</div>
+	      </div>
+		</div>
+		
+	<!--翻页-->
+	<nav>
+	  <ul class="pager">
+	    <li class="previous"><a href="../domfilter/children.html">&larr; 上一篇:子节点</a></li>
+	    <li class="next"><a href="../domfilter/next.html">下一篇:下一个兄弟节点 &rarr;</a></li>
+	  </ul>
+	</nav>
+
+	<div class="page-header" style="background:#333;color:#fff;margin:0;padding:10px 40px;">
+	  <h6 style="text-align:center;">Copyright © <small>shanghang    2015 - 2018    All rights reserved.</small></h6>
+	</div>
+</body>
+</html>

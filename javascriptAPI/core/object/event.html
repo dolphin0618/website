@@ -1,0 +1,155 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>event by航</title>
+	<!-- 新 Bootstrap 核心 CSS 文件 -->
+	<link rel="stylesheet" href="../../css/bootstrap.min.css">
+	<style>
+		body{margin: 0;padding: 0;font-family: 'Microsoft yahei';}
+		.ol{background: #333;}.ol li a{color: #fff;}
+		pre{margin: 10px;padding: 10px;border: 1px dashed #3569a9;display: block;white-space: pre-wrap;white-space: -moz-pre-wrap;white-space: -pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;}
+		code{font-family: monospace,monospace;font-size: 1em;}
+		p{text-indent: 2em;}
+	</style>
+	<script type="text/javascript">
+
+	</script>
+</head>
+<body>
+	<!--头部-->
+	<ol class="breadcrumb ol">
+	  <li><a href="../../index.html">首页</a></li>
+	  <li class="active">系统内置对象</li>
+	  <li class="active">事件对象</li>
+	</ol>
+	<div class="page-header" style="padding-left:20px;">
+  		<h1>event <small></small></h1>
+	</div>
+	<!--内容-->
+		<!--描述-->
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+	        <h3 class="panel-title">描述</h3>
+	      </div>
+	      <div class="panel-body">
+	        <p>event   兼容IE系，chrome</p>
+	        <p>参数 ev  兼容FF、chrome、IE9+</p>
+	        <p>处理兼容：var oEvent=ev || event;</p>
+	      </div>
+		</div>
+		<!--参数-->
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+	        <h3 class="panel-title">参数</h3>
+	      </div>
+	      <div class="panel-body">
+	        <table class="table table-hover">
+		      <thead>
+		        <tr>
+		          <th>属性</th>
+		          <th>说明</th>
+		        </tr>
+		      </thead>
+		      <tbody>
+		        <tr>
+		          <td>clientX</td>
+		          <td>oEvent.clientX：获取当前事件鼠标位置的横向坐标</td>
+		        </tr>
+		        <tr>
+		          <td>clientY</td>
+		          <td>oEvent.clientY：获取当前事件鼠标位置的纵向坐标</td>
+		        </tr>
+		        <tr>
+		          <td>keyCode</td>
+		          <td>oEvent.keyCode：监听键盘事件按下的键码</td>
+		        </tr>
+		        <tr>
+		          <td>ctrlKey</td>
+		          <td>oEvent.ctrlKey：监听ctrl键</td>
+		        </tr>
+		        <tr>
+		          <td>shiftKey</td>
+		          <td>oEvent.shiftKey：监听shift键</td>
+		        </tr>
+		        <tr>
+		          <td>altKey</td>
+		          <td>oEvent.altKey:监听alt键</td>
+		        </tr>
+		        <tr>
+		          <td>wheelDelta</td>
+		          <td>oEvent.wheelDelta：滚动方向IE Chrome -120 下  详见滚轮事件</td>
+		        </tr>
+		        <tr>
+		          <td>detail</td>
+		          <td>oEvent.detail:滚动方向 FF 3 下 详见滚轮事件</td>
+		        </tr>
+		        <tr>
+		          <td>srcElement</td>
+		          <td>事件源 兼容IE系 chrome</td>
+		        </tr>
+		        <tr>
+		          <td>target</td>
+		          <td>事件源 兼容FF</td>
+		        </tr>
+		        <tr>
+		          <td>toElement</td>
+		          <td>去哪了 兼容IE系，chrome</td>
+		        </tr>
+		        <tr>
+		          <td>fromElement</td>
+		          <td>从哪里来？ 兼容IE系，chrome</td>
+		        </tr>
+		        <tr>
+		          <td>relatedTarget</td>
+		          <td>对于 mouseover 事件来说，该属性是鼠标指针移到目标节点上时所离开的那个节点。
+对于 mouseout 事件来说，该属性是离开目标时，鼠标指针进入的节点。（不兼容IE）</td>
+		        </tr>
+		        <tr>
+		          <td>preventDefault</td>
+		          <td>oEvent.preventDefault()阻止默认事件，绑定的事件return false无效 兼容IE9+ chrome FF</td>
+		        </tr>
+		        <tr>
+		          <td>stopPropagation</td>
+		          <td>oEvent.stopPropagation()阻止冒泡， 兼容IE9+ chrome FF</td>
+		        </tr>
+		      </tbody>
+		    </table>
+	      </div>
+		</div>
+		<!--示例-->
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+	        <h3 class="panel-title">示例</h3>
+	      </div>
+	      <div class="panel-body">
+	        <div class="panel panel-info">
+			  <div class="panel-heading">
+		        <h3 class="panel-title">描述</h3>
+		      </div>
+		      <div class="panel-body">
+		        <p>onmouseover的BUG问题。</p>
+		        <h5>js代码：</h5>
+		        <pre><code>oDiv.onmouseover=function(ev){
+	var oEvent=ev || event;
+	var from=oEvent.fromElement || oEvent.relatedTarget;
+	if(oDiv.contains(from))return;
+	alert('移入了');
+};</code></pre>
+		      </div>
+			</div>
+	      </div>
+		</div>
+	<!--翻页-->
+	<nav>
+	  <ul class="pager">
+	    <li class="previous"><a href="../object/Number.html">&larr; 上一篇:Number</a></li>
+	    <li class="next"><a href="../function/arguments.html">下一篇:arguments &rarr;</a></li>
+	  </ul>
+	</nav>
+
+	<div class="page-header" style="background:#333;color:#fff;margin:0;padding:10px 40px;">
+	  <h6 style="text-align:center;">Copyright © <small>shanghang    2015 - 2018    All rights reserved.</small></h6>
+	</div>
+</body>
+</html>

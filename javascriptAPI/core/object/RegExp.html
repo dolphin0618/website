@@ -1,0 +1,287 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>RegExp by航</title>
+	<!-- 新 Bootstrap 核心 CSS 文件 -->
+	<link rel="stylesheet" href="../../css/bootstrap.min.css">
+	<style>
+		body{margin: 0;padding: 0;font-family: 'Microsoft yahei';}
+		.ol{background: #333;}.ol li a{color: #fff;}
+		pre{margin: 10px;padding: 10px;border: 1px dashed #3569a9;display: block;white-space: pre-wrap;white-space: -moz-pre-wrap;white-space: -pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;}
+		code{font-family: monospace,monospace;font-size: 1em;}
+		p{text-indent: 2em;}
+	</style>
+	<script type="text/javascript">
+
+	</script>
+</head>
+<body>
+	<!--头部-->
+	<ol class="breadcrumb ol">
+	  <li><a href="../../index.html">首页</a></li>
+	  <li class="active">系统内置对象</li>
+	  <li class="active">系统对象</li>
+	</ol>
+	<div class="page-header" style="padding-left:20px;">
+  		<h1>正则 <small></small></h1>
+	</div>
+	<!--内容-->
+		<!--描述-->
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+	        <h3 class="panel-title">描述</h3>
+	      </div>
+	      <div class="panel-body">
+	        <p>一套筛选字符串的规则;</P>
+	        <p>var reg=new RegExp(...,选项);</P>
+	        <p>var reg=/.../选项;</P>
+	      </div>
+		</div>
+		<!--参数-->
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+	        <h3 class="panel-title">参数</h3>
+	      </div>
+	      <div class="panel-body">
+	        <table class="table table-hover">
+		      <thead>
+		        <tr>
+		          <th>支持正则的方法</th>
+		          <th>说明</th>
+		        </tr>
+		      </thead>
+		      <tbody>
+		        <tr>
+		          <td>reg.test(str)</td>
+		          <td>如果校验成功，返回的true，否则返回false，只要有一部分复合要求，就返回true</td>
+		        </tr>
+		        <tr>
+		          <td>str.replace(正则，谁);</td>
+		          <td>替换</td>
+		        </tr>
+		        <tr>
+		          <td>str.replace(正则,function(){})</td>
+		          <td>替换 见下例</td>
+		        </tr>
+		        <tr>
+		          <td>str.match()</td>
+		          <td></td>
+		        </tr>
+		        <tr>
+		          <td>str.search(正则)</td>
+		          <td></td>
+		        </tr>
+		      </tbody>
+		    </table>
+	      </div>
+		</div>
+		<!--列表-->
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+	        <h3 class="panel-title">列表</h3>
+	      </div>
+	      <div class="panel-body">
+	      	<table class="table table-hover">
+		      <thead>
+		        <tr>
+		          <th>修饰</th>
+		          <th>说明</th>
+		        </tr>
+		      </thead>
+		      <tbody>
+		        <tr>
+		          <td>^</td>
+		          <td>代表是整个字符串开头
+   跟m配合，认识字符串中换行</td>
+		        </tr>
+		        <tr>
+		          <td>$</td>
+		          <td>结尾</td>
+		        </tr>
+		      </tbody>
+		    </table>
+		    <table class="table table-hover">
+		      <thead>
+		        <tr>
+		          <th>表达式</th>
+		          <th>说明</th>
+		        </tr>
+		      </thead>
+		      <tbody>
+		        <tr>
+		          <td>[abc]</td>
+		          <td>任意一个   a|b|c</td>
+		        </tr>
+		        <tr>
+		          <td>[a-z]</td>
+		          <td>区间</td>
+		        </tr>
+		        <tr>
+		          <td>[^abc]</td>
+		          <td>排除</td>
+		        </tr>
+		        <tr>
+		          <td>.</td>
+		          <td>任意东西</td>
+		        </tr>
+		      </tbody>
+		    </table>
+	        <table class="table table-hover">
+		      <thead>
+		        <tr>
+		          <th>选项</th>
+		          <th>说明</th>
+		        </tr>
+		      </thead>
+		      <tbody>
+		        <tr>
+		          <td>i ignore</td>
+		          <td>忽略大小写</td>
+		        </tr>
+		        <tr>
+		          <td>g  global</td>
+		          <td>全局匹配</td>
+		        </tr>
+		        <tr>
+		          <td>m   multi-line</td>
+		          <td>多行</td>
+		        </tr>
+		      </tbody>
+		    </table>
+		    <table class="table table-hover">
+		      <thead>
+		        <tr>
+		          <th>量词</th>
+		          <th>说明(量词只管前面一个)</th>
+		        </tr>
+		      </thead>
+		      <tbody>
+		        <tr>
+		          <td>+</td>
+		          <td>最少1个，最多随便</td>
+		        </tr>
+		        <tr>
+		          <td>*</td>
+		          <td>可有可无，有了也不限 {0,}</td>
+		        </tr>
+		        <tr>
+		          <td>?</td>
+		          <td>可有可无  {0,1}</td>
+		        </tr>
+		        <tr>
+		        	<td></td>
+		        	<td>
+		        		<p>{n}   代表正好n个     /\d{2}/  /\d\d/</p>
+						<p>{n,m}  最少n个，最多m个  /\d{2,4}/   /\d{1,1000}/</p>
+						<p>{n,}   最少n个，最多不限  /\d{2,}/  /\d{1,}/  /\d{0,}/</p>
+						<p>{,m}   最少不限，最多m个  错的  ×</p>
+						<p>{0,m}</p>
+						<p>{0,1}</p>
+		        	</td>
+		        </tr>
+		      </tbody>
+		    </table>
+		    <table class="table table-hover">
+		      <thead>
+		        <tr>
+		          <th>转义</th>
+		          <th>说明</th>
+		        </tr>
+		      </thead>
+		      <tbody>
+		        <tr>
+		          <td>\d digital</td>
+		          <td>数字  [0-9]</td>
+		        </tr>
+		        <tr>
+		          <td>\w word</td>
+		          <td>单词  [a-z0-9_]</td>
+		        </tr>
+		        <tr>
+		          <td>\s  sapce</td>
+		          <td>空白</td>
+		        </tr>
+		        <tr>
+		          <td>\D</td>
+		          <td>非数字 [^0-9]</td>
+		        </tr>
+		        <tr>
+		          <td>\W</td>
+		          <td>非单词 [^a-z0-9_]</td>
+		        </tr>
+		        <tr>
+		          <td>\S</td>
+		          <td>非空白</td>
+		        </tr>
+		        <tr>
+		          <td>\b  boundary</td>
+		          <td>单词边界</td>
+		        </tr>
+		      </tbody>
+		    </table>
+	      </div>
+		</div>
+		<!--示例-->
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+	        <h3 class="panel-title">示例</h3>
+	      </div>
+	      <div class="panel-body">
+	        <div class="panel panel-info">
+			  <div class="panel-heading">
+		        <h3 class="panel-title">描述</h3>
+		      </div>
+		      <div class="panel-body">
+		        <p>样例。</p>
+		        <h5>座机号码：</h5>
+		        <pre><code>/(0[1-9]\d{1,2}-)?[1-9]\d{6,7}/</code></pre>
+		        <h5>邮箱：</h5>
+		        <pre><code>/\w+@[a-z0-9\-]+(\.[a-z]{2,6}){1,2}/</code></pre>
+		        <p>方法。</p>
+
+		        <h5>捡数字：</h5>
+		        <pre><code>var str='abc12 45 678 90 a23 pop90 19 c34';
+console.log(str.match(/\d+/g));</code></pre>
+				<h5>结果：</h5>
+		        <pre><code>12 45 678 90 23 90 19 34</code></pre>
+
+		        <h5>第一个数字出现的位置：</h5>
+		        <pre><code>var str='3W2heel3Delta';
+var reg=/3/;
+
+console.log(str.search(reg));</code></pre>
+				<h5>结果：</h5>
+		        <pre><code>0</code></pre>
+
+		        <h5>过滤：</h5>
+		        <pre><code>
+var str='aabbccddeeff';
+var reg=/bb|ee/g;
+document.write(str.replace(reg,function(s){
+	var tmp='';
+	for(var i=0; i&lt;s.length; i++){
+		tmp+='*';
+	}
+	return '&lt;span style="color:red"&gt;'+tmp+'&lt;/span&gt;';
+}));</code></pre>
+				<h5>结果：</h5>
+		        <pre><code>&lt;span style="color:red"&gt;aa**ccdd**ff&lt;/span&gt;</code></pre>
+		      </div>
+			</div>
+	      </div>
+		</div>
+		
+	<!--翻页-->
+	<nav>
+	  <ul class="pager">
+	    <li class="previous"><a href="../object/JSON.html">&larr; 上一篇:JSON</a></li>
+	    <li class="next"><a href="../object/Number.html">下一篇:Number &rarr;</a></li>
+	  </ul>
+	</nav>
+
+	<div class="page-header" style="background:#333;color:#fff;margin:0;padding:10px 40px;">
+	  <h6 style="text-align:center;">Copyright © <small>shanghang    2015 - 2018    All rights reserved.</small></h6>
+	</div>
+</body>
+</html>

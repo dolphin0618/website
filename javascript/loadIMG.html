@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<style type="text/css">
+	ul{margin:0;padding: 0;list-style: none;}
+.bs-docs-example:after {content: "Example";position: absolute;top: -1px;left: -1px;padding: 3px 7px;font-size: 12px;font-weight: bold;background-color: #f5f5f5;border: 1px solid #ddd;color: #9da0a4;-webkit-border-radius: 4px 0 4px 0;-moz-border-radius: 4px 0 4px 0;border-radius: 4px 0 4px 0;}
+.bs-docs-example {position: relative;margin: 15px 0;padding: 39px 19px 14px;background-color: #fff;border: 1px solid #ddd;-webkit-border-radius: 4px;-moz-border-radius: 4px;border-radius: 4px;}
+.progress {height: 20px;margin: 20px;overflow: hidden;background-color: #f7f7f7;background-image: -moz-linear-gradient(top,#f5f5f5,#f9f9f9);background-image: -webkit-gradient(linear,0 0,0 100%,from(#f5f5f5),to(#f9f9f9));background-image: -webkit-linear-gradient(top,#f5f5f5,#f9f9f9);background-image: -o-linear-gradient(top,#f5f5f5,#f9f9f9);background-image: linear-gradient(to bottom,#f5f5f5,#f9f9f9);background-repeat: repeat-x;-webkit-border-radius: 4px;-moz-border-radius: 4px;border-radius: 4px;filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff5f5f5',endColorstr='#fff9f9f9',GradientType=0);-webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);-moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);}
+.progress .bar {float: left;width: 0;height: 100%;font-size: 12px;color: #fff;text-align: center;text-shadow: 0 -1px 0 rgba(0,0,0,0.25);background-color: #0e90d2;background-image: -moz-linear-gradient(top,#149bdf,#0480be);background-image: -webkit-gradient(linear,0 0,0 100%,from(#149bdf),to(#0480be));background-image: -webkit-linear-gradient(top,#149bdf,#0480be);background-image: -o-linear-gradient(top,#149bdf,#0480be);background-image: linear-gradient(to bottom,#149bdf,#0480be);background-repeat: repeat-x;filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff149bdf',endColorstr='#ff0480be',GradientType=0);-webkit-box-shadow: inset 0 -1px 0 rgba(0,0,0,0.15);-moz-box-shadow: inset 0 -1px 0 rgba(0,0,0,0.15);box-shadow: inset 0 -1px 0 rgba(0,0,0,0.15);-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;-webkit-transition: width .6s ease;-moz-transition: width .6s ease;-o-transition: width .6s ease;transition: width .6s ease;}
+.progress-striped .bar {background-color: #149bdf;background-image: -webkit-gradient(linear,0 100%,100% 0,color-stop(0.25,rgba(255,255,255,0.15)),color-stop(0.25,transparent),color-stop(0.5,transparent),color-stop(0.5,rgba(255,255,255,0.15)),color-stop(0.75,rgba(255,255,255,0.15)),color-stop(0.75,transparent),to(transparent));background-image: -webkit-linear-gradient(45deg,rgba(255,255,255,0.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,0.15) 50%,rgba(255,255,255,0.15) 75%,transparent 75%,transparent);background-image: -moz-linear-gradient(45deg,rgba(255,255,255,0.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,0.15) 50%,rgba(255,255,255,0.15) 75%,transparent 75%,transparent);background-image: -o-linear-gradient(45deg,rgba(255,255,255,0.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,0.15) 50%,rgba(255,255,255,0.15) 75%,transparent 75%,transparent);background-image: linear-gradient(45deg,rgba(255,255,255,0.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,0.15) 50%,rgba(255,255,255,0.15) 75%,transparent 75%,transparent);-webkit-background-size: 40px 40px;-moz-background-size: 40px 40px;-o-background-size: 40px 40px;background-size: 40px 40px;
+}
+.active{-webkit-animation: progress-bar-stripes 2s linear infinite;}
+.black{background:linear-gradient(rgba(0, 0, 0, 0.4) 0px, rgba(0, 0, 0, 0.4) 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#66000000',endColorstr='#66000000') !important;width: 100%;height: 100%;position: fixed;top: 0;left: 0;text-align: center;}
+.loding{width: 600px;margin: 190px auto;background: #444;border:1px solid #fff;}
+.pic{width: 640px;height: 378px;margin: 100px auto;border: 50px solid #eee;}
+span{font-weight: bold;font-size: 38px;color: #fff;}
+
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var count = 0;
+			var oLoad = document.getElementById('load');
+			var oBar = document.getElementById('bar');
+			var oSpan = document.getElementsByTagName('span')[0];
+
+			for (var i = 0; i < 77; i++) {
+				var oImg = new Image();
+				oImg.onload=function(){
+					++count;
+					go(count);
+					if(count == 77){
+						oLoad.style.display='none';
+						show();
+					}
+				};
+				oImg.src='http://www.zhinengshe.com/works/3525/img/'+i+'.jpg';
+			};
+
+			function go(i){
+				var score = (i/77*100).toFixed(2)+'%';
+				oSpan.innerHTML=score;
+				oBar.style.width=score;
+			}
+
+			function show(){
+				var oimg = document.getElementsByTagName('img')[0];
+				var i = 0;
+				setInterval(function(){
+					oimg.src = 'http://www.zhinengshe.com/works/3525/img/'+ i++ +'.jpg'
+					if(i == 77){i=0;}
+				},60);
+			}
+		}
+	</script>
+</head>
+<body>
+<div class="black" id="load">
+	<div class="loding">
+		<div class="progress progress-striped active">
+		  <div class="bar" id="bar" style="width: 0%"></div>
+		</div>
+		<span>0%</span>
+	</div>
+</div>
+<div class="pic">
+	<img/>
+</div>
+</body>
+</html>

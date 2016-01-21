@@ -1,0 +1,74 @@
+<!DOCTYPE HTLML>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<style>
+			body{font-family: '微软雅黑';}
+			.clock{position: absolute;top:140px;left: 220px;}
+			.date{width:900px;margin: 80px 300px;font-weight: bold;font-size: 66px;}
+			ul{list-style: none;}
+			ul li{float:left;text-align:center;line-height: 160px;}
+			ul li div{width: 130px;height: 180px;background:url(img/number.png) no-repeat;}
+			ul li div.num1{background-position: -9px -6px;}
+			ul li div.num2{background-position: -114px -6px;}
+			ul li div.num3{background-position: -238px -6px;}
+			ul li div.num4{background-position: -358px -6px;}
+			ul li div.num5{background-position: -475px -6px;}
+			ul li div.num6{background-position: -9px -196px;}
+			ul li div.num7{background-position: -119px -196px;}
+			ul li div.num8{background-position: -239px -196px;}
+			ul li div.num9{background-position: -349px -196px;}
+			ul li div.num0{background-position: -485px -196px;}
+		</style>
+		<script>
+		window.onload = function(){
+			var oDiv = document.getElementById('clock');
+			var oDta = document.getElementById('date');
+			var oDivs = oDiv.getElementsByTagName('div');
+			var wArr = ['日','一','二','三','四','五','六'];
+
+			runtime();
+			setInterval(function(){
+				runtime();
+			}, 1000);
+
+			function runtime(){
+				var oDate = new Date();
+				//时间
+				var str =  '' + toDou(oDate.getHours()) + toDou(oDate.getMinutes()) + toDou(oDate.getSeconds());
+				for (var i = 0; i < oDivs.length; i++) {
+					oDivs[i].className = 'num' + str.charAt(i);
+				};
+				//日期
+				var sWeek = wArr[oDate.getDay()];
+				document.title=oDta.innerHTML = oDate.getFullYear()+'年'+(oDate.getMonth()+1)+'月'+oDate.getDate()+'日'+' 星期'+sWeek;
+			};
+
+			function toDou(num){
+				if(num<10){
+					return '0' + num;
+				}else{
+					return ''+num;
+				}
+			}
+		};
+
+
+		</script>
+	</head>
+	<body style="background:black;color:white;font-size:50px">
+		<div id="date" class="date"></div>
+		<div id="clock" class="clock">
+			<ul>
+				<li><div></div></li>
+				<li><div></div></li>
+				<li>:</li>
+				<li><div></div></li>
+				<li><div></div></li>
+				<li>:</li>
+				<li><div></div></li>
+				<li><div></div></li>
+			</ul>
+		</div>
+	</body>
+</html>

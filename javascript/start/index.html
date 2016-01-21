@@ -1,0 +1,149 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<style type="text/css">
+			div{width: 160px;height:28px;background: url(img/star.gif) no-repeat;background-position: -160px -159px;}
+			i{height: 28px;background: url(img/star.gif) no-repeat;background-position: 0px -159px;display: block;float: left;}
+
+			.one{width: 32px;}
+			.ban1{width: 16px;background-position: 0px -159px;}
+			.ban2{width: 16px;background-position: -16px -159px;}
+
+			.uone{width: 32px;background-position: -160px -159px;}
+			.uban1{width: 16px;background-position: -160px -159px;}
+			.uban2{width: 16px;background-position: -176px -159px;}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				(function(){
+					var star = document.getElementById('star1');
+					var stars = star.getElementsByTagName('i');
+					var btag = true;
+					for (var i = 0; i < stars.length; i++) {
+						(function(index){
+							stars[index].onmouseover=function(){
+								if(btag)oneCange(stars, index);
+							}
+							stars[index].onclick=function(){
+								oneCange(stars, index);
+								btag = false;
+							}
+						})(i);
+					};
+				})();
+				
+				(function(){
+					var star = document.getElementById('star2');
+					var stars = star.getElementsByTagName('i');
+					var btag = true;
+					for(var i = 0; i<stars.length; i++){
+						(function(index){
+							stars[index].onmouseover=function(){
+								if(btag)banCange(stars, index);
+							}
+							stars[index].onclick=function(){
+								banCange(stars, index);
+								btag = false;
+							}
+						})(i);
+					}
+				})();
+
+				(function(){
+					var star = document.getElementById('star3');
+					var stars = star.getElementsByTagName('i');
+					var btag = true;
+					for(var i = 0; i<stars.length; i++){
+						(function(index){
+							stars[index].onmouseover=function(){
+								if(btag)fuCange(stars, index);
+							}
+							stars[index].onclick=function(){
+								fuCange(stars, index);
+								btag = false;
+							}
+						})(i);
+					}
+				})();
+
+
+				function oneCange(objs, index){
+					var css = 'one';
+					for (var i = 0; i < objs.length; i++) {
+						if(index < i ){css = 'uone';}
+						objs[i].className = css;
+					};
+				}
+
+				function banCange(objs, index){
+					var css1 = 'ban1';
+					var css2 = 'ban2';
+					for (var i = 0; i < objs.length; i++) {
+						if(index < i){
+							css1 = 'uban1';
+							css2 = 'uban2';
+						}
+						if(i%2 == 0){
+							objs[i].className = css1;
+						}else{
+							objs[i].className = css2;
+						}
+					};
+				}
+
+				function fuCange(objs, index){
+					var mid =  Math.round(objs.length/2)-1;
+					var css = 'uone';
+					for (var i = 0; i < objs.length; i++) {
+						if((i>=mid&&i<=index) || (i<=mid&&i>=index)){
+							css = 'one';
+						}else{
+							css = 'uone';
+						}
+						objs[i].className = css;
+					};
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<fieldset id="star1">
+			<legend>荷兰队如何?(全颗)</legend>
+			<div>
+				<i class="uone"></i>
+				<i class="uone"></i>
+				<i class="uone"></i>
+				<i class="uone"></i>
+				<i class="uone"></i>
+			</div>
+		</fieldset>
+
+		<fieldset id="star2">
+			<legend>阿根廷球队怎么样？（半颗）</legend>
+			<div>
+				<i class="uban1"></i>
+				<i class="uban2"></i>
+				<i class="uban1"></i>
+				<i class="uban2"></i>
+				<i class="uban1"></i>
+				<i class="uban2"></i>
+				<i class="uban1"></i>
+				<i class="uban2"></i>
+				<i class="uban1"></i>
+				<i class="uban2"></i>
+			</div>
+		</fieldset>
+
+		<fieldset id="star3">
+			<legend>你觉得中国足球怎么样？（负颗）</legend>
+			<div>
+				<i class="uone"></i>
+				<i class="uone"></i>
+				<i class="uone"></i>
+				<i class="uone"></i>
+				<i class="uone"></i>
+			</div>
+		</fieldset>
+	</body>
+</html>

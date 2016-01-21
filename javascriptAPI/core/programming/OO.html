@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>面向对象 by航</title>
+	<!-- 新 Bootstrap 核心 CSS 文件 -->
+	<link rel="stylesheet" href="../../css/bootstrap.min.css">
+	<style>
+		body{margin: 0;padding: 0;font-family: 'Microsoft yahei';}
+		.ol{background: #333;}.ol li a{color: #fff;}
+		pre{margin: 10px;padding: 10px;border: 1px dashed #3569a9;display: block;white-space: pre-wrap;white-space: -moz-pre-wrap;white-space: -pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;}
+		code{font-family: monospace,monospace;font-size: 1em;}
+		p{text-indent: 2em;}
+	</style>
+	<script type="text/javascript">
+
+	</script>
+</head>
+<body>
+	<!--头部-->
+	<ol class="breadcrumb ol">
+	  <li><a href="../../index.html">首页</a></li>
+	  <li class="active">编程思想</li>
+	  <li class="active">面向对象</li>
+	</ol>
+	<div class="page-header" style="padding-left:20px;">
+  		<h1>面向对象编程 <small></small></h1>
+	</div>
+	<!--内容-->
+		<!--描述-->
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+	        <h3 class="panel-title">描述</h3>
+	      </div>
+	      <div class="panel-body">
+	        <p>new只有两个作用
+1.替你创建Object，给this
+2.替你返回this</p>
+	      </div>
+		</div>
+		<!--参数-->
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+	        <h3 class="panel-title">参数</h3>
+	      </div>
+	      <div class="panel-body">
+	        <table class="table table-hover">
+		      <thead>
+		        <tr>
+		          <th>属于object的类型</th>
+		          <th>描述</th>
+		        </tr>
+		      </thead>
+		      <tbody>
+		        <tr>
+		          <td>数组</td>
+		          <td>...</td>
+		        </tr>
+		        <tr>
+		          <td>null</td>
+		          <td>空对象,用id，获取一个页面不存在元素</td>
+		        </tr>
+		      </tbody>
+		    </table>
+	      </div>
+		</div>
+		<!--示例-->
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+	        <h3 class="panel-title">示例</h3>
+	      </div>
+	      <div class="panel-body">
+	        <div class="panel panel-info">
+			  <div class="panel-heading">
+		        <h3 class="panel-title">描述</h3>
+		      </div>
+		      <div class="panel-body">
+		        <p>。</p>
+		        <h5>判断是何对象(比较构造函数)：</h5>
+		        <pre><code>var a=new Array();
+alert(a.constructor==Array);// true
+
+var a=new Array();
+alert(a.constructor==Object);//false</code></pre>
+				<h5>利用apply实现继承：</h5>
+		        <pre><code>function Person(name, age)
+{
+	this.name=name;
+	this.age=age;
+}
+function Worker(name, age, job)
+{
+	Person.apply(this, arguments);//改变this
+	this.job=job;
+}
+
+Worker.prototype=new Person();//让worker的原型指向新实例的父类
+Worker.prototype.constructor=Worker;//并改变其构造器指向
+
+Worker.prototype.showJob=function ()
+{
+	alert(this.job);
+};
+
+var w=new Worker('blue', 25, '打杂的');</code></pre>
+		      </div>
+			</div>
+	      </div>
+		</div>
+	<!--翻页-->
+	<nav>
+	  <ul class="pager">
+	    <li class="previous"><a href="../communicate/cookie.html">&larr; 上一篇:cookie</a></li>
+	    <li class="next"><a href="../programming/xxx.html">下一篇:工厂模式 &rarr;</a></li>
+	  </ul>
+	</nav>
+
+	<div class="page-header" style="background:#333;color:#fff;margin:0;padding:10px 40px;">
+	  <h6 style="text-align:center;">Copyright © <small>shanghang    2015 - 2018    All rights reserved.</small></h6>
+	</div>
+</body>
+</html>

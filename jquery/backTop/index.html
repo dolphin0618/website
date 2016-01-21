@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>top</title>
+		<script type="text/javascript" src="../../js/jquery-1.11.1.min.js"></script>
+		<style type="text/css">
+			#main {
+				padding-top: 90px;
+				text-align: center;
+				height:1400px;	
+			}
+				.TopBtn {   
+				display: none;
+				background:url(images/top.gif) no-repeat;
+				background-position:-53px -108px;   
+				height:32px;  /* 第一张图片的高度 */
+				width:32px;   
+				right: 5%;            
+				position: fixed !important; /* 浮动对话框 */       
+				bottom: 15%;       
+				z-index: 2; 
+				cursor:hand
+			} 
+			.TopBtnA
+			{ 
+				background-position:-21px -108px;
+			}
+			.TopBtnB
+			{ 
+				background-position:-53px -108px;
+			}
+			</style>
+</head>
+
+<body>
+<div id="main"></div>
+<DIV  class="TopBtn" id="TopBtn"></DIV>
+<SCRIPT type=text/javascript>
+	$(document).ready(function() {
+			$(window).scroll(function() {
+				if ($(window).scrollTop() > 100) {//滚动多于100像素出现
+				$("#TopBtn").fadeIn(1500);
+			} else {
+				$("#TopBtn").fadeOut(1500);
+			}
+			});//当点击跳转链接后，回到页面顶部位置
+			$("#TopBtn").click(function(){
+				$('body,html').animate(
+				{scrollTop:0},
+				400);
+					return false;
+				});
+			});
+
+   $("#TopBtn").mouseover(function() {
+			$(this).addClass("TopBtnA");
+	});
+
+	$("#TopBtn").mouseout(function() {
+			$(this).removeClass("TopBtnA");
+	});
+</SCRIPT>
+
+</body>
+</html>

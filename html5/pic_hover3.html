@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<style type="text/css">
+		body,ul{padding: 0;margin: 0;background: #000;}ul{width: 1000px;margin: 90px auto;}
+		ul li{width:200px;height: 100px;float: left;margin-right:30px;position: relative;transform-style:preserve-3d;-webkit-transition:all 0.5s;perspective: 4000px;}
+		div{width: 100%;height: 100px;position: absolute;left: 0;top: 0;border-radius: 2px;}
+		.pic{transform: translateZ(50px);}
+		.pic_btm{transform: translateY(50px) rotateX(-90deg);background-image:-webkit-linear-gradient(bottom,#ccc 0%,#333 100%);}
+
+		ul li:hover{transform:rotateX(91deg);}
+	</style>
+</head>
+<body>
+		<ul>
+			<li>
+				<div class="pic" style="background:url(img/a.png);"></div>
+				<div class="pic_btm" style="color:#fff;">腾讯2015</div>
+			</li>
+			<li>
+				<div class="pic" style="background:url(img/a.png);"></div>
+				<div class="pic_btm" style="color:#fff;">腾讯2015</div>
+			</li>
+			<li>
+				<div class="pic" style="background:url(img/a.png);"></div>
+				<div class="pic_btm" style="color:#fff;">腾讯2015</div>
+			</li>
+			<li>
+				<div class="pic" style="background:url(img/a.png);"></div>
+				<div class="pic_btm" style="color:#fff;">腾讯2015</div>
+			</li>
+		</ul>
+</body>
+</html>

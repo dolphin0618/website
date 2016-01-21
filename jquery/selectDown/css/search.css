@@ -1,0 +1,81 @@
+@charset "gb2312";
+/* CSS Document */
+
+.clear{clear:both}
+.search{padding:5px 10px;background:#e2e2e2;zoom:1;height:25px;margin-top:5px;z-index:99;}
+.searchtype{float:Left;width:90px;}
+.search_mod{float:Left;width:450px;}
+.searchcar{height:24px;font-family:arial,"\5b8b\4f53";text-align:left;position:relative;}
+.search_mod b{float:Left;width:50px;color:#ff0000;}
+.searchcar_no_arrow .searchcar_arrow_close{display:none}
+.searchcar_brands_item .auto_brandlogo_trans_48x48{float:left;width:48px;height:48px;margin:5px 0 0 0}
+.searchcar_types .auto_brandlogo_trans_48x48{float:left;width:48px;height:48px;margin:9px 22px 16px 0}
+.auto_serieslogo{float:left;width:80px;height:60px;margin:3px 10px 0 0}
+.searchcar iframe{position:absolute;top:0;left:0;width:230px;height:420px;border:2px solid #000;filter:alpha(opacity=0);z-index:100;display:none}
+.searchcar a,.searchcar a:hover{text-decoration:none}
+.searchtype_key{display:block;float:left;height:20px;border:1px solid #b9b9b9;width:60px}
+.searchtype_key{color:#999;line-height:21px;padding-left:3px;outline:0;text-align:left;cursor:hand}
+.searchcar_type_close{display:none;}
+.searchcar_keyword,.searchcar_arrow_close,.searchcar_type_close,.searchcar_btn{display:block;float:left;height:22px;border:1px solid #b9b9b9;}
+.searchcar_type_close{width:20px;overflow:hidden;line-height:200px;background:url(i.png) no-repeat -3px -1px;border-left:0}
+.searchcar_type_open{background-position:-29px -1px}
+.searchcar_btn:link,.searchcar_btn:visited{color:#000;}
+.searchcar_keyword{padding:0}
+.searchcar_keyword input{border:0;height:21px;width:203px;color:#999;line-height:21px;padding-left:3px;outline:0;text-align:left;}
+.searchcar_no_arrow .searchcar_keyword input{width:227px}
+.searchcar_arrow_close{width:23px;overflow:hidden;line-height:200px;background:url(i.png) no-repeat -1px -1px;border-left:0}
+.searchcar_arrow_open{background-position:-27px -1px}
+.searchcar_btn,.searchcar_btn:hover{margin-left:5px;width:53px;border-top:1px solid #c9c9c9;border-right:1px solid #cacaca;border-bottom:1px solid #c9c9c9;border-left:1px solid #c9c9c9;background:url(i.png) no-repeat -59px 0;font-size:14px;color:#000;text-align:center;line-height:22px}
+.searchcar_preload{position:absolute;top:0;left:0;width:0;height:0;}
+.searchcar_suggest_wrapper,.searchcar_popup{width:230px;position:absolute;background:#fff;border:1px solid #c6c6c6;margin-top:-1px;z-index:400}
+.searchcar_type{float:left;width:85px;background:#fff;border:1px solid #c6c6c6;margin-top:-1px;z-index:400}
+.searchcar_letters{float:left;width:25px;padding-top:3px;padding-bottom:1px}
+.searchcar_letters a{margin:auto;display:block;width:18px;height:18px;overflow:hidden;text-align:center;font-size:12px;color:#5ca8db}
+.searchcar_letters a:hover{color:#fff;background:#8dbbdb;text-decoration:underline}
+.searchcar_limitbrand .searchcar_letters{display:none}
+.searchcar_panel{height:370px;overflow:auto;padding-top:30px;border-left:1px solid #e6e5e5;}
+.noDeadCtrl .searchcar_panel{height:400px;padding-top:0}
+.noDeadCtrl .searchcar_trans{display:none}
+.searchcar_trans{position:absolute;z-index:100;left:26px;top:0;padding-right:3px;width:184px;height:28px;background:#f6f6f6 url(i.png) no-repeat -1px -27px}
+.searchcar_limitbrand .searchcar_trans{left:3px;width:208px;background:#fff;border-bottom:1px dashed #ddd}
+.searchcar_trans label{float:right;color:#999;line-height:28px}
+.searchcar_trans_open{float:right;margin-top:5px;width:46px;height:17px;text-indent:-999px;overflow:hidden;cursor:pointer;background:#f6f6f6 url(i.png) no-repeat -195px -6px}
+.searchcar_trans_close{background-position:-195px -35px}
+.searchcar_brand ul.loading{background:#fff url(images/loadings.gif) no-repeat center center;height:300px}
+.searchcar_flag_suggest_brand a,.searchcar_brand li a{display:block;margin:0 2px 0 0;padding:1px 0 0 14px;height:60px;background:url(i.png) no-repeat 5px -77px;color:#2b2b2b}
+.searchcar_limitbrand .searchcar_brand li a{background:#fff;border-bottom:1px solid #eee}
+.searchcar_flag_suggest_brand a{background:0;border-bottom:1px solid #e5e5e5}
+.searchcar_flag_suggest_brand a:hover,.searchcar_brand li a:hover{padding:0 0 1px 13px;color:#2b2b2b;background-position:5px -148px;}
+.searchcar_limitbrand li a:hover{padding:0 0 1px 8px}
+.searchcar_flag_suggest_brand img,.searchcar_brand li img{float:left;margin-top:5px;width:48px;height:48px}
+.searchcar_flag_suggest_brand strong,.searchcar_brand li strong{display:block;padding:20px 0;text-indent:10px;font-size:14px;font-weight:normal;line-height:18px}
+.searchcar_suggest li.loading strong,.searchcar_brand li.loading strong{background:#fff url(images/loadings.gif) no-repeat right center}
+.searchcar li.searchcar_brand_selected a{background:#fff url(i.png) no-repeat 5px -148px}
+.searchcar li.searchcar_brand_selected a:hover{padding:1px 0 0 14px}
+
+.searchcar_types{overflow:hidden;width:229px;position:absolute;left:196px;top:52px;height: 400px;display:none;}
+.searchcar_types ul{position:relative;z-index:1100;border:1px solid #8dbbdb;overflow:hidden;background:#fff;padding:1px 0;box-shadow:2px 2px 3px #aaa;float:left}
+.searchcar_types_scroll{width:249px}
+.searchcar_types_scroll ul{max-height:390px;overflow:auto;overflow-x:hidden}
+.searchcar_types_arr{position:relative;z-index:1200;background:url(i.png) no-repeat -156px 0;display:block;width:6px;height:12px;float:left}
+.searchcar_flag_suggest_types,.searchcar_types li{position:relative;clear:both}
+.searchcar_flag_suggest_types{width:100%}
+.searchcar_types ul.animating{overflow:hidden}
+.searchcar_types ul.animating li{width:223px}
+.searchcar_types.searchcar_types_scroll ul.animating li{width:236px}
+.searchcar_types ul li{*width:222px}
+.searchcar_flag_suggest_types a,.searchcar_types a,.searchcar_limitbrand li a{display:block;height:66px;margin:0 1px 0 2px;padding-left:10px}
+.searchcar_limitbrand li a{padding-left:9px}
+.searchcar li.hover a,.searchcar_flag_suggest_brand a:hover,.searchcar_flag_suggest_types a:hover,.searchcar_types li a:hover,.searchcar_limitbrand li a:hover{background:#e2eaff}
+.searchcar_flag_suggest_types img,.searchcar_types li img,.searchcar_limitbrand .searchcar_brand li img{float:left;margin:3px 10px 0 0;width:80px;height:60px}
+.searchcar_flag_suggest_types em,.searchcar_types li em,.searchcar_limitbrand li em{margin:12px 0 0 0;font-style:normal;height:20px;font-size:12px;color:#aaa;float:left;width:110px;overflow:hidden}
+.searchcar_flag_suggest_types strong,.searchcar_types li strong,.searchcar_limitbrand li strong{font-size:14px;font-weight:normal;color:#2b2b2b;height:16px;overflow:hidden;float:left;width:110px;overflow:hidden;padding:0;text-indent:0}
+.searchcar_flag_suggest_types{margin:0 1px 0 0;border-bottom:1px solid #e5e5e5}
+.searchcar_brand_no_dead li.searchcar_types_flag_2{display:none}
+.searchcar_brand_no_dead li.searchcar_flag_1{display:none}
+li span.searchcar_types_dead{display:none}
+li.searchcar_types_flag_2 span.searchcar_types_dead{display:block;position:absolute;top:3px;left:5px;display:block;width:13px;height:13px;text-align:center;color:#fff;border:1px solid #888;background:#999;line-height:12px}
+
+.type_item {vertical-align: middle;padding: 4px;width: 77px;background:#fff url(i.png) no-repeat 0px -110px}
+.type_item:hover{background-position:0px -148px;cursor:hand}
+          

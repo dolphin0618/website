@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>分页组件</title>
+<link rel="stylesheet" href="css/pagination.css"/>
+<!--[if lt IE 9]>
+    <script src="../js/html5shiv.min.js"></script>
+<![endif]-->
+<style type="text/css">
+    body{font-size: 14px;background: #eee;}
+    h1{text-align: center;line-height: 100px;}
+    pre{width: 600px;border: 1px solid #666;}
+    section{padding-top: 40px;border-top: 1px solid #ccc;width: 1280px;margin: 0 auto;min-height:600px;}
+    section pre,section p{width: 600px;display: inline-block;}
+    section a{display: block;width: 80px;height: 20px;background: #ff6600;text-align: center;color: #fff;border-radius: 4px;}
+</style>
+</head>
+<body>
+    <!-- 主体内容end -->
+    <h1 class="head">分页组件API</h1>
+    <p style="text-align:center;">案例</p>
+    <nav id="page"></nav>
+    <section>
+        <pre>
+        $("#page").pagination({
+            items: 910,
+            itemsOnPage: 10,
+            pages: 0,
+            displayedPages: 4,
+            edges: 5,
+            currentPage: 10,
+            hrefTextPrefix: '#page-',
+            hrefTextSuffix: '',
+            prevText: '<',
+            nextText: '>',
+            ellipseText: '&hellip;',
+            onPageClick: function(pageNumber, event) {},
+            init: function() {}
+        });
+        //暴露方法：
+        init({options})
+        selectPage(page)
+        prevPage
+        nextPage
+        setPagesCount(pages)
+        getPagesCount()
+        setCurrentPage(currentPage)
+        getCurrentPage()
+        destroy()
+        redraw()
+
+        $("#page").pagination('setPagesCount',15).pagination('setCurrentPage',2)
+        </pre>
+        <p style="vertical-align:top;"></br>
+        items:数据总数</br>
+        itemsOnPage:每页数据量</br>
+        pages:总页数（没有会自动根据items和itemsOnPage算）</br>
+        displayedPages:当前页周围显示范围</br>
+        edges:首尾边显示的范围</br>
+        currentPage:当前页数</br>
+        hrefTextPrefix:href链接前缀</br>
+        hrefTextSuffix:href链接后缀</br>
+        prevText:上一页按钮显示内容</br>
+        nextText:下一页按钮显示内容</br>
+        ellipseText:省略位置显示内容</br>
+        onPageClick:点击翻页时回调（pageNumber点击的页数，event点击事件对象）</br>
+        init:组件初始化完毕时回调</br></br>
+        //暴露方法：</br>
+        init(options)：更新分页组件属性</br>
+        selectPage(page)：选中page页</br>
+        prevPage：上一页</br>
+        nextPage：下一页</br>
+        setPagesCount(pages)：设置总页数</br>
+        getPagesCount()：获取总页数</br>
+        setCurrentPage(currentPage)：设置currentPage为当前页</br>
+        getCurrentPage()：获取当前页</br>
+        destroy：销毁分页组件</br>
+        redraw：刷新分页组件</br>
+        //以上暴露方法支持链式操作，如：</br>
+        $("#page").pagination('setPagesCount',15).pagination('setCurrentPage',2)</br>
+    </section>
+    <script type="text/javascript" src="../../js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery.pagination.min.js"></script>
+    <script>
+    $("#page").pagination({
+        items: 910,
+        itemsOnPage: 10,
+        currentPage: 10,
+        edges:5,
+        displayedPages:4,
+        onPageClick:function(pageNumber, event) {
+            //alert(pageNumber);
+        },onInit: function() {
+            
+        }
+    });
+    </script>
+</body>
+</html>

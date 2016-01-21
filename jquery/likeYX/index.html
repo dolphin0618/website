@@ -1,0 +1,318 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/bootstrap.min.css" media="screen">
+        
+        <style type="text/css" title="currentStyle">	
+body {
+	font-size:12px;	
+}
+.filter {
+	margin-top:20px;
+	margin-left:150px;
+	margin-right:150px;
+	padding: 0;
+	border: 1px solid #c4d8ea;
+	overflow: hidden;
+}
+.filter_on{
+	position:relative;
+	zoom:1;
+	height:auto;
+	overflow:hidden;
+	padding-top:5px;
+	border-bottom: 1px solid #c4d8ea;
+}
+.filter_on_tit {
+	float: left;
+	width: 85px;
+	margin-right: 10px;
+	color: #000;
+	text-align: right;
+	line-height: 21px;
+}
+.filter_on_con {
+	float: left;
+	overflow: hidden;
+}
+.filter_on_act {
+	position: absolute;
+	top: 6px;
+	right: 17px;
+}
+.filter_item {
+	position: relative;
+	height: auto;
+	padding: 7px 0 3px;
+	margin-bottom: -1px;
+	zoom: 1;
+	border-bottom: 1px dotted #CCC;
+	overflow:hidden;
+}
+.filter_tit {
+	float: left;
+	width: 85px;
+	margin-right: 10px;
+	color: #000;
+	text-align: right;
+
+}
+.filter_con {	
+	float: left;
+	position: relative;
+	width:800px;
+	overflow:hidden;
+}
+.filter_act{
+	right:7px;
+	top:6px;
+	position:absolute;
+}
+.filter_choosemore {
+	height: 16px;
+	line-height: 16px;
+	width: 46px;
+	margin-top: 3px;
+	background-color: #e6eefb;
+	border: 1px solid #c4d5e7;
+	color: #3a59aa;
+	cursor: pointer;
+	text-decoration: none;
+}
+ .filter_dl {
+	max-height: 77px;
+	margin-top:0px;
+}
+.filter_dt {
+	float: left;
+	padding-bottom: 5px;
+	padding-right: 5px;
+	height: 21px;
+	line-height: 21px;
+	text-align: right;
+	font-weight:normal;
+	color: #000;
+}
+
+.filter_dd {
+	float: left;
+	display: block;
+	height: 21px;
+	line-height: 21px;
+	padding: 0 2px;
+	margin-right: 21px;
+	white-space: nowrap;
+	cursor:hand;
+	zoom: 1;
+}
+.filter_dd a{
+	cursor:pointer;
+}
+.filter_dd_on{
+	background-color:#3164af;
+	color:#fff;
+}
+.filter_dd_on a{
+	color:#fff !important;
+	text-decoration:none !important;	
+}
+.filter_dd_on:hover{
+	background-color:#0099FF;
+}
+
+.filter_dt a{
+	padding-bottom:0px;
+	line-height:21px;
+	padding-left:2px;
+	padding-right:2px;
+	room:1;
+	display:block;
+	white-space:nowrap;
+	float:left;
+	height:21px;
+	padding-top:0px;	
+}
+.filter_dt_on a{
+	background-color:#3164af;
+	color:#fff !important;
+	text-decoration:none !important;	
+}
+.filter_x {
+	position:absolute;
+	display:none;
+	font-family:"宋体"; FONT-SIZE: 14px;
+	top:1px;
+	right:2px;	
+}
+.filtermore {
+	height: 25px;
+	margin-left:150px;
+	margin-right:150px;
+}
+.filtermore_wrap {
+	border: 1px solid #c4d8ea;
+	border-top: 0;
+	background: #FFF;
+	position: relative;
+	padding: 1px;
+}
+.filtermore_inner {
+	
+}
+.filtermore_click {
+	background-image:url(http://static.gtimg.com/icson/img/search/bg_search_v2.png); BACKGROUND-REPEAT: no-repeat
+	display: block;
+	position: absolute;
+	top: 2px;
+	left: 50%;
+	margin-left: -182px;
+	width: 364px;
+	height: 26px;
+	_padding-top: 6px;
+	_height: 20px;
+	text-align: center;
+	line-height: 23px;
+	background-position: left top;
+}
+        </style>
+
+        <!-- 注意必须在 bootstrap 之前引入 -->
+        <script type="text/javascript" src="../../js/jquery-1.11.1.min.js"></script>
+
+        <script type="text/javascript">
+						$(document).ready( function () {
+									$(".filter_choosemore").click( function() {
+											if($(this).attr("id")=="group_more")	{
+													$('#group_con dl').append(dataToHtml());	
+													$(this).html('收起');
+													$(this).attr("id","group_up");
+											}else if($(this).attr("id")=="group_up")	{
+													$('#group_con [id=append_dd]').remove();
+													$(this).attr("id","group_more");
+													$(this).html('更多');
+											}else if($(this).attr("id")=="prj_more")	{
+													$('#prj_con dl').append(dataToHtml());		
+													$(this).html('收起');
+													$(this).attr("id","prj_up");
+											}else if($(this).attr("id")=="prj_up")	{
+													$('#prj_con [id=append_dd]').remove();						
+													$(this).attr("id","prj_more");
+													$(this).html('更多');
+											}
+									});
+									$(".filter_dd").click(function(){
+										if($('.filter_sure').hasClass("hide")){//单选
+											if($(this).hasClass("filter_dd_on"))return false;//如果已选中
+											$(this).siblings().first().removeClass("filter_dt_on");
+											$(this).siblings().removeClass("filter_dd_on");
+											$(this).addClass("filter_dd_on");
+										}else{//多选
+											$(this).siblings().first().removeClass("filter_dt_on");//去掉全部样式
+											if($(this).hasClass("filter_dd_on")){
+												$(this).removeClass("filter_dd_on");
+												if(!$(this).siblings().hasClass("filter_dd_on")){//如果有选择
+													$(this).siblings().first().addClass("filter_dt_on");//加上全部样式
+												}
+											}else{
+												$(this).addClass("filter_dd_on");
+											}
+											return false;
+										}
+									});
+									$(".filter_dt").click(function(){
+											if($(this).hasClass("filter_dt_on"))return false;//如果已选中
+											$(this).addClass("filter_dt_on");
+											$(this).siblings().removeClass("filter_dd_on");
+									});
+						});
+						
+						function dataToHtml(dataJson){
+								var _html = '<DD class="filter_dd" id="append_dd"><A  title="">资产管理部<SPAN class=filter_x>×</SPAN></A> </DD>';
+								_html += '<DD class="filter_dd" id="append_dd"><A  title="">资金运营部<SPAN class=filter_x>×</SPAN></A> </DD>';
+								_html += '<DD class="filter_dd" id="append_dd"><A  title="">投资管理部<SPAN class=filter_x>×</SPAN></A> </DD>';
+								_html += '<DD class="filter_dd" id="append_dd"><A  title="">风险控制部<SPAN class=filter_x>×</SPAN></A> </DD>';
+								_html += '<DD class="filter_dd" id="append_dd"><A  title="">股票资本市场<SPAN class=filter_x>×</SPAN></A> </DD>';
+								return _html;
+						}
+						function filterOn(on){
+							var filterOn = $(on);
+							if($('.filter_sure').hasClass("hide")){
+									$('.filter_sure').removeClass("hide");
+									$('.filter_dt').addClass("hide");
+									filterOn.html("关闭多选模式");
+									
+							}else{
+									$('.filter_sure').addClass("hide");
+									$('.filter_dt').removeClass("hide");
+									filterOn.html("开启多选模式");
+							}
+							
+						}
+						
+        </script>
+  </head>
+    <body>
+    	<div class="row container " style="background-color:;width:100%;">
+    		
+<DIV class=filter>
+				<div class="filter_on">
+					<DIV class="filter_on_tit">结果筛选：</DIV>
+					<DIV class="filter_on_con"></DIV>
+					<DIV class="filter_on_act"><A href="javascript:;" onclick="filterOn(this);">开启多选模式</A> </DIV>	
+				</div>
+						
+				<DIV class="filter_item  filter_item_multiple">
+						<DIV class=filter_tit>归档部门：</DIV>
+						<DIV class=filter_con id="group_con">
+							<DL class=filter_dl>
+							<DT class="filter_dt "><A href="javascript:;">全部</A></DT>
+							<DD class="filter_dd "><A  title="">综合管理部<SPAN class=filter_x>×</SPAN></A> </DD>
+							<DD class="filter_dd "><A  title="">计划财务部<SPAN class=filter_x>×</SPAN></A> </DD>
+							<DD class="filter_dd "><A  title="">人力资源部<SPAN class=filter_x>×</SPAN></A> </DD>
+							<DD class="filter_dd "><A  title="">信息技术中心<SPAN class=filter_x>×</SPAN></A> </DD>
+							<DD class="filter_dd filter_dd_on"><A  title="">经发管委<SPAN class=filter_x>×</SPAN></A> </DD>
+							<DD class="filter_dd "><A  title="">法律部<SPAN class=filter_x>×</SPAN></A> </DD>
+							<DD class="filter_dd "><A  title="">稽核部<SPAN class=filter_x>×</SPAN></A> </DD>
+							<DD class="filter_dd "><A  title="">党务工作部<SPAN class=filter_x>×</SPAN></A> </DD>
+							<DD class="filter_dd "><A  title="">投资银行<SPAN class=filter_x>×</SPAN></A> </DD>
+							<DD class="filter_dd "><A  title="">并购业务线<SPAN class=filter_x>×</SPAN></A> </DD>
+							<DD class="filter_dd "><A  title="">交易与衍生产品<SPAN class=filter_x>×</SPAN></A> </DD>
+							<DD class="filter_dd "><A  title="">研究部<SPAN class=filter_x>×</SPAN></A> </DD>
+							<DD class="filter_dd "><A  title="">清算部<SPAN class=filter_x>×</SPAN></A> </DD>
+							<DD class="filter_dd "><A  title="">固定收益部<SPAN class=filter_x>×</SPAN></A> </DD></DL></DIV>
+							<DIV class=filter_act><A id="group_more" class="filter_choosemore" href="javascript:;">更多</A></DIV>
+						</DIV>				
+						<DIV class="filter_item  filter_item_multiple">
+						<DIV class=filter_tit>分类：</DIV>
+						<DIV class=filter_con id="prj_con">
+							<DL class=filter_dl>
+							<DT class="filter_dt filter_dt_on"><A href="javascript:;">全部</A></DT>
+							<DD class="filter_dd "><A  title="">综合管理部<SPAN class=filter_x>×</SPAN></A> </DD>
+							<DD class="filter_dd "><A  title="">计划财务部<SPAN class=filter_x>×</SPAN></A> </DD>
+							<DD class="filter_dd "><A  title="">人力资源部<SPAN class=filter_x>×</SPAN></A> </DD>
+							<DD class="filter_dd "><A  title="">信息技术中心<SPAN class=filter_x>×</SPAN></A> </DD>
+							<DD class="filter_dd "><A  title="">经发管委<SPAN class=filter_x>×</SPAN></A> </DD>
+							<DD class="filter_dd "><A  title="">法律部<SPAN class=filter_x>×</SPAN></A> </DD>
+							<DD class="filter_dd "><A  title="">稽核部<SPAN class=filter_x>×</SPAN></A> </DD>
+							<DD class="filter_dd "><A  title="">党务工作部<SPAN class=filter_x>×</SPAN></A> </DD>
+							<DD class="filter_dd "><A  title="">投资银行<SPAN class=filter_x>×</SPAN></A> </DD>
+							<DD class="filter_dd "><A  title="">并购业务线<SPAN class=filter_x>×</SPAN></A> </DD>
+							<DD class="filter_dd "><A  title="">交易与衍生产品<SPAN class=filter_x>×</SPAN></A> </DD>
+							<DD class="filter_dd "><A  title="">研究部<SPAN class=filter_x>×</SPAN></A> </DD>
+							<DD class="filter_dd "><A  title="">清算部<SPAN class=filter_x>×</SPAN></A> </DD>
+							<DD class="filter_dd "><A  title="">固定收益部<SPAN class=filter_x>×</SPAN></A> </DD></DL></DIV>
+							<DIV class=filter_act><A id="prj_more" class="filter_choosemore" href="javascript:;">更多</A></DIV>
+						</DIV>
+						<A class="filter_sure hide" href="javascript:;">确定</A> <A class="filter_cancel hide" href="javascript:;">回单选</A> 
+	</DIV>
+
+
+<DIV class="filtermore ">
+<DIV id=attrWrap class=filtermore_wrap>
+<DIV class=filtermore_inner><A class=filtermore_click href="javascript:;" ytag="40001" lg="1023" morestr=" ...）" togtype="0"><B></B>更多<SPAN>（ ...）</SPAN></A> </DIV></DIV></DIV>
+
+      </div>
+    </body>
+</html>

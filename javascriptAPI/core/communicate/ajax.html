@@ -1,0 +1,132 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>js语法速查表 by航</title>
+	<!-- 新 Bootstrap 核心 CSS 文件 -->
+	<link rel="stylesheet" href="../../css/bootstrap.min.css">
+	<style>
+		body{margin: 0;padding: 0;font-family: 'Microsoft yahei';}
+		.ol{background: #333;}.ol li a{color: #fff;}
+		pre{margin: 10px;padding: 10px;border: 1px dashed #3569a9;display: block;white-space: pre-wrap;white-space: -moz-pre-wrap;white-space: -pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;}
+		code{font-family: monospace,monospace;font-size: 1em;}
+		p{text-indent: 2em;}
+	</style>
+	<script type="text/javascript">
+
+	</script>
+</head>
+<body>
+	<!--头部-->
+	<ol class="breadcrumb ol">
+	  <li><a href="../../index.html">首页</a></li>
+	  <li class="active">交互</li>
+	  <li class="active">交互</li>
+	</ol>
+	<div class="page-header" style="padding-left:20px;">
+  		<h1>Ajax <small></small></h1>
+	</div>
+	<!--内容-->
+		<!--描述-->
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+	        <h3 class="panel-title">描述</h3>
+	      </div>
+	      <div class="panel-body">
+	        无刷新从服务器取数据;
+	      </div>
+		</div>
+		<!--列表-->
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+	        <h3 class="panel-title">列表</h3>
+	      </div>
+	      <div class="panel-body">
+	        <table class="table table-hover">
+		      <thead>
+		        <tr>
+		          <th>状态</th>
+		          <th>返回值说明</th>
+		        </tr>
+		      </thead>
+		      <tbody>
+		      	<tr>
+		          <td>oAjax.readyState</td>
+		          <td>
+		          	<p>0	ajax对象创建完毕了</P>
+					<p>1	发送成功</P>
+					<p>2	接收原始数据完成</P>
+					<p>3	解析数据，解密，解编码</P>
+					<p>4	数据ok</P>
+				  </td>
+		        </tr>
+		        <tr>
+		          <td>oAjax.status</td>
+		          <td>常见的一些值：
+		          	<p>200  ok</p>
+					<p>304  Not Modified</p>
+					<p>404  Not Found</p>
+					<p>403  Forbidden</p>
+					<p>414  Request-URI Too Long</p>
+					<p>500  Internal Server Error  后台代码写有问题</p>
+					<p>502  Bad Gateway</p>
+		          </td>
+		        </tr>
+		      </tbody>
+		    </table>
+	      </div>
+		</div>
+		<!--示例-->
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+	        <h3 class="panel-title">示例</h3>
+	      </div>
+	      <div class="panel-body">
+	        <div class="panel panel-info">
+			  <div class="panel-heading">
+		        <h3 class="panel-title">描述</h3>
+		      </div>
+		      <div class="panel-body">
+		        <p>ajax详解</p>
+		        <h5>js代码：</h5>
+		        <pre><code>//创建一个ajax对象
+if(window.XMLHttpRequest){
+	var oAjax=new XMLHttpRequest();
+}else{
+	var oAjax=new ActiveXObject('Microsoft.XMLHTTP');//IE6
+}
+//建立连接(打开连接)  oAjax.open(POST/GET，url，是否异步);
+oAjax.open('GET',url+'?'+json2url(data),true);
+
+oAjax.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+//发送
+oAjax.send();
+//接收数据
+
+oAjax.onreadystatechange=function(){
+	if(oAjax.readyState==4){  //完成
+		if(oAjax.status>=200 && oAjax.status<300 || oAjax.status==304){
+			fnSucc && fnSucc(oAjax.responseText);
+		}else{
+			fnFail && fnFail(oAjax.status);
+		}	
+	}
+};</code></pre>
+		      </div>
+			</div>
+	      </div>
+		</div>
+		
+	<!--翻页-->
+	<nav>
+	  <ul class="pager">
+	    <li class="previous"><a href="../dom/domAttribute.html">&larr; 上一篇:dom属性</a></li>
+	    <li class="next"><a href="../communicate/jsonp.html">下一篇:jsonp &rarr;</a></li>
+	  </ul>
+	</nav>
+
+	<div class="page-header" style="background:#333;color:#fff;margin:0;padding:10px 40px;">
+	  <h6 style="text-align:center;">Copyright © <small>shanghang    2015 - 2018    All rights reserved.</small></h6>
+	</div>
+</body>
+</html>

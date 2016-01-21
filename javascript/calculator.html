@@ -1,0 +1,159 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<style type="text/css">
+	    body{font-size: 12px;font-family: "微软雅黑";}
+	    ul{margin: 0;padding: 0;float: left;margin-left: 10px;}
+		li {list-style: none;float: left;margin-left: 10px;margin-top: 10px;}
+		a{text-decoration: none;width: 50px;height: 30px;display: inline-block;color: #fff;font-weight: bold;font-size: 16px;line-height: 30px;}
+		.zero{width: 110px;}
+		.add{height: 70px;line-height: 70px;}
+
+		.top{width: 320px;height: 40px;margin: 0px auto;background: #111;padding:10px 15px;margin-top:30px;}
+		.input{width: 318px;height: 38px;background: #FFF;border:1px solid #CCC;text-align: right;margin: 0;line-height: 38px;font-size: 18px;font-weight: bold;color: #3b9ee2;}
+		.error{color: #e3393c;}
+		.bottom{width: 350px;height: 190px;margin:0px auto;background: #EEE;text-align: center;padding-top:20px;}
+		.num{width: 190px;}
+		.num a{background: #3b9ee2;}
+		.char{width: 120px;}
+		.char a{background: #e3393c;}
+		
+
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var value = 0;
+			var oUl_n = document.getElementById('num');
+			var oUl_c = document.getElementById('char');
+			var aA_n = oUl_n.getElementsByTagName('a');
+			var aA_c = oUl_c.getElementsByTagName('a');
+			var text = document.getElementById('text');
+
+			var num_i = 0;
+			var val1 = null;
+			var char1 = null;
+			//等号状态位
+			var dhao = false;
+			//错误状态位
+			var error = false;
+
+			for(var i=0; i<aA_n.length; i++){
+
+				aA_n[i].onclick=function(){
+					if(error){return;}//出错不执行
+
+					if(dhao){//点过等号重置
+						reset();
+						dhao = false;
+					}
+					if(num_i++ == 0){//第一次点击数字去0
+						value = '';
+					}
+					//记录当前输入值
+					value += this.innerHTML;
+					text.innerHTML = value;
+				}
+			}
+
+			
+			for(var i=0; i<aA_c.length; i++){
+
+				aA_c[i].onclick=function(){	
+					//重置按钮
+					if(this.innerHTML == 'C'){
+						text.innerHTML = 0;
+						reset();
+						error = false;
+						text.className = 'input';
+						return;
+					}
+					if(error){return;}//出错不执行
+					
+					if(val1 == null){//第一个值
+						val1 = value;
+					}else if(dhao && this.innerHTML != '='){//点击其他符号取消连等操作
+						dhao = false;
+					}else{
+						val1 = calculate(val1, value, char1);
+						//处理出错
+						if(isNaN(val1) || 'Infinity' == val1){
+							text.innerHTML = "出错啦！";
+							text.className = 'input error';
+							error = true;
+						}else{//未出错正常
+							text.innerHTML = val1;
+						}
+					}
+
+					num_i = 0;
+					//点击等号按钮
+					if(this.innerHTML == '='){
+						dhao = true;
+						return;
+					}
+					char1 = this.innerHTML;//记录运算符
+					text.innerHTML += this.innerHTML;
+				}
+			}
+
+			//还原标识
+			function reset(){
+				val1= null;
+				num_i=value= 0;
+			}
+
+			//计算
+			function calculate(val1, val2, char){
+				val1 = parseFloat(val1);
+				val2 = parseFloat(val2);
+				var res = 0;
+				switch(char){
+	                case "+":
+	                    res=val1+val2;
+	                    break;
+	                case "-":
+	                    res=val1-val2;
+	                    break;
+	                case "*":
+	                    res=val1*val2;
+	                    break;
+	                case "/":
+	                    res=val1/val2;
+	                    break;
+	            	}
+	            return res;
+			}
+		}
+	</script>
+</head>
+<body>
+	<div class="top">
+		<div class="input" id="text">0</div>
+	</div>
+	<div class="bottom">
+		<ul class="num" id="num">
+			<li><a href="#">1</a></li>
+			<li><a href="#">2</a></li>
+			<li><a href="#">3</a></li>
+			<li><a href="#">4</a></li>
+			<li><a href="#">5</a></li>
+			<li><a href="#">6</a></li>
+			<li><a href="#">7</a></li>
+			<li><a href="#">8</a></li>
+			<li><a href="#">9</a></li>
+			<li><a href="#" class="zero">0</a></li>
+			<li><a href="#">.</a></li>
+		</ul>
+		<ul class="char" id="char">
+			<li><a href="#">C</a></li>
+			<li><a href="#">/</a></li>
+			<li><a href="#">-</a></li>
+			<li><a href="#">*</a></li>
+			<li><a href="#" class="add">+</a></li>
+			<li><a href="#" class="add">=</a></li>
+		</ul>
+	</div>
+</body>
+</html>
+

@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<meta name="keywords" content="商航的2048,航航航航航航航航航航航航航航航航,商航的2048">
+	<title>商航的2048</title>
+
+	<style type="text/css">
+		body{font-family:'微软雅黑';font-size:24px;background:#999}ul{list-style:none;margin:0;padding:0}.game{width:400px;height:520px;margin:40px auto;background:rgb(251,248,239);padding-top:10px}.num_top{width:380px;height:120px;margin:0 15px;margin-bottom:15px}.logo{width:130px;height:120px;background:rgb(236,196,0);float:left;line-height:120px;color:#fff;font-weight:bold;font-size:48px;text-align:center;border-radius:8px}.fs{width:250px;height:120px;float:left}.fs .con{width:150px;height:75px;background:rgb(187,173,160);margin-left:50px;padding-top:5px;border-radius:8px}.fs .labe{color:rgb(239,227,213);width:100%;text-align:center}.fs .labe_fs{color:#fff;width:100%;text-align:center;font-size:32px}.num_con{width:370px;height:370px;background:rgb(187,174,157);margin-left:15px;position:relative;border-radius:8px}.num_con .bg li{width:80px;height:80px;margin-left:10px;margin-top:10px;background:rgb(205,192,180);float:left;border-radius:8px}.num{width:80px;height:80px;position:absolute;text-align:center;line-height:80px;font-weight:bold;color:#fff;font-size:20px;background:rgb(207,171,33);border-radius:8px}.n2{color:rgb(118,108,98);background:rgb(238,228,218);font-size:60px}.n4{color:rgb(118,108,98);background:rgb(238,228,218);font-size:60px}.n8{background:rgb(243,177,119);font-size:60px}.n16{background:rgb(237,140,86);font-size:50px}.n32{background:rgb(244,125,93);font-size:50px}.n64{background:rgb(222,70,63);font-size:50px}.n128{background:rgb(241,217,107);font-size:40px}.n256{background:rgb(229,192,42);font-size:40px}.n512{background:rgb(229,192,42);font-size:40px}.n1024{background:rgb(207,171,33);font-size:30px}.n2048{background:rgb(207,171,33);font-size:30px}.n4096{background:rgb(238,196,0);font-size:30px}.n8192{background:rgb(207,171,33);font-size:30px}
+	</style>
+	<script type="text/javascript">
+window.onload=function(){var oCon=document.getElementById('con');var oScore=document.getElementById('score');var chessboard=[{'x':10,'y':10,'on':0},{'x':100,'y':10,'on':0},{'x':190,'y':10,'on':0},{'x':280,'y':10,'on':0},{'x':10,'y':100,'on':0},{'x':100,'y':100,'on':0},{'x':190,'y':100,'on':0},{'x':280,'y':100,'on':0},{'x':10,'y':190,'on':0},{'x':100,'y':190,'on':0},{'x':190,'y':190,'on':0},{'x':280,'y':190,'on':0},{'x':10,'y':280,'on':0},{'x':100,'y':280,'on':0},{'x':190,'y':280,'on':0},{'x':280,'y':280,'on':0}];var chessman1=[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null];var chessman2=[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null];var count=0;var lock=false;addNum();document.onkeydown=function(ev){var oEvent=ev||event;var chessboard=getGroup(oEvent.keyCode);if(chessboard==null){return};if(lock){return};lock=true;var add=false;for(var i=0;i<4;i++){add=ComputMovePosition(chessboard[i])||add};var fnAdd=null;if(add){fnAdd=addNum};move(fnAdd)};function getGroup(key){var arr=null;switch(key){case 37:arr=[[0,1,2,3],[4,5,6,7],[8,9,10,11],[12,13,14,15]];break;case 38:arr=[[0,4,8,12],[1,5,9,13],[2,6,10,14],[3,7,11,15]];break;case 39:arr=[[3,2,1,0],[7,6,5,4],[11,10,9,8],[15,14,13,12]];break;case 40:arr=[[12,8,4,0],[13,9,5,1],[14,10,6,2],[15,11,7,3]];break};return arr};function isGameOver(fn){var arr=[37,38,39,40];var add=false;for(var i=0;i<4;i++){var arr2=getGroup(arr[i]);for(var j=0;j<4;j++){if(isComputMove(arr2[j])){return}}};fn()};function isComputMove(arr){for(var i=1;i<4;i++){for(var j=i;j>0;j--){var this_index=arr[j];var prev_index=arr[j-1];if(chessman1[this_index]==null)break;if(chessman2[prev_index]!=null){break}else if(chessman1[prev_index]==null){return true}else if(chessman1[prev_index].innerHTML==chessman1[this_index].innerHTML){return true}}};return false};function ComputMovePosition(arr){var moveTag=false;for(var i=1;i<4;i++){for(var j=i;j>0;j--){var this_index=arr[j];var prev_index=arr[j-1];if(chessman1[this_index]==null)break;if(chessman2[prev_index]!=null){break}else if(chessman1[prev_index]==null){chessman1[prev_index]=chessman1[this_index];chessman1[this_index]=null;chessboard[prev_index]['on']=chessboard[this_index]['on'];chessboard[this_index]['on']=0;moveTag=true}else if(chessman1[prev_index].innerHTML==chessman1[this_index].innerHTML){chessman2[prev_index]=chessman1[this_index];chessman1[this_index]=null;chessboard[prev_index]['on']*=2;chessboard[this_index]['on']=0;count--;reScore(chessboard[prev_index]['on']);moveTag=true}}};return moveTag};function move(fn){var ai=0;for(var i=0;i<16;i++){if(chessman1[i]!=null&&chessman2[i]!=null){ai++;animal(chessman1[i],{'left':chessboard[i].x,'top':chessboard[i].y},function(){moveOver(--ai,fn)});animal(chessman2[i],{'left':chessboard[i].x,'top':chessboard[i].y});var num=chessboard[i]['on'];chessman2[i].parentNode.removeChild(chessman2[i]);chessman2[i]=null;chessman1[i].innerHTML=num==4?'\u822a':num;chessman1[i].className='num n'+num;continue};if(chessman1[i]!=null){ai++;animal(chessman1[i],{'left':chessboard[i].x,'top':chessboard[i].y},function(){moveOver(--ai,fn)})};if(chessman2[i]!=null){ai++;animal(chessman2[i],{'left':chessboard[i].x,'top':chessboard[i].y},function(){moveOver(--ai,fn)})}}};function moveOver(ai,fn){if(ai==0){if(fn){fn()}else{lock=false}}};var scoreCount=0;function reScore(score){scoreCount+=parseInt(score);oScore.innerHTML=scoreCount};function addNum(){var rdm=parseInt(Math.random()*(16-count));var i=0;for(var index in chessboard){if(chessboard[index].on==0){if(i++==rdm){oDiv=document.createElement("div");oDiv.className='num n2';oDiv.style.left=chessboard[index].x+10+'px';oDiv.style.top=chessboard[index].y+10+'px';oDiv.style.width=60+'px';oDiv.style.height=60+'px';oCon.appendChild(oDiv);chessman1[index]=oDiv;animal(chessman1[index],{'width':80,'height':80,'left':chessboard[index].x,'top':chessboard[index].y},function(){if(count==16){isGameOver(function(){alert('GameOver');console.log('123');lock=true})};lock=false});oDiv.innerHTML='\u5546';chessboard[index].on=2;count++;break}}}};function animal(obj,json,fn){clearInterval(obj.timer);obj.timer=setInterval(function(){var stop=true;for(var name in json){var cur=0;if('opacity'==name){cur=Math.round(getStyle(obj,name)*100)}else{cur=parseInt(getStyle(obj,name))};if(json[name]==cur){continue};var speet=(json[name]-cur)/3;speet=speet>0?Math.ceil(speet):Math.floor(speet);if('opacity'==name){obj.style.filter='alpha(opacity:'+(cur+speet)+')';obj.style.opacity=(cur+speet)/100}else{obj.style[name]=cur+speet+'px'};stop=false};if(stop){if(fn){fn()};clearInterval(obj.timer)}},5)};function getStyle(obj,name){if(obj.currentStyle){var style=obj.currentStyle[name];return style=='auto'?0:style}else{return getComputedStyle(obj,false)[name]}}
+
+
+    	var paWin = window.parent;
+    	var h = document.body.offsetHeight;
+    	var ifm = paWin.document.getElementById('ifm');
+    	ifm.height = h;
+
+};
+	</script>
+</head>
+<body>
+	<div class="game">
+		<div class="num_top">
+			<div class="logo">2048</div>
+			<div class="fs">
+				<div class="con">
+					<div class="labe">SCORE</div>
+					<div class="labe_fs" id="score">0</div>
+				</div>
+			</div>
+		</div>
+		<div class="num_con" id="con">
+			<ul class="bg">
+				<li></li><li></li><li></li><li></li>
+				<li></li><li></li><li></li><li></li>
+				<li></li><li></li><li></li><li></li>
+				<li></li><li></li><li></li><li></li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

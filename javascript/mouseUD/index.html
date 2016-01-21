@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<style type="text/css">
+		body{font-family: '微软雅黑';background: #333;}
+		.win{width: 600px;height: 600px;overflow: hidden;position: relative;margin: 10px auto;}
+
+		img{position: absolute;top: 0px;left: 0px;}
+		.c{width: 600px;height: 300px;position: absolute;left: 0px;z-index: 999;background: #FFF;filter:alpha(opacity=0);opacity:0;}
+		#i{z-index: -1;}
+		.top{top: 0px;}
+		.bottom{top:300px;}
+
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var oDivT = document.getElementById('t');
+			var oDivB = document.getElementById('b');
+			var oImg = document.getElementById('i');
+			var val = 0;
+			var timer = null;
+			//速度值
+			var speed = 3;
+
+			oDivT.onmouseover=function(){//上
+				timer = setInterval(function() {
+					val = val - speed;
+					if(val<=-732){//上到头停止
+						clearInterval(timer);
+						return;
+					}
+					oImg.style.top = val + 'px';
+				}, 10);
+			};
+
+			oDivB.onmouseover=function(){//下
+				timer = setInterval(function() {
+					val = val + speed;
+					if(val>=0){//下到头停止
+						clearInterval(timer);
+						return;
+					}
+					oImg.style.top = val + 'px';
+				}, 10);
+			};
+
+			oDivT.onmouseout=oDivB.onmouseout=function(){
+				clearInterval(timer);
+			};
+		}
+	</script>
+</head>
+<body>
+	<div class="win">
+		<div id="t" class="c top"> </div>
+		<div id="b" class="c bottom"> </div>
+		<img id="i" src="img/long.jpg"/>
+	</div>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<style type="text/css">
+		body{margin:0; padding: 0;font-size: 12px;}
+		span{float: left; margin-left: 10px;line-height: 24px;}
+		.con{width: 900px;margin: 30px auto;}
+		.check,.radio{position: relative;}
+		.check i{background:url("img/checkbox.gif") no-repeat;cursor: pointer;display: block;width: 24px;height: 24px;float: left;background-position:-10px -14px;}
+		.check i:hover{background-position:-10px -114px;}
+		.check .active{background-position:-10px -214px;}
+		.check .active:hover{background-position:-10px -314px;}
+
+		.radio i{background:url("img/radiobutton.gif") no-repeat;cursor: pointer;display: block;width: 24px;height: 24px;float: left;background-position:-10px -14px;}
+		.radio i:hover{background-position:-10px -114px;}
+		.radio .active{background-position:-10px -214px;}
+		.radio .active:hover{background-position:-10px -214px;}
+	</style> 
+	<script text="text/javascript">
+		window.onload=function(){
+			var radios = document.getElementById('radio').getElementsByTagName('i');
+			var checks = document.getElementById('check').getElementsByTagName('i');
+
+			//单选
+			var r_index = 0;
+			for(var i=0;i<radios.length;i++){
+				radios[i].index=i;
+				radios[i].onclick=function(){
+					radios[r_index].className='';
+					this.className='active';
+					r_index = this.index;
+				}
+			}
+			//多选
+			for(var i=0;i<checks.length;i++){
+				checks[i].onclick=function(){
+					this.className='active'==this.className?'':'active';
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+<div class="con">
+	<fieldset id="radio">
+		<legend>德国与葡萄牙谁能赢?</legend>
+		<div class="radio">
+			<i class="active"></i><span>德国</span>
+		</div>
+		<div class="radio">
+			<i class=""></i><span>平局</span>
+		</div>
+		<div class="radio">
+			<i class=""></i><span>葡萄牙</span>
+		</div>
+	</fieldset>
+	<br/><br/>
+	<fieldset id="check">
+		<legend>哪些国家有夺冠的可能？</legend>
+		<div class="check">
+			<i class="active"></i><span>巴西</span>
+		</div>
+		<div class="check">
+			<i class=""></i><span>法国</span>
+		</div>
+		<div class="check">
+			<i class=""></i><span>德国</span>
+		</div>
+		<div class="check">
+			<i class=""></i><span>英国</span>
+		</div>
+		<div class="check">
+			<i class=""></i><span>德国</span>
+		</div>
+		<div class="check">
+			<i class=""></i><span>中国</span>
+		</div>
+		<div class="check">
+			<i class=""></i><span>美国</span>
+		</div>
+		<div class="check">
+			<i class=""></i><span>意大利</span>
+		</div>
+	</fieldset>
+</div>
+</body>
+</html>

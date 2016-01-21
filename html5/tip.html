@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<style type="text/css">
+		body{background: #999;margin: 0;padding: 0;font-family:'微软雅黑' ;font-size: 12px;}
+		ul{list-style: none;width: 100%;margin-top: 100px;}
+		ul li{width: 200px;height: 40px;margin:20px auto;border-radius: 8px;background: rgba(16,166,79,0.9);box-shadow:2px 2px 4px #333;position: relative;padding: 4px;cursor:pointer;}
+		ul li span{float: left;display: block;width: 80px;height: 40px;background: #fff;border-radius: 6px 0 0 8px;text-align:center;line-height: 40px;font-size: 18px;}
+		ul li span:nth-of-type(2){background: transparent;position: relative;}
+		ul li span:nth-of-type(2):before{content: '';position: absolute;border: 5px solid transparent;opacity: 0;-webkit-transition:all 0.2s ease;}
+		ul li span:nth-of-type(2):after{content: attr(tip);position: absolute;height: 30px;background: rgba(0,0,0,0.8);box-shadow: 2px 2px 2px #333;color: #fff;border-radius: 4px;white-space:nowrap;padding: 4px;line-height: 30px;opacity: 0;-webkit-transition:all 0.2s ease;font-size: 12px;}
+		ul li span:nth-of-type(2):hover:before,ul li span:nth-of-type(2):hover:after{opacity: 1;}
+
+		.up:nth-of-type(2):before{border-top: 5px solid #000;bottom: 100%;left: 50%;margin-bottom: -10px;}
+		.right:nth-of-type(2):before{border-right: 5px solid #000;left: 100%;top:50%;margin-left: -10px;}
+		.down:nth-of-type(2):before{border-bottom: 5px solid #000;top:100%;left: 50%;margin-top: -10px;}
+		.up:nth-of-type(2):after{bottom: 100%;left: 50%;margin:0 0 0px -10px;}
+		.right:nth-of-type(2):after{left: 100%;top:50%;margin:-20px 0 0 0px;}
+		.down:nth-of-type(2):after{top:100%;left: 50%;margin:-10px 0 0 -10px;}
+
+		.up:nth-of-type(2):hover:before{margin-bottom: 0;}
+		.right:nth-of-type(2):hover:before{margin-left:0;}
+		.down:nth-of-type(2):hover:before{margin-top:0;}
+		.up:nth-of-type(2):hover:after{margin:0 0 10px -10px;}
+		.right:nth-of-type(2):hover:after{margin:-20px 0 0 10px;}
+		.down:nth-of-type(2):hover:after{margin:10px 0 0 -10px;}
+	</style>
+</head>
+<body>
+	<ul>
+		<li>
+			<span>提示</span>
+			<span class="up" tip="向上提示。。">向上</span>
+		</li>
+		<li>
+			<span>提示</span>
+			<span class="right" tip="向右提示。。">向右</span>
+		</li>
+		<li>
+			<span>提示</span>
+			<span class="down" tip="向下提示。。">向下</span>
+		</li>
+	</ul>
+</body>
+</html>

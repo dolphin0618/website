@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+<link rel="stylesheet" href="css/css.css" type="text/css" />
+<link rel="stylesheet" href="css/search.css" type="text/css" />
+<link href="css/brandall_trans_48x48.css" rel="stylesheet" />
+</head>
+
+<body>
+<div class="search">
+<!--搜索框开始-->
+<div class="searchtype">
+    <input  type="text" value=" 全部" class="searchtype_key" id="searchtype_input" readOnly="true"/>
+    <a href="javascript:void(0)" target="_self" class="searchcar_type_close" id="showtypeBtn" lang="created" xml:lang="created">打开/隐藏</a>
+    <div class="searchcar_type" id="searchcar_type" style="display:none;">
+        <div class="type_item"> 我的车</div>
+        <div class="type_item"> 你的车</div>
+        <div class="type_item"> 他的车</div>
+    </div>
+</div>
+<div class="search_mod" id="suggestbar">
+  <div class="searchcar">
+		<span class="searchcar_preload auto_serieslogo_80x60_1685"></span>
+		<span class="searchcar_keyword" style="position: relative;">
+		<input  id="searchInput" type="text" lang="zh-CN" value="单击选择车型，支持快捷输入" _keyword="单击选择车型，支持快捷输入" autocomplete="off" xml:lang="zh-CN" />
+		<input type="text" class="nui-suggest-speech" style="position:absolute;top:0;right:1px;z-index:1;background:transparent;width:16px; text-indent:-999px;border:0;outline:none;" lang="zh-CN" autocomplete="off" x-webkit-speech="true" xml:lang="zh-CN" />
+		</span>
+		<a href="javascript:void(0)" target="_self" id="showListBtn" class="searchcar_arrow_close" lang="created" xml:lang="created">打开/隐藏</a>
+		<a class="searchcar_btn" target="_self" href="javascript:void(0)" onclick="searchKey();">搜索</a>
+    <div class="clear"></div>
+    <div class="searchcar_suggest_wrapper" style="display: none; ">
+      <ul class="searchcar_suggest">
+      </ul>
+    </div>
+    <div class="searchcar_popup" style="display: none; ">
+      <div class="searchcar_letters">
+	  	<a href="">A</a>
+		<a href="">B</a>
+		<a href="">C</a>
+		<a href="">D</a>
+		<a href="">F</a>
+		<a href="">G</a>
+		<a href="">H</a>
+		<a href="">J</a>
+		<a href="">K</a>
+		<a href="">L</a>
+		<a href="">M</a>
+		<a href="">N</a>
+		<a href="">O</a>
+		<a href="">Q</a>
+		<a href="">R</a>
+		<a href="">S</a>
+		<a href="">T</a>
+		<a href="">W</a>
+		<a href="">X</a>
+		<a href="">Y</a>
+		<a href="">Z</a>
+	</div>
+      <div class="searchcar_panel">
+        <div class="searchcar_trans"> <span class="searchcar_trans_open" onclick="transbtn(this);" id="tranon">显示/隐藏</span>
+          <label>停产车：</label>
+        </div>
+        <div class="searchcar_brand">
+            <ul id="brand_ul"></ul>
+        </div>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div class="searchcar_types searchcar_types_scroll" id="searchcar_types">
+      <div class="searchcar_types_arr" id="searchcar_types_arr"></div>
+      <ul style="width: 236px;" class="      " id="searchcar_types_ul">
+            <LI><SPAN style="background:url(images/loadings.gif) no-repeat;float:left;width:30px;height:40px;margin:10px 30px 0 40px"></SPAN><EM>请稍后..</EM>
+            </LI>
+      </ul>
+    </div>
+  </div>
+
+</div>
+</div>
+<!--搜索框结束-->
+    <script src="../../js/jquery-1.11.1.min.js"></script>
+    <script src="js/initData.js"></script>
+    <script>
+        var brands;//数据管理
+        $(document).ready(function() {
+                        
+            brands = brandData.brands;
+            bulidSelect(brands)
+            /**
+            *点击其它位置，收回下拉提示
+            */
+            $(document).click(function(event) {
+                 if (event.target.id == "") {
+                   $(".searchcar_popup").slideUp(200);
+                   $("#showListBtn").removeClass("searchcar_arrow_open");
+                   $("#searchcar_type").slideUp(200);
+                   $("#showtypeBtn").removeClass("searchcar_type_open");
+                 }
+            });
+            $("#showListBtn").click(function () {//展开/关闭下拉
+                var btn = $("#showListBtn");
+                if(btn.hasClass("searchcar_arrow_open")){
+                    $(".searchcar_popup").slideUp(200);
+                    btn.removeClass("searchcar_arrow_open");
+                }else{
+                    $(".searchcar_popup").slideDown(200);
+                    btn.addClass("searchcar_arrow_open");
+                }
+            });
+            $("#showtypeBtn").click(function () {//展开/关闭类型下拉
+                var btn = $("#showtypeBtn");
+                if(btn.hasClass("searchcar_type_open")){
+                    $("#searchcar_type").slideUp(200);
+                    btn.removeClass("searchcar_type_open");
+                }else{
+                    $("#searchcar_type").slideDown(200);
+                    btn.addClass("searchcar_type_open");
+                }
+            });
+            $("#searchtype_input").click(function () {//点击输入框 展开/关闭类型下拉
+                var btn = $("#showtypeBtn");
+                if(btn.hasClass("searchcar_type_open")){
+                    $("#searchcar_type").slideUp(200);
+                    btn.removeClass("searchcar_type_open");
+                }else{
+                    $("#searchcar_type").slideDown(200);
+                    btn.addClass("searchcar_type_open");
+                }
+            });
+            $(".type_item").click(function (){
+                $("#searchtype_input").val($(this).html());
+                $("#searchcar_type").slideUp(200);
+                $("#showtypeBtn").removeClass("searchcar_type_open");
+            })
+
+            $("#searchInput").blur(function () {
+                if($(this).val()=="")$(this).val("单击选择车型，支持快捷输入");
+            });
+            $("#searchInput").focus(function () {//输入框获取焦点
+                $(".searchcar_popup").slideDown(200);
+                $("#showListBtn").addClass("searchcar_arrow_open");
+                $(this).val("");
+            });
+            //检索框改变值时触发
+            $("#searchInput").keyup(function () {
+                if ($("#searchInput").val().length > 0){
+                        var key = $("#searchInput").val();
+                        //异步加载下拉数据列表
+                        $.ajax ({
+                              type      : "GET",
+                              url       : "ajaxData.js",
+                              dataType  : "script",
+                              complete    : function(msg) {
+                                    //alert('使用 demo 数据 ajaxData ');
+                                    bulidSelect(ajaxData1.brands);
+                              }
+                            });        
+                }else{//输入框没有内容，还原初始数据
+                    bulidSelect(brands);
+                }
+            });
+
+
+            $(".searchcar_letters a").click(function () {
+                //找firstchar为我们点击的那个字母的dom元素
+                var $first = $(".searchcar_brand li[_firstchar='" + $(this).html() + "']").get(0);
+                //获取li的高度
+                var liHeight = $(".searchcar_brand li").first().outerHeight(true);
+                //根据li的高度和找到的dom元素的索引去计算scrollTop,并运动到改scrollTop
+                $(".searchcar_panel").animate({ scrollTop: $(".searchcar_brand li").index($first) * liHeight }, 1000);
+                return false;
+            });
+            $(".searchcar_types").hover(
+                function () {
+                    $(this).show();
+                },
+                function () {
+                    $(this).hide();
+
+                });
+        });
+        //构造下拉列表框DOM
+        function bulidSelect(brands){
+            var $ul = $("#brand_ul");
+            $ul.children().remove();//先清空
+            var len = brands.length;
+            for (var i = 0; i < len; i++) {
+                var item=brands[i];
+                $li = $('<li _cid="' + item.cid + '" _firstchar="' + item.firstchar + '" class="  searchcar_flag_0"><a href="javascript:void(0)" level=""  autoid="' + item.autoid + '" cid="' + item.cid + '" class="searchcar_brands_item searchcar_brands_' + item.firstchar + ' loading"><span class="auto_brandlogo_trans_48x48 auto_brandlogo_48x48_' + item.autoid + '"></span><strong>' + item.name + '</strong></a></li>');
+            $ul.append($li);
+            }
+            bindHover();
+        }
+
+        //构造下拉二级列表DOM
+        function bulidSecSelect(types){
+
+            var $uls = $('#searchcar_types_ul');
+            $uls.children().remove();//先清空
+            for (var i = 0; i < types.length; i++) {
+                var item = types[i];
+                if(tranTag || item.stop=='N'){//停产车过滤
+                    var stop = (item.stop=='Y'?'searchcar_types_flag_2':'searchcar_types_flag_0');
+                    $li = $('<LI class="'+stop+'"><A title="'+item.name+'" href="#" onclick=opencar("'+item.cid+'") target=_self cid="'+item.cid+'" autoid="'+item.autoid+'" level=""><SPAN class="auto_serieslogo" style="background:url('+item.url+') no-repeat"></SPAN><EM>"'+item.em+'"</EM><STRONG>'+item.name+'</STRONG></A><SPAN class=searchcar_types_dead>停</SPAN></LI>');
+                    $uls.append($li);
+                }
+            }
+        }
+        //绑定鼠标移入下拉列表事件
+        function bindHover(){
+            $(".searchcar_brand li").off("hover", "**");
+            $(".searchcar_brand li").hover(
+                function () {
+
+                    var thisobj = $(this);
+                    var typesul = $('#searchcar_types_ul');
+
+                    $(".searchcar_types").show();//显示二级菜单
+                    typesul.css("top",thisobj.position().top-12);//二级初始对齐高度
+                    $('#searchcar_types_arr').css("top",thisobj.position().top-4);//箭头初始对齐高度
+                        //异步加载下拉数据列表
+                        $.ajax ({
+                              type      : "GET",
+                              url       : "ajaxData2.js",
+                              dataType  : "script",
+                              complete    : function(msg) {
+                                    //alert('使用 demo 数据 ajaxData ');
+                                    bulidSecSelect(ajaxData2.types);
+                                    //从后台获取数据后调整二级菜单位置
+                                    var thisheight = thisobj.position().top-4;//箭头距顶部高度
+                                    var ulheight = typesul.outerHeight(true);//二级菜单高度
+                                    var typesheight = $(".searchcar_types").height();//容器固定高度
+                                    //计算二级菜单合理位置
+                                    if(thisheight<=ulheight/2){
+                                        typesul.css("top",0);
+                                    }else if(typesheight-thisheight < ulheight/2){
+                                        typesul.css("top",typesheight-ulheight);
+                                    }else{
+                                        typesul.css("top",thisheight-ulheight/2+15);
+                                    }
+                                    $('#searchcar_types_arr').css("top",thisheight);
+                              }
+                            });  
+                },
+                function () {
+                    $(".searchcar_types").hide();
+
+                });
+        }
+        var tranTag = true;//停产车单选开关状态
+        function transbtn(obj){//停产车单选开关
+            var jqobj = $(obj);
+            if(jqobj.hasClass("searchcar_trans_close")){
+                jqobj.removeClass("searchcar_trans_close");
+                tranTag = true;
+            }else{
+                jqobj.addClass("searchcar_trans_close");
+                tranTag = false;
+            }
+        }
+        
+        function opencar(id){
+            alert(id);
+        }
+        function searchKey(){
+            alert("类型："+$("#searchtype_input").val()+" ，名称："+$("#searchInput").val());
+        }
+    </script>
+</body>
+</html>
+

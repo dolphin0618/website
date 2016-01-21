@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>定稿刮刮乐</title>
+<style type="text/css">
+	body{margin: 0;padding: 0;}
+	canvas{position: absolute;left: 0;top: 0;}
+</style>
+
+</head>
+
+<body>
+	<div style="width:1000px;height:400px;background:#12a5f8;">
+	<canvas style=""></canvas>
+</body>
+<script>
+	var hastouch = "ontouchstart" in window?true:false;
+    var tapstart = hastouch?"touchstart":"mousedown";
+    var tapmove = hastouch?"touchmove":"mousemove";
+    var tapend = hastouch?"touchend":"mouseup";
+		var canvas = document.querySelectorAll('canvas')[0];
+
+		canvas.style.backgroundColor='transparent';
+		var ctx = canvas.getContext('2d');
+		
+		var img = new Image();
+		img.addEventListener('load',function(e){
+			var w = this.width, h = this.height;w=900; h=800;
+			canvas.width=w;
+			canvas.height=h;
+			canvas.removeEventListener(tapstart, eventDown);
+			canvas.addEventListener(tapstart, eventDown);
+
+			ctx.fillStyle = 'rgba(128,128,128,1)';
+			ctx.fillRect(0, 0, w, h);
+			ctx.globalCompositeOperation = 'destination-out';
+			function eventDown(e){
+				e.preventDefault();                 
+				canvas.addEventListener(tapmove, eventMove);
+				canvas.addEventListener(tapend, eventUp);
+			}
+			function eventUp(e){                 
+				e.preventDefault();
+				canvas.removeEventListener(tapmove, eventMove);
+				canvas.removeEventListener(tapend, eventUp);
+				
+				
+				// if(_this.isShowed()){
+				// 	_this.guakai();
+				// };
+			}               
+			function eventMove(e){
+				e.preventDefault();
+					if(e.changedTouches){
+						e=e.changedTouches[e.changedTouches.length-1];                     
+					}
+					var x = (e.clientX + document.body.scrollLeft || e.pageX) - 10 || 0,                         
+					y = (e.clientY + document.body.scrollTop || e.pageY) - 10 || 0; 
+
+					x = x-canvas.getBoundingClientRect().left;
+					//y = _this.canvas[index].offset().top()-y;
+					ctx.beginPath();
+					ctx.arc(x,y,80,2*Math.PI,false);//（圆中心坐标，半径，弧度范围，true:逆时针、false：顺时针）0-2*PI是圆;
+					ctx.fill();
+			};
+
+		});
+
+		img.src="images/shuzi-1.png";
+</script>
+</html>

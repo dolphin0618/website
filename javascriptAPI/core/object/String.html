@@ -1,0 +1,171 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>js语法速查表 by航</title>
+	<!-- 新 Bootstrap 核心 CSS 文件 -->
+	<link rel="stylesheet" href="../../css/bootstrap.min.css">
+	<style>
+		body{margin: 0;padding: 0;font-family: 'Microsoft yahei';}
+		.ol{background: #333;}.ol li a{color: #fff;}
+		pre{margin: 10px;padding: 10px;border: 1px dashed #3569a9;display: block;white-space: pre-wrap;white-space: -moz-pre-wrap;white-space: -pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;}
+		code{font-family: monospace,monospace;font-size: 1em;}
+		p{text-indent: 2em;}
+	</style>
+	<script type="text/javascript">
+
+	</script>
+</head>
+<body>
+	<!--头部-->
+	<ol class="breadcrumb ol">
+	  <li><a href="../../index.html">首页</a></li>
+	  <li class="active">系统内置对象</li>
+	  <li class="active">系统对象</li>
+	</ol>
+	<div class="page-header" style="padding-left:20px;">
+  		<h1>String <small></small></h1>
+	</div>
+	<!--内容-->
+		<!--描述-->
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+	        <h3 class="panel-title">描述</h3>
+	      </div>
+	      <div class="panel-body">
+	        数组对象：var str=new String([val]);
+	      </div>
+		</div>
+		<!--列表-->
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+	        <h3 class="panel-title">列表</h3>
+	      </div>
+	      <div class="panel-body">
+	        <table class="table table-hover">
+		      <thead>
+		        <tr>
+		          <th>方法</th>
+		          <th>使用说明</th>
+		        </tr>
+		      </thead>
+		      <tbody>
+		        <tr>
+		          <td>length</td>
+		          <td>长度</td>
+		        </tr>
+		        <tr>
+		          <td>charAt(index)</td>
+		          <td>取第index位的字符,index超出或者等于length时 返回''</td>
+		        </tr>
+		        <tr>
+		          <td>substring</td>
+		          <td>substring(开始位置，结束位置)。如开始位置小于结束位置会自动调换</td>
+		        </tr>
+		        <tr>
+		          <td>split()</td>
+		          <td>切字符串   字符串->数组</td>
+		        </tr>
+		        <tr>
+		          <td>indexOf()</td>
+		          <td>查找子字符串</td>
+		        </tr>
+		        <tr>
+		          <td>lastIndexOf()</td>
+		          <td>从后向前搜索字符串</td>
+		        </tr>
+		        <tr>
+		          <td>replace()</td>
+		          <td>替换</td>
+		        </tr>
+		      	<tr>
+		          <td>toUpperCase()</td>
+		          <td>大写</td>
+		        </tr>
+		        <tr>
+		          <td>toLowerCase();</td>
+		          <td>小写</td>
+		        </tr>
+		        <tr>
+		          <td>slice();</td>
+		          <td>提取字符串的片断，并在新的字符串中返回被提取的部分。开始位置必须小于结束位置</td>
+		        </tr>
+		        <tr>
+		          <td>trim()</td>
+		          <td>去除首位空格</td>
+		        </tr>
+		        <tr>
+		          <td>charCodeAt([index])</td>
+		          <td>字母编码</td>
+		        </tr>
+		        <tr>
+		          <td>String.fromCharCode([code])</td>
+		          <td>打印出所有汉字：for(var i=0x4e00; i&lt;0x9fa5; i++){
+					document.write(String.fromCharCode(i));
+			     }</td>
+		        </tr>
+		        <tr>
+		          <td><strong>可以使用正则的方法↓↓</strong></td>
+		          <td></td>
+		        </tr>
+		        <tr>
+		          <td>match()</td>
+		          <td>找到一个或多个正则表达式的匹配。</td>
+		        </tr>
+		        <tr>
+		          <td>replace()</td>
+		          <td>替换与正则表达式匹配的子串。</td>
+		        </tr>
+		        <tr>
+		          <td>search()</td>
+		          <td>检索与正则表达式相匹配的值</td>
+		        </tr>
+		        <tr>
+		          <td>split()</td>
+		          <td>正则表达式来切分。</td>
+		        </tr>
+		      </tbody>
+		    </table>
+	      </div>
+		</div>
+		<!--示例-->
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+	        <h3 class="panel-title">示例</h3>
+	      </div>
+	      <div class="panel-body">
+	        <div class="panel panel-info">
+			  <div class="panel-heading">
+		        <h3 class="panel-title">描述</h3>
+		      </div>
+		      <div class="panel-body">
+		        <p>类型转换。</p>
+		        <h5>js代码：</h5>
+		        <pre><code>var test1= new Boolean(1);
+var test2= new Date();
+
+String(test1);//true
+String(test2);//"Wed Jan 28 2015 22:21:04 GMT+0800 (中国标准时间)"</code></pre>
+				<p>连接字符串替代'+'号连接方案</p>
+		        <h5>js代码：</h5>
+		        <pre><code>'hell\
+o wo\
+rd'</code></pre>
+		      </div>
+			</div>
+	      </div>
+		</div>
+		
+	<!--翻页-->
+	<nav>
+	  <ul class="pager">
+	    <li class="previous"><a href="../object/Image.html">&larr; 上一篇:Image</a></li>
+	    <li class="next"><a href="../object/Option.html">下一篇:Option &rarr;</a></li>
+	  </ul>
+	</nav>
+
+	<div class="page-header" style="background:#333;color:#fff;margin:0;padding:10px 40px;">
+	  <h6 style="text-align:center;">Copyright © <small>shanghang    2015 - 2018    All rights reserved.</small></h6>
+	</div>
+</body>
+</html>

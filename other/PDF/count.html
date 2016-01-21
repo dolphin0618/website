@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <!-- Le styles -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/pdf-unis.css" rel="stylesheet">
+    <style>
+    body {background-color: #f5f6f7;font-family:"微软雅黑", "宋体", serif;margin:0px;}
+    .con_top{background: #FF9966;}
+    .con_line{background: #FF6633;}
+    .ui-jqchart{margin: 0 auto;}
+
+    </style>
+    <script src="js/jquery-1.5.1.min.js"></script>
+    <script src="js/jquery.jqChart.min.js" type="text/javascript"></script>
+    <!--[if IE]><script lang="javascript" type="text/javascript" src="js/canvas.js"></script><![endif]-->
+    <script lang="javascript" type="text/javascript">
+      $(function(){
+        $('#menu a[hover=yes]').mouseover(function(){
+          $(this).children('.m_bg').stop().animate({opacity:0.8},350);
+          $(this).children('.m_logo').stop().animate({"backgroundPosition":50},100);
+        }).mouseleave(function(){
+          $(this).children('.m_bg').stop().css({opacity:0});
+          $(this).children('.m_logo').stop().animate({'backgroundPosition':0},100);
+        });
+      });
+
+$(document).ready(function () {
+  $('#jqChart').jqChart({
+    title: { text: '折线统计图' },
+    axes: [
+      {
+        location: 'left',//y轴位置，取值：left,right
+        minimum: 0,//y轴刻度最小值
+        maximum: 5000,//y轴刻度最大值
+        interval: 500//刻度间距
+      }
+    ],
+    series: [
+      //数据1开始
+      {
+        type: 'line',//图表类型，取值：column 柱形图，line 线形图
+        title:'成功',//标题
+        data: [['1', 770], ['', 2311], ['3', 855], ['', 950], ['5', 1160], ['', 240], ['7', 2240],['', 770], ['9', 2311], ['', 855], ['11', 950], ['', 1160], ['13', 240], ['', 4240],['15', 770], ['', 2311], ['17', 855], ['', 950], ['19', 1160], ['', 240], ['21', 2240],['', 770], ['23', 2311], ['', 855], ['25', 950], ['', 1160], ['27', 240], ['', 2240], ['29', 1160], ['', 240], ['31', 2240]]//数据内容，格式[[x轴标题,数值1],[x轴标题,数值2],......]
+      },
+      //数据1结束
+      //数据2
+      {
+        type: 'line',
+        title:'失败',
+        data: [['一月', 40], ['二月', 50], ['三月', 95], ['四月', 55], ['五月', 25], ['六月', 45]]
+      } 
+    ]
+  });
+});
+    </script>	
+</head>
+<body>
+<div class="bg">
+  <div class="body">
+    <!-- 菜单 -->
+    <div class="menu black">
+      <ul id="menu">
+        <li>
+          <a href="run.html"  hover="yes">
+            <div class="m_bg" style="background:#33CCFF;"></div>
+            <div class="m_logo logo1"></div>
+            <span>运行转换</span>
+          </a>
+        </li>
+        <li>
+          <a href="config.html"  hover="yes">
+            <div class="m_bg" style="background:#CC0033;"></div>
+            <div class="m_logo logo2"></div>
+            <span>转换配置</span>
+          </a>
+        </li>
+        <li>
+          <a href="#"  hover="no">
+            <div class="m_bg active" style="background:#FF7700;"></div>
+            <div class="m_logo logo3" style="background-position:50px 0"></div>
+            <span>转换统计</span>
+          </a>
+        </li>
+        <li>
+          <a href="log.html"  hover="yes">
+            <div class="m_bg" style="background:#CC0066;"></div>
+            <div class="m_logo logo4"></div>
+            <span>转换日志</span>
+          </a>
+        </li>
+        <li>
+          <a href="about.html"  hover="yes">
+            <div class="m_bg" style="background:#00CC00;"></div>
+            <div class="m_logo logo5"></div>
+            <span>关于我们</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <!-- end 菜单 -->
+    <!-- 转换 -->
+    <div class="con write">
+      <div class="convet">
+        <div class="con_top">
+          <div class="logo"><span>UNISSOFT</span></div>
+          <div class="top_btn">
+              <div class="btn-group" style="right:95px;">
+                <button class="btn btn-mini dropdown-toggle" data-toggle="dropdown">2015年 <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                  <li><a href="#">2015</a></li>
+                  <li><a href="#">2015</a></li>
+                  <li><a href="#">2015</a></li>
+                </ul>
+              </div>
+              <div class="btn-group">
+                <button class="btn btn-mini dropdown-toggle" data-toggle="dropdown"><span>10月</span><span class="caret"></span></button>
+                <ul class="dropdown-menu" id="month">
+                  <li><a href="#">01</a></li>
+                  <li><a href="#">02</a></li>
+                  <li><a href="#">03</a></li>
+                  <li><a href="#">04</a></li>
+                  <li><a href="#">05</a></li>
+                  <li><a href="#">06</a></li>
+                  <li><a href="#">07</a></li>
+                  <li><a href="#">08</a></li>
+                  <li><a href="#">09</a></li>
+                  <li><a href="#">10</a></li>
+                  <li><a href="#">11</a></li>
+                  <li><a href="#">12</a></li>
+                </ul>
+              </div>
+          </div>
+        </div>
+        <div class="con_line"></div>
+        <div class="con_btm">
+          <div class="well">已为您转换3214个文件，其中有30个文件转换失败</div>
+          <div id="jqChart" style="width: 500px; height: 300px; position: relative;" class="ui-jqchart"></div>
+        </div>
+      </div>
+      <div class="btm">
+        <span>紫光PDF转换软件</span>
+      </div>
+    </div>
+    <!-- end 转换 -->
+  </div>
+</div>
+</body>
+</html>

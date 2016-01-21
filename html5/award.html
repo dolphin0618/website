@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<style>
+body{margin:0;padding: 0;}
+	canvas{background: #ccc;}
+</style>
+<script>
+	window.onload=function(){
+		var canvas = document.getElementsByTagName('canvas')[0];
+		var cObj = canvas.getContext('2d');
+		var color=['#0099FF','#9966FF','#FF0033','#33CC66','#ffcc00','#990066','#999','#CC0066','#6600CC'];
+		var txt = ['买菜','洗碗','拖地','煮饭','闲坐','刷马桶','洗衣服','擦桌子','倒垃圾'];
+
+
+		var len = txt.length;
+		var pI = Math.PI/180;
+		cObj.translate(200,200);
+
+		var num = Math.random()*1000;
+		var speed =20;
+		var timer = null;
+
+		start();
+		document.onclick=function(ev){
+			var oEvent=ev || event;
+			speed =20;
+			if(oEvent.ctrlKey){
+				num = (Math.random()*39+237);
+			}else{
+				num = Math.random()*1000;
+			}
+			//document.title=num;
+			start();
+		}
+
+		function start(){
+			clearInterval(timer);
+			timer = setInterval(function(){
+				cObj.clearRect(-200,-200,400,400);
+				point();
+
+				cObj.save();
+				cObj.rotate(num*pI);
+				sport();
+				cObj.restore();
+
+				if(speed < 0.1){
+					clearInterval(timer);
+					var index = Math.ceil(len-num%360/(360/len))-1;
+					cObj.fillStyle=color[index];
+					cObj.beginPath();
+					cObj.arc(0,0,50,0,2*Math.PI,false);
+					cObj.fill();
+
+					cObj.beginPath();
+					cObj.fillStyle = '#fff';
+					cObj.textBaseline = 'middle';
+					cObj.textAlign = 'center';
+					cObj.font = '20px 黑体"';
+					cObj.fillText(txt[index],0,0);
+					cObj.fill();
+				}
+
+				speed*=0.97;
+				num+=speed;
+			},30);
+		}
+
+		
+
+		function sport(){
+			drawBlock();
+			drawText();
+
+			cObj.beginPath();
+			cObj.fillStyle = '#fff';
+			cObj.arc(0,0,60,0,2*Math.PI,false);
+			cObj.fill();
+		}
+		//块
+		function drawBlock(){
+			cObj.save();
+			for (var i = 0; i < len; i++) {
+				cObj.fillStyle = color[i];
+
+				cObj.beginPath();
+				cObj.moveTo(0,0);
+				cObj.lineTo(90,0);
+				cObj.arc(0,0,150,0,2*Math.PI/len,false);
+				cObj.closePath();
+				cObj.fill();
+
+				cObj.rotate(2*Math.PI/len);
+				
+			};
+			cObj.restore();
+		}
+
+
+		//文字
+		function drawText(){
+			cObj.save();
+			cObj.rotate(Math.PI/len);
+			for (var i = 0; i < len; i++) {
+				cObj.fillStyle = '#fff';
+				cObj.textBaseline = 'middle';
+				cObj.textAlign = 'center';
+				cObj.font="25px 黑体";
+				cObj.fillText(txt[i], 105, 0);
+
+				cObj.rotate(2*Math.PI/len);
+			};
+			cObj.restore();
+		}
+
+		//指针
+		function point(){
+			cObj.fillStyle = '#000';
+			cObj.moveTo(150,0);
+			cObj.lineTo(170,-10);
+			cObj.lineTo(170,10);
+			cObj.closePath();
+			cObj.fill();
+		}
+	}
+</script>
+
+</head>
+<body>
+	<canvas width="400" height="400" id="canvas"> </canvas>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>insertBefore by航</title>
+	<!-- 新 Bootstrap 核心 CSS 文件 -->
+	<link rel="stylesheet" href="../../css/bootstrap.min.css">
+	<style>
+		body{margin: 0;padding: 0;font-family: 'Microsoft yahei';}
+		.ol{background: #333;}.ol li a{color: #fff;}
+		pre{margin: 10px;padding: 10px;border: 1px dashed #3569a9;display: block;white-space: pre-wrap;white-space: -moz-pre-wrap;white-space: -pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;}
+		code{font-family: monospace,monospace;font-size: 1em;}
+		p{text-indent: 2em;}
+	</style>
+	<script type="text/javascript">
+
+	</script>
+</head>
+<body>
+	<!--头部-->
+	<ol class="breadcrumb ol">
+	  <li><a href="../../index.html">首页</a></li>
+	  <li class="active">dom操作</li>
+	  <li class="active">插入</li>
+	</ol>
+	<div class="page-header" style="padding-left:20px;">
+  		<h1>insertBefore <small></small></h1>
+	</div>
+	<!--内容-->
+		<!--描述-->
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+	        <h3 class="panel-title">描述</h3>
+	      </div>
+	      <div class="panel-body">
+	        <p>在已有的子节点前插入一个新的子节点。并返回新的子节点。</p>
+	      </div>
+		</div>
+		<!--示例-->
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+	        <h3 class="panel-title">示例</h3>
+	      </div>
+	      <div class="panel-body">
+	        <div class="panel panel-info">
+			  <div class="panel-heading">
+		        <h3 class="panel-title">描述</h3>
+		      </div>
+		      <div class="panel-body">
+		        <h5>html代码：</h5>
+		        <pre><code>&lt;ul&gt;
+  &lt;li&gt;111&lt;/li&gt;
+  &lt;li&gt;222&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+		        <h5>js代码：</h5>
+		        <pre><code>var obj1 = oUl.children[0];
+var obj2 = oUl.children[1];
+oUl.insertBefore(obj2, obj1);//把obj2插入到obj1的前面</code></pre>
+		        <h5>结果：</h5>
+		        <pre><code>&lt;ul&gt;
+  &lt;li&gt;222&lt;/li&gt;
+  &lt;li&gt;111&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+		      </div>
+			</div>
+	      </div>
+		</div>
+	<!--翻页-->
+	<nav>
+	  <ul class="pager">
+	    <li class="previous"><a href="../dom/appendChild.html">&larr; 上一篇:appendChild([object])</a></li>
+	    <li class="next"><a href="../dom/removeChild.html">下一篇:removeChild([object]) &rarr;</a></li>
+	  </ul>
+	</nav>
+
+	<div class="page-header" style="background:#333;color:#fff;margin:0;padding:10px 40px;">
+	  <h6 style="text-align:center;">Copyright © <small>shanghang    2015 - 2018    All rights reserved.</small></h6>
+	</div>
+</body>
+</html>

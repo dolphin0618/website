@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <!-- Le styles -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/pdf-unis.css" rel="stylesheet">
+    <style>
+    body {background-color: #f5f6f7;font-family:"微软雅黑", "宋体", serif;margin:0px;}
+    .con_top{background: #CC3333;}
+    .con_line{background: #CC0000;}
+    </style>
+    <script src="js/jquery.js"></script>
+    <script src="js/exception.js"></script>
+    <script>
+      $(function(){
+        $('#menu a[hover=yes]').mouseover(function(){
+          $(this).children('.m_bg').stop().animate({opacity:0.8},350);
+          $(this).children('.m_logo').stop().animate({"backgroundPosition":50},100);
+        }).mouseleave(function(){
+          $(this).children('.m_bg').stop().css({opacity:0});
+          $(this).children('.m_logo').stop().animate({'backgroundPosition':0},100);
+        });
+        exception('java.lang.ArithmeticException: / by zero at com.ams.web.controller.newSearch.NewSearchController.index(NewSearchController.java:1109) at com.ams.web.controller.newSearch.NewSearchController.moduleDispatch(NewSearchController.java:168) at com.ams.web.controller.newSearch.NewSearchController.doGet(NewSearchController.java:132) at javax.servlet.http.HttpServlet.service(HttpServlet.java:620) at javax.servlet.http.HttpServlet.service(HttpServlet.java:727) at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:303) at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208) at com.ams.web.filter.OpenNewWinFilter.doFilter(OpenNewWinFilter.java:54) at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:241) at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208) at com.ams.web.filter.SetCharacterEncodingFilter.doFilter(SetCharacterEncodingFilter.java:81) at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:241) at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208) at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:220) at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:122) at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:501) at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:171) at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:103) at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:950) at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:116) at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:408) at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1070) at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:611) at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.doRun(AprEndpoint.java:2440) at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.run(AprEndpoint.java:2429) at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895) at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918) at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) at java.lang.Thread.run(Thread.java:662) ');
+        $('.tip').tooltip();
+
+        $('#updata').on('click', function(){
+          error('位置不对');
+        });
+
+        function error(text){
+          var _html = '<div class="alert alert-error" id="alert" style="margin:85px 0 0 0;">'+
+                        '<button type="button" class="close" data-dismiss="alert">&times;</button>'+
+                        '<h4>填写信息有误!</h4>'+
+                        '<p>'+text+'</p></div>';
+          $('.con_btm').append(_html);
+        }
+      });
+    </script>	
+</head>
+<body>
+          
+<div class="bg">
+  <div class="body">
+    <!-- 菜单 -->
+    <div class="menu black">
+      <ul id="menu">
+        <li>
+          <a href="run.html"  hover="yes">
+            <div class="m_bg" style="background:#33CCFF;"></div>
+            <div class="m_logo logo1"></div>
+            <span>运行转换</span>
+          </a>
+        </li>
+        <li>
+          <a href="#"  hover="no">
+            <div class="m_bg active" style="background:#CC0033;"></div>
+            <div class="m_logo logo2" style="background-position:50px 0"></div>
+            <span>转换配置</span>
+          </a>
+        </li>
+        <li>
+          <a href="count.html"  hover="yes">
+            <div class="m_bg" style="background:#FF7700;"></div>
+            <div class="m_logo logo3"></div>
+            <span>转换统计</span>
+          </a>
+        </li>
+        <li>
+          <a href="log.html"  hover="yes">
+            <div class="m_bg" style="background:#CC0066;"></div>
+            <div class="m_logo logo4"></div>
+            <span>转换日志</span>
+          </a>
+        </li>
+        <li>
+          <a href="about.html"  hover="yes">
+            <div class="m_bg" style="background:#00CC00;"></div>
+            <div class="m_logo logo5"></div>
+            <span>关于我们</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <!-- end 菜单 -->
+    <!-- 转换 -->
+    <div class="con write">
+      <div class="convet">
+        <div class="con_top">
+          <div class="logo"><span>UNISSOFT</span></div>
+          <div class="top_btn">
+            <div style="text-align: center;">
+              <a href="#" class="btn btn-mini run" id="updata" style="width:60px;color:#000;"><i class="icon-ok-sign" style="margin-top:0"></i> 更新</a>
+            </div>
+          </div>
+        </div>
+        <div class="con_line"></div>
+        <div class="con_btm">
+          <!-- 选项卡  -->
+        <form id="form_c" method="post">
+          <div class="tabbable tabs-left" style="margin:10px;">
+              <ul class="nav nav-tabs">
+                <li class="active"><a href="#lA" data-toggle="tab">存储配置</a></li>
+                <li><a href="#lB" data-toggle="tab">参数配置</a></li>
+                <li><a href="#lC" data-toggle="tab">数据库连接</a></li>
+                <li><a href="#lD" data-toggle="tab">其它配置</a></li>
+              </ul>
+              <div class="tab-content">
+                <div class="tab-pane active" id="lA">
+                  <label>
+                    <a href="#" data-original-title="文件所在磁盘存储位置" data-toggle="tooltip" data-placement="top" class="tip">存储位置</a>
+                  </label>
+                  <input type="text" name="location" value=""/><br>
+                </div>
+                <div class="tab-pane" id="lB">
+                  <label>最大线程数</label><input type="text" name="maxthreadCount" value=""/><br>
+                  <label>超时时间</label><input type="text" name="conversionTimeout" value=""/><br>
+                  <label>excle多sheet</label><input type="text" name="excleAllSheet" value=""/><br>
+                </div>
+                <div class="tab-pane" id="lC">
+                  <label>驱动</label><input type="text" name="maxthreadCount" value=""/><br>
+                  <label>超时时间</label><input type="text" name="conversionTimeout" value=""/><br>
+                  <label>excle多sheet</label><input type="text" name="excleAllSheet" value=""/><br>
+                </div>
+                <div class="tab-pane" id="lD">
+                  <label>建设中</label><br>
+                </div>
+              </div>
+          </div>
+          <input type="hidden" name="cmd" value="saveConfig">
+        </form>
+          <!-- end  选项卡  -->
+          <!-- s  验证提示  -->
+          
+          <!-- end 验证提示  -->
+        </div>
+      </div>
+      <div class="btm">
+        <span>紫光PDF转换软件</span>
+      </div>
+    </div>
+    <!-- end 转换 -->
+  </div>
+</div>
+<script src="js/bootstrap.js"></script>
+</body>
+</html>

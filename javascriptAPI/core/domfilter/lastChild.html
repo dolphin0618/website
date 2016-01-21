@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>lastChild by航</title>
+	<!-- 新 Bootstrap 核心 CSS 文件 -->
+	<link rel="stylesheet" href="../../css/bootstrap.min.css">
+	<style>
+		body{margin: 0;padding: 0;font-family: 'Microsoft yahei';}
+		.ol{background: #333;}.ol li a{color: #fff;}
+		pre{margin: 10px;padding: 10px;border: 1px dashed #3569a9;display: block;white-space: pre-wrap;white-space: -moz-pre-wrap;white-space: -pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;}
+		code{font-family: monospace,monospace;font-size: 1em;}
+		p{text-indent: 2em;}
+	</style>
+	<script type="text/javascript">
+
+	</script>
+</head>
+<body>
+	<!--头部-->
+	<ol class="breadcrumb ol">
+	  <li><a href="../../index.html">首页</a></li>
+	  <li class="active">筛选</li>
+	  <li class="active">查找</li>
+	</ol>
+	<div class="page-header" style="padding-left:20px;">
+  		<h1>获取最后一个子节点 <small>dom</small></h1>
+	</div>
+	<!--内容-->
+		<!--列表-->
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+	        <h3 class="panel-title">方法</h3>
+	      </div>
+	      <div class="panel-body">
+	        <table class="table table-hover">
+		      <thead>
+		        <tr>
+		          <th>属性</th>
+		          <th>说明</th>
+		        </tr>
+		      </thead>
+		      <tbody>
+		      	<tr>
+		          <td>lastChild</td>
+		          <td>包含文本节点；</td>
+		        </tr>
+		        <tr>
+		          <td>lastElementChild</td>
+		          <td>不包含文本节点；不支持的浏览器IE678</td>
+		        </tr>
+		      </tbody>
+		    </table>
+	      </div>
+		</div>
+		<!--示例-->
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+	        <h3 class="panel-title">示例</h3>
+	      </div>
+	      <div class="panel-body">
+	        <div class="panel panel-info">
+			  <div class="panel-heading">
+		        <h3 class="panel-title">描述</h3>
+		      </div>
+		      <div class="panel-body">
+		        <h5>HTML代码：</h5>
+		        <pre><code>&lt;span&gt;
+	test&lt;div&gt;&lt;/div&gt;
+&lt;/span&gt;</code></pre>
+				<h5>js代码：</h5>
+		        <pre><code>oSpan.lastChild.tagName      //undefined
+oSpan.lastElementChild.tagName  //DIV(chrome FF) error(IE678)</code></pre>
+				<h5>兼容js代码：</h5>
+		        <pre><code>oSpan.lastElementChild||oSpan.lastChild</code></pre>
+		      </div>
+			</div>
+	      </div>
+		</div>
+		
+	<!--翻页-->
+	<nav>
+	  <ul class="pager">
+	    <li class="previous"><a href="../domfilter/firstChild.html">&larr; 上一篇:获取第一个子节点</a></li>
+	    <li class="next"><a href="../object/window.html">下一篇:window &rarr;</a></li>
+	  </ul>
+	</nav>
+
+	<div class="page-header" style="background:#333;color:#fff;margin:0;padding:10px 40px;">
+	  <h6 style="text-align:center;">Copyright © <small>shanghang    2015 - 2018    All rights reserved.</small></h6>
+	</div>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+body{margin: 0;padding:0;background: #111;}
+.back{width: 700px;height: 500px;background: url(img/blackball.jpg) no-repeat;margin: 50px auto;position: relative;border: 5px solid #CC7700;}
+.ball{width: 80px;height: 80px;background: url(img/ball.png) no-repeat;position: absolute;}
+.p{width: 5px;height: 5px;position: absolute;left: 559px;top: 239px;}
+.btn{position: absolute;top: 300px;left: 40px;}
+.btn .go{width: 17px;height: 118px;background: url(img/go.jpg) no-repeat;position: absolute;top: 0px;}
+.btn .go div{width: 17px;position: absolute;top: 0px;left: 0px;background: rgb(156,64,103);}
+.btn .go span{display: block;width: 30px;height: 20px;position: absolute;bottom: 20px;left: 1px;color: #333;}
+</style>
+<script>
+	window.onload=function(){
+		var go1 = document.getElementById('go1');
+		var go2 = document.getElementById('go2');
+		var ball = document.getElementById('ball');
+		var aGo = [go1, go2];
+		var lock = false;
+
+		ball.index = 0;
+		reStart();
+		//按钮准备开始
+		function reStart(){
+			go(go1);
+		}
+		
+		ball.onclick=function(){
+			if(lock){return;}
+
+			clearInterval(aGo[this.index].timer);//
+			if(ball.index==0){//第一个能量条
+				this.index++;
+				go(aGo[this.index]);
+			}else if(this.index==1){//第二个能量条
+				lock = true;
+				this.index=0;
+				//this.style.display='none';
+				//计算球运动。。。。coding
+				var j = (100-go1.count);
+				var l = (100-go2.count);
+				var x = (100-j)/100*l;
+				var y = j/100*l;
+				throwBall(x, -y, function(){
+					//this.style.display='block';
+					lock = false;
+					reStart();
+				});
+			}
+		}
+
+		function go(obj){
+			var speet = 0.5;
+			obj.count = 100;
+			obj.timer = setInterval(function(){
+				speet+=1;
+				obj.count-=speet;
+				if(obj.count<0){
+					obj.count=0;
+					speet*=-1;
+				}else if(obj.count>100){
+					obj.count=100;
+					speet*=-1;
+				}
+				obj.style.height = obj.count+'%';
+			},30);
+		}
+		
+		var h = 400;//球场高度
+		var w = 620;//球场宽度
+		function throwBall(x, y, fn){
+			var speetX = x;
+			var speetY = y;
+			var left = ball.offsetLeft;
+			var top = ball.offsetTop;
+			var timer = setInterval(function(){
+				speetY+=3;
+
+				left += speetX;
+				top += speetY; 
+
+				px = 561;
+				py = 241;
+
+				var ptop = 241-80;
+				if(speetX>0&&top>ptop&&top<241&&left+80>px){
+					speetX*=-1;
+					left=px-80;
+				}
+
+				if (left>w){
+					speetX*=-0.8;
+					speetY*=0.8;
+					left=w;
+				}else if(left<=0) {
+					speetX*=-0.8;
+					speetY*=0.8;
+					left=0;
+				};
+				if(top>h){
+					speetX*=0.8;
+					speetY*=-0.8;
+					top=h;
+				}
+
+				ball.style.left=left+'px';
+				ball.style.top=top+'px';
+
+				if(Math.abs(speetX)<1){
+					speetX=0;
+				}
+				if(Math.abs(speetY)<1){
+					speetY=0;
+				}
+
+				if(speetX==0&&speetY==0&&top==h){
+					clearInterval(timer);
+					fn&&fn();
+				}
+
+			},30);
+		}
+		
+	}
+</script>
+</head>
+<body>
+<div class="back">
+	<div id="ball" class="ball" style="left:100px;top:300px;"></div>
+	<div class="p"></div>
+	<div class="btn">
+		<div class="go" style="left: 0px;">
+			<div style="height: 100%;" id="go1"></div>
+			<span>角度</span>
+		</div>
+		<div class="go" style="left: 40px;">
+			<div style="height: 100%;" id="go2"></div>
+			<span>力量</span>
+		</div>
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Cookie by航</title>
+	<!-- 新 Bootstrap 核心 CSS 文件 -->
+	<link rel="stylesheet" href="../../css/bootstrap.min.css">
+	<style>
+		body{margin: 0;padding: 0;font-family: 'Microsoft yahei';}
+		.ol{background: #333;}.ol li a{color: #fff;}
+		pre{margin: 10px;padding: 10px;border: 1px dashed #3569a9;display: block;white-space: pre-wrap;white-space: -moz-pre-wrap;white-space: -pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;}
+		code{font-family: monospace,monospace;font-size: 1em;}
+		p{text-indent: 2em;}
+	</style>
+	<script type="text/javascript">
+
+	</script>
+</head>
+<body>
+	<!--头部-->
+	<ol class="breadcrumb ol">
+	  <li><a href="../../index.html">首页</a></li>
+	  <li class="active">交互</li>
+	  <li class="active">交互</li>
+	</ol>
+	<div class="page-header" style="padding-left:20px;">
+  		<h1>Cookie <small></small></h1>
+	</div>
+	<!--内容-->
+		<!--描述-->
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+	        <h3 class="panel-title">描述</h3>
+	      </div>
+	      <div class="panel-body">
+	        临时存东西:
+	        <p>1. cookie 必须放到服务器环境，以域为单位</p>
+			<p>2. 容量 (4K)</p>
+			<p>3. 不安全</p>
+			<p>4. 取出来都是字符串</p>
+			<p>5. 不能跨浏览器</p>
+	      </div>
+		</div>
+		<!--列表-->
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+	        <h3 class="panel-title">列表</h3>
+	      </div>
+	      <div class="panel-body">
+	        <table class="table table-hover">
+		      <thead>
+		        <tr>
+		          <th>状态</th>
+		          <th>返回值说明</th>
+		        </tr>
+		      </thead>
+		      <tbody>
+		      	<tr>
+		          <td>document.cookie</td>
+		          <td>获取所有cookie
+		          	<p>存cookie: document.cookie='名字=值'<p>
+		          </td>
+		        </tr>
+		        <tr>
+		          <td>expires</td>
+		          <td>到期时间，默认session(会话)，关了浏览器自动删除 document.cookie='name=value;expires='+oDate;</td>
+		        </tr>
+		        <tr>
+		          <td>path</td>
+		          <td>
+		          	<p>路径  默认当前文件夹</p>
+		          	<p>path=/  根</p>
+		      		<p>document.cookie='name=value;path=/;expires='+oDate;</p>
+		      	  </td>
+		        </tr>
+		      </tbody>
+		    </table>
+	      </div>
+		</div>
+		<!--示例-->
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+	        <h3 class="panel-title">示例</h3>
+	      </div>
+	      <div class="panel-body">
+	        <div class="panel panel-info">
+			  <div class="panel-heading">
+		        <h3 class="panel-title">描述</h3>
+		      </div>
+		      <div class="panel-body">
+		        <p>cookie封装</p>
+		        <h5>cookie添加js代码：</h5>
+		        <pre><code>function addCookie(name,value,iDay){
+	if(iDay){
+		var oDate=new Date();
+		oDate.setDate(oDate.getDate()+iDay);
+		
+		document.cookie=name+'='+value+';path=/;expires='+oDate;
+	}else{
+		document.cookie=name+'='+value+';path=/';
+	}
+}</code></pre>
+		        <h5>cookie获取js代码：</h5>
+		        <pre><code>function getCookie(name){
+	var arr=document.cookie.split('; ');
+	
+	for(var i=0; i&lt;arr.length; i++){
+		var arr2=arr[i].split('=');
+		//arr2[0]  name
+		//arr2[1]  value
+		if(name==arr2[0]){
+			return arr2[1];	
+		}
+	}
+	return '';
+}</code></pre>
+		        <h5>cookie删除js代码：</h5>
+		        <pre><code>function removeCookie(name){
+	//alert('首先先f12->然后resource->cookie->');
+	addCookie(name,'1',-10);
+}</code></pre>
+		      </div>
+			</div>
+	      </div>
+		</div>
+		
+	<!--翻页-->
+	<nav>
+	  <ul class="pager">
+	    <li class="previous"><a href="../communicate/jsonp.html">&larr; 上一篇:jsonp</a></li>
+	    <li class="next"><a href="../programming/OO.html">下一篇:面向对象 &rarr;</a></li>
+	  </ul>
+	</nav>
+
+	<div class="page-header" style="background:#333;color:#fff;margin:0;padding:10px 40px;">
+	  <h6 style="text-align:center;">Copyright © <small>shanghang    2015 - 2018    All rights reserved.</small></h6>
+	</div>
+</body>
+</html>

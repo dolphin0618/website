@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <!-- Le styles -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/pdf-unis.css" rel="stylesheet">
+    <style>
+    body {background-color: #f5f6f7;font-family:"微软雅黑", "宋体", serif;margin:0px;}
+    .con_top{background: #33CC33;}
+    .con_line{background: #339933;}
+    </style>
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery.jqChart.min.js" type="text/javascript"></script>
+    <!--[if IE]><script lang="javascript" type="text/javascript" src="js/canvas.js"></script><![endif]-->
+    <script lang="javascript" type="text/javascript">
+      $(function(){
+        $('#menu a[hover=yes]').mouseover(function(){
+          $(this).children('.m_bg').stop();
+          $(this).children('.m_logo').stop();
+          $(this).children('.m_bg').animate({opacity:0.8},350);
+          $(this).children('.m_logo').animate({"backgroundPosition":50},100);
+        }).mouseleave(function(){
+          $(this).children('.m_bg').stop();
+          $(this).children('.m_logo').stop();
+          $(this).children('.m_bg').css({opacity:0});
+          $(this).children('.m_logo').animate({'backgroundPosition':0},100);
+        });
+      });
+    </script>	
+</head>
+<body>
+<div class="bg">
+  <div class="body">
+    <!-- 菜单 -->
+    <div class="menu black">
+      <ul id="menu">
+        <li>
+          <a href="run.html"  hover="yes">
+            <div class="m_bg" style="background:#33CCFF;"></div>
+            <div class="m_logo logo1"></div>
+            <span>运行转换</span>
+          </a>
+        </li>
+        <li>
+          <a href="config.html"  hover="yes">
+            <div class="m_bg" style="background:#CC0033;"></div>
+            <div class="m_logo logo2"></div>
+            <span>转换配置</span>
+          </a>
+        </li>
+        <li>
+          <a href="count.html"  hover="yes">
+            <div class="m_bg" style="background:#FF7700;"></div>
+            <div class="m_logo logo3"></div>
+            <span>转换统计</span>
+          </a>
+        </li>
+        <li>
+          <a href="log.html"  hover="yes">
+            <div class="m_bg" style="background:#CC0066;"></div>
+            <div class="m_logo logo4"></div>
+            <span>转换日志</span>
+          </a>
+        </li>
+        <li>
+          <a href="about.html"  hover="no">
+            <div class="m_bg active" style="background:#00CC00;"></div>
+            <div class="m_logo logo5" style="background-position:50px 0"></div>
+            <span>关于我们</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <!-- end 菜单 -->
+    <!-- 转换 -->
+    <div class="con write">
+      <div class="convet">
+        <div class="con_top">
+          <div class="logo"><span>UNISSOFT</span></div>
+        </div>
+        <div class="con_line"></div>
+        <div class="con_btm">
+          <div style="padding:10px;">
+          <h3>公司简介</h3>
+          <hr class="bs-docs-separator">
+          <p class="muted">
+    &nbsp;&nbsp;&nbsp;&nbsp;公司主要经营：null等产品。公司尊崇“踏实、拼搏、责任”的企业精神，并以诚信、共赢、开创经营理念，创造良好的企业环境，以全新的管理模式，完善的技术，周到的服务，卓越的品质为生存根本，我们始终坚持用户至上 用心服务于客户，坚持用自己的服务去打动客户。</p>
+          <p class="muted">&nbsp;&nbsp;&nbsp;&nbsp;
+欢迎各位新老客户来我公司参观指导工作，我公司具体的地址是：北京市海淀区中关村东路财智大厦Ｃ－５０２号 。 </p>
+          <p class="muted">&nbsp;&nbsp;&nbsp;&nbsp;
+您如果对我们的产品感兴趣或者有任何的疑问，您可以直接给我们留言或直接与我们联络，我们将在收到您的信息后，会第一时间及时与您联络。
+</p>
+<p class="muted">&nbsp;&nbsp;&nbsp;&nbsp;电话：xxxxx</p>
+<p class="muted">&nbsp;&nbsp;&nbsp;&nbsp;邮箱：xxxxx</p>
+          </div>
+        </div>
+      </div>
+      <div class="btm">
+        <span>紫光PDF转换软件</span>
+      </div>
+    </div>
+    <!-- end 转换 -->
+  </div>
+</div>
+
+<!--
+<div class="progress progress-striped active">
+<div class="bar" style="width: 2%;" id="job0"></div>
+</div>
+<div class="progress progress-success active">
+<div class="bar" style="width: 100%;" id="job0"></div>
+</div>
+          -->
+</body>
+</html>

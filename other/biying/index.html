@@ -1,0 +1,146 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<link href="css/style.css" rel="stylesheet" type="text/css"/>
+	<script src="js/animal.js"></script>
+	<script src="js/block.js"></script>
+	<script src="js/data.js"></script>
+	<script>
+	var b;
+	window.onload=function(){
+		b = new Block(jsons.length);
+		b.locat(jsons[0],imges[0]);
+	}
+
+	function pcfull(obj){
+		var menu = document.getElementById('menu');
+		var cm=obj.getElementsByTagName('div')[0];
+		if(getStyle(menu,'height') == '0px'){
+			animal(menu,{'height':35});
+			animal(foolr,{'height':35});
+			removeClass(cm,'hpcSmall');
+			addClass(cm,'hpcFull')
+		}else{
+			animal(menu,{'height':0});
+			animal(foolr,{'height':0});
+			removeClass(cm,'hpcFull');
+			addClass(cm,'hpcSmall')
+		}
+	}
+	</script>
+</head>
+<body>
+	<div class="hp_vid" id='imge'>
+		<!--菜单-->
+		<div class="menu" id='menu'>
+			<ul>
+				<li><a href="">come on</a> | </li>
+				<li><a href="">登什么录</a></li>
+			</ul>
+		</div>
+		<!--小方块-->
+		<div class="sh_hst" id="fk1">
+			<div class="sh_hto">
+				<div class="hp_hot"></div>
+			</div>
+		</div>
+		<div class="sh_hst" id="fk2">
+			<div class="sh_hto">
+				<div class="hp_hot"></div>
+			</div>
+		</div>
+		<div class="sh_hst" id="fk3">
+			<div class="sh_hto">
+				<div class="hp_hot"></div>
+			</div>
+		</div>
+		<div class="sh_hst" id="fk4">
+			<div class="sh_hto">
+				<div class="hp_hot"></div>
+			</div>
+		</div>
+		<!--小方块end-->
+		<!--小方块介绍-->
+		<div class="sh_cotent" id="fkc1">
+			<div class="sh_bx">
+				<div class="sh_cb">
+					<span class="sh_hq">只有翱翔的山鹰能一睹古城的雄</span>
+					<span class="sh_hf">.....</span>
+				</div>
+			</div>
+		</div>
+		<div class="sh_cotent" id="fkc2">
+			<div class="sh_bx">
+				<div class="sh_cb">
+					<span class="sh_hq">只有翱翔的山鹰能一睹古城的雄上无奇不有夺天地</span>
+					<span class="sh_hf">.....</span>
+				</div>
+			</div>
+		</div>
+		<div class="sh_cotent" id="fkc3">
+			<div class="sh_bx">
+				<div class="sh_cb">
+					<span class="sh_hq">只有翱翔的山鹰能一睹古城的雄</span>
+					<span class="sh_hf">.....</span>
+				</div>
+			</div>
+		</div>
+		<div class="sh_cotent" id="fkc4">
+			<div class="sh_bx">
+				<div class="sh_cb">
+					<span class="sh_hq">只有翱翔的山鹰能一睹古城的雄</span>
+					<span class="sh_hf">.....</span>
+				</div>
+			</div>
+		</div>
+		<!--小方块介绍end-->
+		<div class="sh_bottom">
+			<div class="sh_page">
+				<div class="sh_page_r">
+					<a href="javascript:;" onclick='pcfull(this);'>
+						<div class="sh_page_item hpcFull"></div>
+					</a>
+					<a href="javascript:;" onclick='b.turnpage(-1);'>
+						<div class="sh_page_item hpcPrevious"></div>
+					</a>
+					<a href="javascript:;" onclick='b.turnpage(1);'>
+						<div class="sh_page_item hpcNext"></div>
+					</a>
+					<a href="http://user.qzone.qq.com/78075021">
+						<div class="sh_page_item hpcCopyInfo"></div>
+					</a>
+				</div>
+			</div>
+			<div class="sh_about" id='foolr'>
+				<ul>
+					<li>
+						<span>© 2014 Dolphin</span> | 
+					</li>
+					<li>
+						<a href="http://www.tudou.com/albumplay/G0OUNFHkRzs/qmcnO64bWSg.html">陈贤娜士</a> | 
+					</li>
+					<li>
+						<span>QQ证合字78075021</span> | 
+					</li>
+					<li>
+						<a href="http://www.tudou.com/albumplay/G0OUNFHkRzs/qmcnO64bWSg.html">工商银航</a> | 
+					</li>
+					<li>
+						<a href="http://v.youku.com/v_show/id_XMjA2OTQzMjA4.html">做个好人</a> | 
+					</li>
+					<li>
+						<a href="http://v.youku.com/v_show/id_XMjA2OTQzMjA4.html">北漂</a> | 
+					</li>
+					<li>
+						<a href="http://v.youku.com/v_show/id_XMjA2OTQzMjA4.html">付出</a> | 
+					</li>
+					<li>
+						<a href="http://v.youku.com/v_show/id_XMjA2OTQzMjA4.html">希望</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

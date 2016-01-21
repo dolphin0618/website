@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>jquery</title>
+		<link href="css/list.css" rel="stylesheet" type="text/css">
+		<script type="text/javascript" src="../js/jquery-1.11.1.min.js" ></script>
+		<style type="text/css">
+			body{
+				background: url(img/bg.png);
+			}
+			#main {
+				padding-top: 90px;
+				text-align: center;
+				height:1400px;
+			}
+
+			#fullbg {
+				z-index: 1050;
+				position: absolute;
+				filter: alpha(opacity = 90); /* IE6 */
+				background: #2d2222;
+				right: 0px;		
+				top: 0px;
+				opacity:.9;
+				-moz-opacity: 0.9; /* Mozilla */
+				-khtml-opacity: 0.9; /* Safari */
+				position: fixed !important; /* 浮动对话框 */   
+			}
+			#dialog {   
+				width: 200px;
+				height: 200px;
+				background-color: red;
+				display: none;       
+				left: 20%;            
+				position: fixed !important; /* 浮动对话框 */       
+				top: 10%;       
+				z-index: 95
+			}
+			.nav {
+					position:relative;
+					background-color:#f8f8f8;
+					background: url(img/nav.png);
+					background-repeat:repeat-x;
+					background-position: 0px 0px;
+					height:45px;
+					margin:0px;
+					padding:0px;
+			}
+			.nav2 {
+					position:relative;
+					background-color:#f8f8f8;
+					background: url(img/bg2.png);
+					background-repeat:repeat-x;
+					background-position: 0px 0px;
+					height:45px;
+					margin:0px;
+					padding:0px;
+			}
+</style>
+	</head>
+	<body>
+		<div class="nav"></div>
+		<div class="nav2"></div>
+		<div id="main">
+			<a href="#" onclick=showBg();>点击这里看 jQuery 遮罩层效果.</a>
+		</div>
+		<!-- jQuery 遮罩层 -->
+		<div id="fullbg">
+			<div id="dialog">123321
+			</div>
+		</div>		<!-- end jQuery 遮罩层 -->
+		<!-- 对话框 -->
+		<div id="dialog">
+		</div>		<!-- jQuery 遮罩层上方的对话框 -->
+		
+		
+		
+		<script type="text/javascript">
+					//显示灰色 jQuery 遮罩层     
+	function showBg() {
+		var bh = $("body").height();
+		var bw = $("body").width()-150;
+		$("#fullbg").css( {
+			height : '100%',
+			width : '100%'
+		});
+		$("#dialog").show();
+	}
+</script>
+	</body>
+</html>

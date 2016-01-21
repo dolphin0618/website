@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>strict by航</title>
+	<!-- 新 Bootstrap 核心 CSS 文件 -->
+	<link rel="stylesheet" href="../../css/bootstrap.min.css">
+	<style>
+		body{margin: 0;padding: 0;font-family: 'Microsoft yahei';}
+		.ol{background: #333;}.ol li a{color: #fff;}
+		pre{margin: 10px;padding: 10px;border: 1px dashed #3569a9;display: block;white-space: pre-wrap;white-space: -moz-pre-wrap;white-space: -pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;}
+		code{font-family: monospace,monospace;font-size: 1em;}
+		p{text-indent: 2em;}
+	</style>
+	<script type="text/javascript">
+
+	</script>
+</head>
+<body>
+	<!--头部-->
+	<ol class="breadcrumb ol">
+	  <li><a href="../../index.html">首页</a></li>
+	  <li class="active">其它</li>
+	  <li class="active">其它</li>
+	</ol>
+	<div class="page-header" style="padding-left:20px;">
+  		<h1>严格模式 <small></small></h1>
+	</div>
+	<!--内容-->
+		<!--描述-->
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+	        <h3 class="panel-title">描述</h3>
+	      </div>
+	      <div class="panel-body">
+	        <p> 'use strict' 有作用范围，而且在不同的js文件范围属于当前文件中</P>
+	        <p>建议加上严格模式，每个JS文件都加</P>
+	      </div>
+		</div>
+		<!--参数-->
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+	        <h3 class="panel-title">在严格模式下会出错的地方</h3>
+	      </div>
+	      <div class="panel-body">
+	        <table class="table table-hover">
+		      <thead>
+		        <tr>
+		          <th></th>
+		        </tr>
+		      </thead>
+		      <tbody>
+		        <tr>
+		          <td>没有var时会报错</td>
+		        </tr>
+		        <tr>
+		          <td>with无法使用</td>
+		        </tr>
+		        <tr>
+		          <td>function不能在if、for里面定义</td>
+		        </tr>
+		        <tr>
+		          <td>this 严格模式的范围： 1.函数 2.script标签</td>
+		        </tr>
+		      </tbody>
+		    </table>
+	      </div>
+		</div>
+		<!--示例-->
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+	        <h3 class="panel-title">示例</h3>
+	      </div>
+	      <div class="panel-body">
+	        <div class="panel panel-info">
+			  <div class="panel-heading">
+		        <h3 class="panel-title">描述</h3>
+		      </div>
+		      <div class="panel-body">
+		        <h5>严格模式作用域：</h5>
+		        <pre><code>&lt;script&gt;
+　　"use strict";
+　　console.log("这是严格模式。");
+&lt;/script&gt;
+&lt;script&gt;
+　　console.log("这是正常模式。");
+&lt;/script&gt;</code></pre>
+		        <pre><code>function strict(){
+　　"use strict";
+　　return "这是严格模式。";
+}
+function notStrict() {
+　　return "这是正常模式。";
+}</code></pre>
+				<h5>在eval作用域：</h5>
+		        <pre><code>"use strict";
+var x = 2;
+console.info(eval("var x = 5; x")); // 5
+console.info(x); // 2</code></pre>
+		      </div>
+			</div>
+	      </div>
+		</div>
+		
+	<!--翻页-->
+	<nav>
+	  <ul class="pager">
+	    <li class="previous"><a href="../other/text.html">&larr; 上一篇:文本选择处理</a></li>
+	    <li class="next"><a href="../selector/basic.html">下一篇:getElementById &rarr;</a></li>
+	  </ul>
+	</nav>
+
+	<div class="page-header" style="background:#333;color:#fff;margin:0;padding:10px 40px;">
+	  <h6 style="text-align:center;">Copyright © <small>shanghang    2015 - 2018    All rights reserved.</small></h6>
+	</div>
+</body>
+</html>

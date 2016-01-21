@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>事件委托 by航</title>
+	<!-- 新 Bootstrap 核心 CSS 文件 -->
+	<link rel="stylesheet" href="../../css/bootstrap.min.css">
+	<style>
+		body{margin: 0;padding: 0;font-family: 'Microsoft yahei';}
+		.ol{background: #333;}.ol li a{color: #fff;}
+		pre{margin: 10px;padding: 10px;border: 1px dashed #3569a9;display: block;white-space: pre-wrap;white-space: -moz-pre-wrap;white-space: -pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;}
+		code{font-family: monospace,monospace;font-size: 1em;}
+		p{text-indent: 2em;}
+	</style>
+	<script type="text/javascript">
+
+	</script>
+</head>
+<body>
+	<!--头部-->
+	<ol class="breadcrumb ol">
+	  <li><a href="../../index.html">首页</a></li>
+	  <li class="active">事件</li>
+	  <li class="active">事件处理</li>
+	</ol>
+	<div class="page-header" style="padding-left:20px;">
+  		<h1>事件委托 <small></small></h1>
+	</div>
+	<!--内容-->
+		<!--描述-->
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+	        <h3 class="panel-title">描述</h3>
+	      </div>
+	      <div class="panel-body">
+	        子元素的事件委托给父级，并可以通过事件源找到具体子元素
+	      </div>
+		</div>
+		<!--列表-->
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+	        <h3 class="panel-title">列表</h3>
+	      </div>
+	      <div class="panel-body">
+	        <table class="table table-hover">
+		      <thead>
+		        <tr>
+		          <th>事件源获取方法</th>
+		          <th>支持情况</th>
+		        </tr>
+		      </thead>
+		      <tbody>
+		      	<tr>
+		          <td>oEvent.srcElement</td>
+		          <td>支持IE Chrome</td>
+		        </tr>
+		        <tr>
+		          <td>oEvent.target</td>
+		          <td>支持FF</td>
+		        </tr>
+		      </tbody>
+		    </table>
+	      </div>
+		</div>
+		<!--示例-->
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+	        <h3 class="panel-title">示例</h3>
+	      </div>
+	      <div class="panel-body">
+	        <div class="panel panel-info">
+			  <div class="panel-heading">
+		        <h3 class="panel-title">描述</h3>
+		      </div>
+		      <div class="panel-body">
+		        <p>事件委托的用途举例</p>
+		        <h5>html代码：</h5>
+		        <pre><code>&lt;ul id="ul1"&gt;
+	&lt;li&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+		        <h5>js代码：</h5>
+		        <pre><code>var oUl=document.getElementById('ul1');
+oUl.onclick=function(ev){
+	var oEvent=ev || event;
+	//兼容处理
+	var target=oEvent.srcElement || oEvent.target;
+	//target即是ul中被点击的子元素
+	if(target.tagName=='LI'){
+		target.style.background='green';
+	}
+};
+//可以利用此机制给新创建的元素加事件，如jquery中的live方法</code></pre>
+		      </div>
+			</div>
+	      </div>
+		</div>
+		
+	<!--翻页-->
+	<nav>
+	  <ul class="pager">
+	    <li class="previous"><a href="../event/returnFalse.html">&larr; 上一篇:默认事件</a></li>
+	    <li class="next"><a href="../event/onchange.html">下一篇:onchange &rarr;</a></li>
+	  </ul>
+	</nav>
+
+	<div class="page-header" style="background:#333;color:#fff;margin:0;padding:10px 40px;">
+	  <h6 style="text-align:center;">Copyright © <small>shanghang    2015 - 2018    All rights reserved.</small></h6>
+	</div>
+</body>
+</html>

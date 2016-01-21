@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>文本选择处理 by航</title>
+	<!-- 新 Bootstrap 核心 CSS 文件 -->
+	<link rel="stylesheet" href="../../css/bootstrap.min.css">
+	<style>
+		body{margin: 0;padding: 0;font-family: 'Microsoft yahei';}
+		.ol{background: #333;}.ol li a{color: #fff;}
+		pre{margin: 10px;padding: 10px;border: 1px dashed #3569a9;display: block;white-space: pre-wrap;white-space: -moz-pre-wrap;white-space: -pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;}
+		code{font-family: monospace,monospace;font-size: 1em;}
+		p{text-indent: 2em;}
+	</style>
+	<script type="text/javascript">
+
+	</script>
+</head>
+<body>
+	<!--头部-->
+	<ol class="breadcrumb ol">
+	  <li><a href="../../index.html">首页</a></li>
+	  <li class="active">其它</li>
+	  <li class="active">其它</li>
+	</ol>
+	<div class="page-header" style="padding-left:20px;">
+  		<h1>文本选中与光标定位 <small></small></h1>
+	</div>
+	<!--内容-->
+		<!--描述-->
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+	        <h3 class="panel-title">描述</h3>
+	      </div>
+	      <div class="panel-body">
+	        <p>用js来选中文字和定位光标</P>
+	      </div>
+		</div>
+		<!--示例-->
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+	        <h3 class="panel-title">示例</h3>
+	      </div>
+	      <div class="panel-body">
+	        <div class="panel panel-info">
+			  <div class="panel-heading">
+		        <h3 class="panel-title">描述</h3>
+		      </div>
+		      <div class="panel-body">
+		        <h5>设置输入框选中文字方式：</h5>
+		        <pre><code>if(oT.setSelectionRange){
+	oT.setSelectionRange(开始位置,结束位置); 兼容IE9+ chrome FF //selectionStart
+	oT.focus();	
+}else{ 
+	var range=oT.createTextRange(); 
+	range.collapse(false); //规定选文本方向 
+	range.moveStart('character',开始位置); 
+	range.moveEnd('character',结束位置); 
+	range.select(); //选择 
+	range.text.length;//选中文字的长度
+	oT.focus(); 
+}
+//如果开始位置和位置相等，就等于定位光标</code></pre>
+				<h5>弹出选中的文字：</h5>
+		        <pre><code>oP.onmouseup=function(){
+	if(document.getSelection){
+		var text=document.getSelection();
+		alert(text);
+	}else{
+		var range=document.selection.createRange();
+		alert(range.text);
+	}
+};</code></pre>
+		      </div>
+			</div>
+	      </div>
+		</div>
+		
+	<!--翻页-->
+	<nav>
+	  <ul class="pager">
+	    <li class="previous"><a href="../other/resolve.html">&larr; 上一篇:预解析</a></li>
+	    <li class="next"><a href="../other/strict.html">下一篇:严格模式 &rarr;</a></li>
+	  </ul>
+	</nav>
+
+	<div class="page-header" style="background:#333;color:#fff;margin:0;padding:10px 40px;">
+	  <h6 style="text-align:center;">Copyright © <small>shanghang    2015 - 2018    All rights reserved.</small></h6>
+	</div>
+</body>
+</html>

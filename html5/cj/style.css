@@ -1,0 +1,20 @@
+p,li,ul,dt,dl,dd,a,blockquote,body,h1,h2,h3,h4,h5,h6{padding:0px; margin:0px; text-decoration:none; font-size:25px;list-style-type:none;font-family:'微软雅黑';}
+a,span,label,b{ font-size:25px;}
+a{ text-decoration:none;}
+ul,li{text-decoration:none; list-style-type:none;}
+img{ border:0px; vertical-align:bottom;}
+input,select,textarea{ outline:none;}
+.clear{ clear:both;}
+.over{ overflow:hidden; zoom:1;}
+.none{ display:none;}
+a:hover{ color:#D98E11; text-decoration:underline;}
+li,div,input, textarea, button, a{-webkit-tap-highlight-color:rgba(0,0,0,0);}
+li:focus,div:focus,input:focus, textarea:focus, button:focus, a:focus{ outline:none;}
+
+
+.mobileindexbg{ width:640px; height:100%; position:absolute; overflow:hidden; background-color:#fff000;}
+.choujiangcont{ width:640px; background:url(zhuangpan.png) no-repeat top center; height:450px; margin-top:40px;}
+.zhizhen{ position:absolute; top:190px; left:280px;}
+.youmen{ text-align:center; width:640px; position:absolute; top:400px; line-height:55px;}
+.youmen p{ color:#3e3a39; font-size:20px;}
+.panduanzhongj{position:absolute; top:600px; text-align:center; width:640px;}

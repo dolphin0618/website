@@ -1,0 +1,191 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>幻灯片左右滑动效果</title>
+<style>
+* { padding: 0; margin: 0; }
+li { list-style: none; }
+img { border: none; }
+
+body { background: #ecfaff; }
+
+.box { width: 470px; height: 150px; overflow:-hidden; position: relative; margin: 150px auto 0; background: #ccc; }
+.box ol { position: absolute; left: 200px; bottom: 5px; z-index: 2; }
+.box ol li { float: left; margin-right: 3px; display: inline; cursor: pointer; background: #fcf2cf; border: 1px solid #f47500; padding: 2px 6px; color: #d94b01; font-family: arial; font-size: 12px; }
+.box .active { padding: 3px 8px; font-weight: bold; color: #ffffff; background: #ffb442; position: relative; bottom: 2px; }
+
+.box ul { position: absolute; top: 0; left: 0; z-index: 1; }
+.box ul li { width: 470px; height: 150px; float: left; }
+.box ul img { float: left; width: 470px; height: 150px; }
+
+.box p { width: 20px; height: 20px; line-height: 20px; font-family: arial; color: #fff; text-align: center; font-weight: bold; background: #333; border: 1px solid #ccc; position: absolute; top: 60px; z-index: 2; cursor: pointer; }
+.box .prev { left: 10px; }
+.box .next { right: 10px; }
+</style>
+<script>
+window.onload=function ()
+{
+	var oPlay=document.getElementById('play');
+	var aBtn=oPlay.getElementsByTagName('ol')[0].children;
+	var oUl=oPlay.getElementsByTagName('ul')[0];
+	var aLi=oUl.children;
+	
+	oUl.innerHTML+=oUl.innerHTML;
+	oUl.style.width=aLi[0].offsetWidth*aLi.length+'px';
+	var w=oUl.offsetWidth/2;
+
+	//记录对应图片
+	var aPic = [];
+	var aImg = oUl.getElementsByTagName('img');
+	for (var i = 0; i < aImg.length; i++) {
+		aPic.push(aImg[i].src);
+	};
+
+	var now=0;
+	
+	for(var i=0;i<aBtn.length;i++)
+	{
+		(function (index){
+			aBtn[i].onmouseover=function ()
+			{
+				//原来是最后一个，移入第一个++
+				if(now%aBtn.length==aBtn.length-1 && index==0)
+				{
+					now++;
+				}
+				//原来是第一个，移入最后一个--
+				else if(now%aBtn.length==0 && index==aBtn.length-1)
+				{
+					now--;
+				}
+				else
+				{
+					//now=index;	//?
+					now=now-now%aBtn.length+index;
+				}
+				
+				tab();
+			};
+		})(i);
+	}
+	
+	var way = 0;
+	function tab()
+	{
+		for(var i=0;i<aBtn.length;i++)
+		{
+			aBtn[i].className='';
+		}
+		if(now>0)
+		{
+			aBtn[now%aBtn.length].className='active';
+		}
+		else
+		{
+			aBtn[(now%aBtn.length+aBtn.length)%aBtn.length].className='active';
+		}
+		//假
+
+		if(now != way){
+			
+			now = now<0?now+aBtn.length:now;
+
+			var j = now>way?-1:1;
+
+			left = -(now+j)*aLi[0].offsetWidth;
+
+			aImg[(now+j)%aBtn.length].src = aPic[way%aBtn.length];
+		}
+		way = now;
+
+		move(oUl, -now*aLi[0].offsetWidth, 700, function(){
+			//还原
+			for (var i = 0; i < aImg.length; i++) {
+				aImg[i].src = aPic[i];
+			};
+		});
+		
+		document.title=now;
+	}
+	
+	//
+	var oPrev=oPlay.children[0];
+	var oNext=oPlay.children[1];
+	
+	oPrev.onclick=function ()
+	{
+		now--;
+		
+		tab();
+	};
+	
+	oNext.onclick=function ()
+	{
+		now++;
+		
+		tab();
+	};
+	
+	//
+	var left=0;
+	function move(obj, target, time, end)
+	{
+		var start=left;
+		var dis=target-start;
+		
+		var count=Math.round(time/30);
+		var n=0;
+		
+		clearInterval(obj.timer);
+		obj.timer=setInterval(function (){
+			n++;
+			
+			var a=1-n/count;
+			var cur=start+dis*(1-a*a*a);
+			
+			left=cur;
+			
+			if(left<0)
+			{
+				obj.style.left=left%w+'px';
+			}
+			else
+			{
+				obj.style.left=(left%w-w)%w+'px';
+			}
+			
+			if(n==count)
+			{
+				clearInterval(obj.timer);
+				end && end();
+			}
+		}, 30);
+	}
+};
+</script>
+</head>
+
+<body>
+
+<div class="box" id="play" style="overflow:hidden;">
+    <p class="prev">&laquo;</p>
+    <p class="next">&raquo;</p>
+    <ol>
+        <li class="active">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ol>
+    <ul>
+        <li><a href="#"><img src="img/1.jpg" alt="广告一" /></a></li>
+        <li><a href="#"><img src="img/2.jpg" alt="广告二" /></a></li>
+        <li><a href="#"><img src="img/3.jpg" alt="广告三" /></a></li>
+        <li><a href="#"><img src="img/4.jpg" alt="广告四" /></a></li>
+        <li><a href="#"><img src="img/5.jpg" alt="广告五" /></a></li>
+    </ul>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,4494 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<style type="text/css">
+		body{font: 12px/1.5 arial,\5b8b\4f53,georgia,verdana,helvetica,sans-serif;}
+		body,ul{margin: 0;padding: 0;}
+		ul{list-style: none;}
+		a{text-decoration: none;color: #444;}
+		a:hover{color: #3aa50d;}
+		/*logo*/
+		.logo_c{width: 980px;height: 70px;padding-top: 20px;margin: 0 auto;position: relative;}
+		.logo_l{float: left;margin-right: 25px;}
+		.search{width: 375px;float: left;top: 8px;position: relative;}
+		.input{width: 300px;height: 20px;padding: 4px;border:2px solid #3aa60d;border-right: none 0;font: 16px/20px arial,simsun;float: left;}
+		.sub{width: 65px;height: 32px;border: 1px solid #329308;color: #fff;font-size: 14px;cursor: pointer;font-family: Arial;background: #3aa60d url(img/t0107f0d4b25f6217fc.png) repeat-x;}
+		.logo_label{float: left;top: 8px;position: relative;height: 60px;padding-top: 9px;}
+		.logo_label_x,.logo_line_y{margin-left: 14px;}
+		.logo_label_x{cursor: pointer;}
+		.logo_label_x:hover{color: red;}
+		.logo_line_y{border-right: 1px solid #ccc;}
+		.x_listdown{position: absolute;width: 232px;right: 0;top: 27px;display: none;}
+		.x_listimg{background: url(img/t015ccfde75026c64c2.png) no-repeat;margin: 0;padding: 0;overflow: hidden;}
+		.x_listdown_u{height: 20px;}
+		.x_listdown_m{background-repeat: repeat-y;background-position: -233px 0px;}
+		.x_listdown_b{height: 8px;background-position: 0px -22px;}
+		.x_listdown_m p{line-height: 1.5;height: auto;padding: 0 15px;margin: 0px;}
+		.logo_r{position: absolute;right: 0px;top: 5px;cursor: pointer;}
+		.dian{display: inline-block;width: 7px;height: 5px;background: url(img/t015e682c804275e4e6.png) no-repeat;margin-left: 5px;}
+		/* 导航 */
+		.menu{background: #3aa50d url(img/t0126c52d5cf3bc8446.png) repeat-x;margin-bottom: 10px;}
+		.menu_c{width: 980px;height:41px;margin: 0 auto;}
+		.menu_wz li{background:url(img/t0143379f6abc10d089.png) right 11px no-repeat;float: left;}
+		.menu_wz .last{background: 0;}
+		.menu_wz a{color: #FFF;font-size: 14px;font-weight:bold;display: block;height: 40px;line-height: 40px;padding: 0 15px;}
+		.menu_wz a:hover,.menu_wz2 a:hover{background:url(img/t0154aac51a67658018.png) left 0 no-repeat;}
+		.menu_wz2{float: right;}
+		.menu_wz2 li{float: left;}
+		.menu_wz2 a{color: #fff;padding: 0 10px;height: 40px;line-height: 40px;display: block;}
+		/* banner tab*/
+		.bd{width: 980px;margin: 0 auto;}
+		.warp{margin-bottom: 20px;height: 340px;}
+		.warp_pic{width: 750px;height: 340px;position: relative;float: left;}
+		.warp_show_pic{width: 750px;height: 340px;overflow: hidden;position: relative;}
+		.warp_show_pic a{width: 40px;height: 80px;position: absolute;top: 100px;display: none;}
+		.warp_show_pic .l{background: url(img/r.png);left: 0;}
+		.warp_show_pic .r{background: url(img/l.png);right: 0;}
+		.warp_p_ul{width: 7500px;height: 340px;left: 0;position: absolute;}
+		.warp_p_ul li{float: left;}
+		.warp_wz{position: absolute;width: 750px;height: 40px;bottom: 0;}
+		.warp_wz img{position: absolute;bottom: 10px;left: 10px;cursor: pointer;}
+		.warp_wz .point{position: absolute;right: 0;bottom: 15px;}
+		.warp_wz .point a{display: block;width: 10px;height: 10px;float: left;background:url(img/t010b16938cf2328dda.png) no-repeat;margin-right: 10px;}
+		.warp_wz .point .on{background:url(img/t01071da594d0b68d7e.png) no-repeat;}
+		.warp_wz .wz{font-size: 16px;color: #fff;font-weight: bold;position: absolute;bottom: 0px;left: 80px;display: block;height: 40px;line-height: 40px;}
+		.warp_wz .wz span{color: #64d734;}
+		.warp_tab{width: 230px;height: 340px;background: rgb(63,63,63);float: right;}
+		.warp .tab_title{width: 230px;height: 47px;margin-top: 4px;margin-left: 2px;}
+		.warp .tab_title li{float: left;margin-left: 2px;border: 1px solid #2c2c2c;padding: 0 6px;color: #999;height: 34px;line-height: 34px;background: #303030;font-weight: bold;cursor: pointer;}
+		.warp .tab_title .on{color: #fff;background: #4f4f4f;position:relative;}
+		.warp .tab_title .on span{width:7px;height:5px;background: url(img/t018184192c4b7d704b.png) 0 -119px no-repeat;position: absolute;left: 50%;bottom: -5px;margin-left: -3px;}
+		.warp .tab_con ul{margin-left: 5px;}
+		.warp .tab_con li{width: 220px;height: 28px;cursor: pointer;color: #fff;position: relative;}
+		.warp .tab_con li:hover{background: #252525;}
+		.warp .tab_con .num{width: 17px;height: 14px;background: #aaa;display: inline-block;top: 7px;left: 5px;position: absolute;text-align: center;font-family: "\5b8b\4f53";line-height: 15px;}
+		.warp .tab_con .top .num{background: #ff6d00;}
+		.warp .tab_con .wz{position: absolute;top: 6px;left: 32px;}
+		.warp .tab_con .red{color: #f4aa53;}
+		.warp .tab_con .type{position: absolute;top:7px;right: 5px;color: #999;}
+		.warp .tab_con .apple{position: absolute;}
+		/* 小标题 */
+		.tab_t,.hd{height: 36px;position: relative;background: url(img/t01fd92296045b35086.png) repeat-x;margin-bottom: 20px;}
+		.hd{float: left;width: 100%;}
+		.hdd{float: left;width: 995px;}
+		.tab_t i{width: 30px;height: 30px;background: url(img/t010870d0da550d3493.png);display: inline-block;background-position: 10px 3px;}
+		.tab_t ul{position: absolute;top: 0px;left: 161px;}
+		.tab_t ul li{float: left;width: 58px;height: 36px;border-right: 1px solid #e7e7e7;line-height: 36px;text-align: center;font-size: 14px;cursor: pointer;}
+		.tab_t ul .active{border-top: 2px solid #3eaf0e;height: 34px;line-height: 34px;border-left: 1px solid #e7e7e7;background: #fff;font-weight: bold;color: #389f0c;}
+		.more{position: absolute;top: 8px;right: 10px;}
+		.more a{display: block;height:19px;padding-left: 25px;background: url(img/t01594810f2c673e023.png) no-repeat;}
+		/* 今日热门 */
+		.hot_t .tab_t .r_lab{position: absolute;top: 9px;right: 10px;}
+		.r_lab a{margin-right: 18px;}
+
+		.hot_t .tab_c .one{width: 316px;height: 184px;margin: 0 16px 16px 0;float: left;position: relative;overflow: hidden;}
+		.hot_t .tab_c{width: 996px;height:325px;margin-right: -16px;}
+		.hot_t .tab_c ul li{float: left;width: 150px;height: 84px;margin: 0 16px 16px 0;position: relative;overflow: hidden;}
+		/* 小苹果 */
+		.apple{width:17px;height:15px;display: inline-block;left: 157px;top: 7px;background: url(img/t01f81903c99e9c3de5.png) no-repeat;}
+		.apppf{color:#f4aa53;padding-left: 20px;right: 5px;left: auto;line-height: 15px;}
+		.g{background-position:0 0}
+		.r{background-position:0 -40px;}
+		.y{background-position:0 -20px;}
+		.h{display: none;}
+
+		.hiebd{width: 100%;height: 100%;position: absolute;background: #000;filter:alpha(opacity=30);opacity: .3;top: 0;left: 0;display: none;}
+		.hiebd_i{width: 54px;height: 54px;background: url(img/btn.png) no-repeat;position:absolute;display: block;top: 50%;left: 50%;margin-top: -27px;margin-left: -27px;display: none;}
+		.hiebd_b{width: 100%;height: 22px;position: absolute;bottom: 0px;line-height: 22px;text-align: center;color: #fff;}
+		.hot_t .tab_c .hiebd_b_l{width: 100%;height: 30px;position: absolute;bottom: 0px;line-height: 30px;color: #fff;font-size: 14px;}
+		.hot_t .tab_c .hiebd_b_l img{float: left;margin:3px 8px;}
+		/* 电视剧 */
+		.tv{width: 705px;float: left;margin-right: -20px;margin-bottom: 40px;}
+		.tv .tab_t i{background-position:6px -37px;}
+		.tv .tab_t .move{background-position:6px -77px;}
+		.tv .tab_t .arts{background-position:6px -117px;}
+		.tv .tab_t .fun{background-position:3px -157px;}
+		.tv .tab_t .anime{background-position:3px -197px;}
+		.tv .tv_con{width: 725px;height: 464px;}
+		.tv .tv_con li{width: 125px;height: 217px;padding-bottom: 15px;float: left;text-align: center;margin-right: 20px;}
+		.tv .pic{height: 167px;position: relative;}
+		.tv .pic img{width: 125px;height: 167px;}
+		.tv .tv_con .title{font-size: 14px;padding: 10px 0 1px 0;display: block;}
+		.tv .tv_con .sm{color: #888;}
+
+		.tv_slist{width: 100%;height: 58px;background: #f7f7f7;}
+		.tv_slist{padding: 4px 0 0 6px;}
+		.tv_slist li{width: 127px;height: 24px;line-height: 24px;margin-left: 10px;float: left;}
+		.tv_slist .title{display:inline-block;background: url(img/t018184192c4b7d704b.png) -31px -125px no-repeat;padding-left: 10px;}
+		.tv_slist .sm{color: #999;}
+		/*电视剧右边模块*/
+		.tv_r{width: 230px;float: right;}
+		.tv_r .title_k{font: 16px/1 '\5fae\8f6f\96c5\9ed1';border-left: 3px solid #389f0c;padding: 0 10px;margin: 0;top: 10px;left: 0;}
+		.tv_r .tab{left: 70px;top: 12px;}
+		.tv_r .tab li{width: 35px;height: 23px;margin-left: 4px;padding: 0;line-height: 24px;text-align: center;background: url(img/t018184192c4b7d704b.png) 0 0 no-repeat;font-size: 12px;}
+		.tv_r .tab .on{border-bottom: 1px solid #fff;color:#3aa50d; }
+
+		.tv_r .t_con{height: 146px;}
+		.tv_r .t_con li{width: 115px;height: 14px;margin-bottom: 14px;position: relative;float: left;}
+		.tv_r .t_con .num{display: inline-block;width: 17px;height: 14px;text-align: center;color: #fff;position: absolute;top: 0px;left: 0;line-height: 14px;}
+		.tv_r .t_con .wz{position: absolute;top: -2px;left: 27px;}
+
+		.tv_r .type{width: 100%;display: inline-block;border-top: 1px solid #e3e3e3;padding-top: 7px;margin-bottom: 11px;}
+		.tv_r .type li{width:44px;float: left;margin-top: 6px;}
+		/*卫视*/
+		.tv_r .ws_hot{margin-bottom: 10px;}
+		.tv_r .ws_con{width: 228px;height: 123px;border: 1px solid #e3e3e3;margin-bottom: 30px;}
+		.tv_r .top{float: left;}
+		.tv_r .top li{background: #f7f7f7;}
+		.tv_r .top a{width:50px;height:30px;display:block;border-right: 1px solid #e3e3e3;border-bottom: 1px solid #e3e3e3;background: url(img/hunan.png) no-repeat;padding-left: 30px;line-height: 30px;}
+		.tv_r .top .on{background: #fff;border-right: none;}
+		.tv_r .con{float: left;}
+		.tv_r .con li{width: 126px;height: 30px;border-bottom: 1px dotted #e3e3e3;margin-left: 10px;line-height: 30px;text-align: center;}
+		.tv_r .con span{color: #999;}
+		.tv_r .b_pic{width: 230px;height: 100px;}
+		/* 电影 */
+		.tv .move_zt{width: 100%;height:22px;margin-bottom: 10px;}
+		.tv .move_zt span{width: 66px;height: 22px;display: block;background: #3eaf0e url(img/t018184192c4b7d704b.png) right -92px no-repeat;text-align: center;color: #fff;font-weight: bold;padding-right: 10px;line-height: 22px;}
+		/*电影专题*/
+		.tv .zt li{width: 129px;}
+		.zt .s_pic{height: 73px;margin-bottom: 15px;}
+		/*电影专题块*/
+		.zt_blk{width: 713px;margin-left: -8px;}
+		.zt_blk li{height: 30px;background:#f7f7f7;line-height: 30px;text-align: center;float: left;cursor: pointer;margin-left: 8px;margin-bottom: 8px;}
+		.zt_blk .s1{color: #444;}
+		.zt_blk .s2{color: #999;}
+		.zt_blk li:hover{background: #63bb2f;}
+		.zt_blk li:hover .s1,.zt_blk li:hover .s2{color: #fff;}
+
+		/*小图*/
+		.s_pic_ul{width: 720px;margin-right: -15px;}
+		.s_pic_ul li{margin-right: 15px;margin-bottom: 15px;float: left;}
+		.s_pic_ul .s_pic{width: 100%;position: relative;overflow: hidden;}
+		.s_pic_ul li img{width: 100%;position: absolute;top: 0px;left: 0px;cursor: pointer;}
+		.s_pic_ul .bd{width: 100%;height: 100%;position: absolute;background: #000;filter:alpha(opacity=30);opacity: .3;top: 0;left: 0;display: none;}
+		.s_pic_ul .play{width: 54px;height: 54px;background: url(img/btn.png) no-repeat;position:absolute;display: block;top: 50%;left: 50%;margin-top: -27px;margin-left: -27px;display: none;}
+		.s_pic_ul .sm_r{height: 22px;position: absolute;bottom: 0px;line-height: 22px;text-align: center;color: #fff;right: 0px;padding: 1px 5px;}
+
+		.hdd .s_pic_ul{width: 100%;margin-right: -15px;display: inline-block;margin-bottom: 17px;}
+		.hdd li{width: 150px;}
+		.hdd .s_pic{height: 84px;}
+		
+		/* 影院热映 */
+		.move_hot{margin-bottom: 18px;}
+		.move_hot .item{margin-bottom: 20px;display: inline-block;}
+		.move_hot .item .pic{width: 110px;height: 62px;position: relative;float: left;}
+		.move_hot .item .pic img{width: 100%;height: 100%;position: absolute;top: 0;left: 0;}
+		.move_hot .item .con{width: 110px;height: 62px;float: left;margin-left: 10px;}
+		.move_hot .item .con span{display: block;margin-bottom: 5px;}
+		.move_hot .item .con .red{color: red;display: inline-block;margin-left: 5px;}
+
+		.gg{height: 90px;margin-top: -5px;cursor: pointer;margin-bottom: 40px;}
+		/*综艺*/
+		.tv .arts li{width: 165px;text-align: center;margin-bottom: 17px;}
+		.arts .s_pic{height: 96px;margin-bottom: 8px;}
+		.tv .arts li .cen{display: block;}
+		.tv_r .arts_u{padding-top:23px}
+		.tv_r .arts_u li{width: 76px;height: 24px;margin-top: 0px;}
+		/* 热点策划 */
+		.cehua li span{font-weight: bold;display: inline-block;width: 12px;text-align: center;}
+		.cehua li{margin-top: 8px;}
+		/* 搞笑 */
+		.hd .title{font: 16px/1 '\5fae\8f6f\96c5\9ed1';border-left: 3px solid #389f0c;padding: 0 10px;margin: 0;top: 10px;left: 0;position: absolute;}
+		/* 网站内容 */
+		.web{width: 1005px;margin-right: -25px;margin-bottom: 20px;display: inline-block;}
+		.web li{width: 118px;height: 44px;margin-right: 25px;margin-bottom: 12px;float: left;}
+		/* floor */
+		.fmenu{display: inline-block;margin-left: 270px;}
+		.fmenu li{width: 68px;height: 12px;line-height:12px;border-left: 1px solid #333;float: left;padding-left: 12px;}
+		.f{text-align: center;margin-bottom: 20px;}
+
+		.ontext{width: 230px;height: 30px;color: #fff;background: #63bb2f;font-size: 14px;line-height: 30px;text-align: center;font-weight: bold;margin-top: 1px;}
+
+		.num_one{background: #ff6d00;}
+		.num_other{background: #aaa;}
+
+		.wz1{font-size: 12px;color: #444;}
+		.wz2{font-size: 14px;color: #444;}
+		.wz3{font-size: 12px;color: #888;}
+
+		.title_k {font: 20px/2 '\5fae\8f6f\96c5\9ed1';color: #444;cursor:pointer;font-size: 16px;font-weight: bold;position: absolute;top: 2px;left: 40px;}
+		.stitle_k{font: 16px/1 '\5fae\8f6f\96c5\9ed1';border-left: 3px solid #389f0c;padding: 0 10px;margin: 0;top: 10px;left: 0;}
+		.title_k:hover{color: #389f0c;}
+
+		.black{background:linear-gradient(rgba(0, 0, 0, 0.4) 0px, rgba(0, 0, 0, 0.4) 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#66000000',endColorstr='#66000000') !important;}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			~function(){
+				$('label').onclick=function(){
+					$('label_d').style.display=$('label_d').style.display=='none'?'block':'none';
+				}
+			}();
+			/* 轮播 */
+			(function(){
+				var oPs = $('lubo_p').children;
+				var oPics = $('lubo_pic').children;
+				var oPic = $('b_pic');
+				var ol = $('l');
+				var or = $('r');
+				var index = 0;
+				var timer = setInterval(function(){
+					turn(1);
+				},2000);
+
+				ol.onclick=function(){
+					turn(-1);
+				}
+				or.onclick=function(){
+					turn(1);
+				}
+				oPic.onmouseover=function(){
+					clearInterval(timer);
+					ol.style.display=or.style.display='block';
+				}
+				oPic.onmouseout=function(){
+					clearInterval(timer);
+					timer = setInterval(function(){
+						turn(1);
+					},2000);
+					ol.style.display=or.style.display='none';
+				}
+				for (var i = 0; i < oPs.length; i++) {
+					(function(j){
+						oPs[i].onmouseover=function(){
+							index = j;
+							$('lubo_pic').style.left = -j*750 + 'px';
+							selectp();
+						}
+					})(i);
+				};
+				function turn(fx){
+					index += fx;
+					
+					var left = null;
+					if(index > oPs.length-1){
+						index = 0;
+						left = $('lubo_pic').style.left = 0 +'px';
+					}else if(index < 0){
+						index = 9;
+						left = $('lubo_pic').style.left = -6750 +'px';
+					}else{
+						left = $('lubo_pic').offsetLeft-750*fx;
+					}
+					selectp();
+					$('lubo_pic').style.left = left + 'px';
+				}
+				function selectp(){
+					for(var i=0; i<oPs.length; i++){
+						oPs[i].className = '';
+					}
+					oPs[index].className = 'on';
+				}
+			})();
+			/* 轮播图右边选项卡 */
+			!function(){
+				tab($('tab1').children, $('con1').children,'on');
+			}();
+			/* 今日热门 */
+			-function(){
+				var cons = getCons($('con2').children);
+				tab($('tab2').children, cons, 'active');
+			}();
+			/* 电视剧 */
+			+function(){
+				var cons = getCons($('con3').children);
+				cons.pop();
+				tab($('tab3').children, cons, 'active');
+			}();
+			/*热播榜*/
+			(function(){
+				tab($('tab4').children, $('con4').children, 'on');
+			})();
+			/* 卫视热播 */
+			(function(){
+				var cons = getCons($('con5').children);
+				tab($('tab5').children, cons, 'on');
+			})();
+			/* 电影 */
+			(function(){
+				var cons = getCons($('con6').children);
+				cons.pop();cons.pop();cons.pop();
+				tab($('tab6').children, cons, 'active');
+			})();
+			/* 排行榜 */
+			(function(){
+				var cons = getCons($('con7').children);
+				cons.shift();cons.shift();cons.shift();cons.shift();
+				tab($('tab7').children, cons, 'on');
+			})();
+			/* 综艺 */
+			(function(){
+				var cons = getCons($('con8').children);
+				tab($('tab8').children, cons, 'active');
+			})();
+			/* 动漫 */
+			(function(){
+				var cons = getCons($('con9').children);
+				tab($('tab9').children, cons, 'active');
+			})();
+			/* play */
+			(function(){
+				//1
+				overplay($('one'));
+				//2
+				var objs = $('pic').children;
+				for (var i = 0; i < objs.length; i++) {
+					overplay(objs[i]);
+				};
+				//3
+				var divs = document.getElementsByTagName('div');
+				for (var i = 0; i < divs.length; i++) {
+					if(divs[i].className == 'pic' || divs[i].className == 's_pic'){
+						overplay(divs[i]);
+					}
+				};
+			})();
+
+
+			function getCons(objs){
+				var arr = [];
+				for (var i = 1; i < objs.length; i++) {
+					arr.push(objs[i]);
+				};
+				return arr;
+			}
+			var timer = null;
+			function tab(tabs, cons, on, old){
+				if(!old){old=''}
+				for (var i = 0; i < tabs.length; i++) {
+					+function(index){
+						tabs[i].onmouseover=function(){
+							timer = setTimeout(function(){
+								for (var j = 0; j < cons.length; j++) {
+									tabs[j].className=old;
+									cons[j].style.display='none';
+								};
+								tabs[index].className=old+' '+on;
+								cons[index].style.display='block';
+							},100);
+						};
+						tabs[i].onmouseout=function(){
+							clearTimeout(timer);
+						}
+					}(i)
+				};
+			}
+
+			function overplay(obj){
+				var objs = obj.children;
+				obj.onmouseover=function(){
+					for (var i = 0; i < objs.length; i++) {
+						if(objs[i].className=='hiebd' || objs[i].className=='hiebd_i' ||
+							objs[i].className=='bd' || objs[i].className=='play'){
+							objs[i].style.display = 'block';
+						}
+					};
+				}
+				obj.onmouseout=function(){
+					for (var i = 0; i < objs.length; i++) {
+						if(objs[i].className=='hiebd' || objs[i].className=='hiebd_i' ||
+							objs[i].className=='bd' || objs[i].className=='play'){
+							objs[i].style.display = 'none';
+						}
+					};
+				}
+			}
+
+			function $(id){
+				return document.getElementById(id);
+			}
+		}
+	</script>
+</head>
+<body>
+	<!-- logo头 -->
+	<div class="logo">
+		<div class="logo_c">
+			<div class="logo_l"><img src="img/logo_03.gif"/></div>
+			<div class="search">
+				<input type="text" class="input"/>
+				<input type="submit" class="sub" value="搜索"/>
+			</div>
+			<div class="logo_label">
+				<span class="logo_label_x">我的影视</span><span class="logo_line_y"></span><span id="label" class="logo_label_x">观看记录<span class="dian"></span></span>
+				<div class="x_listdown" id="label_d" style="display:none;">
+					<div class="x_listimg x_listdown_u"></div>
+					<div class="x_listimg x_listdown_m"><p>无观看记录</p></div>
+					<div class="x_listimg x_listdown_b"></div>
+				</div>
+			</div>
+			<div class="logo_r"><img src="img/t01ef00da22f1d063f1.jpg"/></div>
+		</div>
+	</div>
+
+	<!--菜单-->
+	<div class="menu">
+		<div class="menu_c">
+			<ul class="menu_wz">
+				<li><a class="active" href="#">首页</a></li>
+				<li><a href="#">电影</a></li>
+				<li><a href="#">电视剧</a></li>
+				<li><a href="#">综艺</a></li>
+				<li><a href="#">动漫</a></li>
+				<li><a href="#">娱乐</a></li>
+				<li><a href="#">直播</a></li>
+				<li class="last"><a href="#">专题</a></li>
+			</ul>
+
+			<ul class="menu_wz2">
+				<li><a href="#">体育</a></li>
+				<li><a href="#">音乐</a></li>
+				<li><a href="#">搞笑</a></li>
+				<li><a href="#">游戏</a></li>
+				<li><a href="#">影视网址</a></li>
+				<li><a href="#">APP下载</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="bd">
+		<!--介绍轮播图-->
+		<div class="warp">
+			<div class="warp_pic">
+				<div class="warp_show_pic" id="b_pic">
+					<ul id="lubo_pic" class="warp_p_ul">
+						<li><img src="img/t01185a597ba2c8fb58.jpg"/></li>
+						<li><img src="img/t0116ade72bd284b9d9.jpg"/></li>
+						<li><img src="img/t01185a597ba2c8fb58.jpg"/></li>
+						<li><img src="img/t0116ade72bd284b9d9.jpg"/></li>
+						<li><img src="img/t01185a597ba2c8fb58.jpg"/></li>
+						<li><img src="img/t0116ade72bd284b9d9.jpg"/></li>
+						<li><img src="img/t01185a597ba2c8fb58.jpg"/></li>
+						<li><img src="img/t0116ade72bd284b9d9.jpg"/></li>
+						<li><img src="img/t01185a597ba2c8fb58.jpg"/></li>
+						<li><img src="img/t0116ade72bd284b9d9.jpg"/></li>
+					</ul>
+					<a href="#" class="l" id="l"></a>
+					<a href="#" class="r" id="r"></a>
+				</div>
+				<div class="warp_wz black">
+					<img src="img/t0175cd2622259536fe.png"/>
+					<a href="#" class="wz"><span>《实时播报》</span>马航MH17被击落 机上人员全部遇难</a>
+					<div id="lubo_p" class="point">
+						<a class="on" href="#"></a>
+						<a href="#"></a> 
+						<a href="#"></a> 
+						<a href="#"></a> 
+						<a href="#"></a> 
+						<a href="#"></a> 
+						<a href="#"></a> 
+						<a href="#"></a> 
+						<a href="#"></a> 
+						<a href="#"></a> 
+					</div>
+				</div>
+			</div>
+			<div class="warp_tab">
+				<div class="tab_title">
+					<ul id="tab1">
+						<li class="on">热榜<span></span></li>
+						<li>电影<span></span></li>
+						<li>电视剧<span></span></li>
+						<li>动漫<span></span></li>
+						<li>综艺<span></span></li>
+					</ul>
+				</div>
+				<div class="tab_con" id="con1">
+					<ul style="display:block;">
+						<li class="top">
+							<span class="num">1</span>
+							<span class="wz">进柑困惑</span>
+							<span class="apple g"></span>
+							<span class="type">电影</span>
+						</li>
+						<li class="top">
+							<span class="num">2</span>
+							<span class="wz">地珀在枯干</span>
+							<span class="apple g"></span>
+							<span class="type">电影</span>
+						</li>
+						<li class="top">
+							<span class="num">3</span>
+							<span class="wz">茜顶2替</span>
+							<span class="apple r"></span>
+							<span class="type">电视剧</span>
+						</li>
+						<li>
+							<span class="num">4</span>
+							<span class="wz">胅上</span>
+							<span class="apple y"></span>
+							<span class="type">动漫</span>
+						</li>
+						<li>
+							<span class="num">5</span>
+							<span class="wz">压下一</span>
+							<span class="apple y"></span>
+							<span class="type">综艺</span>
+						</li>
+						<li>
+							<span class="num">6</span>
+							<span class="wz">拥入 手</span>
+							<span class="apple "></span>
+							<span class="type">动漫</span>
+						</li>
+						<li>
+							<span class="num">7</span>
+							<span class="wz">译制片</span>
+							<span class="apple y"></span>
+							<span class="type">电影</span>
+						</li>
+						<li>
+							<span class="num">8</span>
+							<span class="wz">有志于此</span>
+							<span class="apple y"></span>
+							<span class="type">电影</span>
+						</li>
+						<li>
+							<span class="num">9</span>
+							<span class="wz">戈尔</span>
+							<span class="apple h"></span>
+							<span class="type">电影</span>
+						</li>
+						<li>
+							<span class="num">10</span>
+							<span class="wz">遥远</span>
+							<span class="apple h"></span>
+							<span class="type">动漫</span>
+						</li>
+					</ul>
+					<ul style="display:none;">
+						<li class="top">
+							<span class="num">1</span>
+							<span class="wz">进柑困惑</span>
+							<span class="apple apppf g">3.6</span>
+						</li>
+						<li class="top">
+							<span class="num">2</span>
+							<span class="wz">地珀在枯干</span>
+							<span class="apple apppf y">3.6</span>
+						</li>
+						<li class="top">
+							<span class="num">3</span>
+							<span class="wz">茜顶替</span>
+							<span class="apple apppf r">3.6</span>
+						</li>
+						<li>
+							<span class="num">4</span>
+							<span class="wz">胅2上</span>
+							<span class="apple apppf r">3.6</span>
+						</li>
+						<li>
+							<span class="num">5</span>
+							<span class="wz">压下一</span>
+							<span class="apple apppf g">3.6</span>
+						</li>
+						<li>
+							<span class="num">6</span>
+							<span class="wz">拥入 手</span>
+							<span class="apple apppf y">3.3</span>
+						</li>
+						<li>
+							<span class="num">7</span>
+							<span class="wz">译制片</span>
+							<span class="apple apppf g">3.1</span>
+						</li>
+						<li>
+							<span class="num">8</span>
+							<span class="wz">有志于此</span>
+							<span class="apple apppf g">2.6</span>
+						</li>
+						<li>
+							<span class="num">9</span>
+							<span class="wz">戈尔</span>
+							<span class="apple apppf r">4.6</span>
+						</li>
+						<li>
+							<span class="num">10</span>
+							<span class="wz">遥远</span>
+							<span class="apple apppf g">3.6</span>
+						</li>
+					</ul>
+					<ul style="display:none;">
+						<li class="top">
+							<span class="num">1</span>
+							<span class="wz">进柑困惑</span>
+							<span class="apple g"></span>
+							<span class="type">至<span class="red">60</span>集</span>
+						</li>
+						<li class="top">
+							<span class="num">2</span>
+							<span class="wz">地珀在枯干</span>
+							<span class="apple g"></span>
+							<span class="type">至<span class="red">60</span>集</span>
+						</li>
+						<li class="top">
+							<span class="num">3</span>
+							<span class="wz">茜顶替</span>
+							<span class="apple r"></span>
+							<span class="type">至<span class="red">60</span>集</span>
+						</li>
+						<li>
+							<span class="num">4</span>
+							<span class="wz">胅上</span>
+							<span class="apple y"></span>
+							<span class="type">60全集</span>
+						</li>
+						<li>
+							<span class="num">5</span>
+							<span class="wz">压22下一</span>
+							<span class="apple y"></span>
+							<span class="type">至<span class="red">22</span>集</span>
+						</li>
+						<li>
+							<span class="num">6</span>
+							<span class="wz">拥入 手</span>
+							<span class="apple "></span>
+							<span class="type">至<span class="red">60</span>集</span>
+						</li>
+						<li>
+							<span class="num">7</span>
+							<span class="wz">译制片</span>
+							<span class="apple y"></span>
+							<span class="type">至<span class="red">60</span>集</span>
+						</li>
+						<li>
+							<span class="num">8</span>
+							<span class="wz">有志于此</span>
+							<span class="apple y"></span>
+							<span class="type">至<span class="red">22</span>集</span>
+						</li>
+						<li>
+							<span class="num">9</span>
+							<span class="wz">戈尔</span>
+							<span class="apple r"></span>
+							<span class="type">至<span class="red">20</span>集</span>
+						</li>
+						<li>
+							<span class="num">10</span>
+							<span class="wz">遥远</span>
+							<span class="apple r"></span>
+							<span class="type">至<span class="red">60</span>集</span>
+						</li>
+					</ul>
+					<ul style="display:none;">
+						<li class="top">
+							<span class="num">1</span>
+							<span class="wz">进柑困惑</span>
+							<span class="type">至<span class="red">640</span>集</span>
+						</li>
+						<li class="top">
+							<span class="num">2</span>
+							<span class="wz">地珀在枯干</span>
+							<span class="type">至<span class="red">220</span>集</span>
+						</li>
+						<li class="top">
+							<span class="num">3</span>
+							<span class="wz">茜顶替</span>
+							<span class="type">至<span class="red">233</span>集</span>
+						</li>
+						<li>
+							<span class="num">4</span>
+							<span class="wz">胅上</span>
+							<span class="type">至<span class="red">860</span>集</span>
+						</li>
+						<li>
+							<span class="num">5</span>
+							<span class="wz">压下一</span>
+							<span class="type">至<span class="red">160</span>集</span>
+						</li>
+						<li>
+							<span class="num">6</span>
+							<span class="wz">拥入 手</span>
+							<span class="type">至<span class="red">660</span>集</span>
+						</li>
+						<li>
+							<span class="num">7</span>
+							<span class="wz">译制片</span>
+							<span class="type">至<span class="red">560</span>集</span>
+						</li>
+						<li>
+							<span class="num">8</span>
+							<span class="wz">有志于此</span>
+							<span class="type">至<span class="red">460</span>集</span>
+						</li>
+						<li>
+							<span class="num">9</span>
+							<span class="wz">戈尔</span>
+							<span class="type">999全集</span>
+						</li>
+						<li>
+							<span class="num">10</span>
+							<span class="wz">遥远</span>
+							<span class="type">440全集</span>
+						</li>
+					</ul>
+					<ul style="display:none;">
+						<li class="top">
+							<span class="num">1</span>
+							<span class="wz">进柑困惑</span>
+							<span class="type">07-19期</span>
+						</li>
+						<li class="top">
+							<span class="num">2</span>
+							<span class="wz">地珀在枯干</span>
+							<span class="type">07-19期</span>
+						</li>
+						<li class="top">
+							<span class="num">3</span>
+							<span class="wz">茜顶替</span>
+							<span class="type">07-19期</span>
+						</li>
+						<li>
+							<span class="num">4</span>
+							<span class="wz">胅上</span>
+							<span class="type">07-19期</span>
+						</li>
+						<li>
+							<span class="num">5</span>
+							<span class="wz">压下一</span>
+							<span class="type">07-19期</span>
+						</li>
+						<li>
+							<span class="num">6</span>
+							<span class="wz">拥入 手</span>
+							<span class="type">07-19期</span>
+						</li>
+						<li>
+							<span class="num">7</span>
+							<span class="wz">译制片</span>
+							<span class="type">07-19期</span>
+						</li>
+						<li>
+							<span class="num">8</span>
+							<span class="wz">有志于此</span>
+							<span class="type">07-19期</span>
+						</li>
+						<li>
+							<span class="num">9</span>
+							<span class="wz">戈尔</span>
+							<span class="type">07-19期</span>
+						</li>
+						<li>
+							<span class="num">10</span>
+							<span class="wz">遥远</span>
+							<span class="type">07-19期</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<!-- 今日热门 -->
+		<div class="hot_t" id="con2">
+			<div class="tab_t">
+				<i></i>
+				<span class="title_k">今日热门</span>
+				<ul id="tab2">
+					<li class="active">热门</li>
+					<li>美女</li>
+				</ul>
+				<div class="r_lab">
+					<a href="#">清纯美女直播首秀</a>
+					<a href="#">实拍马航MH17被击中画面</a>
+				</div>
+			</div>
+			<div class="tab_c" >
+				<div class="one" id="one">
+					<img src="img/t018ac3cf1c65eee472.jpg"/>
+					<div class="hiebd_b_l black"><img src="img/t012741f8908e31aea0.png"/>儿子无证驾驶被拦 父亲“增援”击倒交警</div>
+					<div class="hiebd"></div>
+					<i class="hiebd_i"></i>
+				</div>
+				<ul id="pic">
+					<li>
+						<img src="img/t0161f61a3f23a63343.jpg"/>
+						<div class="hiebd_b black">少年被救护车撞又遭车碾压</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</li>
+					<li>
+						<img src="img/t0161f61a3f23a63343.jpg"/>
+						<div class="hiebd_b black">少年被救护车撞又遭车碾压</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</li>
+					<li>
+						<img src="img/t0161f61a3f23a63343.jpg"/>
+						<div class="hiebd_b black">少年被救护车撞又遭车碾压</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</li>
+					<li>
+						<img src="img/t0161f61a3f23a63343.jpg"/>
+						<div class="hiebd_b black">少年被救护车撞又遭车碾压</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</li>
+					<li>
+						<img src="img/t0161f61a3f23a63343.jpg"/>
+						<div class="hiebd_b black">少年被救护车撞又遭车碾压</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</li>
+					<li>
+						<img src="img/t0161f61a3f23a63343.jpg"/>
+						<div class="hiebd_b black">少年被救护车撞又遭车碾压</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</li>
+					<li>
+						<img src="img/t0161f61a3f23a63343.jpg"/>
+						<div class="hiebd_b black">少年被救护车撞又遭车碾压</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</li>
+					<li>
+						<img src="img/t0161f61a3f23a63343.jpg"/>
+						<div class="hiebd_b black">少年被救护车撞又遭车碾压</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</li>
+					<li>
+						<img src="img/t0161f61a3f23a63343.jpg"/>
+						<div class="hiebd_b black">少年被救护车撞又遭车碾压</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</li>
+					<li>
+						<img src="img/t0161f61a3f23a63343.jpg"/>
+						<div class="hiebd_b black">少年被救护车撞又遭车碾压</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</li>
+					<li>
+						<img src="img/t0161f61a3f23a63343.jpg"/>
+						<div class="hiebd_b black">少年被救护车撞又遭车碾压</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</li>
+					<li>
+						<img src="img/t0161f61a3f23a63343.jpg"/>
+						<div class="hiebd_b black">少年被救护车撞又遭车碾压</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</li>
+					<li>
+						<img src="img/t0161f61a3f23a63343.jpg"/>
+						<div class="hiebd_b black">少年被救护车撞又遭车碾压</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</li>
+					<li>
+						<img src="img/t0161f61a3f23a63343.jpg"/>
+						<div class="hiebd_b black">少年被救护车撞又遭车碾压</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</li>
+				</ul>
+			</div>
+			<div class="tab_c" style="display:none;">
+				<div class="one">
+					<img src="img/t01fa5a02f040483ffc.jpg"/>
+					<div class="hiebd_b_l black"><img src="img/t012741f8908e31aea0.png"/>郭采洁霸气女王写真</div>
+					<div class="hiebd"></div>
+					<i class="hiebd_i"></i>
+				</div>
+				<ul>
+					<li>
+						<img src="img/t01bcc3e5499aefa4fa.jpg"/>
+						<div class="hiebd_b black">清纯美女直播首秀</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</li>
+					<li>
+						<img src="img/t01bcc3e5499aefa4fa.jpg"/>
+						<div class="hiebd_b black">清纯美女直播首秀</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</li>
+					<li>
+						<img src="img/t01bcc3e5499aefa4fa.jpg"/>
+						<div class="hiebd_b black">清纯美女直播首秀</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</li>
+					<li>
+						<img src="img/t01bcc3e5499aefa4fa.jpg"/>
+						<div class="hiebd_b black">清纯美女直播首秀</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</li>
+					<li>
+						<img src="img/t01bcc3e5499aefa4fa.jpg"/>
+						<div class="hiebd_b black">清纯美女直播首秀</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</li>
+					<li>
+						<img src="img/t01bcc3e5499aefa4fa.jpg"/>
+						<div class="hiebd_b black">清纯美女直播首秀</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</li>
+					<li>
+						<img src="img/t01bcc3e5499aefa4fa.jpg"/>
+						<div class="hiebd_b black">清纯美女直播首秀</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</li>
+					<li>
+						<img src="img/t01bcc3e5499aefa4fa.jpg"/>
+						<div class="hiebd_b black">清纯美女直播首秀</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</li>
+					<li>
+						<img src="img/t01bcc3e5499aefa4fa.jpg"/>
+						<div class="hiebd_b black">清纯美女直播首秀</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</li>
+					<li>
+						<img src="img/t01bcc3e5499aefa4fa.jpg"/>
+						<div class="hiebd_b black">清纯美女直播首秀</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</li>
+					<li>
+						<img src="img/t01bcc3e5499aefa4fa.jpg"/>
+						<div class="hiebd_b black">清纯美女直播首秀</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</li>
+					<li>
+						<img src="img/t01bcc3e5499aefa4fa.jpg"/>
+						<div class="hiebd_b black">清纯美女直播首秀</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</li>
+					<li>
+						<img src="img/t01bcc3e5499aefa4fa.jpg"/>
+						<div class="hiebd_b black">清纯美女直播首秀</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</li>
+					<li>
+						<img src="img/t01bcc3e5499aefa4fa.jpg"/>
+						<div class="hiebd_b black">清纯美女直播首秀</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<!--  电视剧 -->
+		<div class="tv" id="con3">
+			<div class="tab_t">
+				<i></i>
+				<span class="title_k">电视剧</span>
+				<ul id="tab3">
+					<li class="active">最热</li>
+					<li>最新</li>
+					<li>内地</li>
+					<li>港台</li>
+					<li>韩剧</li>
+					<li>美剧</li>
+					<li>泰剧</li>
+				</ul>
+				<div class="more">
+					<a href="#">更多</a>
+				</div>
+			</div>
+			<ul class="tv_con">
+				<li>
+					<div class="pic">
+						<img src="img/t018296b38bae198dd4.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t018296b38bae198dd4.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t018296b38bae198dd4.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t018296b38bae198dd4.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t018296b38bae198dd4.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t018296b38bae198dd4.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t018296b38bae198dd4.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t018296b38bae198dd4.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t018296b38bae198dd4.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t019fecc1590581345b.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">结婚潜规则&nbsp;<span class="apple r"></span></a>
+					<div class="sm">嘻嘻哈哈真好看</div>
+				</li>
+			</ul>
+			<ul class="tv_con" style="display:none;">
+				<li>
+					<div class="pic">
+						<img src="img/t019fecc1590581345b.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t018296b38bae198dd4.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t019fecc1590581345b.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t018296b38bae198dd4.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t018296b38bae198dd4.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t018296b38bae198dd4.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t018296b38bae198dd4.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t019fecc1590581345b.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t018296b38bae198dd4.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t019fecc1590581345b.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">结婚潜规则&nbsp;<span class="apple r"></span></a>
+					<div class="sm">嘻嘻哈哈真好看</div>
+				</li>
+			</ul>
+			<ul class="tv_con" style="display:none;">
+				<li>
+					<div class="pic">
+						<img src="img/t018296b38bae198dd4.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t018296b38bae198dd4.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t019fecc1590581345b.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t018296b38bae198dd4.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t018296b38bae198dd4.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t018296b38bae198dd4.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t018296b38bae198dd4.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t019fecc1590581345b.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t018296b38bae198dd4.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t019fecc1590581345b.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">结婚潜规则&nbsp;<span class="apple r"></span></a>
+					<div class="sm">嘻嘻哈哈真好看</div>
+				</li>
+			</ul>
+			<ul class="tv_con" style="display:none;">
+				<li>
+					<div class="pic">
+						<img src="img/t019fecc1590581345b.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t019fecc1590581345b.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t019fecc1590581345b.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t018296b38bae198dd4.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t018296b38bae198dd4.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t018296b38bae198dd4.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t018296b38bae198dd4.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t019fecc1590581345b.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t018296b38bae198dd4.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t019fecc1590581345b.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">结婚潜规则&nbsp;<span class="apple r"></span></a>
+					<div class="sm">嘻嘻哈哈真好看</div>
+				</li>
+			</ul>
+			<ul class="tv_con" style="display:none;">
+				<li>
+					<div class="pic">
+						<img src="img/t019fecc1590581345b.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t018296b38bae198dd4.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t019fecc1590581345b.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t018296b38bae198dd4.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t018296b38bae198dd4.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t018296b38bae198dd4.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t018296b38bae198dd4.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t019fecc1590581345b.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t018296b38bae198dd4.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t019fecc1590581345b.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">结婚潜规则&nbsp;<span class="apple r"></span></a>
+					<div class="sm">嘻嘻哈哈真好看</div>
+				</li>
+			</ul>
+			<ul class="tv_con" style="display:none;">
+				<li>
+					<div class="pic">
+						<img src="img/t019fecc1590581345b.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t019fecc1590581345b.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t019fecc1590581345b.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t018296b38bae198dd4.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t018296b38bae198dd4.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t018296b38bae198dd4.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t018296b38bae198dd4.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t019fecc1590581345b.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t018296b38bae198dd4.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t019fecc1590581345b.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">结婚潜规则&nbsp;<span class="apple r"></span></a>
+					<div class="sm">嘻嘻哈哈真好看</div>
+				</li>
+			</ul>
+			<ul class="tv_con" style="display:none;">
+				<li>
+					<div class="pic">
+						<img src="img/t019fecc1590581345b.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t018296b38bae198dd4.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t019fecc1590581345b.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t018296b38bae198dd4.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t018296b38bae198dd4.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t018296b38bae198dd4.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t018296b38bae198dd4.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t019fecc1590581345b.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t018296b38bae198dd4.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t019fecc1590581345b.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">结婚潜规则&nbsp;<span class="apple r"></span></a>
+					<div class="sm">嘻嘻哈哈真好看</div>
+				</li>
+			</ul>
+			<!-- 缩略列表 -->
+			<div class="tv_slist">
+				<ul>
+					<li>
+						<a href="#" class="title">青春烈火</a>
+						<span class="sm">(全32集)</span>
+					</li>
+					<li>
+						<i></i>
+						<a href="#" class="title">青春烈火</a>
+						<span class="sm">(全32集)</span>
+					</li>
+					<li>
+						<a href="#" class="title">青春烈火</a>
+						<span class="sm">(全32集)</span>
+					</li>
+					<li>
+						<i></i>
+						<a href="#" class="title">青春烈火</a>
+						<span class="sm">(全32集)</span>
+					</li>
+					<li>
+						<a href="#" class="title">青春烈火</a>
+						<span class="sm">(全32集)</span>
+					</li>
+					<li>
+						<a href="#" class="title">青春烈火</a>
+						<span class="sm">(全32集)</span>
+					</li>
+					<li>
+						<a href="#" class="title">青春烈火</a>
+						<span class="sm">(全32集)</span>
+					</li>
+					<li>
+						<a href="#" class="title">青春烈火</a>
+						<span class="sm">(全32集)</span>
+					</li>
+					<li>
+						<a href="#" class="title">青春烈火</a>
+						<span class="sm">(全32集)</span>
+					</li>
+					<li>
+						<a href="#" class="title">青春烈火</a>
+						<span class="sm">(全32集)</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="tv_r">
+		<!-- 热播榜 -->
+			<div class="tab_t">
+				<h3 class="title_k">热播榜</h3>
+				<ul class="tab" id="tab4">
+					<li class="on"><a href="#">全部</a></li>
+					<li><a href="#">韩剧</a></li>
+					<li><a href="#">美剧</a></li>
+					<li><a href="#">港剧</a></li>
+				</ul>
+			</div>
+			<div id="con4">
+				<ul class="t_con">
+					<li>
+						<span class="num num_one">1</span>
+						<a href="#" class="wz">枯萎地月围城</a>
+					</li>
+					<li>
+						<span class="num num_one">2</span>
+						<a href="#" class="wz">顶替月围城</a>
+					</li>
+					<li>
+						<span class="num num_one">3</span>
+						<a href="#" class="wz">十月围城</a>
+					</li>
+					<li>
+						<span class="num num_other">3</span>
+						<a href="#" class="wz">十月围城</a>
+					</li>
+					<li>
+						<span class="num num_other">3</span>
+						<a href="#" class="wz">夺月围城</a>
+					</li>
+					<li>
+						<span class="num num_other">3</span>
+						<a href="#" class="wz">十月围城</a>
+					</li>
+					<li>
+						<span class="num num_other">3</span>
+						<a href="#" class="wz">十月围城</a>
+					</li>
+					<li>
+						<span class="num num_other">3</span>
+						<a href="#" class="wz">十月围城围城围</a>
+					</li>
+					<li>
+						<span class="num num_other">3</span>
+						<a href="#" class="wz">十月围城</a>
+					</li>
+					<li>
+						<span class="num num_other">3</span>
+						<a href="#" class="wz">十月围城</a>
+					</li>
+				</ul>
+				<ul class="t_con" style="display:none;">
+					<li>
+						<span class="num num_one">1</span>
+						<a href="#" class="wz">33月围城</a>
+					</li>
+					<li>
+						<span class="num num_one">2</span>
+						<a href="#" class="wz">十月围城</a>
+					</li>
+					<li>
+						<span class="num num_one">3</span>
+						<a href="#" class="wz">十月围城</a>
+					</li>
+					<li>
+						<span class="num num_other">3</span>
+						<a href="#" class="wz">十月围城</a>
+					</li>
+					<li>
+						<span class="num num_other">3</span>
+						<a href="#" class="wz">十月围城</a>
+					</li>
+					<li>
+						<span class="num num_other">3</span>
+						<a href="#" class="wz">十月围城</a>
+					</li>
+					<li>
+						<span class="num num_other">3</span>
+						<a href="#" class="wz">十月围城</a>
+					</li>
+					<li>
+						<span class="num num_other">3</span>
+						<a href="#" class="wz">22月围城围城围</a>
+					</li>
+					<li>
+						<span class="num num_other">3</span>
+						<a href="#" class="wz">十月围城</a>
+					</li>
+					<li>
+						<span class="num num_other">3</span>
+						<a href="#" class="wz">十月围城</a>
+					</li>
+				</ul>
+				<ul class="t_con" style="display:none;">
+					<li>
+						<span class="num num_one">1</span>
+						<a href="#" class="wz">地月围城</a>
+					</li>
+					<li>
+						<span class="num num_one">2</span>
+						<a href="#" class="wz">一月围城</a>
+					</li>
+					<li>
+						<span class="num num_one">3</span>
+						<a href="#" class="wz">一月围城</a>
+					</li>
+					<li>
+						<span class="num num_other">3</span>
+						<a href="#" class="wz">十月围城</a>
+					</li>
+					<li>
+						<span class="num num_other">3</span>
+						<a href="#" class="wz">十月围城</a>
+					</li>
+					<li>
+						<span class="num num_other">3</span>
+						<a href="#" class="wz">十月围城</a>
+					</li>
+					<li>
+						<span class="num num_other">3</span>
+						<a href="#" class="wz">十月围城</a>
+					</li>
+					<li>
+						<span class="num num_other">3</span>
+						<a href="#" class="wz">十月围城围城围</a>
+					</li>
+					<li>
+						<span class="num num_other">3</span>
+						<a href="#" class="wz">十月围城</a>
+					</li>
+					<li>
+						<span class="num num_other">3</span>
+						<a href="#" class="wz">十月围城</a>
+					</li>
+				</ul>
+				<ul class="t_con"  style="display:none;">
+					<li>
+						<span class="num num_one">1</span>
+						<a href="#" class="wz">十月围城</a>
+					</li>
+					<li>
+						<span class="num num_one">2</span>
+						<a href="#" class="wz">十月围城</a>
+					</li>
+					<li>
+						<span class="num num_one">3</span>
+						<a href="#" class="wz">十月围城</a>
+					</li>
+					<li>
+						<span class="num num_other">3</span>
+						<a href="#" class="wz">十月围城</a>
+					</li>
+					<li>
+						<span class="num num_other">3</span>
+						<a href="#" class="wz">十月围城</a>
+					</li>
+					<li>
+						<span class="num num_other">3</span>
+						<a href="#" class="wz">十月围城</a>
+					</li>
+					<li>
+						<span class="num num_other">3</span>
+						<a href="#" class="wz">十月围城</a>
+					</li>
+					<li>
+						<span class="num num_other">3</span>
+						<a href="#" class="wz">十月围城围城围</a>
+					</li>
+					<li>
+						<span class="num num_other">3</span>
+						<a href="#" class="wz">十月围城</a>
+					</li>
+					<li>
+						<span class="num num_other">3</span>
+						<a href="#" class="wz">十月围城</a>
+					</li>
+				</ul>
+			</div>
+
+			<ul class="type">
+				<li><a href="#">言情</a></li>
+				<li><a href="#">伦理</a></li>
+				<li><a href="#">喜剧</a></li>
+				<li><a href="#">悬疑</a></li>
+				<li><a href="#">都市</a></li>
+				<li><a href="#">内地</a></li>
+				<li><a href="#">香港</a></li>
+				<li><a href="#">台湾</a></li>
+				<li><a href="#">韩国</a></li>
+				<li><a href="#">美国</a></li>
+				<li><a href="#">2014</a></li>
+				<li><a href="#">2013</a></li>
+				<li><a href="#">2012</a></li>
+				<li><a href="#">2011</a></li>
+				<li><a href="#">全部</a></li>
+			</ul>
+			
+
+			<div class="ws_hot">
+				<div class="stitle_k">卫视热播</div>
+			</div>
+			<div class="ws_con" id="con5">
+				<ul class="top" id="tab5">
+					<li><a class="on" href="#">湖南卫视</a></li>
+					<li><a href="#">东方卫视</a></li>
+					<li><a href="#">江苏卫视</a></li>
+					<li><a href="#">安徽卫视</a></li>
+				</ul>
+				<ul class="con">
+					<li><a href="#">相爱十年</a><span>（全35集）</span></li>
+					<li><a href="#">相爱g年</a><span>（全35集）</span></li>
+					<li><a href="#">相爱十年</a><span>（全35集）</span></li>
+					<li><a href="#">相爱十年</a><span>（全35集）</span></li>
+				</ul>
+				<ul class="con"  style="display:none;">
+					<li><a href="#">相爱十年</a><span>（全35集）</span></li>
+					<li><a href="#">相爱f年</a><span>（全35集）</span></li>
+					<li><a href="#">相爱f年</a><span>（全35集）</span></li>
+					<li><a href="#">相爱十年</a><span>（全35集）</span></li>
+				</ul>
+				<ul class="con"  style="display:none;">
+					<li><a href="#">相爱十年</a><span>（全35集）</span></li>
+					<li><a href="#">相爱z年</a><span>（全35集）</span></li>
+					<li><a href="#">相爱z十年</a><span>（全35集）</span></li>
+					<li><a href="#">相爱十年</a><span>（全35集）</span></li>
+				</ul>
+				<ul class="con"  style="display:none;">
+					<li><a href="#">相爱十年</a><span>（全35集）</span></li>
+					<li><a href="#">相爱e年</a><span>（全35集）</span></li>
+					<li><a href="#">相爱e年</a><span>（全35集）</span></li>
+					<li><a href="#">相爱十年</a><span>（全35集）</span></li>
+				</ul>
+			</div>
+			<img class="b_pic" src="img/t011c0fe1de8aa45d31.jpg"/>
+		</div><!-- tv_r -->
+
+		<!-- 电影 -->
+		<div class="tv" id="con6">
+			<div class="tab_t">
+				<i class="move"></i>
+				<span class="title_k">电影</span>
+				<ul id="tab6">
+					<li class="active">最热</li>
+					<li>欧美</li>
+					<li>动作</li>
+					<li>喜剧</li>
+					<li>战争</li>
+					<li>恐怖</li>
+					<li>伦理</li>
+				</ul>
+				<div class="more">
+					<a href="#">更多</a>
+				</div>
+			</div>
+			<ul class="tv_con">
+				<li>
+					<div class="pic">
+						<img src="img/t014c2ce4a18cdee6fc.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t014c2ce4a18cdee6fc.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t014c2ce4a18cdee6fc.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t014c2ce4a18cdee6fc.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t014c2ce4a18cdee6fc.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t014c2ce4a18cdee6fc.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t014c2ce4a18cdee6fc.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t014c2ce4a18cdee6fc.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t014c2ce4a18cdee6fc.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t01dae00f62c59e6bd7.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">结婚潜规则&nbsp;<span class="apple r"></span></a>
+					<div class="sm">嘻嘻哈哈真好看</div>
+				</li>
+			</ul>
+			<ul class="tv_con" style="display:none;">
+				<li>
+					<div class="pic">
+						<img src="img/t01dae00f62c59e6bd7.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t01dae00f62c59e6bd7.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t01dae00f62c59e6bd7.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t01dae00f62c59e6bd7.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t018296b38bae198dd4.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t01dae00f62c59e6bd7.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t018296b38bae198dd4.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t019fecc1590581345b.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t018296b38bae198dd4.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t01dae00f62c59e6bd7.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">结婚潜规则&nbsp;<span class="apple r"></span></a>
+					<div class="sm">嘻嘻哈哈真好看</div>
+				</li>
+			</ul>
+			<ul class="tv_con" style="display:none;">
+				<li>
+					<div class="pic">
+						<img src="img/t019fecc1590581345b.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t018296b38bae198dd4.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t01dae00f62c59e6bd7.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t01dae00f62c59e6bd7.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t018296b38bae198dd4.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t018296b38bae198dd4.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t01dae00f62c59e6bd7.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t01dae00f62c59e6bd7.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t018296b38bae198dd4.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t019fecc1590581345b.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">结婚潜规则&nbsp;<span class="apple r"></span></a>
+					<div class="sm">嘻嘻哈哈真好看</div>
+				</li>
+			</ul>
+			<ul class="tv_con" style="display:none;">
+				<li>
+					<div class="pic">
+						<img src="img/t01dae00f62c59e6bd7.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t01dae00f62c59e6bd7.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t019fecc1590581345b.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t01dae00f62c59e6bd7.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t018296b38bae198dd4.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t01dae00f62c59e6bd7.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t018296b38bae198dd4.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t01dae00f62c59e6bd7.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t01dae00f62c59e6bd7.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t019fecc1590581345b.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">结婚潜规则&nbsp;<span class="apple r"></span></a>
+					<div class="sm">嘻嘻哈哈真好看</div>
+				</li>
+			</ul>
+			<ul class="tv_con" style="display:none;">
+				<li>
+					<div class="pic">
+						<img src="img/t01dae00f62c59e6bd7.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t01dae00f62c59e6bd7.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t019fecc1590581345b.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t018296b38bae198dd4.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t018296b38bae198dd4.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t01dae00f62c59e6bd7.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t018296b38bae198dd4.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t019fecc1590581345b.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t01dae00f62c59e6bd7.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t019fecc1590581345b.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">结婚潜规则&nbsp;<span class="apple r"></span></a>
+					<div class="sm">嘻嘻哈哈真好看</div>
+				</li>
+			</ul>
+			<ul class="tv_con" style="display:none;">
+				<li>
+					<div class="pic">
+						<img src="img/t01dae00f62c59e6bd7.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t018296b38bae198dd4.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t019fecc1590581345b.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t018296b38bae198dd4.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t01dae00f62c59e6bd7.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t018296b38bae198dd4.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t018296b38bae198dd4.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t019fecc1590581345b.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t01dae00f62c59e6bd7.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t01dae00f62c59e6bd7.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">结婚潜规则&nbsp;<span class="apple r"></span></a>
+					<div class="sm">嘻嘻哈哈真好看</div>
+				</li>
+			</ul>
+			<ul class="tv_con" style="display:none;">
+				<li>
+					<div class="pic">
+						<img src="img/t019fecc1590581345b.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t018296b38bae198dd4.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t01dae00f62c59e6bd7.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t018296b38bae198dd4.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t018296b38bae198dd4.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t018296b38bae198dd4.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t01dae00f62c59e6bd7.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t01dae00f62c59e6bd7.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t018296b38bae198dd4.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">北漂&nbsp;<span class="apple r"></span></a>
+					<div class="sm">北漂打工心酸史</div>
+				</li>
+				<li>
+					<div class="pic">
+						<img src="img/t01dae00f62c59e6bd7.jpg"/>
+						<div class="hiebd_b black">更新至10集</div>
+						<div class="hiebd"></div>
+						<i class="hiebd_i"></i>
+					</div>
+					<a href="#" class="title">结婚潜规则&nbsp;<span class="apple r"></span></a>
+					<div class="sm">嘻嘻哈哈真好看</div>
+				</li>
+			</ul>
+			<!-- 专题 -->
+			<div class="move_zt">
+				<span>电影专题</span>
+			</div>
+			<ul class="s_pic_ul zt">
+				<li>
+					<div class="s_pic">
+						<img src="img/t01e373217ea5c50bd4.jpg"/>
+						<div class="sm_r black">300人顶</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz1" href="#">被影坛大哥逼疯的女神</a>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/t01e373217ea5c50bd4.jpg"/>
+						<div class="sm_r black">300人顶</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz1" href="#">被影坛大哥逼疯的女神</a>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/t01e373217ea5c50bd4.jpg"/>
+						<div class="sm_r black">100人顶</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz1" href="#">被影坛大哥逼疯的女神</a>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/t01e373217ea5c50bd4.jpg"/>
+						<div class="sm_r black">300人顶</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz1" href="#">被影坛大哥逼疯的女神</a>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/t01e373217ea5c50bd4.jpg"/>
+						<div class="sm_r black">200人顶</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz1" href="#">被影坛大哥逼疯的女神</a>
+				</li>
+			</ul>
+
+			<ul class="zt_blk">
+				<li style="width:200px;">
+					<span class="s1">文艺女王的必修课</span>
+					<span class="s2">(387人顶)</span>
+				</li>
+				<li  style="width:284px;">
+					<span class="s1">文艺女王的必修课</span>
+					<span class="s2">(387人顶)</span>
+				</li>
+				<li style="width:205px;">
+					<span class="s1">文艺女王的必修课</span>
+					<span class="s2">(387人顶)</span>
+				</li>
+				<li style="width:284px;">
+					<span class="s1">文艺女王的必修课</span>
+					<span class="s2">(387人顶)</span>
+				</li>
+				<li  style="width:200px;">
+					<span class="s1">文艺女王的必修课</span>
+					<span class="s2">(387人顶)</span>
+				</li>
+				<li style="width:205px;">
+					<span class="s1">文艺女王的必修课</span>
+					<span class="s2">(387人顶)</span>
+				</li>
+				<li style="width:205px;">
+					<span class="s1">文艺女王的必修课</span>
+					<span class="s2">(387人顶)</span>
+				</li>
+				<li  style="width:200px;">
+					<span class="s1">文艺女王的必修课</span>
+					<span class="s2">(387人顶)</span>
+				</li>
+				<li style="width:284px;">
+					<span class="s1">文艺女王的必修课</span>
+					<span class="s2">(387人顶)</span>
+				</li>
+			</ul>
+		</div>
+		<!-- 电影end -->
+		<!--电影右侧-->
+		<div class="tv_r" id="con7">
+			<div class="tab_t">
+				<h3 class="title_k">影院热映</h3>
+			</div>
+			<div class="move_hot">
+				<div class="item">
+					<div class="pic">
+						<img src="img/t01caf0c9265b3cac3c.jpg">
+						<div class="hiebd_b black">正在热映</div>
+					</div>
+					<div class="con">
+						<a href="#">后会无期</a><span class="apple apppf r red">7.5</span>
+						<span class="s1">陈柏霖、王珞丹</span>
+						<span class="s2">韩少处女秀PK四娘</span>
+					</div>
+				</div>
+				<div class="item">
+					<div class="pic">
+						<img src="img/t01caf0c9265b3cac3c.jpg">
+						<div class="hiebd_b black">正在热映</div>
+					</div>
+					<div class="con">
+						<a href="#">后会无期</a><span class="apple apppf r red">7.5</span>
+						<span class="s1">陈柏霖、王珞丹</span>
+						<span class="s2">韩少处女秀PK四娘</span>
+					</div>
+				</div>
+				<div class="item">
+					<div class="pic">
+						<img src="img/t01caf0c9265b3cac3c.jpg">
+						<div class="hiebd_b black">正在热映</div>
+					</div>
+					<div class="con">
+						<a href="#">后会无期</a><span class="apple apppf r red">7.5</span>
+						<span class="s1">陈柏霖、王珞丹</span>
+						<span class="s2">韩少处女秀PK四娘</span>
+					</div>
+				</div>
+				<div class="item">
+					<div class="pic">
+						<img src="img/t01caf0c9265b3cac3c.jpg">
+						<div class="hiebd_b black">正在热映</div>
+					</div>
+					<div class="con">
+						<a href="#">老男孩</a><span class="apple apppf r red">7.5</span>
+						<span class="s1">陈柏霖、王珞丹</span>
+						<span class="s2">韩少处女秀PK四娘</span>
+					</div>
+				</div>
+			</div>
+
+			<div class="ws_hot">
+				<div class="stitle_k">电影分类</div>
+			</div>
+			<ul class="type" style="margin-bottom:17px">
+				<li><a href="#">喜剧</a></li>
+				<li><a href="#">爱情</a></li>
+				<li><a href="#">动作</a></li>
+				<li><a href="#">恐怖</a></li>
+				<li><a href="#">科幻</a></li>
+				<li><a href="#">犯罪</a></li>
+				<li><a href="#">奇幻</a></li>
+				<li><a href="#">战争</a></li>
+				<li><a href="#">悬疑</a></li>
+				<li><a href="#">惊悚</a></li>
+				<li><a href="#">喜剧</a></li>
+				<li><a href="#">爱情</a></li>
+				<li><a href="#">动作</a></li>
+				<li><a href="#">恐怖</a></li>
+				<li><a href="#">科幻</a></li>
+				<li><a href="#">犯罪</a></li>
+				<li><a href="#">奇幻</a></li>
+				<li><a href="#">战争</a></li>
+				<li><a href="#">悬疑</a></li>
+				<li><a href="#">惊悚</a></li>
+				<li><a href="#">2014</a></li>
+				<li><a href="#">2013</a></li>
+				<li><a href="#">2012</a></li>
+				<li><a href="#">2011</a></li>
+				<li><a href="#">全部</a></li>
+			</ul>
+
+			<div class="tab_t">
+				<h3 class="title_k">排行榜</h3>
+				<ul class="tab" id="tab7">
+					<li class="on"><a href="#">全部</a></li>
+					<li><a href="#">华语</a></li>
+					<li><a href="#">欧美</a></li>
+					<li><a href="#">日韩</a></li>
+				</ul>
+			</div>
+			<ul class="t_con">
+				<li>
+					<span class="num num_one">1</span>
+					<a href="#" class="wz">变形金刚4</a>
+				</li>
+				<li>
+					<span class="num num_one">2</span>
+					<a href="#" class="wz">变形金刚4</a>
+				</li>
+				<li>
+					<span class="num num_one">3</span>
+					<a href="#" class="wz">变形金刚4</a>
+				</li>
+				<li>
+					<span class="num num_other">3</span>
+					<a href="#" class="wz">变形金刚4</a>
+				</li>
+				<li>
+					<span class="num num_other">3</span>
+					<a href="#" class="wz">变形金刚4</a>
+				</li>
+				<li>
+					<span class="num num_other">3</span>
+					<a href="#" class="wz">变形金刚4</a>
+				</li>
+				<li>
+					<span class="num num_other">3</span>
+					<a href="#" class="wz">变形金刚4</a>
+				</li>
+				<li>
+					<span class="num num_other">3</span>
+					<a href="#" class="wz">变形金刚4</a>
+				</li>
+				<li>
+					<span class="num num_other">3</span>
+					<a href="#" class="wz">变形金刚4</a>
+				</li>
+				<li>
+					<span class="num num_other">3</span>
+					<a href="#" class="wz">变形金刚4</a>
+				</li>
+			</ul>
+			<ul class="t_con" style="display:none;">
+				<li>
+					<span class="num num_one">1</span>
+					<a href="#" class="wz">变形金刚3</a>
+				</li>
+				<li>
+					<span class="num num_one">2</span>
+					<a href="#" class="wz">变形金刚3金刚</a>
+				</li>
+				<li>
+					<span class="num num_one">3</span>
+					<a href="#" class="wz">变形金刚4</a>
+				</li>
+				<li>
+					<span class="num num_other">3</span>
+					<a href="#" class="wz">变形2金刚4</a>
+				</li>
+				<li>
+					<span class="num num_other">3</span>
+					<a href="#" class="wz">变形2金刚4</a>
+				</li>
+				<li>
+					<span class="num num_other">3</span>
+					<a href="#" class="wz">变形2金刚4</a>
+				</li>
+				<li>
+					<span class="num num_other">3</span>
+					<a href="#" class="wz">变形金刚4</a>
+				</li>
+				<li>
+					<span class="num num_other">3</span>
+					<a href="#" class="wz">变形金刚4</a>
+				</li>
+				<li>
+					<span class="num num_other">3</span>
+					<a href="#" class="wz">变形3金刚4</a>
+				</li>
+				<li>
+					<span class="num num_other">3</span>
+					<a href="#" class="wz">变形2金刚4</a>
+				</li>
+			</ul>
+			<ul class="t_con" style="display:none;">
+				<li>
+					<span class="num num_one">1</span>
+					<a href="#" class="wz">变形刚3</a>
+				</li>
+				<li>
+					<span class="num num_one">2</span>
+					<a href="#" class="wz">变3金刚</a>
+				</li>
+				<li>
+					<span class="num num_one">3</span>
+					<a href="#" class="wz">变形金刚4</a>
+				</li>
+				<li>
+					<span class="num num_other">3</span>
+					<a href="#" class="wz">变形金刚4</a>
+				</li>
+				<li>
+					<span class="num num_other">3</span>
+					<a href="#" class="wz">变形2金刚4</a>
+				</li>
+				<li>
+					<span class="num num_other">3</span>
+					<a href="#" class="wz">变形2金刚4</a>
+				</li>
+				<li>
+					<span class="num num_other">3</span>
+					<a href="#" class="wz">变形金刚4</a>
+				</li>
+				<li>
+					<span class="num num_other">3</span>
+					<a href="#" class="wz">变形刚4</a>
+				</li>
+				<li>
+					<span class="num num_other">3</span>
+					<a href="#" class="wz">变形3刚4</a>
+				</li>
+				<li>
+					<span class="num num_other">3</span>
+					<a href="#" class="wz">变形金刚4</a>
+				</li>
+			</ul>
+			<ul class="t_con" style="display:none;">
+				<li>
+					<span class="num num_one">1</span>
+					<a href="#" class="wz">变刚3</a>
+				</li>
+				<li>
+					<span class="num num_one">2</span>
+					<a href="#" class="wz">变形刚3金刚</a>
+				</li>
+				<li>
+					<span class="num num_one">3</span>
+					<a href="#" class="wz">变形金刚4</a>
+				</li>
+				<li>
+					<span class="num num_other">3</span>
+					<a href="#" class="wz">变形刚4</a>
+				</li>
+				<li>
+					<span class="num num_other">3</span>
+					<a href="#" class="wz">变形2金刚4</a>
+				</li>
+				<li>
+					<span class="num num_other">3</span>
+					<a href="#" class="wz">变形2金刚4</a>
+				</li>
+				<li>
+					<span class="num num_other">3</span>
+					<a href="#" class="wz">变形金刚4</a>
+				</li>
+				<li>
+					<span class="num num_other">3</span>
+					<a href="#" class="wz">变形刚4</a>
+				</li>
+				<li>
+					<span class="num num_other">3</span>
+					<a href="#" class="wz">变形4</a>
+				</li>
+				<li>
+					<span class="num num_other">3</span>
+					<a href="#" class="wz">变形2金刚4</a>
+				</li>
+			</ul>
+		</div>
+		<!--电影右边完-->
+		<img class="gg" src="img/t013efcddfd10400a2b.gif"/>
+		<!--综艺-->
+		<div class="tv" id="con8" style="margin-bottom:20px;">
+			<div class="tab_t">
+				<i class="arts"></i>
+				<span class="title_k">综艺</span>
+				<ul id="tab8">
+					<li class="active">最热</li>
+					<li>选秀</li>
+					<li>真人秀</li>
+					<li>访谈</li>
+				</ul>
+				<div class="more">
+					<a href="#">更多</a>
+				</div>
+			</div>
+			<ul class="s_pic_ul arts">
+				<li>
+					<div class="s_pic">
+						<img src="img/215459494C.jpg_128x96.jpg"/>
+						<div class="sm_r black">2014-07-28期</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz2 cen" href="#">快乐大本营</a>
+					<span class="wz3 cen">韩寒综艺首秀曝女婿标准</span>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/215459494C.jpg_128x96.jpg"/>
+						<div class="sm_r black">2014-07-28期</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz2 cen" href="#">快乐大本营</a>
+					<span class="wz3 cen">韩寒综艺首秀曝女婿标准</span>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/215459494C.jpg_128x96.jpg"/>
+						<div class="sm_r black">2014-07-28期</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz2 cen" href="#">快乐大本营</a>
+					<span class="wz3 cen">韩寒综艺首秀曝女婿标准</span>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/215459494C.jpg_128x96.jpg"/>
+						<div class="sm_r black">2014-07-28期</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz2 cen" href="#">快乐大本营</a>
+					<span class="wz3 cen">韩寒综艺首秀曝女婿标准</span>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/215459494C.jpg_128x96.jpg"/>
+						<div class="sm_r black">2014-07-28期</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz2 cen" href="#">快乐大本营</a>
+					<span class="wz3 cen">韩寒综艺首秀曝女婿标准</span>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/215459494C.jpg_128x96.jpg"/>
+						<div class="sm_r black">2014-07-28期</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz2 cen" href="#">快乐大本营</a>
+					<span class="wz3 cen">韩寒综艺首秀曝女婿标准</span>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/215459494C.jpg_128x96.jpg"/>
+						<div class="sm_r black">2014-07-28期</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz2 cen" href="#">快乐大本营</a>
+					<span class="wz3 cen">韩寒综艺首秀曝女婿标准</span>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/215459494C.jpg_128x96.jpg"/>
+						<div class="sm_r black">2014-07-28期</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz2 cen" href="#">快乐大本营</a>
+					<span class="wz3 cen">韩寒综艺首秀曝女婿标准</span>
+				</li>
+			</ul>
+			<ul class="s_pic_ul arts" style="display:none;">
+				<li>
+					<div class="s_pic">
+						<img src="img/t0161f61a3f23a63343.jpg"/>
+						<div class="sm_r black">2014-07-28期</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz2 cen" href="#">快乐大本营</a>
+					<span class="wz3 cen">韩寒综艺首秀曝女婿标准</span>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/t0161f61a3f23a63343.jpg"/>
+						<div class="sm_r black">2014-07-28期</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz2 cen" href="#">快乐大本营</a>
+					<span class="wz3 cen">韩寒综艺首秀曝女婿标准</span>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/t0161f61a3f23a63343.jpg"/>
+						<div class="sm_r black">2014-07-28期</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz2 cen" href="#">快乐大本营</a>
+					<span class="wz3 cen">韩寒综艺首秀曝女婿标准</span>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/215459494C.jpg_128x96.jpg"/>
+						<div class="sm_r black">2014-07-28期</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz2 cen" href="#">快乐大本营</a>
+					<span class="wz3 cen">韩寒综艺首秀曝女婿标准</span>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/215459494C.jpg_128x96.jpg"/>
+						<div class="sm_r black">2014-07-28期</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz2 cen" href="#">快乐大本营</a>
+					<span class="wz3 cen">韩寒综艺首秀曝女婿标准</span>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/215459494C.jpg_128x96.jpg"/>
+						<div class="sm_r black">2014-07-28期</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz2 cen" href="#">快乐大本营</a>
+					<span class="wz3 cen">韩寒综艺首秀曝女婿标准</span>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/215459494C.jpg_128x96.jpg"/>
+						<div class="sm_r black">2014-07-28期</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz2 cen" href="#">快乐大本营</a>
+					<span class="wz3 cen">韩寒综艺首秀曝女婿标准</span>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/215459494C.jpg_128x96.jpg"/>
+						<div class="sm_r black">2014-07-28期</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz2 cen" href="#">快乐大本营</a>
+					<span class="wz3 cen">韩寒综艺首秀曝女婿标准</span>
+				</li>
+			</ul>
+			<ul class="s_pic_ul arts" style="display:none;">
+				<li>
+					<div class="s_pic">
+						<img src="img/t0161f61a3f23a63343.jpg"/>
+						<div class="sm_r black">2014-07-28期</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz2 cen" href="#">快乐大本营</a>
+					<span class="wz3 cen">韩寒综艺首秀曝女婿标准</span>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/t0161f61a3f23a63343.jpg"/>
+						<div class="sm_r black">2014-07-28期</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz2 cen" href="#">快乐大本营</a>
+					<span class="wz3 cen">韩寒综艺首秀曝女婿标准</span>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/t0161f61a3f23a63343.jpg"/>
+						<div class="sm_r black">2014-07-28期</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz2 cen" href="#">快乐大本营</a>
+					<span class="wz3 cen">韩寒综艺首秀曝女婿标准</span>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/215459494C.jpg_128x96.jpg"/>
+						<div class="sm_r black">2014-07-28期</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz2 cen" href="#">快乐大本营</a>
+					<span class="wz3 cen">韩寒综艺首秀曝女婿标准</span>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/215459494C.jpg_128x96.jpg"/>
+						<div class="sm_r black">2014-07-28期</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz2 cen" href="#">快乐大本营</a>
+					<span class="wz3 cen">韩寒综艺首秀曝女婿标准</span>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/t0161f61a3f23a63343.jpg"/>
+						<div class="sm_r black">2014-07-28期</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz2 cen" href="#">快乐大本营</a>
+					<span class="wz3 cen">韩寒综艺首秀曝女婿标准</span>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/t0161f61a3f23a63343.jpg"/>
+						<div class="sm_r black">2014-07-28期</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz2 cen" href="#">快乐大本营</a>
+					<span class="wz3 cen">韩寒综艺首秀曝女婿标准</span>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/t0161f61a3f23a63343.jpg"/>
+						<div class="sm_r black">2014-07-28期</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz2 cen" href="#">快乐大本营</a>
+					<span class="wz3 cen">韩寒综艺首秀曝女婿标准</span>
+				</li>
+			</ul>
+			<ul class="s_pic_ul arts" style="display:none;">
+				<li>
+					<div class="s_pic">
+						<img src="img/t0161f61a3f23a63343.jpg"/>
+						<div class="sm_r black">2014-07-28期</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz2 cen" href="#">快乐大本营</a>
+					<span class="wz3 cen">韩寒综艺首秀曝女婿标准</span>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/t0161f61a3f23a63343.jpg"/>
+						<div class="sm_r black">2014-07-28期</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz2 cen" href="#">快乐大本营</a>
+					<span class="wz3 cen">韩寒综艺首秀曝女婿标准</span>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/t0161f61a3f23a63343.jpg"/>
+						<div class="sm_r black">2014-07-28期</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz2 cen" href="#">快乐大本营</a>
+					<span class="wz3 cen">韩寒综艺首秀曝女婿标准</span>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/t0161f61a3f23a63343.jpg"/>
+						<div class="sm_r black">2014-07-28期</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz2 cen" href="#">快乐大本营</a>
+					<span class="wz3 cen">韩寒综艺首秀曝女婿标准</span>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/215459494C.jpg_128x96.jpg"/>
+						<div class="sm_r black">2014-07-28期</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz2 cen" href="#">快乐大本营</a>
+					<span class="wz3 cen">韩寒综艺首秀曝女婿标准</span>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/215459494C.jpg_128x96.jpg"/>
+						<div class="sm_r black">2014-07-28期</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz2 cen" href="#">快乐大本营</a>
+					<span class="wz3 cen">韩寒综艺首秀曝女婿标准</span>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/t0161f61a3f23a63343.jpg"/>
+						<div class="sm_r black">2014-07-28期</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz2 cen" href="#">快乐大本营</a>
+					<span class="wz3 cen">韩寒综艺首秀曝女婿标准</span>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/215459494C.jpg_128x96.jpg"/>
+						<div class="sm_r black">2014-07-28期</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz2 cen" href="#">快乐大本营</a>
+					<span class="wz3 cen">韩寒综艺首秀曝女婿标准</span>
+				</li>
+			</ul>
+		</div>
+		<!-- 综艺右边 -->
+		<div class="tv_r">
+			<div class="tab_t">
+				<h3 class="title_k">综艺排行榜</h3>
+			</div>
+			<ul class="t_con" style="margin-bottom:17px">
+				<li>
+					<span class="num num_one">1</span>
+					<a href="#" class="wz">舌尖上的中国</a>
+				</li>
+				<li>
+					<span class="num num_one">2</span>
+					<a href="#" class="wz">脚上的中国</a>
+				</li>
+				<li>
+					<span class="num num_one">3</span>
+					<a href="#" class="wz">胸上的中国</a>
+				</li>
+				<li>
+					<span class="num num_other">3</span>
+					<a href="#" class="wz">腿上的中国</a>
+				</li>
+				<li>
+					<span class="num num_other">3</span>
+					<a href="#" class="wz">代码上的中国</a>
+				</li>
+				<li>
+					<span class="num num_other">3</span>
+					<a href="#" class="wz">程序上的中国</a>
+				</li>
+				<li>
+					<span class="num num_other">3</span>
+					<a href="#" class="wz">汗毛上的中国</a>
+				</li>
+				<li>
+					<span class="num num_other">3</span>
+					<a href="#" class="wz">土地上的中国</a>
+				</li>
+				<li>
+					<span class="num num_other">3</span>
+					<a href="#" class="wz">大米上的中国</a>
+				</li>
+				<li>
+					<span class="num num_other">3</span>
+					<a href="#" class="wz">汽车上的中国</a>
+				</li>
+			</ul>
+
+			<div class="ws_hot">
+				<div class="stitle_k">综艺</div>
+			</div>
+			<ul class="type arts_u" style="margin-bottom:17px">
+				<li><a href="#">变形计</a></li>
+				<li><a href="#">我是歌手</a></li>
+				<li><a href="#">妈妈咪呀</a></li>
+				<li><a href="#">爸爸去哪儿</a></li>
+				<li><a href="#">快乐大本营</a></li>
+				<li><a href="#">最美和声</a></li>
+				<li><a href="#">我不是明星</a></li>
+				<li><a href="#">年代秀</a></li>
+				<li><a href="#">超级访问</a></li>
+				<li><a href="#">超级演说家</a></li>
+				<li><a href="#">非你莫属</a></li>
+				<li><a href="#">军情观察室</a></li>
+			</ul>
+		</div>
+		<!--娱乐-->
+		<div class="tv" style="margin-bottom:34px;">
+			<div class="tab_t">
+				<i class="fun"></i>
+				<span class="title_k">娱乐</span>
+				<div class="more">
+					<a href="#">更多</a>
+				</div>
+			</div>
+			<ul class="s_pic_ul arts">
+				<li>
+					<div class="s_pic">
+						<img src="img/119158799371062494630709305924879754951.jpg"/>
+						<div class="sm_r black">07:30</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a href="#" class="wz1">全智贤赴台亲和力十足 穿热裤大秀美腿</a>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/119158799371062494630709305924879754951.jpg"/>
+						<div class="sm_r black">07:30</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a href="#" class="wz1">全智贤赴台亲和力十足 穿热裤大秀美腿</a>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/119158799371062494630709305924879754951.jpg"/>
+						<div class="sm_r black">07:30</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a href="#" class="wz1">全智贤赴台亲和力十足 穿热裤大秀美腿</a>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/119158799371062494630709305924879754951.jpg"/>
+						<div class="sm_r black">07:30</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a href="#" class="wz1">全智贤赴台亲和力十足 穿热裤大秀美腿</a>
+				</li>
+			</ul>
+		
+			<ul class="zt_blk">
+				<li style="width:348px;text-align:left;">
+					<span class="s1">[ 明星偷拍 ] “那些年”女配结婚20天即出轨</span>
+				</li>
+				<li  style="width:348px;text-align:left;">
+					<span class="s1">[ 明星花边 ] 郭晶晶晒照罕见卖萌 与徐子淇拼性感</span>
+				</li>
+				<li style="width:348px;text-align:left;">
+					<span class="s1">[ 明星花边 ] 郭晶晶晒照罕见卖萌 与徐子淇拼性感</span>
+				</li>
+				<li style="width:348px;text-align:left;">
+					<span class="s1">[ 明星偷拍 ] “那些年”女配结婚20天即出轨</span>
+				</li>
+				<li style="width:348px;text-align:left;">
+					<span class="s1">[ 明星花边 ] 郭晶晶晒照罕见卖萌 与徐子淇拼性感</span>
+				</li>
+				<li style="width:348px;text-align:left;">
+					<span class="s1">[ 明星偷拍 ] “那些年”女配结婚20天即出轨</span>
+				</li>
+			</ul>
+		</div>
+		<!-- 娱乐右边 -->
+		<div class="tv_r">
+			<div class="tab_t">
+				<h3 class="title_k">热点策划</h3>
+			</div>
+
+			<img src="img/74142342342368204702021058819343111739.jpg" style="display: block;"/>
+			<div class="ontext">暮光女半裸大片美背缠花秀身材</div>
+			<ul class="cehua" style="display: inline-block;margin-bottom: 20px;">
+				<li><span>·</span><a href="#" class="s1">揭女明星靠干爹上位秘事</a></li>
+				<li><span>·</span><a href="#" class="s1">TVB剧重口强暴戏博收视</a></li>
+				<li><span>·</span><a href="#" class="s1">盘点那些撞脸明星的娃娃们</a></li>
+				<li><span>·</span><a href="#" class="s1">盘点当红女神劲爆雷人冏图</a></li>
+				<li><span>·</span><a href="#" class="s1">女明星的荧幕第一次给了谁</a></li>
+			</ul>
+		</div>
+		<!-- 动漫 -->
+		<div class="tv" id="con9" style="margin-bottom:20px;">
+			<div class="tab_t">
+				<i class="anime"></i>
+				<span class="title_k">动漫</span>
+				<ul id="tab9">
+					<li class="active">最热</li>
+					<li>日韩</li>
+					<li>国产</li>
+					<li>欧美</li>
+				</ul>
+				<div class="more">
+					<a href="#">更多</a>
+				</div>
+			</div>
+			<ul class="s_pic_ul arts">
+				<li>
+					<div class="s_pic">
+						<img src="img/t011c6143fecb1147bf.jpg"/>
+						<div class="sm_r black">530集全</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz2 cen" href="#">喜羊羊与灰太狼</a>
+					<span class="wz3 cen">羊羊的草原快乐生活</span>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/t01d18790ff5c86a746.jpg"/>
+						<div class="sm_r black">530集全</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz2 cen" href="#">喜羊羊与灰太狼</a>
+					<span class="wz3 cen">羊羊的草原快乐生活</span>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/t011c6143fecb1147bf.jpg"/>
+						<div class="sm_r black">530集全</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz2 cen" href="#">喜羊羊与灰太狼</a>
+					<span class="wz3 cen">羊羊的草原快乐生活</span>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/t011c6143fecb1147bf.jpg"/>
+						<div class="sm_r black">530集全</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz2 cen" href="#">喜羊羊与灰太狼</a>
+					<span class="wz3 cen">羊羊的草原快乐生活</span>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/t01d18790ff5c86a746.jpg"/>
+						<div class="sm_r black">530集全</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz2 cen" href="#">喜羊羊与灰太狼</a>
+					<span class="wz3 cen">羊羊的草原快乐生活</span>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/t011c6143fecb1147bf.jpg"/>
+						<div class="sm_r black">530集全</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz2 cen" href="#">喜羊羊与灰太狼</a>
+					<span class="wz3 cen">羊羊的草原快乐生活</span>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/t011c6143fecb1147bf.jpg"/>
+						<div class="sm_r black">530集全</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz2 cen" href="#">喜羊羊与灰太狼</a>
+					<span class="wz3 cen">羊羊的草原快乐生活</span>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/t01d18790ff5c86a746.jpg"/>
+						<div class="sm_r black">530集全</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz2 cen" href="#">喜羊羊与灰太狼</a>
+					<span class="wz3 cen">羊羊的草原快乐生活</span>
+				</li>
+			</ul>
+			<ul class="s_pic_ul arts" style="display:none;">
+				<li>
+					<div class="s_pic">
+						<img src="img/t011c6143fecb1147bf.jpg"/>
+						<div class="sm_r black">530集全</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz2 cen" href="#">喜羊羊与灰太狼</a>
+					<span class="wz3 cen">羊羊的草原快乐生活</span>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/t01d18790ff5c86a746.jpg"/>
+						<div class="sm_r black">530集全</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz2 cen" href="#">喜羊羊与灰太狼</a>
+					<span class="wz3 cen">羊羊的草原快乐生活</span>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/t011c6143fecb1147bf.jpg"/>
+						<div class="sm_r black">530集全</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz2 cen" href="#">喜羊羊与灰太狼</a>
+					<span class="wz3 cen">羊羊的草原快乐生活</span>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/t01d18790ff5c86a746.jpg"/>
+						<div class="sm_r black">530集全</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz2 cen" href="#">喜羊羊与灰太狼</a>
+					<span class="wz3 cen">羊羊的草原快乐生活</span>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/t01d18790ff5c86a746.jpg"/>
+						<div class="sm_r black">530集全</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz2 cen" href="#">喜羊羊与灰太狼</a>
+					<span class="wz3 cen">羊羊的草原快乐生活</span>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/t01d18790ff5c86a746.jpg"/>
+						<div class="sm_r black">530集全</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz2 cen" href="#">喜羊羊与灰太狼</a>
+					<span class="wz3 cen">羊羊的草原快乐生活</span>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/t011c6143fecb1147bf.jpg"/>
+						<div class="sm_r black">530集全</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz2 cen" href="#">喜羊羊与灰太狼</a>
+					<span class="wz3 cen">羊羊的草原快乐生活</span>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/t01d18790ff5c86a746.jpg"/>
+						<div class="sm_r black">530集全</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz2 cen" href="#">喜羊羊与灰太狼</a>
+					<span class="wz3 cen">羊羊的草原快乐生活</span>
+				</li>
+			</ul>
+			<ul class="s_pic_ul arts" style="display:none;">
+				<li>
+					<div class="s_pic">
+						<img src="img/t01d18790ff5c86a746.jpg"/>
+						<div class="sm_r black">530集全</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz2 cen" href="#">喜羊羊与灰太狼</a>
+					<span class="wz3 cen">羊羊的草原快乐生活</span>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/t01d18790ff5c86a746.jpg"/>
+						<div class="sm_r black">530集全</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz2 cen" href="#">喜羊羊与灰太狼</a>
+					<span class="wz3 cen">羊羊的草原快乐生活</span>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/t011c6143fecb1147bf.jpg"/>
+						<div class="sm_r black">530集全</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz2 cen" href="#">喜羊羊与灰太狼</a>
+					<span class="wz3 cen">羊羊的草原快乐生活</span>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/t01d18790ff5c86a746.jpg"/>
+						<div class="sm_r black">530集全</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz2 cen" href="#">喜羊羊与灰太狼</a>
+					<span class="wz3 cen">羊羊的草原快乐生活</span>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/t01d18790ff5c86a746.jpg"/>
+						<div class="sm_r black">530集全</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz2 cen" href="#">喜羊羊与灰太狼</a>
+					<span class="wz3 cen">羊羊的草原快乐生活</span>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/t011c6143fecb1147bf.jpg"/>
+						<div class="sm_r black">530集全</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz2 cen" href="#">喜羊羊与灰太狼</a>
+					<span class="wz3 cen">羊羊的草原快乐生活</span>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/t011c6143fecb1147bf.jpg"/>
+						<div class="sm_r black">530集全</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz2 cen" href="#">喜羊羊与灰太狼</a>
+					<span class="wz3 cen">羊羊的草原快乐生活</span>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/t01d18790ff5c86a746.jpg"/>
+						<div class="sm_r black">530集全</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz2 cen" href="#">喜羊羊与灰太狼</a>
+					<span class="wz3 cen">羊羊的草原快乐生活</span>
+				</li>
+			</ul>
+			<ul class="s_pic_ul arts" style="display:none;">
+				<li>
+					<div class="s_pic">
+						<img src="img/t011c6143fecb1147bf.jpg"/>
+						<div class="sm_r black">530集全</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz2 cen" href="#">喜羊羊与灰太狼</a>
+					<span class="wz3 cen">羊羊的草原快乐生活</span>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/t01d18790ff5c86a746.jpg"/>
+						<div class="sm_r black">530集全</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz2 cen" href="#">喜羊羊与灰太狼</a>
+					<span class="wz3 cen">羊羊的草原快乐生活</span>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/t011c6143fecb1147bf.jpg"/>
+						<div class="sm_r black">530集全</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz2 cen" href="#">喜羊羊与灰太狼</a>
+					<span class="wz3 cen">羊羊的草原快乐生活</span>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/t01d18790ff5c86a746.jpg"/>
+						<div class="sm_r black">530集全</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz2 cen" href="#">喜羊羊与灰太狼</a>
+					<span class="wz3 cen">羊羊的草原快乐生活</span>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/t01d18790ff5c86a746.jpg"/>
+						<div class="sm_r black">530集全</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz2 cen" href="#">喜羊羊与灰太狼</a>
+					<span class="wz3 cen">羊羊的草原快乐生活</span>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/t011c6143fecb1147bf.jpg"/>
+						<div class="sm_r black">530集全</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz2 cen" href="#">喜羊羊与灰太狼</a>
+					<span class="wz3 cen">羊羊的草原快乐生活</span>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/t01d18790ff5c86a746.jpg"/>
+						<div class="sm_r black">530集全</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz2 cen" href="#">喜羊羊与灰太狼</a>
+					<span class="wz3 cen">羊羊的草原快乐生活</span>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/t01d18790ff5c86a746.jpg"/>
+						<div class="sm_r black">530集全</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz2 cen" href="#">喜羊羊与灰太狼</a>
+					<span class="wz3 cen">羊羊的草原快乐生活</span>
+				</li>
+			</ul>
+		</div>
+		<!-- 动漫右边 -->
+		<div class="tv_r">
+			<div class="tab_t" style="margin-bottom:0px">
+				<h3 class="title_k">动漫分类</h3>
+			</div>
+			<ul class="type" style="margin-bottom:22px">
+				<li><a href="#">热血</a></li>
+				<li><a href="#">恋爱</a></li>
+				<li><a href="#">运动</a></li>
+				<li><a href="#">搞笑</a></li>
+				<li><a href="#">动作</a></li>
+				<li><a href="#">校园</a></li>
+				<li><a href="#">冒险</a></li>
+				<li><a href="#">益智</a></li>
+				<li><a href="#">悬疑</a></li>
+				<li><a href="#">动物</a></li>
+				<li><a href="#">童话</a></li>
+				<li><a href="#">少儿</a></li>
+				<li><a href="#">益智</a></li>
+				<li><a href="#">悬疑</a></li>
+				<li><a href="#">动物</a></li>
+				<li><a href="#">童话</a></li>
+				<li><a href="#">少儿</a></li>
+				<li><a href="#">友情</a></li>
+				<li><a href="#">成人</a></li>
+				<li><a href="#">美少女</a></li>
+			</ul>
+
+			<div class="ws_hot">
+				<div class="stitle_k">动漫排行榜</div>
+			</div>
+			<ul class="t_con" style="margin-bottom:17px;border-top:1px solid #e3e3e3;padding-top:20px;">
+				<li>
+					<span class="num num_one">1</span>
+					<a href="#" class="wz">海贼王</a>
+				</li>
+				<li>
+					<span class="num num_one">2</span>
+					<a href="#" class="wz">迪迦奥特曼</a>
+				</li>
+				<li>
+					<span class="num num_one">3</span>
+					<a href="#" class="wz">海贼王</a>
+				</li>
+				<li>
+					<span class="num num_other">3</span>
+					<a href="#" class="wz">海贼王</a>
+				</li>
+				<li>
+					<span class="num num_other">3</span>
+					<a href="#" class="wz">迪迦奥特曼</a>
+				</li>
+				<li>
+					<span class="num num_other">3</span>
+					<a href="#" class="wz">迪迦奥特曼</a>
+				</li>
+				<li>
+					<span class="num num_other">3</span>
+					<a href="#" class="wz">迪迦奥特曼</a>
+				</li>
+				<li>
+					<span class="num num_other">3</span>
+					<a href="#" class="wz">迪迦奥特曼</a>
+				</li>
+				<li>
+					<span class="num num_other">3</span>
+					<a href="#" class="wz">迪迦奥特曼</a>
+				</li>
+				<li>
+					<span class="num num_other">3</span>
+					<a href="#" class="wz">迪迦奥特曼</a>
+				</li>
+			</ul>
+		</div>
+		<!-- 记录片 -->
+		<div class="tv" style="margin-bottom:20px;">
+			<div class="tab_t">
+				<i class="anime"></i>
+				<span class="title_k">记录片</span>
+				<div class="more">
+					<a href="#">更多</a>
+				</div>
+			</div>
+			<ul class="s_pic_ul arts">
+				<li>
+					<div class="s_pic">
+						<img src="img/t01f76b6be20491261a.jpg"/>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz2 cen" href="#">舌尖上的中国第2季全集</a>
+					<span class="wz3 cen">吃货的美食盛宴</span>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/t01f76b6be20491261a.jpg"/>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz2 cen" href="#">舌尖上的中国第2季全集</a>
+					<span class="wz3 cen">吃货的美食盛宴</span>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/t01f76b6be20491261a.jpg"/>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz2 cen" href="#">舌尖上的中国第2季全集</a>
+					<span class="wz3 cen">吃货的美食盛宴</span>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/t01f76b6be20491261a.jpg"/>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz2 cen" href="#">舌尖上的中国第2季全集</a>
+					<span class="wz3 cen">吃货的美食盛宴</span>
+				</li>
+			</ul>
+		</div>
+		<!-- 记录片右边 -->
+		<div class="tv_r">
+			<div class="tab_t">
+				<h3 class="title_k">记录片排行榜</h3>
+			</div>
+			<ul class="t_con" style="margin-bottom:17px">
+				<li>
+					<span class="num num_one">1</span>
+					<a href="#" class="wz">舌尖上的中国</a>
+				</li>
+				<li>
+					<span class="num num_one">2</span>
+					<a href="#" class="wz">脚上的中国</a>
+				</li>
+				<li>
+					<span class="num num_one">3</span>
+					<a href="#" class="wz">胸上的中国</a>
+				</li>
+				<li>
+					<span class="num num_other">3</span>
+					<a href="#" class="wz">腿上的中国</a>
+				</li>
+				<li>
+					<span class="num num_other">3</span>
+					<a href="#" class="wz">代码上的中国</a>
+				</li>
+				<li>
+					<span class="num num_other">3</span>
+					<a href="#" class="wz">程序上的中国</a>
+				</li>
+				<li>
+					<span class="num num_other">3</span>
+					<a href="#" class="wz">汗毛上的中国</a>
+				</li>
+				<li>
+					<span class="num num_other">3</span>
+					<a href="#" class="wz">土地上的中国</a>
+				</li>
+				<li>
+					<span class="num num_other">3</span>
+					<a href="#" class="wz">大米上的中国</a>
+				</li>
+				<li>
+					<span class="num num_other">3</span>
+					<a href="#" class="wz">汽车上的中国</a>
+				</li>
+			</ul>
+		</div>
+		<!-- 美女 -->
+		<div class="tv">
+			<div class="tab_t">
+				<i class="anime"></i>
+				<span class="title_k">美女</span>
+			</div>
+			<ul class="s_pic_ul arts">
+				<li>
+					<div class="s_pic">
+						<img src="img/89356b82b877b036789c208f665ea601915.jpg"/>
+						<div class="sm_r black">20：20</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz1 cen" href="#">美女空姐泰拳踢腿显专业</a>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/89356b82b877b036789c208f665ea601915.jpg"/>
+						<div class="sm_r black">20：20</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz1 cen" href="#">美女空姐泰拳踢腿显专业</a>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/89356b82b877b036789c208f665ea601915.jpg"/>
+						<div class="sm_r black">20：20</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz1 cen" href="#">美女空姐泰拳踢腿显专业</a>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/89356b82b877b036789c208f665ea601915.jpg"/>
+						<div class="sm_r black">20：20</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz1 cen" href="#">美女空姐泰拳踢腿显专业</a>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/89356b82b877b036789c208f665ea601915.jpg"/>
+						<div class="sm_r black">20：20</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz1 cen" href="#">美女空姐泰拳踢腿显专业</a>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/89356b82b877b036789c208f665ea601915.jpg"/>
+						<div class="sm_r black">20：20</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz1 cen" href="#">美女空姐泰拳踢腿显专业</a>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/89356b82b877b036789c208f665ea601915.jpg"/>
+						<div class="sm_r black">20：20</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz1 cen" href="#">美女空姐泰拳踢腿显专业</a>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/89356b82b877b036789c208f665ea601915.jpg"/>
+						<div class="sm_r black">20：20</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz1 cen" href="#">美女空姐泰拳踢腿显专业</a>
+				</li>
+			</ul>
+		</div>
+		<!-- 美女右边 -->
+		<div class="tv_r">
+			<div class="tab_t">
+				<h3 class="title_k">精彩专题</h3>
+			</div>
+			<img src="img/74142342342368204702021058819343111739.jpg" style="display: block;"/>
+			<div class="wz1" style="margin-top:5px;margin-bottom:10px;">暮光女半裸大片美背缠花秀身材</div>
+			<img src="img/74142342342368204702021058819343111739.jpg" style="display: block;"/>
+			<div class="wz1" style="margin-top:5px;margin-bottom:10px;">暮光女半裸大片美背缠花秀身材</div>
+		</div>
+		<!-- 搞笑 -->
+		<div class="hd">
+			<h3 class="title">搞笑</h3>
+			<div class="more">
+					<a href="#">更多</a>
+			</div>
+		</div>
+		<div class="hdd">
+			<ul class="s_pic_ul">
+				<li>
+					<div class="s_pic">
+						<img src="img/89e46a28c39a5878a7e89fe6fa216287.jpg"/>
+						<div class="sm_r black">20：20</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz1 cen" href="#">美女空姐泰拳踢腿显专业</a>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/89e46a28c39a5878a7e89fe6fa216287.jpg"/>
+						<div class="sm_r black">20：20</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz1 cen" href="#">美女空姐泰拳踢腿显专业</a>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/89e46a28c39a5878a7e89fe6fa216287.jpg"/>
+						<div class="sm_r black">20：20</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz1 cen" href="#">美女空姐泰拳踢腿显专业</a>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/89e46a28c39a5878a7e89fe6fa216287.jpg"/>
+						<div class="sm_r black">20：20</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz1 cen" href="#">美女空姐泰拳踢腿显专业</a>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/89e46a28c39a5878a7e89fe6fa216287.jpg"/>
+						<div class="sm_r black">20：20</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz1 cen" href="#">美女空姐泰拳踢腿显专业</a>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/89e46a28c39a5878a7e89fe6fa216287.jpg"/>
+						<div class="sm_r black">20：20</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz1 cen" href="#">美女空姐泰拳踢腿显专业</a>
+				</li>
+			</ul>
+		</div>
+		<!-- 体育 -->
+		<div class="hd">
+			<h3 class="title">体育</h3>
+			<div class="more">
+					<a href="#">更多</a>
+			</div>
+		</div>
+		<div class="hdd">
+			<ul class="s_pic_ul">
+				<li>
+					<div class="s_pic">
+						<img src="img/3d7027b4039844d682113b3db860a242.jpg"/>
+						<div class="sm_r black">20：20</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz1 cen" href="#">美女空姐泰拳踢腿显专业</a>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/3d7027b4039844d682113b3db860a242.jpg"/>
+						<div class="sm_r black">20：20</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz1 cen" href="#">美女空姐泰拳踢腿显专业</a>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/3d7027b4039844d682113b3db860a242.jpg"/>
+						<div class="sm_r black">20：20</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz1 cen" href="#">美女空姐泰拳踢腿显专业</a>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/3d7027b4039844d682113b3db860a242.jpg"/>
+						<div class="sm_r black">20：20</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz1 cen" href="#">美女空姐泰拳踢腿显专业</a>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/3d7027b4039844d682113b3db860a242.jpg"/>
+						<div class="sm_r black">20：20</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz1 cen" href="#">美女空姐泰拳踢腿显专业</a>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/3d7027b4039844d682113b3db860a242.jpg"/>
+						<div class="sm_r black">20：20</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz1 cen" href="#">美女空姐泰拳踢腿显专业</a>
+				</li>
+			</ul>
+		</div>
+		<!-- 音乐 -->
+		<div class="hd">
+			<h3 class="title">音乐</h3>
+			<div class="more">
+					<a href="#">更多</a>
+			</div>
+		</div>
+		<div class="hdd">
+			<ul class="s_pic_ul">
+				<li>
+					<div class="s_pic">
+						<img src="img/vrs1284864_v445n_pic24.jpg"/>
+						<div class="sm_r black">20：20</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz1 cen" href="#">美女空姐泰拳踢腿显专业</a>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/vrs1284864_v445n_pic24.jpg"/>
+						<div class="sm_r black">20：20</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz1 cen" href="#">美女空姐泰拳踢腿显专业</a>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/vrs1284864_v445n_pic24.jpg"/>
+						<div class="sm_r black">20：20</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz1 cen" href="#">美女空姐泰拳踢腿显专业</a>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/vrs1284864_v445n_pic24.jpg"/>
+						<div class="sm_r black">20：20</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz1 cen" href="#">美女空姐泰拳踢腿显专业</a>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/vrs1284864_v445n_pic24.jpg"/>
+						<div class="sm_r black">20：20</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz1 cen" href="#">美女空姐泰拳踢腿显专业</a>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/vrs1284864_v445n_pic24.jpg"/>
+						<div class="sm_r black">20：20</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz1 cen" href="#">美女空姐泰拳踢腿显专业</a>
+				</li>
+			</ul>
+		</div>
+		<!-- 游戏 -->
+		<div class="hd">
+			<h3 class="title">游戏</h3>
+			<div class="more">
+					<a href="#">更多</a>
+			</div>
+		</div>
+		<div class="hdd">
+			<ul class="s_pic_ul">
+				<li>
+					<div class="s_pic">
+						<img src="img/360t3.jpg"/>
+						<div class="sm_r black">20：20</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz1 cen" href="#">美女空姐泰拳踢腿显专业</a>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/360t3.jpg"/>
+						<div class="sm_r black">20：20</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz1 cen" href="#">美女空姐泰拳踢腿显专业</a>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/360t3.jpg"/>
+						<div class="sm_r black">20：20</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz1 cen" href="#">美女空姐泰拳踢腿显专业</a>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/360t3.jpg"/>
+						<div class="sm_r black">20：20</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz1 cen" href="#">美女空姐泰拳踢腿显专业</a>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/360t3.jpg"/>
+						<div class="sm_r black">20：20</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz1 cen" href="#">美女空姐泰拳踢腿显专业</a>
+				</li>
+				<li>
+					<div class="s_pic">
+						<img src="img/360t3.jpg"/>
+						<div class="sm_r black">20：20</div>
+						<div class="bd"></div>
+						<i class="play"></i>
+					</div>
+					<a class="wz1 cen" href="#">美女空姐泰拳踢腿显专业</a>
+				</li>
+			</ul>
+		</div>
+		<!-- 网站内容 -->
+		<div class="hd">
+			<h3 class="title">网站内容</h3>
+			<div class="more">
+					<a href="#">更多</a>
+			</div>
+		</div>
+		<div class="hdd">
+			<ul class="web">
+				<li><img src="img/t0155faba68ed76f6b8.gif"/></li>
+				<li><img src="img/t0155faba68ed76f6b8.gif"/></li>
+				<li><img src="img/t0155faba68ed76f6b8.gif"/></li>
+				<li><img src="img/t0155faba68ed76f6b8.gif"/></li>
+				<li><img src="img/t0155faba68ed76f6b8.gif"/></li>
+				<li><img src="img/t0155faba68ed76f6b8.gif"/></li>
+				<li><img src="img/t0155faba68ed76f6b8.gif"/></li>
+				<li><img src="img/t0155faba68ed76f6b8.gif"/></li>
+				<li><img src="img/t0155faba68ed76f6b8.gif"/></li>
+				<li><img src="img/t0155faba68ed76f6b8.gif"/></li>
+				<li><img src="img/t0155faba68ed76f6b8.gif"/></li>
+				<li><img src="img/t0155faba68ed76f6b8.gif"/></li>
+				<li><img src="img/t0155faba68ed76f6b8.gif"/></li>
+				<li><img src="img/t0155faba68ed76f6b8.gif"/></li>
+			</ul>
+		</div>
+		<!--fool-->
+		<div class="hdd">
+			<ul class="fmenu">
+				<li style="border-left:none;"><a href="#">意见反馈</a></li>
+				<li><a href="#">官方微博</a></li>
+				<li><a href="#">加入收藏</a></li>
+				<li><a href="#">版权声明</a></li>
+				<li><a href="#">关于我们</a></li>
+			</ul>
+			<div class="f wz3">
+				Copyright © 360安全网址. All Rights Reserved.    文网文(2010)167号    信息网络传播视听节目许可证:1109357ICP证号：浙B2-20090064      温州市迅驰数码科技有限公司
+			</div>
+
+		</div>
+	</div>
+</body>
+</html>

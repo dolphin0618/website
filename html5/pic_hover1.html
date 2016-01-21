@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<style type="text/css">
+		body,ul{padding: 0;margin: 0;background: #333;}
+		div{width: 1000px;margin: 100px auto;}
+		ul{list-style: none;}
+		li{width: 230px;height: 230px;float: left;position: relative;}
+		figure{width:100%;height:100%;background-size:30px 30px;background-image:-webkit-linear-gradient(45deg,#fff 25%,#0dcecb 25%,#0dcecb 50%, #fff 50%, #fff 75%,#0dcecb 75%,#0dcecb);-webkit-animation:run 0.5s infinite linear;margin: 0;opacity: 0;-webkit-transition:opacity 0.4s;}
+		img{position: absolute;top: 15px;left: 15px;}
+		li:hover figure{opacity: 1;}
+
+		@-webkit-keyframes run{
+			from{background-position: 0 0;}
+			to{background-position: 60px 30px;}
+		}
+
+	</style>
+</head>
+<body>
+	<div>
+		<ul>
+			<li>
+				<figure></figure>
+				<img src="img/1.jpg">
+			</li>
+			<li>
+				<figure></figure>
+				<img src="img/2.jpg">
+			</li>
+			<li>
+				<figure></figure>
+				<img src="img/3.jpg">
+			</li>
+			<li>
+				<figure></figure>
+				<img src="img/5.jpg">
+			</li>
+		</ul>
+	</div>
+</body>
+</html>

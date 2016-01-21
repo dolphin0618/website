@@ -1,0 +1,230 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8"/>
+<style>
+	body{margin: 0px;padding: 0px;background: #000;}
+	.featured{position:relative;width: 960px;margin: 0 auto;height: 440px;overflow:hidden;}
+	.slide{position: absolute;}
+	.slide img{width: 250px;height: 169px;}
+	.on{top: 0px;z-index: 7;}
+	.on img{width: 500px;height: 335px;}
+	.page{position:absolute;top:10px;left:230px;width: 500px;height: 335px;z-index: 99;}
+	.page a{position: absolute;top: 160px;display: block;width: 40px;height: 40px;}
+	.page .prev{background: url(img/left.png) no-repeat;left: 10px;}
+	.page .next{background: url(img/right.png) no-repeat;left: 460px;}
+	.page .search{background: url(img/search.png) no-repeat;left: 220px;}
+
+	.layer{position: absolute;left: 0px;top: 0px;background: #000;opacity: 0.7;width: 100%;z-index: 1000;}
+	.b_pic{position: absolute;border: 10px solid #fff;z-index: 1001;top:50px;left:200px;background: #fff;}
+	.b_pic a{background: transparent url('img/icon.png');position: absolute;width: 30px;height: 30px;}
+	.b_pic .next{background-position: -40px -30px;top: 150px;left: 20px;}
+	.b_pic .prev{background-position: -40px -60px;top: 150px;right: 20px;}
+	.b_pic .cl{background-position: -40px 0px;right: -20px;top: -20px;}
+</style>
+<script src="js/animal.js"></script>
+<script>
+	window.onload=function(){
+		var feaDiv = document.getElementById('featured');
+		var feaChild = feaDiv.children;
+		var aFeaChild = [];//图片div集合
+
+		var json={};//图片初始位置
+		var mid = 3;//大图下标
+		var play = null;//切换按钮组
+
+		var lay = null;
+		var pic = null;
+		var lock = false;
+
+		for (var i = 0; i < feaChild.length; i++) {
+			if(feaChild[i].className=='page'){//图片按钮点击事件绑定
+				play = feaChild[i];
+				var aBtn = play.children;
+				b_prev(aBtn[0]);b_next(aBtn[1]);b_search(aBtn[2]);
+			}else{//图片
+				var obj = feaChild[i];
+				obj.index = i;
+				var attr = {'top':obj.offsetTop,'left':obj.offsetLeft,'opacity':1};
+				json[i] = attr;//记录初始位置
+				aFeaChild.push(obj);
+			}
+		};
+
+		(function createLayer(){
+			lay = document.createElement('div');
+			pic = document.createElement('div');
+			lay.className = 'layer';
+			lay.style.display = 'none';
+
+			pic.className = 'b_pic';
+			pic.style.display = 'none';
+			pic.innerHTML = '<img src="img/xx.jpg"/>'+
+							'<a href="#" class="next"></a>'+
+							'<a href="#" class="prev"></a>'+
+							'<a href="#" class="cl"></a>';
+			document.body.appendChild(lay);
+			document.body.appendChild(pic);
+		})();
+
+		play.onmouseout=function(ev){
+				var oEvent = ev||event;
+				var to=oEvent.toElement || oEvent.relatedTarget;
+				if(play.contains(to))return;
+				display(true);
+				return false;
+			}
+
+		function b_next(obj){
+			obj.onclick=function(){
+				move(true);
+			}
+		}
+		function b_prev(obj){
+			obj.onclick=function(){
+				move(false);
+			}
+		}
+		function move(next){
+			if(lock){return;}
+			var count = (aFeaChild.length-1)*2;
+			for (var i = 0; i < aFeaChild.length; i++) {
+				if(next){
+					aFeaChild[i].index = aFeaChild[i].index+1>=aFeaChild.length?0:aFeaChild[i].index+1;//移动到目标下标
+				}else{
+					aFeaChild[i].index = aFeaChild[i].index-1<0?aFeaChild.length-1:aFeaChild[i].index-1;
+				}
+				//console.log(aFeaChild[i].index);
+				if(aFeaChild[i].index==mid){//中间图放大
+					//aFeaChild[i].className = 'slide on';
+					aFeaChild[i].style.opacity = 1;
+					aFeaChild[i].style.width = '500'+'px';
+					aFeaChild[i].style.height = '335'+'px';
+					aFeaChild[i].style.zIndex = 7;
+					if(next){
+						hover(aFeaChild[i],aFeaChild[i==aFeaChild.length-1?0:i+1]);//移入移出
+					}else{
+						hover(aFeaChild[i],aFeaChild[i==0?aFeaChild.length-1:i-1]);//移入移出
+					}
+				}else{
+					aFeaChild[i].className = 'slide';
+					aFeaChild[i].style.opacity = 0.3;
+					aFeaChild[i].style.width = '250'+'px';
+					aFeaChild[i].style.height = '169'+'px';
+					aFeaChild[i].style.zIndex = '';
+				}
+				//根据移动下标移动div
+				if(next&&aFeaChild[i].index == 0||!next&&aFeaChild[i].index==aFeaChild.length-1){
+					aFeaChild[i].style.top = json[aFeaChild[i].index].top+'px';
+					aFeaChild[i].style.left = json[aFeaChild[i].index].left+'px';
+				}else{
+					lock = true;
+					animal(aFeaChild[i],{
+						'top':json[aFeaChild[i].index].top,
+						'left':json[aFeaChild[i].index].left
+					},function(){
+						if(--count==0){lock=false;};
+					});
+					animal(aFeaChild[i].children[0],{
+						'width':aFeaChild[i].offsetWidth,
+						'height':aFeaChild[i].offsetHeight
+					},function(){
+						if(--count==0){lock=false;};
+					});
+				}
+			};
+		}
+		
+		function b_search(obj){
+			obj.onclick=function(){
+				var midImg = null;//当前要显示的小图对象
+				for (var i = 0; i < aFeaChild.length; i++) {
+					if(aFeaChild[i].index == mid){
+						midImg = aFeaChild[i].children[0];
+						sIndex = i;//记录下标用于大图
+						break;
+					}
+				};
+				showPic(midImg);
+			}
+		}
+		function showPic(midImg){
+			pic.children[0].style.display = 'none';
+
+			var img = pic.children[0];
+			img.src = midImg.src;
+			img.onload = function(){//加载完毕调整图片大小
+				var top = parseInt((document.documentElement.clientHeight-img.height)/2)-50;
+				var left = parseInt((document.documentElement.clientWidth-img.width)/2);
+				
+				animal(pic,{'width':img.width,'height':img.height,'top':top,'left':left,'opacity':100},function(){
+					pic.children[0].style.display = 'block';
+				});
+				//大图按钮位置
+				pic.children[1].style.top=pic.children[2].style.top=img.height/2-20+'px';
+
+				pic.style.display = 'block';
+			}
+			lay.style.height = document.documentElement.clientHeight+'px';
+			lay.style.display = 'block';
+		}
+		function hover(obj, unObj){
+			obj.onmouseover=function(ev){
+				var oEvent=ev || event;
+				var from=oEvent.fromElement || oEvent.relatedTarget;
+				if(obj.contains(from))return;
+				display(false);
+				return false;
+			}
+			unObj.onmouseover=null;
+		}
+		function display(tag){
+			if(tag){play.style.display = 'none'}else{play.style.display = 'block'};
+		}
+
+		var sIndex = 0;
+		pic.children[1].onclick=function(){//上一张
+			pic.children[2].style.display='block';
+			if(sIndex==1){
+				pic.children[1].style.display='none';
+			}
+			sIndex = sIndex-1;
+			showPic(aFeaChild[sIndex].children[0]);//如果是第一张不变
+		}
+		pic.children[2].onclick=function(){//下一张
+			pic.children[1].style.display='block';
+			if(sIndex==aFeaChild.length-2){
+				pic.children[2].style.display='none';
+			}
+			sIndex = sIndex+1;
+			showPic(aFeaChild[sIndex].children[0]);//如果是最后一张不变
+		}
+		pic.children[3].onclick=function(){
+			lay.style.display = 'none';
+			animal(pic, {'top':50,'left':200,'opacity':0}, function(){
+				pic.style.display = 'none';
+			});
+			
+			pic.children[0].src='';
+		}
+		move(true);
+	}
+</script>
+</head>
+<body>
+<div id="featured" class="featured">
+	<div class="slide" style="top:90px;left:-442px;opacity:0.3;"><img src="img/1.jpg"></img></div>
+	<div class="slide" style="top:90px;left:-176px;opacity:0.3;"><img src="img/2.jpg"></img></div>
+	<div class="slide" style="top:90px;left:90px;opacity:0.3;"><img src="img/3.jpg"></img></div>
+	<div class="slide on" style="top:10px;left:230px;opacity:1;"><img src="img/4.jpg"></img></div>
+	<div class="slide" style="top:90px;left:620px;opacity:0.3;"><img src="img/5.jpg"></img></div>
+	<div class="slide" style="top:90px;left:886px;opacity:0.3;"><img src="img/1.jpg"></img></div>
+	<div class="slide" style="top:90px;left:1152px;opacity:0.3;"><img src="img/6.jpg"></img></div>
+	<div class="page">
+		<a href="#" class="prev"></a>
+		<a href="#" class="next"></a>
+		<a href="#" class="search"></a>
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,164 @@
+﻿<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>number by航</title>
+	<!-- 新 Bootstrap 核心 CSS 文件 -->
+	<link rel="stylesheet" href="../../css/bootstrap.min.css">
+	<style>
+		body{margin: 0;padding: 0;font-family: 'Microsoft yahei';}
+		.ol{background: #333;}.ol li a{color: #fff;}
+		pre{margin: 10px;padding: 10px;border: 1px dashed #3569a9;display: block;white-space: pre-wrap;white-space: -moz-pre-wrap;white-space: -pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;}
+		code{font-family: monospace,monospace;font-size: 1em;}
+		p{text-indent: 2em;}
+	</style>
+	<script type="text/javascript">
+
+	</script>
+</head>
+<body>
+	<!--头部-->
+	<ol class="breadcrumb ol">
+	  <li><a href="../../index.html">首页</a></li>
+	  <li class="active">类型</li>
+	  <li class="active">基本类型</li>
+	</ol>
+	<div class="page-header" style="padding-left:20px;">
+  		<h1>number <small>返回值: &lt;Object&gt;</small></h1>
+	</div>
+	<!--内容-->
+		<!--描述-->
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+	        <h3 class="panel-title">描述</h3>
+	      </div>
+	      <div class="panel-body">
+	      	<p>var myNum=new Number(value);</p>
+	      	<p>当 Number() 和运算符 new 一起作为构造函数使用时，它返回一个新创建的 Number 对象。如果不用 new 运算符，把 Number() 作为一个函数来调用，它将把自己的参数转换成一个原始的数值，并且返回这个值（如果转换失败，则返回 NaN）。</p>
+	      </div>
+		</div>
+		<!--属性-->
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+	        <h3 class="panel-title">属性</h3>
+	      </div>
+	      <div class="panel-body">
+	        <table class="table table-hover">
+		      <thead>
+		        <tr>
+		          <th>属性</th>
+		          <th>说明</th>
+		        </tr>
+		      </thead>
+		      <tbody>
+		        <tr>
+		          <td>MAX_VALUE</td>
+		          <td>可表示的最大的数。</td>
+		        </tr>
+		        <tr>
+		          <td>MIN_VALUE</td>
+		          <td>可表示的最小的数。</td>
+		        </tr>
+		        <tr>
+		          <td>NaN</td>
+		          <td>非数字值。</td>
+		        </tr>
+		        <tr>
+		          <td>NEGATIVE_INFINITY</td>
+		          <td>负无穷大，溢出时返回该值。</td>
+		        </tr>
+		        <tr>
+		          <td>POSITIVE_INFINITY</td>
+		          <td>正无穷大，溢出时返回该值。</td>
+		        </tr>
+		      </tbody>
+		    </table>
+	      </div>
+		</div>
+		<!--方法-->
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+	        <h3 class="panel-title">方法</h3>
+	      </div>
+	      <div class="panel-body">
+	        <table class="table table-hover">
+		      <thead>
+		        <tr>
+		          <th>方法</th>
+		          <th>说明</th>
+		        </tr>
+		      </thead>
+		      <tbody>
+		      	<tr>
+		          <td>toString</td>
+		          <td>把数字转换为字符串，使用指定的基数。</td>
+		        </tr>
+		        <tr>
+		          <td>toLocaleString</td>
+		          <td>把数字转换为字符串，使用本地数字格式顺序。</td>
+		        </tr>
+		        <tr>
+		          <td>toFixed</td>
+		          <td>把数字转换为字符串，结果的小数点后有指定位数的数字(四舍五入)。</td>
+		        </tr>
+		        <tr>
+		          <td>toExponential</td>
+		          <td>把对象的值转换为指数计数法</td>
+		        </tr>
+		        <tr>
+		          <td>toPrecision</td>
+		          <td>把数字格式化为指定的长度。</td>
+		        </tr>
+		        <tr>
+		          <td>valueOf</td>
+		          <td>返回一个 Number 对象的基本数字值。</td>
+		        </tr>
+		      </tbody>
+		    </table>
+	      </div>
+		</div>
+		<!--示例-->
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+	        <h3 class="panel-title">示例</h3>
+	      </div>
+	      <div class="panel-body">
+	        <div class="panel panel-info">
+			  <div class="panel-heading">
+		        <h3 class="panel-title">描述</h3>
+		      </div>
+		      <div class="panel-body">
+		        <h5>js代码：</h5>
+		        <pre><code>var test1= new Boolean(true);
+var test2= new Boolean(false);
+var test3= new Date();
+var test4= new String("999");
+var test5= new String("999 888");
+
+Number(test1);//1
+Number(test2);//0
+Number(test3);//1256657776588
+Number(test4);//999
+Number(test5);//NaN
+//NAN 属于number类型 NAN不等于本身</code></pre>
+		        <h5>js代码：</h5>
+		        <pre><code>~~2.1;//2
+//~~四舍五入简写</code></pre>
+		      </div>
+			</div>
+	      </div>
+		</div>
+		
+	<!--翻页-->
+	<nav>
+	  <ul class="pager">
+	    <li class="previous"><a href="../object/RegExp.html">&larr; 上一篇:RegExp</a></li>
+	    <li class="next"><a href="../object/event.html">下一篇:event &rarr;</a></li>
+	  </ul>
+	</nav>
+
+	<div class="page-header" style="background:#333;color:#fff;margin:0;padding:10px 40px;">
+	  <h6 style="text-align:center;">Copyright © <small>shanghang    2015 - 2018    All rights reserved.</small></h6>
+	</div>
+</body>
+</html>

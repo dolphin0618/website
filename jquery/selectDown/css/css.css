@@ -1,0 +1,11 @@
+@charset "gb2312";
+/* CSS Document */
+BODY{FONT-SIZE: 12px;font-family:"ËÎÌו",Arial;MARGIN: 0px auto;color:#000;}
+A{COLOR:#8d8d8d; TEXT-DECORATION: none}
+A:link,A:visited{COLOR:#1d9fde;}
+A:hover{COLOR: #e12a33;TEXT-DECORATION: underline}
+div,ul,li,dl,dt,dd,span,b,p{margin:0;padding:0px;list-style-type:none;}
+img{vertical-align:middle;margin:0;padding:0;overflow:Hidden;}
+p,h1,h2,h3,h4,h5,br{margin:0;padding:0;}
+.clear{clear:both;height:0;line-height:0;visibility:hidden;overflow:Hidden;}
+

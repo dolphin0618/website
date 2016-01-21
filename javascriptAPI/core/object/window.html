@@ -1,0 +1,130 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>window by航</title>
+	<!-- 新 Bootstrap 核心 CSS 文件 -->
+	<link rel="stylesheet" href="../../css/bootstrap.min.css">
+	<style>
+		body{margin: 0;padding: 0;font-family: 'Microsoft yahei';}
+		.ol{background: #333;}.ol li a{color: #fff;}
+		pre{margin: 10px;padding: 10px;border: 1px dashed #3569a9;display: block;white-space: pre-wrap;white-space: -moz-pre-wrap;white-space: -pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;}
+		code{font-family: monospace,monospace;font-size: 1em;}
+		p{text-indent: 2em;}
+	</style>
+	<script type="text/javascript">
+
+	</script>
+</head>
+<body>
+	<!--头部-->
+	<ol class="breadcrumb ol">
+	  <li><a href="../../index.html">首页</a></li>
+	  <li class="active">系统内置对象</li>
+	  <li class="active">DOM</li>
+	</ol>
+	<div class="page-header" style="padding-left:20px;">
+  		<h1>window <small></small></h1>
+	</div>
+	<!--内容-->
+		<!--描述-->
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+	        <h3 class="panel-title">描述</h3>
+	      </div>
+	      <div class="panel-body">
+	        window对象
+	      </div>
+		</div>
+		<!--列表-->
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+	        <h3 class="panel-title">列表</h3>
+	      </div>
+	      <div class="panel-body">
+	        <table class="table table-hover">
+		      <thead>
+		        <tr>
+		          <th>方法</th>
+		          <th>使用说明</th>
+		        </tr>
+		      </thead>
+		      <tbody>
+		        <tr>
+		          <td>window.navigator.userAgent</td>
+		          <td>浏览器的信息</td>
+		        </tr>
+		        <tr>
+		          <td>window.open</td>
+		          <td>window.open(地址，打开方式);window.open(地址);  新窗口打开;返回值是新窗口window对象;  chrome 默认屏蔽
+FF	阻止了
+IE     默认出来了</td>
+		        </tr>
+		        <tr>
+		          <td>window.close()</td>
+		          <td>chrome: 直接关闭
+FF:	没反应
+IE：	友好提示*用户能关闭自己open出来窗口</td>
+		        </tr>
+		        <tr>
+		          <td>window.location</td>
+		          <td>获取当前地址(url);返回object;</td>
+		        </tr>
+		        <tr>
+		          <td>window.location.href</td>
+		          <td>设置或返回当前地址;window.location.href='http://www.baidu.com'; 直接跳转到百度，覆盖自己页面</td>
+		        </tr>
+		        <tr>
+		          <td>window.location.search</td>
+		          <td>设置或获取问号后面数据</td>
+		        </tr>
+		        <tr>
+		          <td>window.location.hash</td>
+		          <td>设置或获取#号后面数据;赋值时不会刷新页面;锚点</td>
+		        </tr>
+		        <tr>
+		          <td>window.location.host</td>
+		          <td>设置或返回主机名和当前 URL 的端口号</td>
+		        </tr>
+		        <tr>
+		          <td>window.location.hostname</td>
+		          <td>设置或返回当前 URL 的主机名。</td>
+		        </tr>
+		        <tr>
+		          <td>window.location.reload()</td>
+		          <td>重新加载当前文档</td>
+		        </tr>
+		      </tbody>
+		    </table>
+	      </div>
+		</div>
+		<!--示例-->
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+	        <h3 class="panel-title">示例</h3>
+	      </div>
+	      <div class="panel-body">
+	        <div class="panel panel-info">
+			  <div class="panel-heading">
+		        <h3 class="panel-title">描述</h3>
+		      </div>
+		      <div class="panel-body">
+		        <p>略。</p>
+		      </div>
+			</div>
+	      </div>
+		</div>
+		
+	<!--翻页-->
+	<nav>
+	  <ul class="pager">
+	    <li class="previous"><a href="../domfilter/lastChild.html">&larr; 上一篇:获取最后一个子节点</a></li>
+	    <li class="next"><a href="../object/document.html">下一篇:document &rarr;</a></li>
+	  </ul>
+	</nav>
+
+	<div class="page-header" style="background:#333;color:#fff;margin:0;padding:10px 40px;">
+	  <h6 style="text-align:center;">Copyright © <small>shanghang    2015 - 2018    All rights reserved.</small></h6>
+	</div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+	body{margin: 0;padding: 0;background: #333;}
+	.box{width: 15em;height: 15em;margin: 10em auto;position: relative;-webkit-animation:rotate 8s infinite linear;animation:rotate 8s infinite linear;}
+	.box div{width:100%;height:100%;border-radius: 50%;position: absolute;top: 0;left: 0;}
+
+	@-webkit-keyframes rotate{
+		100%{transform:rotate(360deg);}
+	}
+	@keyframes rotate{
+		100%{transform:rotate(360deg);}
+	}
+</style>
+<script>
+window.onload=function(){
+	var box = document.getElementById('box');
+	var colors = ['ff4d4d','ff774d','ffa24d','ffcd4d','fff84d','dbff4d','b0ff4d','86ff4d','5bff4d','4dff69','4dff94','4dffbf','4dffea','4deaff','4dbfff','4dbfff','4d94ff','4d69ff','5b4dff','864dff','b04dff','db4dff','ff4df8','ff4dcd','ff4da2','ff4d77'];
+
+	var oneDeg = (360/colors.length).toFixed(2);
+	for (var i = 0; i < colors.length; i++) {
+		var oDiv = document.createElement('div');
+		oDiv.style.boxShadow = 'inset 10px 0 1px #'+colors[i];
+		oDiv.style.transform = 'rotate('+oneDeg*i+'deg) translateY(5em)';
+		
+		box.appendChild(oDiv);
+	};
+}
+
+</script>
+</head>
+<body>
+	<div class="box" id="box">
+	</div>
+
+</body>
+</html>

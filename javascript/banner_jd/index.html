@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<style type="text/css">
+	    body{font-size: 14px;font-family: "微软雅黑";background: #F5F6F7;}
+	    ul{padding: 0;list-style: none;margin: 0;}
+	    .body{width: 670px;height: 240px;margin: 80px auto;background: #FFF;border: 1px solid #CCC;padding: 5px;position: relative;}
+	    .page{width: 670px; height: 30px;position: absolute;bottom: 5px;text-align: right;}
+	    span{display:inline-block;width: 20px;height: 20px;background: #999;margin-right: 8px;color: #FFF;text-align: center;border: 1px solid #AAA;cursor: default;}
+	    .active{background: #E4393C;border: 1px solid #E3A;}
+	</style>
+	<script text="text/script">
+		window.onload=function(){
+			var spans = document.getElementsByTagName('span');
+			var img = document.getElementsByTagName('img')[0];
+
+			var _index=0;
+			for(var i=0; i<spans.length; i++){
+				spans[i].index=i;
+				spans[i].onmouseover=function(){
+					spans[_index].className='';
+					this.className = 'active';
+
+					_index=this.index;
+
+					img.src='img/'+(_index+1)+'.jpg';
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<div class="body">
+		<img src="img/1.jpg"/>
+		<div class="page">
+			<span class="active">1</span>
+			<span>2</span>
+			<span>3</span>
+			<span>4</span>
+			<span>5</span>
+			<span>6</span>
+		</div>
+	</div>
+</body>
+</html>

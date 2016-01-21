@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>document by航</title>
+	<!-- 新 Bootstrap 核心 CSS 文件 -->
+	<link rel="stylesheet" href="../../css/bootstrap.min.css">
+	<style>
+		body{margin: 0;padding: 0;font-family: 'Microsoft yahei';}
+		.ol{background: #333;}.ol li a{color: #fff;}
+		pre{margin: 10px;padding: 10px;border: 1px dashed #3569a9;display: block;white-space: pre-wrap;white-space: -moz-pre-wrap;white-space: -pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;}
+		code{font-family: monospace,monospace;font-size: 1em;}
+		p{text-indent: 2em;}
+	</style>
+	<script type="text/javascript">
+
+	</script>
+</head>
+<body>
+	<!--头部-->
+	<ol class="breadcrumb ol">
+	  <li><a href="../../index.html">首页</a></li>
+	  <li class="active">系统内置对象</li>
+	  <li class="active">DOM</li>
+	</ol>
+	<div class="page-header" style="padding-left:20px;">
+  		<h1>document <small></small></h1>
+	</div>
+	<!--内容-->
+		<!--描述-->
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+	        <h3 class="panel-title">描述</h3>
+	      </div>
+	      <div class="panel-body">
+	        document对象
+	      </div>
+		</div>
+		<!--列表-->
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+	        <h3 class="panel-title">列表</h3>
+	      </div>
+	      <div class="panel-body">
+	        <table class="table table-hover">
+		      <thead>
+		        <tr>
+		          <th>方法</th>
+		          <th>使用说明</th>
+		        </tr>
+		      </thead>
+		      <tbody>
+		        <tr>
+		          <td>document.title</td>
+		          <td>浏览器窗口标题内容</td>
+		        </tr>
+		        <tr>
+		          <td>document.head</td>
+		          <td>head  document.head(ie678不支持) || document.getElementsByTagName('head')[0];</td>
+		        </tr>
+		        <tr>
+		          <td>document.documentElement</td>
+		          <td>获取html  document.documentElement</td>
+		        </tr>
+		        <tr>
+		          <td>document.body</td>
+		          <td>获取body  document.body</td>
+		        </tr>
+		        <tr> 
+		          <td>document.cookie</td>
+		          <td><a href="#">详细说明</a></td>
+		        </tr>
+		        <tr>
+		          <td>document.write()</td>
+		          <td>向文档写 HTML 表达式 或 JavaScript 代码</td>
+		        </tr>
+		        <tr>
+		          <td>document.referer</td>
+		          <td>可以准确地判断网页的真实来路,及其参数 IE下有问题解决如下</td>
+		        </tr>
+		      </tbody>
+		    </table>
+	      </div>
+		</div>
+		<!--示例-->
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+	        <h3 class="panel-title">示例</h3>
+	      </div>
+	      <div class="panel-body">
+	        <div class="panel panel-info">
+			  <div class="panel-heading">
+		        <h3 class="panel-title">描述</h3>
+		      </div>
+		      <div class="panel-body">
+		        <p>获取页面滚动距离。</p>
+		        <h5>兼容js代码：</h5>
+		        <pre><code>document.documentElement.scrollTop||document.body.scrollTop
+document.documentElement.scrollLeft||document.body.scrollLeft
+
+说明：
+document.documentElement.scrollTop //支持IE FF 否则返回0
+document.body.scrollTop //支持chrome 否则返回0</code></pre>
+				<p>document.referer在IE下的处理。</p>
+		        <h5>兼容js代码：</h5>
+		        <pre><code>var url = 'http://www.jb51.net';   
+if (/MSIE (\d+\.\d+);/.test(navigator.userAgent) || /MSIE(\d+\.\d+);/.test(navigator.userAgent))   
+{   
+    var referLink = document.createElement('a');   
+    referLink.href = url;   
+    document.body.appendChild(referLink);   
+    referLink.click();   
+}   
+else  
+{   
+    location.href = url;   
+}  </code></pre>
+		      </div>
+			</div>
+	      </div>
+		</div>
+		
+	<!--翻页-->
+	<nav>
+	  <ul class="pager">
+	    <li class="previous"><a href="../object/window.html">&larr; 上一篇:window</a></li>
+	    <li class="next"><a href="../object/Date.html">下一篇:Date &rarr;</a></li>
+	  </ul>
+	</nav>
+
+	<div class="page-header" style="background:#333;color:#fff;margin:0;padding:10px 40px;">
+	  <h6 style="text-align:center;">Copyright © <small>shanghang    2015 - 2018    All rights reserved.</small></h6>
+	</div>
+</body>
+</html>

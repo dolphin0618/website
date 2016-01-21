@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html>
+	<head>		
+		<meta charset="utf-8"/>
+		<style type="text/css">
+			body{background: url('img/bg.png') no-repeat;font-family: '微软雅黑';}
+			img,div{position: absolute;}
+			.i01{top:62px;left: 147px;}
+			.i02{top:62px;left: 399px;}
+			.i03{top:62px;left: 646px;}
+			.i04{top:62px;left: 899px;}
+			.d01{top:262px;left: 107px;}
+			.d02{top:262px;left: 359px;}
+			.d03{top:262px;left: 606px;}
+			.d04{top:262px;left: 859px;}
+
+			div{color: #f88821;font-size: 12px;}
+			span{font-size: 20px;font-weight: bold;}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				var oDivs = document.getElementsByTagName('div');
+				var oImgs = document.getElementsByTagName('img');
+
+				var dTime = [5,120,9,400];
+				var rTime = [60,3,100,600];
+				for(var i=0; i<oDivs.length; i++){
+					oDivs[i].index = i;
+					oDivs[i].dTime = dTime[i];
+					oDivs[i].rTime = rTime[i];
+					//绑定定时器
+					runSet(oDivs[i]);
+				}
+
+
+				function runSet(obj, time){
+					//闭包
+
+					obj.timer = setInterval(function(){
+
+						obj.innerHTML = htmlByTime(obj.dTime--);
+						if(obj.dTime < 0){//等待倒计时结束后开启抢购倒计时
+
+							oImgs[obj.index].src = 'img/02.jpg';
+
+							clearInterval(obj.timer);
+							obj.timer = setInterval(function(){
+
+								obj.innerHTML = htmlByTime(obj.rTime--);
+								if(obj.rTime < 0){//倒计时结束
+									clearInterval(obj.timer);
+									return;
+								}
+							},1000);
+						}
+					},1000);
+				}
+
+				function htmlByTime(t){
+					var minut = parseInt(t/60);
+					t = t%60;
+					var ss = t;
+					return '<span>'+minut+'</span>分<span>'+ss+'</span>秒';
+				}
+			}
+			
+		</script>
+	</head>
+	<body>
+		<img class="i01" src="img/01.jpg"/>
+		<div class="d01"><span>0</span>分<span>6</span>秒</div>
+		<img class="i02" src="img/01.jpg"/>
+		<div class="d02"><span>2</span>分<span>1</span>秒</div>
+		<img class="i03" src="img/01.jpg"/>
+		<div class="d03"><span>0</span>分<span>10</span>秒</div>
+		<img class="i04" src="img/01.jpg"/>
+		<div class="d04"><span>6</span>分<span>41</span>秒</div>
+	</body>
+</html>
