@@ -146,6 +146,7 @@ $(function(){
         var star = (page-1)*12;
         for (var i = star; i < star+12; i++) {
             if(!data[i]){break;}
+            data[i].link = 'http://htmlpreview.github.io/?https://github.com/dolphin0618/website/master/'+data[i].link;
             obj.append($.fillMark(htmlLi,data[i]));
         };
     }
