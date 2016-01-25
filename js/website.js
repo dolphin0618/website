@@ -132,6 +132,7 @@ $(function(){
     $("#page").pagination({
         items: data.length,
         itemsOnPage: pageMax,
+        hrefTextPrefix: 'javascript:',
         edges:2,
         onPageClick:function(pageNumber, event) {
             refrensh(pageNumber);
